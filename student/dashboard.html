@@ -2,41 +2,51 @@
 <html>
 <head>
   <title>Student Dashboard</title>
-  <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    body { font-family: Arial; padding: 20px; background-color: #f9fbfd; }
+    h2 { color: #34495e; }
+    .exam-link {
+      display: block;
+      padding: 10px;
+      background: #ecf0f1;
+      border: 1px solid #bdc3c7;
+      border-radius: 4px;
+      margin: 10px 0;
+      text-decoration: none;
+      color: #2c3e50;
+    }
+    .exam-link:hover { background: #d0e6f5; }
+  </style>
 </head>
 <body>
-  <h2>Welcome, <span id="studentName"></span></h2>
-  <p>Select a subject to view available exams:</p>
-  <select id="subjectSelect" onchange="showExams(this.value)">
-    <option value="">-- Select Subject --</option>
-    <option value="python">Python</option>
-  </select>
-
-  <ul id="examList"></ul>
+  <h2>Welcome to Student Dashboard</h2>
+  <div id="examList"></div>
 
   <script>
-    const name = localStorage.getItem('studentName') || 'Student';
-    document.getElementById('studentName').innerText = name;
+    const examsData = JSON.parse(localStorage.getItem("examsConfig")) || {};
+    const subject = "python"; // static subject for this example
 
-    function showExams(subject) {
-      const examList = document.getElementById('examList');
-      examList.innerHTML = "";
+    function showAvailableExams() {
+      const div = document.getElementById("examList");
+      div.innerHTML = `<h3>${subject.toUpperCase()} Exams</h3>`;
 
-      const launchData = JSON.parse(localStorage.getItem("launch.json") || "{}");
-      const exams = launchData[subject];
-
-      if (!exams || exams.length === 0) {
-        examList.innerHTML = "<li>No launched exams</li>";
+      if (!examsData[subject]) {
+        div.innerHTML += "<p>No launched exams yet.</p>";
         return;
       }
 
-      exams.forEach(exam => {
-        const examText = exam.replace(/_/g, ' ').toUpperCase();
-        const li = document.createElement("li");
-        li.innerHTML = `<a href="exam.html?subject=${subject}&exam=${exam}">${examText}</a>`;
-        examList.appendChild(li);
+      Object.entries(examsData[subject]).forEach(([exam, config]) => {
+        if (config.launched) {
+          div.innerHTML += `
+            <a class="exam-link" href="exam.html?subject=${subject}&exam=${exam}">
+              ${exam.replace(/_/g, " ")} (${config.duration} min)
+            </a>
+          `;
+        }
       });
     }
+
+    showAvailableExams();
   </script>
 </body>
 </html>
