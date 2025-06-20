@@ -2,13 +2,73 @@
 <html>
 <head>
   <title>Student Exam - Basics of Python</title>
-  <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      background-color: #f5f7fa;
+      color: #333;
+    }
+
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    .question-card {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 15px 20px;
+      margin: 15px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .question-card p {
+      margin: 0 0 10px 0;
+      font-weight: bold;
+    }
+
+    button {
+      background-color: #3498db;
+      color: white;
+      padding: 10px 20px;
+      margin-top: 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    #resultContainer {
+      background: #eaf2f8;
+      padding: 20px;
+      margin-top: 30px;
+      border-left: 5px solid #3498db;
+      border-radius: 6px;
+    }
+
+    #downloadBtn {
+      display: none;
+      margin-top: 15px;
+    }
+
+    label {
+      display: block;
+      margin-left: 15px;
+      margin-bottom: 5px;
+    }
+  </style>
 </head>
 <body>
   <h2>Exam: Basics of Python</h2>
   <div id="questionContainer"></div>
   <button onclick="submitExam()">Submit Exam</button>
   <div id="resultContainer"></div>
+  <button id="downloadBtn">Download Report</button>
 
   <script>
     const questions = [
@@ -30,15 +90,17 @@
     ];
 
     const questionContainer = document.getElementById("questionContainer");
+    const downloadBtn = document.getElementById("downloadBtn");
 
     questions.forEach((q, idx) => {
       const div = document.createElement("div");
-      div.innerHTML = `<p><b>Q${idx + 1}:</b> ${q.question}</p>`;
+      div.className = "question-card";
+      div.innerHTML = `<p>Q${idx + 1}: ${q.question}</p>`;
       q.options.forEach(opt => {
         div.innerHTML += `
           <label>
             <input type="radio" name="q${idx}" value="${opt}"> ${opt}
-          </label><br>`;
+          </label>`;
       });
       questionContainer.appendChild(div);
     });
@@ -85,10 +147,9 @@
         <p><strong>Status:</strong> ${status}</p>
       `;
 
-      const btn = document.createElement("button");
-      btn.textContent = "Download Report";
-      btn.onclick = () => downloadReport(resultData);
-      resultContainer.appendChild(btn);
+      // Show the download button after result
+      downloadBtn.style.display = "inline-block";
+      downloadBtn.onclick = () => downloadReport(resultData);
     }
 
     function downloadReport(resultData) {
