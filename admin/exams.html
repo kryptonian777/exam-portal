@@ -1,85 +1,88 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Exam Launch Manager</title>
+  <title>Admin Exam Launch</title>
   <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
-  <h2>Admin - Exam Launch Manager</h2>
-  <p>All exams are scanned from the <code>data/</code> folder. Set duration (in minutes) and toggle launch status as needed.</p>
+  <h2>Admin - Python Exam Launch</h2>
+  <p>Select the Python exams to launch. Each topic corresponds to a JSON file in /data/python/.</p>
 
-  <table border="1" id="examTable">
-    <thead>
-      <tr>
-        <th>Subject</th>
-        <th>Topic</th>
-        <th>Duration (min)</th>
-        <th>Set Duration</th>
-        <th>Launch Status</th>
-        <th>Toggle</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
+  <label>Select Subject:
+    <select id="subjectSelect" onchange="renderTopics()">
+      <option value="">-- Select Subject --</option>
+      <option value="python">Python</option>
+    </select>
+  </label>
+
+  <div id="examOptions"></div>
 
   <script>
     let launchData = JSON.parse(localStorage.getItem("launch.json") || "{}");
 
-    // Define static file list manually (you can update this as per your files)
-    const staticFiles = {
-      python: ["basics_of_python", "loops"],
-      mysql: ["ddl_basics"]
+    const examTopics = {
+      python: [
+        { name: "Basics of Python", file: "basics_of_python" },
+        { name: "Syntax", file: "syntax" },
+        { name: "Assignment Operators", file: "assignmentops" }
+      ]
     };
 
-    function buildTable() {
-      const tbody = document.querySelector("#examTable tbody");
-      tbody.innerHTML = "";
+    function renderTopics() {
+      const subject = document.getElementById("subjectSelect").value;
+      const container = document.getElementById("examOptions");
+      container.innerHTML = "";
 
-      for (const subject in staticFiles) {
-        staticFiles[subject].forEach(topic => {
-          const key = subject + "_" + topic;
-          const isLaunched = (launchData[subject] || []).includes(topic);
-          const durationKey = `duration_${key}`;
-          const duration = localStorage.getItem(durationKey) || "30";
-
-          const row = document.createElement("tr");
-          row.innerHTML = `
-            <td>${subject}</td>
-            <td>${topic}</td>
-            <td id="show_${key}">${duration}</td>
-            <td>
-              <input type="number" id="${durationKey}" value="${duration}" min="1" max="180">
-              <button onclick="setDuration('${subject}', '${topic}')">Set</button>
-            </td>
-            <td id="status_${key}">${isLaunched ? "Launched" : "Not Launched"}</td>
-            <td><button onclick="toggleLaunch('${subject}', '${topic}')">Toggle</button></td>
-          `;
-          tbody.appendChild(row);
-        });
+      if (!subject || !examTopics[subject]) {
+        return;
       }
+
+      launchData[subject] = launchData[subject] || [];
+
+      const table = document.createElement("table");
+      table.border = "1";
+      table.innerHTML = `
+        <thead>
+          <tr>
+            <th>Topic</th>
+            <th>File</th>
+            <th>Launch Status</th>
+            <th>Toggle</th>
+          </tr>
+        </thead>
+        <tbody id="examTableBody"></tbody>
+      `;
+      container.appendChild(table);
+
+      const tbody = document.getElementById("examTableBody");
+
+      examTopics[subject].forEach(topic => {
+        const key = topic.file;
+        const launched = launchData[subject].includes(key);
+
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${topic.name}</td>
+          <td>${key}.json</td>
+          <td id="status_${key}">${launched ? "Launched" : "Not Launched"}</td>
+          <td><button onclick="toggleLaunch('${subject}', '${key}')">Toggle</button></td>
+        `;
+        tbody.appendChild(row);
+      });
     }
 
-    function toggleLaunch(subject, topic) {
+    function toggleLaunch(subject, topicFile) {
       launchData[subject] = launchData[subject] || [];
       const list = launchData[subject];
-      if (list.includes(topic)) {
-        launchData[subject] = list.filter(t => t !== topic);
+      const index = list.indexOf(topicFile);
+      if (index > -1) {
+        list.splice(index, 1);
       } else {
-        launchData[subject].push(topic);
+        list.push(topicFile);
       }
       localStorage.setItem("launch.json", JSON.stringify(launchData));
-      buildTable();
+      renderTopics();
     }
-
-    function setDuration(subject, topic) {
-      const key = subject + "_" + topic;
-      const durationKey = `duration_${key}`;
-      const duration = document.getElementById(durationKey).value;
-      localStorage.setItem(durationKey, duration);
-      document.getElementById(`show_${key}`).innerText = duration;
-    }
-
-    buildTable();
   </script>
 </body>
 </html>
