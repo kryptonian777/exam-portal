@@ -6,9 +6,9 @@
 </head>
 <body>
   <h2>Welcome, <span id="studentName"></span></h2>
-  <p>Select subject to view launched exams:</p>
-  <select id="subjectSelect" onchange="loadExams(this.value)">
-    <option value="">-- Choose Subject --</option>
+  <p>Select a subject to view available exams:</p>
+  <select id="subjectSelect" onchange="showExams(this.value)">
+    <option value="">-- Select Subject --</option>
     <option value="python">Python</option>
   </select>
 
@@ -18,24 +18,23 @@
     const name = localStorage.getItem('studentName') || 'Student';
     document.getElementById('studentName').innerText = name;
 
-    let launchData = JSON.parse(localStorage.getItem("launch.json") || "{}");
+    function showExams(subject) {
+      const examList = document.getElementById('examList');
+      examList.innerHTML = "";
 
-    function loadExams(subject) {
-      const list = document.getElementById("examList");
-      list.innerHTML = "";
+      const launchData = JSON.parse(localStorage.getItem("launch.json") || "{}");
+      const exams = launchData[subject];
 
-      const launchedExams = launchData[subject] || [];
-
-      if (launchedExams.length === 0) {
-        list.innerHTML = "<li>No launched exams</li>";
+      if (!exams || exams.length === 0) {
+        examList.innerHTML = "<li>No launched exams</li>";
         return;
       }
 
-      launchedExams.forEach(exam => {
+      exams.forEach(exam => {
+        const examText = exam.replace(/_/g, ' ').toUpperCase();
         const li = document.createElement("li");
-        li.innerHTML = `<a href="exam.html?subject=${subject}&exam=${exam}">
-          ${exam.replace(/_/g, ' ').toUpperCase()} Exam</a>`;
-        list.appendChild(li);
+        li.innerHTML = `<a href="exam.html?subject=${subject}&exam=${exam}">${examText}</a>`;
+        examList.appendChild(li);
       });
     }
   </script>
