@@ -1,116 +1,74 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Exam</title>
+  <title>Exam Management</title>
   <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
-  <h2>Exam: Basics of Python</h2>
-  <div id="questionContainer"></div>
-  <button onclick="submitExam()">Submit Exam</button>
-  <div id="resultContainer"></div>
+  <h2>Admin - Examination Management Portal</h2>
+
+  <label for="subjectSelect">Select Subject:</label>
+  <select id="subjectSelect" onchange="loadExams()">
+    <option value="">--Choose--</option>
+    <option value="python">Python</option>
+    <option value="mysql">MySQL</option>
+    <option value="aws">AWS</option>
+    <option value="powerbi">Power BI</option>
+    <option value="statistics">Statistics</option>
+    <option value="cybersecurity">Cyber Security</option>
+    <option value="pgsql">PG-SQL</option>
+    <option value="ccna">CCNA</option>
+  </select>
+
+  <div id="examList"></div>
 
   <script>
-    const questions = [
-      {
-        question: "What is the correct file extension for Python files?",
-        options: [".py", ".pt", ".pyt", ".python"],
-        answer: ".py"
-      },
-      {
-        question: "What does the print() function do in Python?",
-        options: ["Accepts user input", "Displays output", "Defines a variable", "None of the above"],
-        answer: "Displays output"
-      },
-      {
-        question: "What is Python?",
-        options: ["A snake", "A dance", "A programming language", "A database"],
-        answer: "A programming language"
-      }
-    ];
+    const availableExams = {
+      python: ["basics_of_python", "syntax", "assignment_ops"],
+      mysql: [],
+      aws: [],
+      powerbi: [],
+      statistics: [],
+      cybersecurity: [],
+      pgsql: [],
+      ccna: []
+    };
 
-    const questionContainer = document.getElementById("questionContainer");
+    function loadExams() {
+      const subject = document.getElementById("subjectSelect").value;
+      const examList = document.getElementById("examList");
+      examList.innerHTML = "";
 
-    questions.forEach((q, idx) => {
-      const div = document.createElement("div");
-      div.innerHTML = `<p><b>Q${idx + 1}:</b> ${q.question}</p>`;
-      q.options.forEach(opt => {
-        div.innerHTML += `
-          <label>
-            <input type="radio" name="q${idx}" value="${opt}"> ${opt}
-          </label><br>`;
-      });
-      questionContainer.appendChild(div);
-    });
-
-    function submitExam() {
-      let correct = 0;
-      let incorrect = 0;
-      let answers = [];
-
-      questions.forEach((q, idx) => {
-        const selected = document.querySelector(`input[name="q${idx}"]:checked`);
-        const yourAnswer = selected ? selected.value : null;
-        if (yourAnswer === q.answer) correct++;
-        else incorrect++;
-
-        answers.push({
-          question: q.question,
-          yourAnswer,
-          correctAnswer: q.answer
+      if (subject && availableExams[subject]) {
+        availableExams[subject].forEach(exam => {
+          const examDiv = document.createElement("div");
+          examDiv.innerHTML = `
+            <h3>${exam.replace(/_/g, " ")}</h3>
+            <label>Launch Exam:
+              <input type="checkbox" onchange="toggleExamLaunch('${subject}', '${exam}', this.checked)">
+            </label>
+            <br>
+            <label>Duration (minutes): 
+              <input type="number" id="${subject}_${exam}_duration" value="60">
+            </label>
+            <hr>
+          `;
+          examList.appendChild(examDiv);
         });
-      });
-
-      const total = questions.length;
-      const status = correct >= total * 0.5 ? "Pass" : "Fail";
-      const student = localStorage.getItem("studentName") || "Anonymous";
-
-      const resultData = {
-        student,
-        subject: "python",
-        exam: "basics_of_python",
-        correct,
-        total,
-        status,
-        answers
-      };
-
-      const resultContainer = document.getElementById("resultContainer");
-      resultContainer.innerHTML = `
-        <h3>Result Summary</h3>
-        <p>Student: ${student}</p>
-        <p>Score: ${correct}/${total}</p>
-        <p>Status: ${status}</p>
-      `;
-
-      const btn = document.createElement("button");
-      btn.textContent = "Download Report";
-      btn.onclick = () => downloadReport(resultData);
-      resultContainer.appendChild(btn);
+      }
     }
 
-    function downloadReport(resultData) {
-      const { student, subject, exam, correct, total, status, answers } = resultData;
-
-      let content = `Exam Report - ${student}\\n`;
-      content += `Subject: ${subject}\\nExam: ${exam}\\n`;
-      content += `Score: ${correct}/${total}\\nStatus: ${status}\\n\\n`;
-
-      content += `Detailed Answers:\\n`;
-      answers.forEach((q, i) => {
-        content += `Q${i + 1}: ${q.question}\\n`;
-        content += `Your Answer: ${q.yourAnswer || "Not Attempted"}\\n`;
-        content += `Correct Answer: ${q.correctAnswer}\\n`;
-        content += `Result: ${q.correctAnswer === q.yourAnswer ? "✅ Correct" : q.yourAnswer ? "❌ Incorrect" : "⚠️ Not Attempted"}\\n\\n`;
-      });
-
-      const blob = new Blob([content], { type: "text/plain" });
-      const link = document.createElement("a");
-      link.href = URL.createObjectURL(blob);
-      link.download = `${student}_${exam}_report.txt`;
-      link.click();
+    function toggleExamLaunch(subject, exam, launched) {
+      const duration = document.getElementById(`${subject}_${exam}_duration`).value;
+      const examStatus = {
+        subject,
+        exam,
+        launched,
+        duration
+      };
+      console.log("Exam Updated:", examStatus);
+      // You can add GitHub API call or localStorage sync here
     }
   </script>
 </body>
 </html>
-
