@@ -1,27 +1,136 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Upload Exam</title>
+  <title>Exam Upload & Launch Manager</title>
   <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
-  <h2>Upload MCQ Exam (Static Upload Simulation)</h2>
-  <form onsubmit="alert('Simulated Upload: Place your JSON file in /data/subject-name/'); return false;">
-    <label>Choose Subject:
-      <select required>
-        <option>Python</option>
-        <option>MySQL</option>
-        <option>AWS</option>
-        <option>Power BI</option>
-        <option>Statistics</option>
-        <option>Cyber Security</option>
-        <option>PG-SQL</option>
-        <option>CCNA</option>
+  <h2>Admin - Upload New Exam</h2>
+  <form onsubmit="handleUpload(event)">
+    <label>Select Subject:
+      <select id="subject" required>
+        <option value="">--Choose--</option>
+        <option value="python">Python</option>
+        <option value="mysql">MySQL</option>
       </select>
     </label><br><br>
-    <label>Select JSON File: <input type="file" required></label><br><br>
-    <button type="submit">Upload</button>
+
+    <label>Exam Topic Name:
+      <input type="text" id="topic" placeholder="e.g., basics" required>
+    </label><br><br>
+
+    <label>Select JSON File:
+      <input type="file" id="examFile" accept=".json" required>
+    </label><br><br>
+
+    <button type="submit">Upload Exam</button>
   </form>
-  <p>NOTE: As this is a GitHub-hosted static app, upload your MCQ JSON files manually via GitHub into <code>/data/subject-name/</code></p>
+
+  <hr>
+  <h3>Uploaded Exams</h3>
+  <table border="1" id="examTable">
+    <thead>
+      <tr>
+        <th>Subject</th>
+        <th>Topic</th>
+        <th>Duration (min)</th>
+        <th>Launch Status</th>
+        <th>Toggle</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    let launchStatus = JSON.parse(localStorage.getItem("launchStatus") || "{}");
+
+    function handleUpload(event) {
+      event.preventDefault();
+      const subject = document.getElementById("subject").value.trim();
+      const topic = document.getElementById("topic").value.trim();
+      const fileInput = document.getElementById("examFile");
+
+      if (!subject || !topic || !fileInput.files[0]) {
+        alert("All fields are required.");
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const examData = JSON.parse(e.target.result);
+          if (!examData.duration || !examData.questions) {
+            alert("Invalid exam file format.");
+            return;
+          }
+
+          const durationMin = Math.floor(examData.duration / 60);
+          const key = subject + "_" + topic;
+          launchStatus[key] = launchStatus[key] || false;
+
+          // Save exam JSON in localStorage (simulate saving to /data/)
+          localStorage.setItem(`exam_${key}`, JSON.stringify(examData));
+          localStorage.setItem("launchStatus", JSON.stringify(launchStatus));
+
+          // Add row to table
+          addRowToTable(subject, topic, durationMin, launchStatus[key]);
+          alert("Exam uploaded successfully!");
+
+        } catch (err) {
+          alert("Failed to parse JSON file.");
+        }
+      };
+      reader.readAsText(fileInput.files[0]);
+    }
+
+    function addRowToTable(subject, topic, duration, launched) {
+      const tbody = document.querySelector("#examTable tbody");
+      const key = subject + "_" + topic;
+      const row = document.createElement("tr");
+
+      row.innerHTML = `
+        <td>${subject}</td>
+        <td>${topic}</td>
+        <td>${duration}</td>
+        <td id="status_${key}">${launched ? "Launched" : "Not Launched"}</td>
+        <td><button onclick="toggleLaunch('${key}', '${subject}', '${topic}')">Toggle</button></td>
+      `;
+      tbody.appendChild(row);
+    }
+
+    function toggleLaunch(key, subject, topic) {
+      launchStatus[key] = !launchStatus[key];
+      localStorage.setItem("launchStatus", JSON.stringify(launchStatus));
+      document.getElementById(`status_${key}`).innerText = launchStatus[key] ? "Launched" : "Not Launched";
+
+      // Update launch.json structure (in localStorage simulation)
+      let launch = JSON.parse(localStorage.getItem("launch.json") || "{}");
+      launch[subject] = launch[subject] || [];
+      if (launchStatus[key]) {
+        if (!launch[subject].includes(topic)) launch[subject].push(topic);
+      } else {
+        launch[subject] = launch[subject].filter(t => t !== topic);
+      }
+      localStorage.setItem("launch.json", JSON.stringify(launch));
+    }
+
+    function loadExistingRows() {
+      const launch = JSON.parse(localStorage.getItem("launch.json") || "{}");
+      for (const subject in launch) {
+        launch[subject].forEach(topic => {
+          const key = subject + "_" + topic;
+          const exam = JSON.parse(localStorage.getItem(`exam_${key}`));
+          if (exam) {
+            const durationMin = Math.floor(exam.duration / 60);
+            launchStatus[key] = true;
+            addRowToTable(subject, topic, durationMin, true);
+          }
+        });
+      }
+      localStorage.setItem("launchStatus", JSON.stringify(launchStatus));
+    }
+
+    loadExistingRows();
+  </script>
 </body>
 </html>
