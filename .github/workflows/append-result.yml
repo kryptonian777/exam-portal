@@ -1,0 +1,53 @@
+name: Append Student Exam Result
+
+on:
+  workflow_dispatch:
+    inputs:
+      student:
+        description: 'Student Name'
+        required: true
+      subject:
+        description: 'Subject'
+        required: true
+      exam:
+        description: 'Exam Name'
+        required: true
+      correct:
+        description: 'Correct Answers'
+        required: true
+      total:
+        description: 'Total Questions'
+        required: true
+      status:
+        description: 'Pass/Fail'
+        required: true
+
+jobs:
+  update-result:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v3
+
+    - name: Append Result
+      run: |
+        FILE=data/results.json
+        NEW_RESULT=$(jq -n \
+          --arg student "${{ github.event.inputs.student }}" \
+          --arg subject "${{ github.event.inputs.subject }}" \
+          --arg exam "${{ github.event.inputs.exam }}" \
+          --arg correct "${{ github.event.inputs.correct }}" \
+          --arg total "${{ github.event.inputs.total }}" \
+          --arg status "${{ github.event.inputs.status }}" \
+          --arg date "$(date -u +"%Y-%m-%d %H:%M:%SZ")" \
+          '{student: $student, subject: $subject, exam: $exam, correct: $correct, total: $total, status: $status, date: $date}')
+
+        jq ". + [${NEW_RESULT}]" $FILE > tmp.json && mv tmp.json $FILE
+
+    - name: Commit & Push
+      run: |
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git add data/results.json
+        git commit -m "Add result for ${{ github.event.inputs.student }}"
+        git push
