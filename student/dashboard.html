@@ -16,11 +16,13 @@
   <ul id="examList"></ul>
 
   <script>
+    // Get student name from localStorage
     const name = localStorage.getItem('studentName') || 'Student';
     document.getElementById('studentName').innerText = name;
 
     let launchData = {};
 
+    // Load launch.json from server
     fetch("../data/launch.json")
       .then(res => res.json())
       .then(data => {
@@ -30,13 +32,17 @@
     function loadExams(subject) {
       const list = document.getElementById("examList");
       list.innerHTML = "";
-      if (!launchData[subject]) {
-        list.innerHTML = "<li>No launched exams</li>";
+
+      if (!launchData[subject] || launchData[subject].length === 0) {
+        list.innerHTML = "<li>No launched exams for this subject</li>";
         return;
       }
+
+      // Show each launched exam as a link
       launchData[subject].forEach(exam => {
         const li = document.createElement("li");
-        li.innerHTML = `<a href="exam.html?subject=${subject}&exam=${exam}">${exam.toUpperCase()} Exam</a>`;
+        li.innerHTML = `<a href="exam.html?subject=${subject}&exam=${exam}">
+          ${exam.replace(/_/g, ' ').toUpperCase()} Exam</a>`;
         list.appendChild(li);
       });
     }
