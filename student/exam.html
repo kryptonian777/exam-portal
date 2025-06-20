@@ -6,7 +6,7 @@
   <script src="../libs/html2pdf.bundle.min.js"></script>
 </head>
 <body>
-  <h2>Exam: Python Basics</h2>
+  <h2 id="examTitle">Exam</h2>
   <div id="timer" style="position:fixed;top:10px;right:20px;font-size:18px;"></div>
   <form id="examForm"></form>
   <button onclick="submitExam()">Submit</button>
@@ -14,13 +14,15 @@
   <button id="downloadBtn" style="display:none" onclick="downloadPDF()">Download Report</button>
 
   <script>
-    let questions = [];
-    let userAnswers = [];
-    let duration = 0;
-    let timerId, remainingTime;
-    let studentName = localStorage.getItem('studentName') || 'Student';
+    const urlParams = new URLSearchParams(window.location.search);
+    const subject = urlParams.get('subject');
+    const examName = urlParams.get('exam');
+    let questions = [], userAnswers = [], duration = 0, timerId, remainingTime;
+    const studentName = localStorage.getItem('studentName') || 'Student';
 
-    fetch('../data/python/basics.json')
+    document.getElementById('examTitle').innerText = `${subject.toUpperCase()} - ${examName.toUpperCase()} Exam`;
+
+    fetch(`../data/${subject}/${examName}.json`)
       .then(res => res.json())
       .then(data => {
         questions = data.questions;
@@ -34,8 +36,8 @@
       const form = document.getElementById('examForm');
       questions.forEach((q, i) => {
         const div = document.createElement('div');
-        div.innerHTML = `<p><b>Q${i+1}: ${q.question}</b></p>` + 
-          q.options.map(opt => 
+        div.innerHTML = `<p><b>Q${i+1}: ${q.question}</b></p>` +
+          q.options.map(opt =>
             `<label><input type="radio" name="q${i}" value="${opt}"> ${opt}</label><br>`).join('');
         form.appendChild(div);
       });
@@ -79,12 +81,7 @@
 
       const score = correct - unattempted;
       const result = score >= 5 ? "PASS" : "FAIL";
-      const reportData = { student: studentName, exam: "Python Basics", score, total: questions.length, result, timestamp: new Date().toLocaleString() };
-
-      // Save to GitHub (simulation, replace with real GitHub API)
-      console.log('Saving result to GitHub (simulated):', reportData);
-
-      localStorage.setItem("lastResult", JSON.stringify(reportData)); // fallback local
+      const reportData = { student: studentName, subject, exam: examName, score, total: questions.length, result, timestamp: new Date().toLocaleString() };
 
       const container = document.getElementById('resultContainer');
       container.innerHTML = `<h3>Result: ${result}</h3>
@@ -98,14 +95,14 @@
       table += `</table>`;
       container.innerHTML += table;
 
-      window.reportHTML = `<h1>Student Report</h1>` + container.innerHTML;
+      window.reportHTML = `<h1>${subject.toUpperCase()} - ${examName.toUpperCase()} Report</h1>` + container.innerHTML;
       document.getElementById('downloadBtn').style.display = 'inline-block';
     }
 
     function downloadPDF() {
       html2pdf().from(window.reportHTML).set({
         margin: 0.5,
-        filename: 'Exam_Report.pdf',
+        filename: `${subject}_${examName}_Report.pdf`,
         html2canvas: { scale: 2 },
         jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
       }).save();
