@@ -33,9 +33,7 @@
       const container = document.getElementById("examOptions");
       container.innerHTML = "";
 
-      if (!subject || !examTopics[subject]) {
-        return;
-      }
+      if (!subject || !examTopics[subject]) return;
 
       launchData[subject] = launchData[subject] || [];
 
