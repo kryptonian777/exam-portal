@@ -1,55 +1,31 @@
 {
   "examName": "Python Basics",
+  "duration": 1800,
   "questions": [
     {
-      "question": "What is the output of print(2 ** 3)?",
-      "options": [
-        "6",
-        "8",
-        "9",
-        "5"
-      ],
-      "answer": "8"
+      "question": "Which of the following is used to define a function in Python?",
+      "options": ["func", "def", "function", "define"],
+      "answer": "def"
     },
     {
-      "question": "Which of these is a correct variable name in Python?",
-      "options": [
-        "2value",
-        "_value",
-        "value$",
-        "value-2"
-      ],
-      "answer": "_value"
+      "question": "What is the output of print(2 + 3 * 4)?",
+      "options": ["20", "14", "24", "None"],
+      "answer": "14"
     },
     {
-      "question": "What does 'len()' function do?",
-      "options": [
-        "Returns the type",
-        "Returns the length",
-        "Adds numbers",
-        "Creates a list"
-      ],
-      "answer": "Returns the length"
-    },
-    {
-      "question": "Which data type is immutable?",
-      "options": [
-        "List",
-        "Set",
-        "Dictionary",
-        "Tuple"
-      ],
+      "question": "Which data type is immutable in Python?",
+      "options": ["List", "Dictionary", "Tuple", "Set"],
       "answer": "Tuple"
     },
     {
-      "question": "What symbol is used for comments in Python?",
-      "options": [
-        "//",
-        "#",
-        "/* */",
-        "<!-- -->"
-      ],
-      "answer": "#"
+      "question": "What is the correct extension for Python files?",
+      "options": [".py", ".pt", ".pyt", ".python"],
+      "answer": ".py"
+    },
+    {
+      "question": "What will print(type(5)) return?",
+      "options": ["<class 'str'>", "<class 'int'>", "<class 'float'>", "<class 'bool'>"],
+      "answer": "<class 'int'>"
     }
   ]
 }
