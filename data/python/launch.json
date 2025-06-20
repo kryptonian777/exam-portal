@@ -1,0 +1,9 @@
+{
+  "python": [
+    "basics",
+    "loops"
+  ],
+  "mysql": [
+    "ddl"
+  ]
+}
