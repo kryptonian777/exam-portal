@@ -1,184 +1,83 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Student Exam - Basics of Python</title>
+  <title>Exam</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 30px;
-      background-color: #f5f7fa;
-      color: #333;
-    }
-
-    h2 {
-      text-align: center;
-      color: #2c3e50;
-    }
-
+    body { font-family: Arial; background: #f0f4f8; padding: 20px; }
+    h2 { text-align: center; }
     .question-card {
-      background: #ffffff;
-      border-radius: 8px;
-      padding: 15px 20px;
-      margin: 15px 0;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      background: white; padding: 15px; margin: 10px 0;
+      border-radius: 5px; box-shadow: 0 1px 2px rgba(0,0,0,0.1);
     }
-
-    .question-card p {
-      margin: 0 0 10px 0;
-      font-weight: bold;
-    }
-
     button {
-      background-color: #3498db;
-      color: white;
-      padding: 10px 20px;
-      margin-top: 20px;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
+      background: #3498db; color: white;
+      padding: 10px 20px; margin-top: 20px;
+      border: none; border-radius: 4px; cursor: pointer;
     }
-
-    button:hover {
-      background-color: #2980b9;
-    }
-
-    #resultContainer {
-      background: #eaf2f8;
-      padding: 20px;
-      margin-top: 30px;
-      border-left: 5px solid #3498db;
-      border-radius: 6px;
-    }
-
-    #downloadBtn {
-      display: none;
-      margin-top: 15px;
-    }
-
-    label {
-      display: block;
-      margin-left: 15px;
-      margin-bottom: 5px;
-    }
+    #downloadBtn { display: none; margin-top: 10px; }
   </style>
 </head>
 <body>
-  <h2>Exam: Basics of Python</h2>
+  <h2 id="examTitle">Exam</h2>
   <div id="questionContainer"></div>
   <button onclick="submitExam()">Submit Exam</button>
   <div id="resultContainer"></div>
   <button id="downloadBtn">Download Report</button>
 
   <script>
-    const questions = [
-      {
-        question: "What is the correct file extension for Python files?",
-        options: [".py", ".pt", ".pyt", ".python"],
-        answer: ".py"
-      },
-      {
-        question: "What does the print() function do in Python?",
-        options: ["Accepts user input", "Displays output", "Defines a variable", "None of the above"],
-        answer: "Displays output"
-      },
-      {
-        question: "What is Python?",
-        options: ["A snake", "A dance", "A programming language", "A database"],
-        answer: "A programming language"
-      }
-    ];
+    const urlParams = new URLSearchParams(window.location.search);
+    const subject = urlParams.get("subject");
+    const exam = urlParams.get("exam");
+    let questions = [];
 
-    const questionContainer = document.getElementById("questionContainer");
-    const downloadBtn = document.getElementById("downloadBtn");
-
-    questions.forEach((q, idx) => {
-      const div = document.createElement("div");
-      div.className = "question-card";
-      div.innerHTML = `<p>Q${idx + 1}: ${q.question}</p>`;
-      q.options.forEach(opt => {
-        div.innerHTML += `
-          <label>
-            <input type="radio" name="q${idx}" value="${opt}"> ${opt}
-          </label>`;
+    fetch(`../../data/${subject}/${exam}.json`)
+      .then(res => res.json())
+      .then(data => {
+        questions = data;
+        document.getElementById("examTitle").innerText = exam.replace(/_/g, " ");
+        renderQuestions();
       });
-      questionContainer.appendChild(div);
-    });
+
+    function renderQuestions() {
+      const container = document.getElementById("questionContainer");
+      questions.forEach((q, i) => {
+        const div = document.createElement("div");
+        div.className = "question-card";
+        div.innerHTML = `<p>Q${i + 1}: ${q.question}</p>`;
+        q.options.forEach(opt => {
+          div.innerHTML += `<label><input type="radio" name="q${i}" value="${opt}"> ${opt}</label><br>`;
+        });
+        container.appendChild(div);
+      });
+    }
 
     function submitExam() {
-      let correct = 0;
-      const answers = [];
-
-      questions.forEach((q, idx) => {
-        const selected = document.querySelector(`input[name="q${idx}"]:checked`);
-        const yourAnswer = selected ? selected.value : null;
-        if (yourAnswer === q.answer) correct++;
-
-        answers.push({
-          question: q.question,
-          yourAnswer,
-          correctAnswer: q.answer
-        });
+      let correct = 0, answers = [];
+      questions.forEach((q, i) => {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        const answer = selected ? selected.value : null;
+        if (answer === q.answer) correct++;
+        answers.push({ question: q.question, yourAnswer: answer, correctAnswer: q.answer });
       });
 
       const total = questions.length;
-      showFinalResult(correct, total, answers, "python", "basics_of_python");
-    }
-
-    function showFinalResult(correct, total, answers, subject, exam) {
-      const student = localStorage.getItem("studentName") || "Anonymous";
-      const status = correct >= Math.ceil(total * 0.5) ? "Pass" : "Fail";
-
-      const resultData = {
-        student,
-        subject,
-        exam,
-        correct,
-        total,
-        status,
-        answers
-      };
-
-      const resultContainer = document.getElementById("resultContainer");
-      resultContainer.innerHTML = `
-        <h3>Result Summary</h3>
-        <p><strong>Student:</strong> ${student}</p>
-        <p><strong>Score:</strong> ${correct}/${total}</p>
-        <p><strong>Status:</strong> ${status}</p>
+      const status = correct >= total / 2 ? "Pass" : "Fail";
+      document.getElementById("resultContainer").innerHTML = `
+        <h3>Result: ${correct}/${total} - ${status}</h3>
       `;
 
-      // Show the download button after result
-      downloadBtn.style.display = "inline-block";
-      downloadBtn.onclick = () => downloadReport(resultData);
-    }
-
-    function downloadReport(resultData) {
-      const { student, subject, exam, correct, total, status, answers } = resultData;
-
-      let content = `📝 Exam Report - ${student}\n`;
-      content += `Subject     : ${subject}\n`;
-      content += `Exam Name   : ${exam.replace(/_/g, " ")}\n`;
-      content += `Score       : ${correct}/${total}\n`;
-      content += `Status      : ${status}\n\n`;
-      content += `📋 Detailed Answers:\n\n`;
-
-      answers.forEach((q, i) => {
-        const resultIcon = q.yourAnswer === q.correctAnswer ? "✅ Correct"
-                          : q.yourAnswer ? "❌ Incorrect"
-                          : "⚠️ Not Attempted";
-
-        content += `Q${i + 1}: ${q.question}\n`;
-        content += `Your Answer   : ${q.yourAnswer || "Not Attempted"}\n`;
-        content += `Correct Answer: ${q.correctAnswer}\n`;
-        content += `Result        : ${resultIcon}\n`;
-        content += `-----------------------------\n`;
-      });
-
-      const blob = new Blob([content], { type: "text/plain" });
-      const link = document.createElement("a");
-      link.href = URL.createObjectURL(blob);
-      link.download = `${student}_${exam}_report.txt`;
-      link.click();
+      document.getElementById("downloadBtn").style.display = "inline-block";
+      document.getElementById("downloadBtn").onclick = () => {
+        let report = `Exam: ${exam.replace(/_/g, " ")}\\nScore: ${correct}/${total}\\nStatus: ${status}\\n\\n`;
+        answers.forEach((a, i) => {
+          report += \`Q${i + 1}: ${a.question}\\nYour Answer: \${a.yourAnswer || "Not Answered"}\\nCorrect Answer: \${a.correctAnswer}\\n\\n\`;
+        });
+        const blob = new Blob([report], { type: "text/plain" });
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = \`\${exam}_report.txt\`;
+        link.click();
+      };
     }
   </script>
 </body>
