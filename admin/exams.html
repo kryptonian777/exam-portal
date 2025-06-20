@@ -1,86 +1,116 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Admin Exam Launch</title>
+  <title>Exam</title>
   <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
-  <h2>Admin - Python Exam Launch</h2>
-  <p>Select the Python exams to launch. Each topic corresponds to a JSON file in /data/python/.</p>
-
-  <label>Select Subject:
-    <select id="subjectSelect" onchange="renderTopics()">
-      <option value="">-- Select Subject --</option>
-      <option value="python">Python</option>
-    </select>
-  </label>
-
-  <div id="examOptions"></div>
+  <h2>Exam: Basics of Python</h2>
+  <div id="questionContainer"></div>
+  <button onclick="submitExam()">Submit Exam</button>
+  <div id="resultContainer"></div>
 
   <script>
-    let launchData = JSON.parse(localStorage.getItem("launch.json") || "{}");
+    const questions = [
+      {
+        question: "What is the correct file extension for Python files?",
+        options: [".py", ".pt", ".pyt", ".python"],
+        answer: ".py"
+      },
+      {
+        question: "What does the print() function do in Python?",
+        options: ["Accepts user input", "Displays output", "Defines a variable", "None of the above"],
+        answer: "Displays output"
+      },
+      {
+        question: "What is Python?",
+        options: ["A snake", "A dance", "A programming language", "A database"],
+        answer: "A programming language"
+      }
+    ];
 
-    const examTopics = {
-      python: [
-        { name: "Basics of Python", file: "basics_of_python" },
-        { name: "Syntax", file: "syntax" },
-        { name: "Assignment Operators", file: "assignmentops" }
-      ]
-    };
+    const questionContainer = document.getElementById("questionContainer");
 
-    function renderTopics() {
-      const subject = document.getElementById("subjectSelect").value;
-      const container = document.getElementById("examOptions");
-      container.innerHTML = "";
-
-      if (!subject || !examTopics[subject]) return;
-
-      launchData[subject] = launchData[subject] || [];
-
-      const table = document.createElement("table");
-      table.border = "1";
-      table.innerHTML = `
-        <thead>
-          <tr>
-            <th>Topic</th>
-            <th>File</th>
-            <th>Launch Status</th>
-            <th>Toggle</th>
-          </tr>
-        </thead>
-        <tbody id="examTableBody"></tbody>
-      `;
-      container.appendChild(table);
-
-      const tbody = document.getElementById("examTableBody");
-
-      examTopics[subject].forEach(topic => {
-        const key = topic.file;
-        const launched = launchData[subject].includes(key);
-
-        const row = document.createElement("tr");
-        row.innerHTML = `
-          <td>${topic.name}</td>
-          <td>${key}.json</td>
-          <td id="status_${key}">${launched ? "Launched" : "Not Launched"}</td>
-          <td><button onclick="toggleLaunch('${subject}', '${key}')">Toggle</button></td>
-        `;
-        tbody.appendChild(row);
+    questions.forEach((q, idx) => {
+      const div = document.createElement("div");
+      div.innerHTML = `<p><b>Q${idx + 1}:</b> ${q.question}</p>`;
+      q.options.forEach(opt => {
+        div.innerHTML += `
+          <label>
+            <input type="radio" name="q${idx}" value="${opt}"> ${opt}
+          </label><br>`;
       });
+      questionContainer.appendChild(div);
+    });
+
+    function submitExam() {
+      let correct = 0;
+      let incorrect = 0;
+      let answers = [];
+
+      questions.forEach((q, idx) => {
+        const selected = document.querySelector(`input[name="q${idx}"]:checked`);
+        const yourAnswer = selected ? selected.value : null;
+        if (yourAnswer === q.answer) correct++;
+        else incorrect++;
+
+        answers.push({
+          question: q.question,
+          yourAnswer,
+          correctAnswer: q.answer
+        });
+      });
+
+      const total = questions.length;
+      const status = correct >= total * 0.5 ? "Pass" : "Fail";
+      const student = localStorage.getItem("studentName") || "Anonymous";
+
+      const resultData = {
+        student,
+        subject: "python",
+        exam: "basics_of_python",
+        correct,
+        total,
+        status,
+        answers
+      };
+
+      const resultContainer = document.getElementById("resultContainer");
+      resultContainer.innerHTML = `
+        <h3>Result Summary</h3>
+        <p>Student: ${student}</p>
+        <p>Score: ${correct}/${total}</p>
+        <p>Status: ${status}</p>
+      `;
+
+      const btn = document.createElement("button");
+      btn.textContent = "Download Report";
+      btn.onclick = () => downloadReport(resultData);
+      resultContainer.appendChild(btn);
     }
 
-    function toggleLaunch(subject, topicFile) {
-      launchData[subject] = launchData[subject] || [];
-      const list = launchData[subject];
-      const index = list.indexOf(topicFile);
-      if (index > -1) {
-        list.splice(index, 1);
-      } else {
-        list.push(topicFile);
-      }
-      localStorage.setItem("launch.json", JSON.stringify(launchData));
-      renderTopics();
+    function downloadReport(resultData) {
+      const { student, subject, exam, correct, total, status, answers } = resultData;
+
+      let content = `Exam Report - ${student}\\n`;
+      content += `Subject: ${subject}\\nExam: ${exam}\\n`;
+      content += `Score: ${correct}/${total}\\nStatus: ${status}\\n\\n`;
+
+      content += `Detailed Answers:\\n`;
+      answers.forEach((q, i) => {
+        content += `Q${i + 1}: ${q.question}\\n`;
+        content += `Your Answer: ${q.yourAnswer || "Not Attempted"}\\n`;
+        content += `Correct Answer: ${q.correctAnswer}\\n`;
+        content += `Result: ${q.correctAnswer === q.yourAnswer ? "✅ Correct" : q.yourAnswer ? "❌ Incorrect" : "⚠️ Not Attempted"}\\n\\n`;
+      });
+
+      const blob = new Blob([content], { type: "text/plain" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = `${student}_${exam}_report.txt`;
+      link.click();
     }
   </script>
 </body>
 </html>
+
