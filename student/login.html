@@ -16,14 +16,17 @@
   <script>
     function loginStudent(e) {
       e.preventDefault();
-      const user = document.getElementById('studentUser').value;
-      const pass = document.getElementById('studentPass').value;
-      // Simulated static login (can be extended to JSON validation)
-      if (user === "student1" && pass === "student123") {
+      const user = document.getElementById('studentUser').value.trim();
+      const pass = document.getElementById('studentPass').value.trim();
+
+      const students = JSON.parse(localStorage.getItem('students') || '[]');
+      const matched = students.find(s => s.username === user && s.password === pass);
+
+      if (matched) {
         localStorage.setItem("studentName", user);
         location.href = "dashboard.html";
       } else {
-        alert("Invalid credentials");
+        alert("Invalid credentials. Please check your username and password.");
       }
     }
   </script>
