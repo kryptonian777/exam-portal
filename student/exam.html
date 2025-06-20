@@ -1,111 +1,123 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Exam | Student</title>
+  <title>Student Exam - Basics of Python</title>
   <link rel="stylesheet" href="../assets/style.css">
-  <script src="../libs/html2pdf.bundle.min.js"></script>
 </head>
 <body>
-  <h2 id="examTitle">Exam</h2>
-  <div id="timer" style="position:fixed;top:10px;right:20px;font-size:18px;"></div>
-  <form id="examForm"></form>
-  <button onclick="submitExam()">Submit</button>
+  <h2>Exam: Basics of Python</h2>
+  <div id="questionContainer"></div>
+  <button onclick="submitExam()">Submit Exam</button>
   <div id="resultContainer"></div>
-  <button id="downloadBtn" style="display:none" onclick="downloadPDF()">Download Report</button>
 
   <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const subject = urlParams.get('subject');
-    const examName = urlParams.get('exam');
-    let questions = [], userAnswers = [], duration = 0, timerId, remainingTime;
-    const studentName = localStorage.getItem('studentName') || 'Student';
+    const questions = [
+      {
+        question: "What is the correct file extension for Python files?",
+        options: [".py", ".pt", ".pyt", ".python"],
+        answer: ".py"
+      },
+      {
+        question: "What does the print() function do in Python?",
+        options: ["Accepts user input", "Displays output", "Defines a variable", "None of the above"],
+        answer: "Displays output"
+      },
+      {
+        question: "What is Python?",
+        options: ["A snake", "A dance", "A programming language", "A database"],
+        answer: "A programming language"
+      }
+    ];
 
-    document.getElementById('examTitle').innerText = `${subject.toUpperCase()} - ${examName.toUpperCase()} Exam`;
+    const questionContainer = document.getElementById("questionContainer");
 
-    fetch(`../data/${subject}/${examName}.json`)
-      .then(res => res.json())
-      .then(data => {
-        questions = data.questions;
-        duration = data.duration || 3600;
-        remainingTime = duration;
-        renderQuestions();
-        startTimer();
+    questions.forEach((q, idx) => {
+      const div = document.createElement("div");
+      div.innerHTML = `<p><b>Q${idx + 1}:</b> ${q.question}</p>`;
+      q.options.forEach(opt => {
+        div.innerHTML += `
+          <label>
+            <input type="radio" name="q${idx}" value="${opt}"> ${opt}
+          </label><br>`;
       });
-
-    function renderQuestions() {
-      const form = document.getElementById('examForm');
-      questions.forEach((q, i) => {
-        const div = document.createElement('div');
-        div.innerHTML = `<p><b>Q${i+1}: ${q.question}</b></p>` +
-          q.options.map(opt =>
-            `<label><input type="radio" name="q${i}" value="${opt}"> ${opt}</label><br>`).join('');
-        form.appendChild(div);
-      });
-    }
-
-    function startTimer() {
-      const timer = document.getElementById('timer');
-      timerId = setInterval(() => {
-        if (remainingTime <= 0) {
-          clearInterval(timerId);
-          submitExam();
-        } else {
-          let mins = Math.floor(remainingTime / 60);
-          let secs = remainingTime % 60;
-          timer.innerText = `Time Remaining: ${mins}m ${secs}s`;
-          remainingTime--;
-        }
-      }, 1000);
-    }
+      questionContainer.appendChild(div);
+    });
 
     function submitExam() {
-      clearInterval(timerId);
-      const breakdown = [];
-      let correct = 0, incorrect = 0, unattempted = 0;
+      let correct = 0;
+      const answers = [];
 
-      questions.forEach((q, i) => {
-        const ans = document.querySelector(`input[name=q${i}]:checked`);
-        const userAns = ans ? ans.value : null;
-        userAnswers.push(userAns);
-        if (!userAns) {
-          unattempted++;
-          breakdown.push({ ...q, userAnswer: "Unattempted", result: "❌", marks: -1 });
-        } else if (userAns === q.answer) {
-          correct++;
-          breakdown.push({ ...q, userAnswer: userAns, result: "✅", marks: 1 });
-        } else {
-          incorrect++;
-          breakdown.push({ ...q, userAnswer: userAns, result: "❌", marks: 0 });
-        }
+      questions.forEach((q, idx) => {
+        const selected = document.querySelector(`input[name="q${idx}"]:checked`);
+        const yourAnswer = selected ? selected.value : null;
+        if (yourAnswer === q.answer) correct++;
+
+        answers.push({
+          question: q.question,
+          yourAnswer,
+          correctAnswer: q.answer
+        });
       });
 
-      const score = correct - unattempted;
-      const result = score >= 5 ? "PASS" : "FAIL";
-      const reportData = { student: studentName, subject, exam: examName, score, total: questions.length, result, timestamp: new Date().toLocaleString() };
-
-      const container = document.getElementById('resultContainer');
-      container.innerHTML = `<h3>Result: ${result}</h3>
-        <p>Correct: ${correct} | Incorrect: ${incorrect} | Unattempted: ${unattempted}</p>
-        <p>Total Score: ${score} / ${questions.length}</p>`;
-
-      let table = `<table border='1'><tr><th>Q</th><th>Question</th><th>Your Ans</th><th>Correct Ans</th><th>Result</th><th>Marks</th></tr>`;
-      breakdown.forEach((b, i) => {
-        table += `<tr><td>${i+1}</td><td>${b.question}</td><td>${b.userAnswer}</td><td>${b.answer}</td><td>${b.result}</td><td>${b.marks}</td></tr>`;
-      });
-      table += `</table>`;
-      container.innerHTML += table;
-
-      window.reportHTML = `<h1>${subject.toUpperCase()} - ${examName.toUpperCase()} Report</h1>` + container.innerHTML;
-      document.getElementById('downloadBtn').style.display = 'inline-block';
+      const total = questions.length;
+      showFinalResult(correct, total, answers, "python", "basics_of_python");
     }
 
-    function downloadPDF() {
-      html2pdf().from(window.reportHTML).set({
-        margin: 0.5,
-        filename: `${subject}_${examName}_Report.pdf`,
-        html2canvas: { scale: 2 },
-        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-      }).save();
+    function showFinalResult(correct, total, answers, subject, exam) {
+      const student = localStorage.getItem("studentName") || "Anonymous";
+      const status = correct >= Math.ceil(total * 0.5) ? "Pass" : "Fail";
+
+      const resultData = {
+        student,
+        subject,
+        exam,
+        correct,
+        total,
+        status,
+        answers
+      };
+
+      const resultContainer = document.getElementById("resultContainer");
+      resultContainer.innerHTML = `
+        <h3>Result Summary</h3>
+        <p><strong>Student:</strong> ${student}</p>
+        <p><strong>Score:</strong> ${correct}/${total}</p>
+        <p><strong>Status:</strong> ${status}</p>
+      `;
+
+      const btn = document.createElement("button");
+      btn.textContent = "Download Report";
+      btn.onclick = () => downloadReport(resultData);
+      resultContainer.appendChild(btn);
+    }
+
+    function downloadReport(resultData) {
+      const { student, subject, exam, correct, total, status, answers } = resultData;
+
+      let content = `📝 Exam Report - ${student}\n`;
+      content += `Subject     : ${subject}\n`;
+      content += `Exam Name   : ${exam.replace(/_/g, " ")}\n`;
+      content += `Score       : ${correct}/${total}\n`;
+      content += `Status      : ${status}\n\n`;
+      content += `📋 Detailed Answers:\n\n`;
+
+      answers.forEach((q, i) => {
+        const resultIcon = q.yourAnswer === q.correctAnswer ? "✅ Correct"
+                          : q.yourAnswer ? "❌ Incorrect"
+                          : "⚠️ Not Attempted";
+
+        content += `Q${i + 1}: ${q.question}\n`;
+        content += `Your Answer   : ${q.yourAnswer || "Not Attempted"}\n`;
+        content += `Correct Answer: ${q.correctAnswer}\n`;
+        content += `Result        : ${resultIcon}\n`;
+        content += `-----------------------------\n`;
+      });
+
+      const blob = new Blob([content], { type: "text/plain" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = `${student}_${exam}_report.txt`;
+      link.click();
     }
   </script>
 </body>
