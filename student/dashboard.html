@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Dashboard</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <h2>Welcome, <span id="studentName"></span></h2>
+  <p>Select your exam below:</p>
+  <ul>
+    <li><a href="exam.html">Python Basics</a></li>
+    <!-- Add more links to other subjects when available -->
+  </ul>
+  <script>
+    const name = localStorage.getItem('studentName') || 'Student';
+    document.getElementById('studentName').innerText = name;
+  </script>
+</body>
+</html>
