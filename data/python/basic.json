@@ -1,0 +1,55 @@
+{
+  "examName": "Python Basics",
+  "questions": [
+    {
+      "question": "What is the output of print(2 ** 3)?",
+      "options": [
+        "6",
+        "8",
+        "9",
+        "5"
+      ],
+      "answer": "8"
+    },
+    {
+      "question": "Which of these is a correct variable name in Python?",
+      "options": [
+        "2value",
+        "_value",
+        "value$",
+        "value-2"
+      ],
+      "answer": "_value"
+    },
+    {
+      "question": "What does 'len()' function do?",
+      "options": [
+        "Returns the type",
+        "Returns the length",
+        "Adds numbers",
+        "Creates a list"
+      ],
+      "answer": "Returns the length"
+    },
+    {
+      "question": "Which data type is immutable?",
+      "options": [
+        "List",
+        "Set",
+        "Dictionary",
+        "Tuple"
+      ],
+      "answer": "Tuple"
+    },
+    {
+      "question": "What symbol is used for comments in Python?",
+      "options": [
+        "//",
+        "#",
+        "/* */",
+        "<!-- -->"
+      ],
+      "answer": "#"
+    }
+  ]
+}
