@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Upload Exam</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <h2>Upload MCQ Exam (Static Upload Simulation)</h2>
+  <form onsubmit="alert('Simulated Upload: Place your JSON file in /data/subject-name/'); return false;">
+    <label>Choose Subject:
+      <select required>
+        <option>Python</option>
+        <option>MySQL</option>
+        <option>AWS</option>
+        <option>Power BI</option>
+        <option>Statistics</option>
+        <option>Cyber Security</option>
+        <option>PG-SQL</option>
+        <option>CCNA</option>
+      </select>
+    </label><br><br>
+    <label>Select JSON File: <input type="file" required></label><br><br>
+    <button type="submit">Upload</button>
+  </form>
+  <p>NOTE: As this is a GitHub-hosted static app, upload your MCQ JSON files manually via GitHub into <code>/data/subject-name/</code></p>
+</body>
+</html>

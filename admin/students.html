@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Management</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <h2>Admin - Student Management</h2>
+
+  <h3>Create New Student</h3>
+  <form onsubmit="createStudent(event)">
+    <input type="text" id="newUsername" placeholder="Username" required>
+    <input type="password" id="newPassword" placeholder="Password" required>
+    <button type="submit">Add Student</button>
+  </form>
+
+  <h3>Existing Students</h3>
+  <table border="1" id="studentTable">
+    <tr><th>Username</th><th>Password</th><th>Actions</th></tr>
+  </table>
+
+  <script>
+    const students = JSON.parse(localStorage.getItem('students') || '[]');
+    const table = document.getElementById('studentTable');
+
+    function renderTable() {
+      table.innerHTML = '<tr><th>Username</th><th>Password</th><th>Actions</th></tr>';
+      students.forEach((s, i) => {
+        const row = table.insertRow();
+        row.insertCell(0).innerText = s.username;
+        row.insertCell(1).innerText = s.password;
+        row.insertCell(2).innerHTML = `
+          <button onclick="deleteStudent(${i})">Delete</button>
+          <button onclick="resetPassword(${i})">Reset Password</button>
+        `;
+      });
+    }
+
+    function createStudent(e) {
+      e.preventDefault();
+      const u = document.getElementById('newUsername').value;
+      const p = document.getElementById('newPassword').value;
+      students.push({ username: u, password: p });
+      localStorage.setItem('students', JSON.stringify(students));
+      renderTable();
+      e.target.reset();
+    }
+
+    function deleteStudent(index) {
+      students.splice(index, 1);
+      localStorage.setItem('students', JSON.stringify(students));
+      renderTable();
+    }
+
+    function resetPassword(index) {
+      const newPass = prompt('Enter new password:');
+      if (newPass) {
+        students[index].password = newPass;
+        localStorage.setItem('students', JSON.stringify(students));
+        renderTable();
+      }
+    }
+
+    renderTable();
+  </script>
+</body>
+</html>
