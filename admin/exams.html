@@ -3,53 +3,22 @@
 <head>
   <title>Admin - Exam Management</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      background-color: #f4f6f8;
-    }
-
-    h2 {
-      color: #2c3e50;
-    }
-
-    select, input, button {
-      padding: 8px;
-      margin: 8px 0;
-      font-size: 14px;
-    }
-
+    body { font-family: Arial; padding: 20px; background-color: #f4f6f8; }
+    h2 { color: #2c3e50; }
+    select, input, button { padding: 8px; margin: 8px 0; font-size: 14px; }
     .exam-card {
-      background: #fff;
-      padding: 15px;
-      margin-bottom: 10px;
-      border-left: 5px solid #3498db;
-      border-radius: 5px;
+      background: #fff; padding: 15px; margin-bottom: 10px;
+      border-left: 5px solid #3498db; border-radius: 5px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
-
-    .exam-card h4 {
-      margin: 0;
-      color: #34495e;
-    }
-
-    .actions {
-      margin-top: 10px;
-    }
-
-    .status-label {
-      font-weight: bold;
-      color: green;
-    }
-
-    .status-unlaunched {
-      color: red;
-    }
+    .exam-card h4 { margin: 0; color: #34495e; }
+    .actions { margin-top: 10px; }
+    .status-label { font-weight: bold; color: green; }
+    .status-unlaunched { color: red; }
   </style>
 </head>
 <body>
   <h2>Exam Management</h2>
-
   <label>Select Subject:</label>
   <select id="subjectSelect" onchange="loadExams()">
     <option value="">-- Select --</option>
@@ -67,33 +36,16 @@
 
   <script>
     const predefinedExams = {
-      "python": ["basics_of_python", "syntax", "assignment_ops"],
-      "mysql": ["ddl_commands", "select_queries"],
-      "powerbi": ["dashboarding", "data_modeling"],
-      "aws": ["ec2_basics", "s3_storage"],
-      "statistics": ["descriptive_stats", "probability"],
-      "cyber_security": ["footprinting", "scanning"],
-      "pgsql": ["intro_pgsql", "joins_pgsql"],
-      "ccna": ["routing_basics", "switching"]
+      python: ["basics_of_python", "syntax", "assignment_ops"]
     };
+    let examsData = JSON.parse(localStorage.getItem("examsConfig")) || {};
 
-    let examsData = {};
-
-    async function loadExams() {
+    function loadExams() {
       const subject = document.getElementById("subjectSelect").value;
-      if (!subject) return;
-
-      try {
-        const res = await fetch(`../../data/exams.json`);
-        examsData = await res.json();
-      } catch {
-        examsData = {};
-      }
-
       const examListDiv = document.getElementById("examList");
       examListDiv.innerHTML = "";
 
-      if (!predefinedExams[subject]) {
+      if (!subject || !predefinedExams[subject]) {
         examListDiv.innerHTML = "<p>No exams defined for this subject.</p>";
         return;
       }
@@ -109,7 +61,7 @@
           </span></p>
           <div class="actions">
             <label>Duration (min):</label>
-            <input type="number" id="duration-${exam}" value="${config.duration}" min="10" style="width: 80px;" />
+            <input type="number" id="duration-${exam}" value="${config.duration}" min="10" />
             <button onclick="toggleExam('${subject}', '${exam}')">
               ${config.launched ? "Unlaunch" : "Launch"}
             </button>
@@ -126,16 +78,8 @@
         launched: !examsData[subject][exam]?.launched,
         duration: duration
       };
-
-      saveExamsConfig();
-    }
-
-    function saveExamsConfig() {
-      fetch('../../data/exams.json', {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(examsData, null, 2)
-      }).then(() => loadExams());
+      localStorage.setItem("examsConfig", JSON.stringify(examsData));
+      loadExams();
     }
   </script>
 </body>
