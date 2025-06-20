@@ -6,14 +6,40 @@
 </head>
 <body>
   <h2>Welcome, <span id="studentName"></span></h2>
-  <p>Select your exam below:</p>
-  <ul>
-    <li><a href="exam.html">Python Basics</a></li>
-    <!-- Add more links to other subjects when available -->
-  </ul>
+  <p>Select subject to view launched exams:</p>
+  <select id="subjectSelect" onchange="loadExams(this.value)">
+    <option value="">-- Choose Subject --</option>
+    <option value="python">Python</option>
+    <option value="mysql">MySQL</option>
+  </select>
+
+  <ul id="examList"></ul>
+
   <script>
     const name = localStorage.getItem('studentName') || 'Student';
     document.getElementById('studentName').innerText = name;
+
+    let launchData = {};
+
+    fetch("../data/launch.json")
+      .then(res => res.json())
+      .then(data => {
+        launchData = data;
+      });
+
+    function loadExams(subject) {
+      const list = document.getElementById("examList");
+      list.innerHTML = "";
+      if (!launchData[subject]) {
+        list.innerHTML = "<li>No launched exams</li>";
+        return;
+      }
+      launchData[subject].forEach(exam => {
+        const li = document.createElement("li");
+        li.innerHTML = `<a href="exam.html?subject=${subject}&exam=${exam}">${exam.toUpperCase()} Exam</a>`;
+        list.appendChild(li);
+      });
+    }
   </script>
 </body>
 </html>
