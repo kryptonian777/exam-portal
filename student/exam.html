@@ -1,83 +1,149 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
   <title>Exam</title>
   <style>
-    body { font-family: Arial; background: #f0f4f8; padding: 20px; }
-    h2 { text-align: center; }
-    .question-card {
-      background: white; padding: 15px; margin: 10px 0;
-      border-radius: 5px; box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f8;
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+    }
+    .question {
+      background: white;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .question p {
+      font-weight: bold;
+    }
+    .question label {
+      display: block;
+      margin-top: 5px;
     }
     button {
-      background: #3498db; color: white;
-      padding: 10px 20px; margin-top: 20px;
-      border: none; border-radius: 4px; cursor: pointer;
+      display: block;
+      margin: 20px auto;
+      background: #007BFF;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
     }
-    #downloadBtn { display: none; margin-top: 10px; }
+    #downloadReport {
+      display: none;
+    }
   </style>
 </head>
 <body>
   <h2 id="examTitle">Exam</h2>
-  <div id="questionContainer"></div>
-  <button onclick="submitExam()">Submit Exam</button>
-  <div id="resultContainer"></div>
-  <button id="downloadBtn">Download Report</button>
+  <div id="questions"></div>
+  <button id="submitBtn" onclick="submitExam()">Submit Exam</button>
+  <button id="downloadReport" onclick="downloadReport()">Download Report</button>
+  <div id="resultSummary"></div>
 
   <script>
     const urlParams = new URLSearchParams(window.location.search);
-    const subject = urlParams.get("subject");
-    const exam = urlParams.get("exam");
+    const subject = urlParams.get('subject');
+    const exam = urlParams.get('exam');
+
+    document.getElementById('examTitle').innerText = exam.replace(/_/g, " ");
+
     let questions = [];
 
     fetch(`../../data/${subject}/${exam}.json`)
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) throw new Error("File not found");
+        return res.json();
+      })
       .then(data => {
         questions = data;
-        document.getElementById("examTitle").innerText = exam.replace(/_/g, " ");
-        renderQuestions();
+        displayQuestions();
+      })
+      .catch(err => {
+        alert("Error loading exam: " + err.message);
       });
 
-    function renderQuestions() {
-      const container = document.getElementById("questionContainer");
+    function displayQuestions() {
+      const container = document.getElementById('questions');
       questions.forEach((q, i) => {
-        const div = document.createElement("div");
-        div.className = "question-card";
+        const div = document.createElement('div');
+        div.className = 'question';
         div.innerHTML = `<p>Q${i + 1}: ${q.question}</p>`;
         q.options.forEach(opt => {
-          div.innerHTML += `<label><input type="radio" name="q${i}" value="${opt}"> ${opt}</label><br>`;
+          div.innerHTML += `
+            <label>
+              <input type="radio" name="q${i}" value="${opt}"> ${opt}
+            </label>`;
         });
         container.appendChild(div);
       });
     }
 
     function submitExam() {
-      let correct = 0, answers = [];
+      let correct = 0;
+      const answers = [];
+
       questions.forEach((q, i) => {
         const selected = document.querySelector(`input[name="q${i}"]:checked`);
-        const answer = selected ? selected.value : null;
-        if (answer === q.answer) correct++;
-        answers.push({ question: q.question, yourAnswer: answer, correctAnswer: q.answer });
+        const given = selected ? selected.value : null;
+        if (given === q.answer) correct++;
+        answers.push({
+          question: q.question,
+          yourAnswer: given || "Not Answered",
+          correctAnswer: q.answer
+        });
       });
 
-      const total = questions.length;
-      const status = correct >= total / 2 ? "Pass" : "Fail";
-      document.getElementById("resultContainer").innerHTML = `
-        <h3>Result: ${correct}/${total} - ${status}</h3>
+      const status = correct >= questions.length / 2 ? "Pass" : "Fail";
+      const student = localStorage.getItem("loggedInStudent") || "unknown";
+      const result = {
+        student,
+        subject,
+        exam,
+        score: correct,
+        total: questions.length,
+        status,
+        timestamp: new Date().toISOString(),
+        details: answers
+      };
+
+      // Save result locally for GitHub sync
+      const existing = JSON.parse(localStorage.getItem("pendingResults") || "[]");
+      existing.push(result);
+      localStorage.setItem("pendingResults", JSON.stringify(existing));
+
+      // Show summary
+      document.getElementById("resultSummary").innerHTML = `
+        <h3>Result: ${status}</h3>
+        <p>Score: ${correct} / ${questions.length}</p>
       `;
 
-      document.getElementById("downloadBtn").style.display = "inline-block";
-      document.getElementById("downloadBtn").onclick = () => {
-        let report = `Exam: ${exam.replace(/_/g, " ")}\\nScore: ${correct}/${total}\\nStatus: ${status}\\n\\n`;
-        answers.forEach((a, i) => {
-          report += \`Q${i + 1}: ${a.question}\\nYour Answer: \${a.yourAnswer || "Not Answered"}\\nCorrect Answer: \${a.correctAnswer}\\n\\n\`;
-        });
-        const blob = new Blob([report], { type: "text/plain" });
-        const link = document.createElement("a");
-        link.href = URL.createObjectURL(blob);
-        link.download = \`\${exam}_report.txt\`;
-        link.click();
-      };
+      document.getElementById("submitBtn").style.display = "none";
+      document.getElementById("downloadReport").style.display = "inline-block";
+    }
+
+    function downloadReport() {
+      const student = localStorage.getItem("loggedInStudent") || "unknown";
+      const resultData = JSON.parse(localStorage.getItem("pendingResults") || "[]").slice(-1)[0];
+
+      let text = `Student: ${student}\nExam: ${exam}\nSubject: ${subject}\nScore: ${resultData.score}/${resultData.total}\nStatus: ${resultData.status}\n\n`;
+      resultData.details.forEach((item, idx) => {
+        text += `Q${idx + 1}: ${item.question}\nYour Answer: ${item.yourAnswer}\nCorrect Answer: ${item.correctAnswer}\n\n`;
+      });
+
+      const blob = new Blob([text], { type: "text/plain" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = `${exam}_report.txt`;
+      link.click();
     }
   </script>
 </body>
