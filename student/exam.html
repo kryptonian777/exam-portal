@@ -11,6 +11,7 @@
     }
     h2 {
       text-align: center;
+      text-transform: capitalize;
     }
     .question {
       background: white;
@@ -39,6 +40,7 @@
     }
     #downloadReport {
       display: none;
+      background: #28a745;
     }
   </style>
 </head>
@@ -53,21 +55,22 @@
     const urlParams = new URLSearchParams(window.location.search);
     const subject = urlParams.get('subject');
     const exam = urlParams.get('exam');
-
     document.getElementById('examTitle').innerText = exam.replace(/_/g, " ");
 
     let questions = [];
 
-    fetch(`../../data/${subject}/${exam}.json`)
+    fetch(`../data/${subject}/${exam}.json`)
       .then(res => {
-        if (!res.ok) throw new Error("File not found");
+        if (!res.ok) throw new Error("Exam file not found");
         return res.json();
       })
       .then(data => {
+        console.log("✅ Questions loaded:", data);
         questions = data;
         displayQuestions();
       })
       .catch(err => {
+        console.error("❌ Error loading exam JSON:", err);
         alert("Error loading exam: " + err.message);
       });
 
@@ -93,11 +96,11 @@
 
       questions.forEach((q, i) => {
         const selected = document.querySelector(`input[name="q${i}"]:checked`);
-        const given = selected ? selected.value : null;
+        const given = selected ? selected.value : "Not Answered";
         if (given === q.answer) correct++;
         answers.push({
           question: q.question,
-          yourAnswer: given || "Not Answered",
+          yourAnswer: given,
           correctAnswer: q.answer
         });
       });
@@ -115,12 +118,10 @@
         details: answers
       };
 
-      // Save result locally for GitHub sync
-      const existing = JSON.parse(localStorage.getItem("pendingResults") || "[]");
-      existing.push(result);
-      localStorage.setItem("pendingResults", JSON.stringify(existing));
+      const pending = JSON.parse(localStorage.getItem("pendingResults") || "[]");
+      pending.push(result);
+      localStorage.setItem("pendingResults", JSON.stringify(pending));
 
-      // Show summary
       document.getElementById("resultSummary").innerHTML = `
         <h3>Result: ${status}</h3>
         <p>Score: ${correct} / ${questions.length}</p>
