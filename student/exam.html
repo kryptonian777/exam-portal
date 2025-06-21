@@ -40,7 +40,6 @@
     }
     #downloadReport {
       display: none;
-      background: #28a745;
     }
   </style>
 </head>
@@ -55,22 +54,25 @@
     const urlParams = new URLSearchParams(window.location.search);
     const subject = urlParams.get('subject');
     const exam = urlParams.get('exam');
+
     document.getElementById('examTitle').innerText = exam.replace(/_/g, " ");
 
     let questions = [];
 
-    fetch(`../data/${subject}/${exam}.json`)
+    // HARD-CODED JSON PATH FETCH
+    const basePath = "https://kryptonian777.github.io/exam-portal/data";
+    const jsonPath = `${basePath}/${subject}/${exam}.json`;
+
+    fetch(jsonPath)
       .then(res => {
-        if (!res.ok) throw new Error("Exam file not found");
+        if (!res.ok) throw new Error("File not found");
         return res.json();
       })
       .then(data => {
-        console.log("✅ Questions loaded:", data);
         questions = data;
         displayQuestions();
       })
       .catch(err => {
-        console.error("❌ Error loading exam JSON:", err);
         alert("Error loading exam: " + err.message);
       });
 
@@ -96,11 +98,11 @@
 
       questions.forEach((q, i) => {
         const selected = document.querySelector(`input[name="q${i}"]:checked`);
-        const given = selected ? selected.value : "Not Answered";
+        const given = selected ? selected.value : null;
         if (given === q.answer) correct++;
         answers.push({
           question: q.question,
-          yourAnswer: given,
+          yourAnswer: given || "Not Answered",
           correctAnswer: q.answer
         });
       });
@@ -118,9 +120,9 @@
         details: answers
       };
 
-      const pending = JSON.parse(localStorage.getItem("pendingResults") || "[]");
-      pending.push(result);
-      localStorage.setItem("pendingResults", JSON.stringify(pending));
+      const existing = JSON.parse(localStorage.getItem("pendingResults") || "[]");
+      existing.push(result);
+      localStorage.setItem("pendingResults", JSON.stringify(existing));
 
       document.getElementById("resultSummary").innerHTML = `
         <h3>Result: ${status}</h3>
