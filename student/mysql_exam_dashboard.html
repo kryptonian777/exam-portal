@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MySQL Chapter Exams</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+    .chapter-button {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      margin: 10px 0;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #007BFF;
+      color: white;
+      cursor: pointer;
+    }
+    .chapter-button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Select MySQL Chapter Exam</h2>
+    <div id="chapter-list">Loading...</div>
+  </div>
+
+  <script>
+    const chapterListDiv = document.getElementById("chapter-list");
+
+    async function loadChapterFiles() {
+      const files = [
+        "alter_table_add_modify_drop.json",
+        "mysql_aggregate_functions.json",
+        "mysql_auto_increment.json",
+        "mysql_between_in_like_isnull.json",
+        "mysql_column_aliases_as.json",
+        "mysql_comparison_operators.json",
+        "mysql_create.json",
+        "mysql_cross_join.json",
+        "mysql_data_types.json",
+        "mysql_delete_from_where.json",
+        "mysql_describe_show_tables.json"
+      ];
+
+      chapterListDiv.innerHTML = "";
+      files.forEach(file => {
+        const chapterName = file.replace("mysql_", "").replace(".json", "").replace(/_/g, " ").toUpperCase();
+        const btn = document.createElement("button");
+        btn.className = "chapter-button";
+        btn.innerText = chapterName;
+        btn.onclick = () => {
+          localStorage.setItem("selectedSubject", "mysql");
+          localStorage.setItem("selectedExamFile", file);
+          window.location.href = "exam.html";
+        };
+        chapterListDiv.appendChild(btn);
+      });
+    }
+
+    loadChapterFiles();
+  </script>
+</body>
+</html>
