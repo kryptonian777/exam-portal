@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Python Chapter Exams</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f2f5;
+      padding: 30px;
+      text-align: center;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+    }
+    h2 {
+      margin-bottom: 30px;
+    }
+    .exam-card {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 15px auto;
+      max-width: 500px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: left;
+      position: relative;
+    }
+    .exam-title {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .start-btn {
+      margin-top: 10px;
+      padding: 8px 14px;
+      border: none;
+      border-radius: 5px;
+      background-color: #007BFF;
+      color: white;
+      cursor: pointer;
+    }
+    .start-btn:disabled {
+      background-color: gray;
+      cursor: not-allowed;
+    }
+    .duration {
+      font-size: 14px;
+      color: #666;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>📘 Select a Python Chapter Exam</h2>
+    <div id="exam-list">Loading chapters...</div>
+  </div>
+
+  <script>
+    const files = [
+      "Arithmetic_operators.json",
+      "Data_Types_and_Variables.json",
+      "Logical_operators.json",
+      "PythonSyntaxandSemantics.json",
+      "comparision_operators.json"
+    ];
+
+    const config = {
+      "Arithmetic_operators.json": { enabled: true, duration: 20 },
+      "Data_Types_and_Variables.json": { enabled: true, duration: 25 },
+      "Logical_operators.json": { enabled: false, duration: 15 },
+      "PythonSyntaxandSemantics.json": { enabled: false, duration: 30 },
+      "comparision_operators.json": { enabled: true, duration: 20 }
+    };
+
+    const container = document.getElementById("exam-list");
+    container.innerHTML = "";
+
+    files.forEach(file => {
+      const chapter = config[file] || { enabled: false };
+      const title = file.replace(".json", "").replace(/_/g, " ");
+
+      const card = document.createElement("div");
+      card.className = "exam-card";
+
+      const name = document.createElement("div");
+      name.className = "exam-title";
+      name.textContent = title;
+
+      const duration = document.createElement("div");
+      duration.className = "duration";
+      duration.textContent = `Duration: ${chapter.duration || 0} mins`;
+
+      const button = document.createElement("button");
+      button.className = "start-btn";
+      button.textContent = chapter.enabled ? "Start Exam" : "Locked";
+      button.disabled = !chapter.enabled;
+
+      if (chapter.enabled) {
+        button.onclick = () => {
+          localStorage.setItem("selectedSubject", "python");
+          localStorage.setItem("selectedExamFile", file);
+          localStorage.setItem("selectedDuration", chapter.duration);
+          window.location.href = "exam.html";
+        };
+      }
+
+      card.appendChild(name);
+      card.appendChild(duration);
+      card.appendChild(button);
+      container.appendChild(card);
+    });
+  </script>
+</body>
+</html>
