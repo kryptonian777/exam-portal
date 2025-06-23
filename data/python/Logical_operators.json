@@ -1,0 +1,170 @@
+{
+  "examName": "Logical_operators",
+  "questions": [
+    {
+      "question": "What does the 'and' operator do?",
+      "options": [
+        "Returns True if both are True",
+        "Returns True if either is True",
+        "Inverts condition",
+        "Always False"
+      ],
+      "answer": "Returns True if both are True",
+      "number": 1
+    },
+    {
+      "question": "What does the 'or' operator do?",
+      "options": [
+        "True if at least one condition is True",
+        "Only if both True",
+        "Inverts value",
+        "Always True"
+      ],
+      "answer": "True if at least one condition is True",
+      "number": 2
+    },
+    {
+      "question": "What does 'not' do?",
+      "options": [
+        "Flips the value",
+        "Returns True",
+        "Checks equality",
+        "None of the above"
+      ],
+      "answer": "Flips the value",
+      "number": 3
+    },
+    {
+      "question": "Which of these is a logical operator?",
+      "options": [
+        "and",
+        "or",
+        "not",
+        "All of the above"
+      ],
+      "answer": "All of the above",
+      "number": 4
+    },
+    {
+      "question": "What is output of not False?",
+      "options": [
+        "True",
+        "False",
+        "Error",
+        "None"
+      ],
+      "answer": "True",
+      "number": 5
+    },
+    {
+      "question": "Which operator would you use to combine two conditions where both must be true?",
+      "options": [
+        "and",
+        "or",
+        "not",
+        "=="
+      ],
+      "answer": "and",
+      "number": 6
+    },
+    {
+      "question": "Pick operator for condition: if either is true",
+      "options": [
+        "or",
+        "and",
+        "not",
+        "!="
+      ],
+      "answer": "or",
+      "number": 7
+    },
+    {
+      "question": "Which operator flips the result?",
+      "options": [
+        "not",
+        "and",
+        "or",
+        "none"
+      ],
+      "answer": "not",
+      "number": 8
+    },
+    {
+      "question": "Choose result of: not True",
+      "options": [
+        "False",
+        "True",
+        "None",
+        "Error"
+      ],
+      "answer": "False",
+      "number": 9
+    },
+    {
+      "question": "Choose result of: True and False",
+      "options": [
+        "False",
+        "True",
+        "None",
+        "Error"
+      ],
+      "answer": "False",
+      "number": 10
+    },
+    {
+      "question": "Evaluate:\nprint(True and True)",
+      "options": [
+        "True",
+        "False",
+        "Error",
+        "None"
+      ],
+      "answer": "True",
+      "number": 11
+    },
+    {
+      "question": "Evaluate:\nprint(True and False)",
+      "options": [
+        "False",
+        "True",
+        "Error",
+        "None"
+      ],
+      "answer": "False",
+      "number": 12
+    },
+    {
+      "question": "Evaluate:\nprint(False or True)",
+      "options": [
+        "True",
+        "False",
+        "Error",
+        "None"
+      ],
+      "answer": "True",
+      "number": 13
+    },
+    {
+      "question": "Evaluate:\nprint(not True)",
+      "options": [
+        "False",
+        "True",
+        "Error",
+        "None"
+      ],
+      "answer": "False",
+      "number": 14
+    },
+    {
+      "question": "Evaluate:\nprint(not False)",
+      "options": [
+        "True",
+        "False",
+        "Error",
+        "None"
+      ],
+      "answer": "True",
+      "number": 15
+    }
+  ]
+}
