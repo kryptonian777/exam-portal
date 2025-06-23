@@ -90,7 +90,12 @@
     const container = document.getElementById("chapter-list");
 
     files.forEach(filename => {
-      const label = filename.replace("mysql_", "").replace(".json", "").replace(/_/g, " ").toUpperCase();
+      const label = filename
+        .replace("mysql_", "")
+        .replace(".json", "")
+        .replace(/_/g, " ")
+        .toUpperCase();
+
       const btn = document.createElement("button");
       btn.className = "chapter-button";
       btn.innerText = label;
