@@ -1,46 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Exam Page</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f0f2f5;
-      padding: 20px;
-    }
-    #timer {
-      position: fixed;
-      top: 10px;
-      right: 20px;
-      font-size: 20px;
-      font-weight: bold;
-      background: #fff;
-      padding: 10px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-    }
-    .question-box {
-      background: #fff;
-      padding: 20px;
-      margin-bottom: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
-    }
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      margin-top: 20px;
-    }
-    #result {
-      margin-top: 20px;
-      font-weight: bold;
-      font-size: 18px;
-    }
-  </style>
-</head>
 <body>
-  <div id="timer">Loading timer...</div>
+  <div id="timer">⏱️ Loading timer...</div>
   <div id="exam-container">Loading exam...</div>
   <button onclick="submitExam()">Submit Exam</button>
   <div id="result"></div>
@@ -50,10 +9,17 @@
     let answers = {};
     let duration = 30 * 60;
     const timerElement = document.getElementById("timer");
+    const subject = localStorage.getItem("selectedSubject");
+    const file = localStorage.getItem("selectedExamFile");
 
     async function loadQuestions() {
+      if (!subject || !file) {
+        document.getElementById("exam-container").innerHTML = "❌ Subject or file missing.";
+        return;
+      }
+
       try {
-        const res = await fetch("/exam-portal/data/mysql/create_table_with_columns_and_datatypes.json");
+        const res = await fetch(`/exam-portal/data/${subject}/${file}`);
         const data = await res.json();
         questions = data.questions;
         duration = (data.duration || 30) * 60;
@@ -61,7 +27,7 @@
         startTimer();
       } catch (err) {
         document.getElementById("exam-container").innerHTML = "❌ Failed to load exam.";
-        console.error("Error loading exam:", err);
+        console.error("Exam loading error:", err);
       }
     }
 
@@ -113,4 +79,3 @@
     loadQuestions();
   </script>
 </body>
-</html>
