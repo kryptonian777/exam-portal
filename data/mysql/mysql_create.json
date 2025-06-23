@@ -1,0 +1,225 @@
+{
+  "examName": "create_table_with_columns_and_datatypes",
+  "questions": [
+    {
+      "question": "Which command is used to create a new table in MySQL?",
+      "options": [
+        "CREATE DB",
+        "CREATE TABLE",
+        "MAKE TABLE",
+        "NEW TABLE"
+      ],
+      "answer": "CREATE TABLE",
+      "number": 1
+    },
+    {
+      "question": "What symbol is used to define columns inside CREATE TABLE?",
+      "options": [
+        "{}",
+        "[]",
+        "()",
+        "<>"
+      ],
+      "answer": "()",
+      "number": 2
+    },
+    {
+      "question": "Which of the following is a valid MySQL data type?",
+      "options": [
+        "STRING",
+        "VARCHAR",
+        "TEXTUAL",
+        "WORD"
+      ],
+      "answer": "VARCHAR",
+      "number": 3
+    },
+    {
+      "question": "What is the correct syntax to create a table?",
+      "options": [
+        "CREATE TABLE name, age;",
+        "CREATE TABLE (name VARCHAR, age INT);",
+        "CREATE TABLE people (name VARCHAR(50), age INT);",
+        "TABLE CREATE people;"
+      ],
+      "answer": "CREATE TABLE people (name VARCHAR(50), age INT);",
+      "number": 4
+    },
+    {
+      "question": "Which command sets a default value for a column?",
+      "options": [
+        "SET DEFAULT",
+        "DEFAULT",
+        "VALUE",
+        "SET VALUE"
+      ],
+      "answer": "DEFAULT",
+      "number": 5
+    },
+    {
+      "question": "Which column type should you use to store prices?",
+      "options": [
+        "VARCHAR",
+        "TEXT",
+        "DECIMAL(10,2)",
+        "BOOLEAN"
+      ],
+      "answer": "DECIMAL(10,2)",
+      "number": 6
+    },
+    {
+      "question": "What keyword makes a column mandatory?",
+      "options": [
+        "NOT EMPTY",
+        "MUST",
+        "NOT NULL",
+        "REQUIRED"
+      ],
+      "answer": "NOT NULL",
+      "number": 7
+    },
+    {
+      "question": "How do you define an auto-incrementing ID column?",
+      "options": [
+        "id AUTO",
+        "id INT INCREMENT",
+        "id INT AUTO_INCREMENT",
+        "AUTO_INCREMENT INT id"
+      ],
+      "answer": "id INT AUTO_INCREMENT",
+      "number": 8
+    },
+    {
+      "question": "Can a table be created without any columns?",
+      "options": [
+        "Yes",
+        "No",
+        "Only with NULLs",
+        "Only with DEFAULT"
+      ],
+      "answer": "No",
+      "number": 9
+    },
+    {
+      "question": "What does PRIMARY KEY do?",
+      "options": [
+        "Creates an index",
+        "Allows NULL values",
+        "Makes column unique and not null",
+        "Stores password"
+      ],
+      "answer": "Makes column unique and not null",
+      "number": 10
+    },
+    {
+      "question": "Which command creates a table for employees with name and age?",
+      "options": [
+        "CREATE TABLE employees (name VARCHAR(100), age INT);",
+        "CREATE TABLE employees name VARCHAR age INT;",
+        "TABLE employees (name, age);",
+        "CREATE employees TABLE (name, age);"
+      ],
+      "answer": "CREATE TABLE employees (name VARCHAR(100), age INT);",
+      "number": 11
+    },
+    {
+      "question": "To store timestamps in a table, which type is best?",
+      "options": [
+        "VARCHAR",
+        "DATE",
+        "DATETIME",
+        "TEXT"
+      ],
+      "answer": "DATETIME",
+      "number": 12
+    },
+    {
+      "question": "What is the result of this: CREATE TABLE x (id INT PRIMARY KEY, score FLOAT);",
+      "options": [
+        "Table x with id and score is created",
+        "Syntax error due to FLOAT",
+        "Only id is created",
+        "FLOAT can't be used"
+      ],
+      "answer": "Table x with id and score is created",
+      "number": 13
+    },
+    {
+      "question": "Which command creates a table with an email column that cannot be empty?",
+      "options": [
+        "CREATE TABLE users (email VARCHAR(255) NOT NULL);",
+        "CREATE TABLE users (email VARCHAR NOT EMPTY);",
+        "CREATE users (email MUST);",
+        "CREATE TABLE users (NOT NULL email VARCHAR);"
+      ],
+      "answer": "CREATE TABLE users (email VARCHAR(255) NOT NULL);",
+      "number": 14
+    },
+    {
+      "question": "How would you create a student table with roll_no, name, and dob?",
+      "options": [
+        "CREATE TABLE student (roll_no INT, name VARCHAR(100), dob DATE);",
+        "CREATE TABLE student roll_no, name, dob;",
+        "student TABLE CREATE (roll_no, name, dob);",
+        "CREATE TABLE (roll_no, name, dob);"
+      ],
+      "answer": "CREATE TABLE student (roll_no INT, name VARCHAR(100), dob DATE);",
+      "number": 15
+    },
+    {
+      "question": "What does this command do? CREATE TABLE logs (id INT AUTO_INCREMENT PRIMARY KEY);",
+      "options": [
+        "Creates table with auto-increment ID",
+        "Creates table with static ID",
+        "Syntax error",
+        "ID cannot be primary key"
+      ],
+      "answer": "Creates table with auto-increment ID",
+      "number": 16
+    },
+    {
+      "question": "What happens when you try to create a table with two same column names?",
+      "options": [
+        "Error",
+        "Only one column is created",
+        "It works",
+        "Columns are merged"
+      ],
+      "answer": "Error",
+      "number": 17
+    },
+    {
+      "question": "How do you define a 'price' column that stores values like 10.99?",
+      "options": [
+        "price DECIMAL(5,2)",
+        "price VARCHAR(10)",
+        "price FLOAT(2)",
+        "price NUMBER"
+      ],
+      "answer": "price DECIMAL(5,2)",
+      "number": 18
+    },
+    {
+      "question": "Which command creates a product table with name and is_available column?",
+      "options": [
+        "CREATE TABLE product (name VARCHAR(100), is_available BOOLEAN);",
+        "CREATE TABLE product (name, is_available);",
+        "CREATE product name TEXT, available BOOLEAN;",
+        "ADD TABLE product (name, is_available);"
+      ],
+      "answer": "CREATE TABLE product (name VARCHAR(100), is_available BOOLEAN);",
+      "number": 19
+    },
+    {
+      "question": "You want to allow NULL values in 'description'. Which is correct?",
+      "options": [
+        "description TEXT",
+        "description TEXT NULL",
+        "description TEXT DEFAULT NULL",
+        "All of the above"
+      ],
+      "answer": "All of the above",
+      "number": 20
+    }
+  ]
+}
