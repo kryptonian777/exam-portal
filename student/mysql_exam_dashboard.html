@@ -1,80 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>MySQL Chapter Exams</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f9f9f9;
-      padding: 30px;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
       text-align: center;
     }
     .container {
-      max-width: 900px;
+      max-width: 600px;
       margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
     h2 {
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
-    .exam-card {
-      background: white;
-      border-radius: 10px;
-      padding: 20px;
-      margin: 15px auto;
-      max-width: 500px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      text-align: left;
-      position: relative;
-    }
-    .exam-title {
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 10px;
-      color: #333;
-    }
-    .exam-info {
-      font-size: 14px;
-      color: #666;
-      margin-bottom: 10px;
-    }
-    .status {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      padding: 4px 10px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: bold;
-    }
-    .status.open {
-      background-color: #d4edda;
-      color: #155724;
-      border: 1px solid #c3e6cb;
-    }
-    .status.locked {
-      background-color: #f8d7da;
-      color: #721c24;
-      border: 1px solid #f5c6cb;
-    }
-    .start-btn {
-      padding: 10px 20px;
+    .chapter-button {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      margin: 10px 0;
+      font-size: 16px;
       border: none;
-      border-radius: 6px;
+      border-radius: 5px;
       background-color: #007BFF;
       color: white;
       cursor: pointer;
-      font-size: 14px;
     }
-    .start-btn:disabled {
-      background-color: #bbb;
+    .chapter-button:hover {
+      background-color: #0056b3;
+    }
+    .chapter-button:disabled {
+      background-color: #aaa;
       cursor: not-allowed;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h2>📘 MySQL Chapter-Based Exams</h2>
+    <h2>Select a MySQL Chapter Exam</h2>
     <div id="chapter-list">Loading chapters...</div>
   </div>
 
@@ -123,47 +93,42 @@
 
     const chapterConfig = {
       "alter_table_add_modify_drop.json": { enabled: true, duration: 30 },
+      "mysql_create.json": { enabled: true, duration: 30 },
+      "create_table_with_columns_and_datatypes.json": { enabled: false, duration: 30 },
       "mysql_aggregate_functions.json": { enabled: false, duration: 25 },
       "mysql_auto_increment.json": { enabled: false, duration: 20 },
-      "mysql_between_in_like_isnull.json": { enabled: false },
       "mysql_column_aliases_as.json": { enabled: false, duration: 25 },
-      "mysql_comparison_operators.json": { enabled: false },
-      "mysql_create.json": { enabled: true, duration: 30 },
-      "mysql_cross_join.json": { enabled: false },
       "mysql_data_types.json": { enabled: false, duration: 20 },
       "mysql_delete_from_where.json": { enabled: false, duration: 20 },
-      "mysql_describe_show_tables.json": { enabled: false },
       "mysql_distinct_keyword.json": { enabled: false, duration: 15 },
       "mysql_drop_table.json": { enabled: false, duration: 15 },
-      "mysql_foreign_key_basics.json": { enabled: false },
       "mysql_having_clause.json": { enabled: false, duration: 30 },
       "mysql_in_any_all_exists.json": { enabled: false, duration: 25 },
       "mysql_inner_join.json": { enabled: false, duration: 25 },
       "mysql_insert_into.json": { enabled: false, duration: 20 },
-      "mysql_join_multiple_tables.json": { enabled: false },
       "mysql_left_join.json": { enabled: false, duration: 20 },
       "mysql_limit_keyword.json": { enabled: false, duration: 15 },
       "mysql_logical_operators.json": { enabled: false, duration: 15 },
-      "mysql_normalization_basics.json": { enabled: false },
       "mysql_notnull_default_constraints.json": { enabled: false, duration: 15 },
       "mysql_order_by.json": { enabled: false, duration: 20 },
-      "mysql_order_by_asc_desc.json": { enabled: false },
       "mysql_primary_unique_constraints.json": { enabled: false, duration: 15 },
-      "mysql_right_join.json": { enabled: false },
       "mysql_select_all.json": { enabled: false, duration: 10 },
       "mysql_select_columns.json": { enabled: false, duration: 10 },
-      "mysql_self_join.json": { enabled: false },
-      "mysql_subqueries.json": { enabled: false },
       "mysql_table_aliases_as_t.json": { enabled: false, duration: 15 },
       "mysql_truncate_table.json": { enabled: false, duration: 10 },
       "mysql_update_set_where.json": { enabled: false, duration: 25 },
       "mysql_views_basics.json": { enabled: false, duration: 20 },
-      "mysql_where_clause.json": { enabled: false, duration: 25 },
-      "mysql_why_normalization_needed.json": { enabled: false },
-      "create_table_with_columns_and_datatypes.json": { enabled: false, duration: 30 }
+      "mysql_where_clause.json": { enabled: false, duration: 25 }
     };
 
     const container = document.getElementById("chapter-list");
+    container.innerHTML = "";
+
+    files.sort((a, b) => {
+      const aEnabled = chapterConfig[a]?.enabled ? 1 : 0;
+      const bEnabled = chapterConfig[b]?.enabled ? 1 : 0;
+      return bEnabled - aEnabled;
+    });
 
     files.forEach(filename => {
       const config = chapterConfig[filename] || { enabled: false };
@@ -173,29 +138,15 @@
         .replace(/_/g, " ")
         .toUpperCase();
 
-      const card = document.createElement("div");
-      card.className = "exam-card";
-
-      const title = document.createElement("div");
-      title.className = "exam-title";
-      title.textContent = label;
-
-      const info = document.createElement("div");
-      info.className = "exam-info";
-      info.textContent = config.enabled
-        ? `⏱️ Duration: ${config.duration} minutes`
-        : `🔒 This exam is currently locked`;
-
-      const status = document.createElement("div");
-      status.className = "status " + (config.enabled ? "open" : "locked");
-      status.innerText = config.enabled ? "OPEN" : "LOCKED";
-
       const btn = document.createElement("button");
-      btn.className = "start-btn";
-      btn.innerText = config.enabled ? "Start Exam" : "Locked";
-      btn.disabled = !config.enabled;
+      btn.className = "chapter-button";
+      btn.innerText = label;
 
-      if (config.enabled) {
+      if (!config.enabled) {
+        btn.disabled = true;
+        btn.title = "Exam is locked";
+      } else {
+        btn.title = `Start Exam (${config.duration} mins)`;
         btn.onclick = () => {
           localStorage.setItem("selectedSubject", "mysql");
           localStorage.setItem("selectedExamFile", filename);
@@ -204,11 +155,7 @@
         };
       }
 
-      card.appendChild(title);
-      card.appendChild(info);
-      card.appendChild(status);
-      card.appendChild(btn);
-      container.appendChild(card);
+      container.appendChild(btn);
     });
   </script>
 </body>
