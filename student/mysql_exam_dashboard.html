@@ -11,7 +11,7 @@
       text-align: center;
     }
     .container {
-      max-width: 600px;
+      max-width: 700px;
       margin: auto;
       background: white;
       padding: 20px;
@@ -59,24 +59,58 @@
       "alter_table_add_modify_drop.json",
       "mysql_aggregate_functions.json",
       "mysql_auto_increment.json",
+      "mysql_between_in_like_isnull.json",
+      "mysql_column_aliases_as.json",
+      "mysql_comparison_operators.json",
       "mysql_create.json",
-      "mysql_comparison_operators.json"
+      "mysql_cross_join.json",
+      "mysql_data_types.json",
+      "mysql_delete_from_where.json",
+      "mysql_describe_show_tables.json",
+      "mysql_distinct_keyword.json",
+      "mysql_drop_table.json",
+      "mysql_foreign_key_basics.json",
+      "mysql_having_clause.json",
+      "mysql_in_any_all_exists.json",
+      "mysql_inner_join.json",
+      "mysql_insert_into.json",
+      "mysql_join_multiple_tables.json",
+      "mysql_left_join.json",
+      "mysql_limit_keyword.json",
+      "mysql_logical_operators.json",
+      "mysql_normalization_basics.json",
+      "mysql_notnull_default_constraints.json",
+      "mysql_order_by.json",
+      "mysql_order_by_asc_desc.json",
+      "mysql_primary_unique_constraints.json",
+      "mysql_right_join.json",
+      "mysql_select_all.json",
+      "mysql_select_columns.json",
+      "mysql_self_join.json",
+      "mysql_subqueries.json",
+      "mysql_table_aliases_as_t.json",
+      "mysql_truncate_table.json",
+      "mysql_update_set_where.json",
+      "mysql_views_basics.json",
+      "mysql_where_clause.json",
+      "mysql_why_normalization_needed.json",
+      "create_table_with_columns_and_datatypes.json"
     ];
 
-    const chapterConfig = {
-      "alter_table_add_modify_drop.json": { enabled: true, duration: 30 },
-      "mysql_aggregate_functions.json": { enabled: false, duration: 25 },
-      "mysql_auto_increment.json": { enabled: false, duration: 20 },
-      "mysql_create.json": { enabled: true, duration: 30 },
-      "mysql_comparison_operators.json": { enabled: true, duration: 15 }
-    };
+    const chapterConfig = {};
+    files.forEach((file, i) => {
+      chapterConfig[file] = {
+        enabled: i % 5 === 0, // enable every 5th exam (adjust as needed)
+        duration: 10 + (i % 4) * 5 // vary durations: 10,15,20,25
+      };
+    });
 
     const container = document.getElementById("chapter-list");
 
     function formatTime(ms) {
-      const hours = Math.floor(ms / 3600000);
-      const minutes = Math.floor((ms % 3600000) / 60000);
-      return `${hours}h ${minutes}m`;
+      const h = Math.floor(ms / 3600000);
+      const m = Math.floor((ms % 3600000) / 60000);
+      return `${h}h ${m}m`;
     }
 
     const examsWithLock = files.map(f => {
@@ -94,11 +128,10 @@
       };
     });
 
-    // Sort: enabled + not locked first, then rest
     examsWithLock.sort((a, b) => {
       const aReady = a.config.enabled && !a.lockedDueToFailure;
       const bReady = b.config.enabled && !b.lockedDueToFailure;
-      return (aReady === bReady) ? 0 : aReady ? -1 : 1;
+      return bReady - aReady;
     });
 
     container.innerHTML = '';
@@ -122,7 +155,7 @@
           const lockTime = new Date(lockUntil);
           const remaining = lockTime - now;
           if (remaining > 0) {
-            countdown.innerText = `Retry in: ${formatTime(remaining)}`;
+            countdown.innerText = `⏳ Retry in: ${formatTime(remaining)}`;
           } else {
             countdown.innerText = "";
             localStorage.removeItem(`mysql_lock_${file}`);
