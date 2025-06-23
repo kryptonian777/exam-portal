@@ -1,114 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Exam Page</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f0f2f5;
-      padding: 20px;
-    }
-    #timer {
-      position: fixed;
-      top: 10px;
-      right: 20px;
-      font-size: 20px;
-      font-weight: bold;
-      background: #fff;
-      padding: 10px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-    }
-    .question-box {
-      background: #fff;
-      padding: 20px;
-      margin-bottom: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
-    }
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      margin-top: 20px;
-    }
-    #result {
-      margin-top: 20px;
-      font-weight: bold;
-      font-size: 18px;
-    }
-  </style>
-</head>
-<body>
-  <div id="timer">Loading timer...</div>
-  <div id="exam-container"></div>
-  <button onclick="submitExam()">Submit Exam</button>
-  <div id="result"></div>
+<script>
+  let questions = [];
+  let answers = {};
+  let duration = 30 * 60;
+  const timerElement = document.getElementById("timer");
+  const subject = localStorage.getItem("selectedSubject");
+  const examFile = localStorage.getItem("selectedExamFile");
 
-  <script>
-    let questions = [];
-    let answers = {};
-    let duration = 30 * 60; // default 30 minutes
-    const timerElement = document.getElementById("timer");
-    const subject = localStorage.getItem("selectedSubject");
+  async function loadQuestions() {
+    try {
+      const res = await fetch(`../data/${subject}/${examFile}`);
+      const data = await res.json();
+      questions = data.questions;
+      duration = (data.duration || 30) * 60;  // default 30 mins if not set
+      renderQuestions();
+      startTimer();
+    } catch (err) {
+      document.getElementById("exam-container").innerHTML = "❌ Error loading exam.";
+    }
+  }
 
-    async function loadQuestions() {
-      try {
-        const res = await fetch(`../data/${subject}/exam_1.json`);
-        const data = await res.json();
-        questions = data.questions;
-        duration = data.duration * 60;
-        renderQuestions();
-        startTimer();
-      } catch (err) {
-        document.getElementById("exam-container").innerHTML = "Error loading exam.";
+  function renderQuestions() {
+    const container = document.getElementById("exam-container");
+    container.innerHTML = "";
+    questions.forEach((q, idx) => {
+      const div = document.createElement("div");
+      div.className = "question-box";
+      div.innerHTML = `<p><strong>Q${idx + 1}:</strong> ${q.question}</p>` +
+        q.options.map((opt, i) =>
+          `<label><input type='radio' name='q${idx}' value='${opt}' onchange='saveAnswer(${idx}, "${opt}")'> ${opt}</label><br>`
+        ).join('');
+      container.appendChild(div);
+    });
+  }
+
+  function saveAnswer(qIndex, value) {
+    answers[qIndex] = value;
+  }
+
+  function submitExam() {
+    let score = 0;
+    questions.forEach((q, idx) => {
+      if (answers[idx] === q.answer) score++;
+    });
+    const percentage = (score / questions.length) * 100;
+    const resultText = percentage >= 40
+      ? `✅ Passed with ${percentage.toFixed(2)}%`
+      : `❌ Failed with ${percentage.toFixed(2)}%`;
+    document.getElementById("result").innerText = resultText;
+    clearInterval(timerInterval);
+  }
+
+  let timerInterval;
+  function startTimer() {
+    timerInterval = setInterval(() => {
+      const mins = Math.floor(duration / 60);
+      const secs = duration % 60;
+      timerElement.innerText = `⏱️ ${mins}m ${secs}s`;
+      if (duration <= 0) {
+        clearInterval(timerInterval);
+        submitExam();
       }
-    }
+      duration--;
+    }, 1000);
+  }
 
-    function renderQuestions() {
-      const container = document.getElementById("exam-container");
-      container.innerHTML = "";
-      questions.forEach((q, idx) => {
-        const div = document.createElement("div");
-        div.className = "question-box";
-        div.innerHTML = `<p><strong>Q${idx + 1}:</strong> ${q.question}</p>` +
-          q.options.map((opt, i) =>
-            `<label><input type='radio' name='q${idx}' value='${opt}' onchange='saveAnswer(${idx}, "${opt}")'> ${opt}</label><br>`
-          ).join('');
-        container.appendChild(div);
-      });
-    }
-
-    function saveAnswer(qIndex, value) {
-      answers[qIndex] = value;
-    }
-
-    function submitExam() {
-      let score = 0;
-      questions.forEach((q, idx) => {
-        if (answers[idx] === q.answer) score++;
-      });
-      const percentage = (score / questions.length) * 100;
-      const resultText = percentage >= 40 ? `✅ Passed with ${percentage.toFixed(2)}%` : `❌ Failed with ${percentage.toFixed(2)}%`;
-      document.getElementById("result").innerText = resultText;
-      clearInterval(timerInterval);
-    }
-
-    let timerInterval;
-    function startTimer() {
-      timerInterval = setInterval(() => {
-        const mins = Math.floor(duration / 60);
-        const secs = duration % 60;
-        timerElement.innerText = `⏱️ ${mins}m ${secs}s`;
-        if (duration <= 0) {
-          clearInterval(timerInterval);
-          submitExam();
-        }
-        duration--;
-      }, 1000);
-    }
-
-    loadQuestions();
-  </script>
-</body>
-</html>
+  loadQuestions();
+</script>
