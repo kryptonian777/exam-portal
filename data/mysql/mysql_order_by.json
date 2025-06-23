@@ -1,0 +1,225 @@
+{
+  "examName": "mysql_order_by",
+  "questions": [
+    {
+      "question": "What is the purpose of ORDER BY in SQL?",
+      "options": [
+        "Filter data",
+        "Sort records",
+        "Create tables",
+        "Join tables"
+      ],
+      "answer": "Sort records",
+      "number": 1
+    },
+    {
+      "question": "Which keyword is used to sort results in ascending order?",
+      "options": [
+        "ASC",
+        "DESC",
+        "SORT",
+        "UP"
+      ],
+      "answer": "ASC",
+      "number": 2
+    },
+    {
+      "question": "Which keyword is used to sort results in descending order?",
+      "options": [
+        "DESC",
+        "ASC",
+        "DOWN",
+        "ORDER"
+      ],
+      "answer": "DESC",
+      "number": 3
+    },
+    {
+      "question": "What is the default sort order if ASC or DESC is not specified?",
+      "options": [
+        "DESC",
+        "ASC",
+        "RANDOM",
+        "NONE"
+      ],
+      "answer": "ASC",
+      "number": 4
+    },
+    {
+      "question": "Which clause comes after SELECT and WHERE but before LIMIT?",
+      "options": [
+        "ORDER BY",
+        "GROUP BY",
+        "FROM",
+        "HAVING"
+      ],
+      "answer": "ORDER BY",
+      "number": 5
+    },
+    {
+      "question": "Can ORDER BY be used on multiple columns?",
+      "options": [
+        "Yes",
+        "No",
+        "Only one column allowed",
+        "Only on numeric columns"
+      ],
+      "answer": "Yes",
+      "number": 6
+    },
+    {
+      "question": "Which symbol is used to separate multiple columns in ORDER BY?",
+      "options": [
+        ",",
+        ";",
+        ":",
+        "."
+      ],
+      "answer": ",",
+      "number": 7
+    },
+    {
+      "question": "How does ORDER BY name DESC sort the results?",
+      "options": [
+        "Alphabetically A-Z",
+        "Alphabetically Z-A",
+        "By ID",
+        "Random order"
+      ],
+      "answer": "Alphabetically Z-A",
+      "number": 8
+    },
+    {
+      "question": "Which SQL clause is used to sort rows?",
+      "options": [
+        "ORDER BY",
+        "SORT BY",
+        "FILTER",
+        "GROUP BY"
+      ],
+      "answer": "ORDER BY",
+      "number": 9
+    },
+    {
+      "question": "Is it valid to use ORDER BY without a WHERE clause?",
+      "options": [
+        "Yes",
+        "No",
+        "Only with LIMIT",
+        "Only with SELECT *"
+      ],
+      "answer": "Yes",
+      "number": 10
+    },
+    {
+      "question": "Write a query to display employees sorted by salary in ascending order.",
+      "options": [
+        "SELECT * FROM employees ORDER BY salary ASC;",
+        "SELECT * FROM employees SORT BY salary ASC;",
+        "ORDER BY salary ASC FROM employees;",
+        "SELECT salary ASC FROM employees;"
+      ],
+      "answer": "SELECT * FROM employees ORDER BY salary ASC;",
+      "number": 11
+    },
+    {
+      "question": "Fetch student names ordered by marks from highest to lowest.",
+      "options": [
+        "SELECT name FROM students ORDER BY marks DESC;",
+        "SELECT name ORDER BY marks DESC FROM students;",
+        "SELECT name FROM students SORT DESC;",
+        "SELECT * FROM students WHERE ORDER BY marks DESC;"
+      ],
+      "answer": "SELECT name FROM students ORDER BY marks DESC;",
+      "number": 12
+    },
+    {
+      "question": "Get all orders sorted by order_date in descending order.",
+      "options": [
+        "SELECT * FROM orders ORDER BY order_date DESC;",
+        "SELECT * FROM orders SORT BY order_date DESC;",
+        "SELECT * FROM orders ORDER DESC BY order_date;",
+        "SELECT order_date DESC FROM orders;"
+      ],
+      "answer": "SELECT * FROM orders ORDER BY order_date DESC;",
+      "number": 13
+    },
+    {
+      "question": "Sort books by title alphabetically.",
+      "options": [
+        "SELECT * FROM books ORDER BY title ASC;",
+        "SELECT * FROM books SORT BY title;",
+        "SELECT title ASC FROM books;",
+        "GET books ORDER BY title ASC;"
+      ],
+      "answer": "SELECT * FROM books ORDER BY title ASC;",
+      "number": 14
+    },
+    {
+      "question": "Write SQL to get customers sorted by their joining date (oldest first).",
+      "options": [
+        "SELECT * FROM customers ORDER BY join_date ASC;",
+        "SELECT * FROM customers ORDER join_date ASC;",
+        "SELECT * FROM customers SORT join_date;",
+        "SELECT customers ORDER BY join_date;"
+      ],
+      "answer": "SELECT * FROM customers ORDER BY join_date ASC;",
+      "number": 15
+    },
+    {
+      "question": "Display courses ordered by duration in descending order.",
+      "options": [
+        "SELECT * FROM courses ORDER BY duration DESC;",
+        "SELECT duration DESC FROM courses;",
+        "SELECT courses ORDER BY duration;",
+        "SELECT * FROM courses SORT DESC;"
+      ],
+      "answer": "SELECT * FROM courses ORDER BY duration DESC;",
+      "number": 16
+    },
+    {
+      "question": "List employee names ordered by department and then by name.",
+      "options": [
+        "SELECT name FROM employees ORDER BY department, name;",
+        "SELECT name FROM employees ORDER BY name, department;",
+        "SELECT * FROM employees ORDER BY department name;",
+        "SELECT employees ORDER name department;"
+      ],
+      "answer": "SELECT name FROM employees ORDER BY department, name;",
+      "number": 17
+    },
+    {
+      "question": "Retrieve product list sorted by price from high to low.",
+      "options": [
+        "SELECT * FROM products ORDER BY price DESC;",
+        "SELECT * FROM products SORT price DESC;",
+        "GET * FROM products ORDER BY price DESC;",
+        "SELECT price DESC FROM products;"
+      ],
+      "answer": "SELECT * FROM products ORDER BY price DESC;",
+      "number": 18
+    },
+    {
+      "question": "Show exam results ordered by score in ascending order.",
+      "options": [
+        "SELECT * FROM results ORDER BY score ASC;",
+        "SELECT results ORDER BY score ASC;",
+        "SELECT score ASC FROM results;",
+        "GET results SORT ASC;"
+      ],
+      "answer": "SELECT * FROM results ORDER BY score ASC;",
+      "number": 19
+    },
+    {
+      "question": "Fetch invoices ordered by amount descending and then by date ascending.",
+      "options": [
+        "SELECT * FROM invoices ORDER BY amount DESC, date ASC;",
+        "SELECT * FROM invoices SORT BY amount DESC, date ASC;",
+        "SELECT invoices ORDER DESC amount, ASC date;",
+        "GET invoices ORDER BY DESC amount, ASC date;"
+      ],
+      "answer": "SELECT * FROM invoices ORDER BY amount DESC, date ASC;",
+      "number": 20
+    }
+  ]
+}

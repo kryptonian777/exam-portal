@@ -1,0 +1,225 @@
+{
+  "examName": "mysql_select_all",
+  "questions": [
+    {
+      "question": "Which command is used to retrieve all columns from a table?",
+      "options": [
+        "SELECT ALL FROM table_name;",
+        "SELECT * FROM table_name;",
+        "GET * FROM table_name;",
+        "FETCH ALL FROM table_name;"
+      ],
+      "answer": "SELECT * FROM table_name;",
+      "number": 1
+    },
+    {
+      "question": "What does the * symbol represent in SELECT *?",
+      "options": [
+        "Select specific column",
+        "Select all columns",
+        "Select all rows",
+        "None of the above"
+      ],
+      "answer": "Select all columns",
+      "number": 2
+    },
+    {
+      "question": "What does this query do: SELECT * FROM students?",
+      "options": [
+        "Selects specific rows from students",
+        "Selects all data from students",
+        "Deletes all data from students",
+        "Adds data to students"
+      ],
+      "answer": "Selects all data from students",
+      "number": 3
+    },
+    {
+      "question": "Which SQL keyword is used to query data?",
+      "options": [
+        "SELECT",
+        "QUERY",
+        "FETCH",
+        "GET"
+      ],
+      "answer": "SELECT",
+      "number": 4
+    },
+    {
+      "question": "Is SELECT * FROM table_name; a valid SQL command?",
+      "options": [
+        "Yes",
+        "No",
+        "Only with admin rights",
+        "Only with joins"
+      ],
+      "answer": "Yes",
+      "number": 5
+    },
+    {
+      "question": "Which symbol is used to select all columns?",
+      "options": [
+        "@",
+        "#",
+        "*",
+        "&"
+      ],
+      "answer": "*",
+      "number": 6
+    },
+    {
+      "question": "What keyword is used to specify the table to select data from?",
+      "options": [
+        "FROM",
+        "INTO",
+        "TO",
+        "OVER"
+      ],
+      "answer": "FROM",
+      "number": 7
+    },
+    {
+      "question": "Which of the following retrieves all records from `products` table?",
+      "options": [
+        "SELECT * FROM products;",
+        "FETCH ALL FROM products;",
+        "GET * FROM products;",
+        "SELECT ALL products;"
+      ],
+      "answer": "SELECT * FROM products;",
+      "number": 8
+    },
+    {
+      "question": "Can SELECT * be used without WHERE clause?",
+      "options": [
+        "Yes",
+        "No",
+        "Only in MySQL 8+",
+        "Only with joins"
+      ],
+      "answer": "Yes",
+      "number": 9
+    },
+    {
+      "question": "Which part of this query is optional: SELECT * FROM table_name WHERE condition?",
+      "options": [
+        "SELECT",
+        "FROM",
+        "*",
+        "WHERE"
+      ],
+      "answer": "WHERE",
+      "number": 10
+    },
+    {
+      "question": "Write a query to select all columns from the 'employees' table.",
+      "options": [
+        "SELECT * FROM employees;",
+        "SELECT employees FROM *;",
+        "FETCH * FROM employees;",
+        "GET ALL FROM employees;"
+      ],
+      "answer": "SELECT * FROM employees;",
+      "number": 11
+    },
+    {
+      "question": "Get all data from the 'orders' table.",
+      "options": [
+        "SELECT * FROM orders;",
+        "FETCH * FROM orders;",
+        "SELECT ALL orders;",
+        "DISPLAY * FROM orders;"
+      ],
+      "answer": "SELECT * FROM orders;",
+      "number": 12
+    },
+    {
+      "question": "Retrieve complete data from 'departments'.",
+      "options": [
+        "SELECT * FROM departments;",
+        "SELECT departments FROM *;",
+        "SHOW * FROM departments;",
+        "SELECT ALL * departments;"
+      ],
+      "answer": "SELECT * FROM departments;",
+      "number": 13
+    },
+    {
+      "question": "Show all student details using SQL.",
+      "options": [
+        "SELECT * FROM students;",
+        "DISPLAY * FROM students;",
+        "FETCH ALL students;",
+        "GET students *;"
+      ],
+      "answer": "SELECT * FROM students;",
+      "number": 14
+    },
+    {
+      "question": "Which command displays the entire 'products' table?",
+      "options": [
+        "SELECT * FROM products;",
+        "SHOW TABLE products;",
+        "GET * products;",
+        "SELECT ALL * FROM products;"
+      ],
+      "answer": "SELECT * FROM products;",
+      "number": 15
+    },
+    {
+      "question": "How to fetch all data from a table named `sales`?",
+      "options": [
+        "SELECT * FROM sales;",
+        "FETCH ALL FROM sales;",
+        "GET sales *;",
+        "VIEW * FROM sales;"
+      ],
+      "answer": "SELECT * FROM sales;",
+      "number": 16
+    },
+    {
+      "question": "To view everything in the `log` table, which is correct?",
+      "options": [
+        "SELECT * FROM log;",
+        "DISPLAY log;",
+        "SHOW log *;",
+        "GET * FROM log;"
+      ],
+      "answer": "SELECT * FROM log;",
+      "number": 17
+    },
+    {
+      "question": "What SQL command fetches full data from 'inventory'?",
+      "options": [
+        "SELECT * FROM inventory;",
+        "GET * FROM inventory;",
+        "SHOW inventory *;",
+        "SELECT ALL inventory;"
+      ],
+      "answer": "SELECT * FROM inventory;",
+      "number": 18
+    },
+    {
+      "question": "Retrieve full details of books from 'library' table.",
+      "options": [
+        "SELECT * FROM library;",
+        "GET library *;",
+        "SHOW * FROM library;",
+        "SELECT ALL library;"
+      ],
+      "answer": "SELECT * FROM library;",
+      "number": 19
+    },
+    {
+      "question": "Get every field from the `users` table.",
+      "options": [
+        "SELECT * FROM users;",
+        "GET users *;",
+        "FETCH users;",
+        "SELECT users;"
+      ],
+      "answer": "SELECT * FROM users;",
+      "number": 20
+    }
+  ]
+}

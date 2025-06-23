@@ -1,0 +1,225 @@
+{
+  "examName": "mysql_limit_keyword",
+  "questions": [
+    {
+      "question": "What does the LIMIT keyword do in MySQL?",
+      "options": [
+        "Restricts number of columns",
+        "Restricts number of rows returned",
+        "Filters rows",
+        "Orders records"
+      ],
+      "answer": "Restricts number of rows returned",
+      "number": 1
+    },
+    {
+      "question": "What is the syntax to get the first 5 rows in a result set?",
+      "options": [
+        "LIMIT 5",
+        "TOP 5",
+        "FETCH 5 ROWS",
+        "ROWS 1 TO 5"
+      ],
+      "answer": "LIMIT 5",
+      "number": 2
+    },
+    {
+      "question": "Which clause is typically used along with LIMIT?",
+      "options": [
+        "ORDER BY",
+        "GROUP BY",
+        "HAVING",
+        "JOIN"
+      ],
+      "answer": "ORDER BY",
+      "number": 3
+    },
+    {
+      "question": "What will LIMIT 0 do?",
+      "options": [
+        "Returns all rows",
+        "Returns no rows",
+        "Returns NULL rows",
+        "Causes an error"
+      ],
+      "answer": "Returns no rows",
+      "number": 4
+    },
+    {
+      "question": "What is the result of LIMIT 1?",
+      "options": [
+        "Returns 1 column",
+        "Returns 1 row",
+        "Returns top column",
+        "Returns 1 error"
+      ],
+      "answer": "Returns 1 row",
+      "number": 5
+    },
+    {
+      "question": "Can LIMIT be used without ORDER BY?",
+      "options": [
+        "Yes",
+        "No",
+        "Only with SELECT",
+        "Only with WHERE"
+      ],
+      "answer": "Yes",
+      "number": 6
+    },
+    {
+      "question": "What does LIMIT 3, 5 mean?",
+      "options": [
+        "Skip 3 rows, return next 5 rows",
+        "Return rows 3 to 5 only",
+        "Return top 3 then 5",
+        "Return 3 and 5 columns"
+      ],
+      "answer": "Skip 3 rows, return next 5 rows",
+      "number": 7
+    },
+    {
+      "question": "How do you get the last row using LIMIT?",
+      "options": [
+        "Use ORDER BY and LIMIT 1",
+        "LIMIT LAST",
+        "LIMIT -1",
+        "You cannot get last row"
+      ],
+      "answer": "Use ORDER BY and LIMIT 1",
+      "number": 8
+    },
+    {
+      "question": "Which is correct to get 10 rows starting from 6th?",
+      "options": [
+        "LIMIT 5, 10",
+        "LIMIT 6 TO 10",
+        "LIMIT 6, 10",
+        "LIMIT START 6 COUNT 10"
+      ],
+      "answer": "LIMIT 5, 10",
+      "number": 9
+    },
+    {
+      "question": "What is LIMIT used for in pagination?",
+      "options": [
+        "To break data into pages",
+        "To format output",
+        "To group rows",
+        "To join multiple pages"
+      ],
+      "answer": "To break data into pages",
+      "number": 10
+    },
+    {
+      "question": "Write a query to get the top 10 highest paid employees.",
+      "options": [
+        "SELECT * FROM employees ORDER BY salary DESC LIMIT 10;",
+        "SELECT TOP 10 * FROM employees ORDER BY salary;",
+        "SELECT * FROM employees LIMIT 10 ORDER BY salary DESC;",
+        "GET TOP 10 FROM employees ORDER BY salary DESC;"
+      ],
+      "answer": "SELECT * FROM employees ORDER BY salary DESC LIMIT 10;",
+      "number": 11
+    },
+    {
+      "question": "Get first 3 customers from the customer table.",
+      "options": [
+        "SELECT * FROM customer LIMIT 3;",
+        "SELECT 3 FROM customer;",
+        "GET * FROM customer LIMIT 3;",
+        "SELECT * LIMIT 3 FROM customer;"
+      ],
+      "answer": "SELECT * FROM customer LIMIT 3;",
+      "number": 12
+    },
+    {
+      "question": "Fetch next 5 rows after skipping the first 2.",
+      "options": [
+        "SELECT * FROM data LIMIT 2, 5;",
+        "SELECT * FROM data LIMIT 3 TO 5;",
+        "SELECT * FROM data SKIP 2 LIMIT 5;",
+        "SELECT * LIMIT 2,5 FROM data;"
+      ],
+      "answer": "SELECT * FROM data LIMIT 2, 5;",
+      "number": 13
+    },
+    {
+      "question": "Retrieve only one student with the highest marks.",
+      "options": [
+        "SELECT * FROM students ORDER BY marks DESC LIMIT 1;",
+        "SELECT * FROM students LIMIT 1 DESC;",
+        "SELECT TOP 1 * FROM students ORDER BY marks;",
+        "GET * FROM students DESC LIMIT 1;"
+      ],
+      "answer": "SELECT * FROM students ORDER BY marks DESC LIMIT 1;",
+      "number": 14
+    },
+    {
+      "question": "Query to display top 5 oldest books by publish_date.",
+      "options": [
+        "SELECT * FROM books ORDER BY publish_date ASC LIMIT 5;",
+        "SELECT * FROM books LIMIT 5 ASC;",
+        "SELECT TOP 5 * FROM books ORDER BY publish_date;",
+        "SELECT * FROM books WHERE publish_date LIMIT 5;"
+      ],
+      "answer": "SELECT * FROM books ORDER BY publish_date ASC LIMIT 5;",
+      "number": 15
+    },
+    {
+      "question": "Show only first product from product table.",
+      "options": [
+        "SELECT * FROM product LIMIT 1;",
+        "SELECT product LIMIT 1;",
+        "SELECT * LIMIT 1 FROM product;",
+        "GET product LIMIT 1;"
+      ],
+      "answer": "SELECT * FROM product LIMIT 1;",
+      "number": 16
+    },
+    {
+      "question": "Get the latest 3 records from logs table.",
+      "options": [
+        "SELECT * FROM logs ORDER BY timestamp DESC LIMIT 3;",
+        "SELECT * FROM logs LIMIT 3 DESC;",
+        "SELECT LATEST 3 FROM logs;",
+        "SELECT * LIMIT 3 ORDER BY timestamp DESC;"
+      ],
+      "answer": "SELECT * FROM logs ORDER BY timestamp DESC LIMIT 3;",
+      "number": 17
+    },
+    {
+      "question": "Fetch top 2 employees by experience.",
+      "options": [
+        "SELECT * FROM employees ORDER BY experience DESC LIMIT 2;",
+        "SELECT * FROM employees ORDER BY experience LIMIT 2;",
+        "SELECT TOP 2 * FROM employees;",
+        "GET employees WHERE experience LIMIT 2;"
+      ],
+      "answer": "SELECT * FROM employees ORDER BY experience DESC LIMIT 2;",
+      "number": 18
+    },
+    {
+      "question": "Return 7th to 10th orders.",
+      "options": [
+        "SELECT * FROM orders LIMIT 6, 4;",
+        "SELECT * FROM orders SKIP 6 LIMIT 4;",
+        "SELECT * FROM orders RANGE 6 TO 10;",
+        "SELECT * FROM orders LIMIT 7, 10;"
+      ],
+      "answer": "SELECT * FROM orders LIMIT 6, 4;",
+      "number": 19
+    },
+    {
+      "question": "Display the 3rd product by price.",
+      "options": [
+        "SELECT * FROM products ORDER BY price LIMIT 2, 1;",
+        "SELECT * FROM products ORDER BY price LIMIT 3;",
+        "SELECT * FROM products LIMIT 3 ORDER BY price;",
+        "SELECT price FROM products LIMIT 2 TO 3;"
+      ],
+      "answer": "SELECT * FROM products ORDER BY price LIMIT 2, 1;",
+      "number": 20
+    }
+  ]
+}

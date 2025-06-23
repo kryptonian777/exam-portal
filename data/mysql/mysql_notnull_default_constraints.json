@@ -1,0 +1,324 @@
+{
+  "examName": "mysql_notnull_default_constraints",
+  "questions": [
+    {
+      "question": "What does the NOT NULL constraint ensure?",
+      "options": [
+        "Values must be unique",
+        "Values can be null",
+        "Values must not be null",
+        "Column is auto-incremented"
+      ],
+      "answer": "Values must not be null",
+      "number": 1
+    },
+    {
+      "question": "Which SQL clause sets a default value for a column?",
+      "options": [
+        "VALUE",
+        "DEFAULT",
+        "SET DEFAULT",
+        "AUTO DEFAULT"
+      ],
+      "answer": "DEFAULT",
+      "number": 2
+    },
+    {
+      "question": "Which statement is valid for enforcing NOT NULL?",
+      "options": [
+        "age INT NOT NULL",
+        "age NOT NULL INT",
+        "NOT NULL age INT",
+        "age INT NULL NOT"
+      ],
+      "answer": "age INT NOT NULL",
+      "number": 3
+    },
+    {
+      "question": "Can a column with NOT NULL constraint accept null values?",
+      "options": [
+        "Yes",
+        "No",
+        "Only with AUTO_INCREMENT",
+        "Only in text columns"
+      ],
+      "answer": "No",
+      "number": 4
+    },
+    {
+      "question": "What is the default behavior of a column without NOT NULL?",
+      "options": [
+        "It cannot store nulls",
+        "It must store values",
+        "It can store nulls",
+        "It always has default"
+      ],
+      "answer": "It can store nulls",
+      "number": 5
+    },
+    {
+      "question": "What is the purpose of DEFAULT constraint?",
+      "options": [
+        "Prevent nulls",
+        "Assign a value automatically if not provided",
+        "Create a primary key",
+        "Mark as auto-increment"
+      ],
+      "answer": "Assign a value automatically if not provided",
+      "number": 6
+    },
+    {
+      "question": "Which data type supports NOT NULL and DEFAULT together?",
+      "options": [
+        "INT",
+        "VARCHAR",
+        "DATE",
+        "All of the above"
+      ],
+      "answer": "All of the above",
+      "number": 7
+    },
+    {
+      "question": "Is it mandatory to define DEFAULT for a column?",
+      "options": [
+        "Yes",
+        "No",
+        "Only in VARCHAR",
+        "Only with AUTO_INCREMENT"
+      ],
+      "answer": "No",
+      "number": 8
+    },
+    {
+      "question": "Which constraint prevents a column from storing null values?",
+      "options": [
+        "DEFAULT",
+        "NOT NULL",
+        "UNIQUE",
+        "CHECK"
+      ],
+      "answer": "NOT NULL",
+      "number": 9
+    },
+    {
+      "question": "What will happen if no value is given to a DEFAULT column?",
+      "options": [
+        "NULL will be stored",
+        "ERROR occurs",
+        "DEFAULT value is stored",
+        "The row is skipped"
+      ],
+      "answer": "DEFAULT value is stored",
+      "number": 10
+    },
+    {
+      "question": "Create a column `created_at` with default value as today's date.",
+      "options": [
+        "created_at DATE DEFAULT CURDATE()",
+        "created_at CURDATE() DEFAULT",
+        "created_at DATE = CURDATE()",
+        "created_at DEFAULT CURDATE()"
+      ],
+      "answer": "created_at DATE DEFAULT CURDATE()",
+      "number": 11
+    },
+    {
+      "question": "Add NOT NULL to an existing column `username` in `users` table.",
+      "options": [
+        "ALTER TABLE users MODIFY username VARCHAR(100) NOT NULL;",
+        "ALTER TABLE users SET username NOT NULL;",
+        "MODIFY TABLE users username NOT NULL;",
+        "ALTER users TABLE ADD NOT NULL username;"
+      ],
+      "answer": "ALTER TABLE users MODIFY username VARCHAR(100) NOT NULL;",
+      "number": 12
+    },
+    {
+      "question": "Add DEFAULT 0 to the `discount` column.",
+      "options": [
+        "ALTER TABLE products MODIFY discount INT DEFAULT 0;",
+        "ALTER TABLE products SET discount = 0;",
+        "ALTER TABLE products ADD DEFAULT 0 TO discount;",
+        "MODIFY discount DEFAULT 0 FROM products;"
+      ],
+      "answer": "ALTER TABLE products MODIFY discount INT DEFAULT 0;",
+      "number": 13
+    },
+    {
+      "question": "Which column definition sets a default value of 'guest'?",
+      "options": [
+        "username VARCHAR(50) DEFAULT 'guest'",
+        "username DEFAULT VARCHAR(50) = 'guest'",
+        "username = DEFAULT guest",
+        "username DEFAULT 'guest'"
+      ],
+      "answer": "username VARCHAR(50) DEFAULT 'guest'",
+      "number": 14
+    },
+    {
+      "question": "How to ensure `email` is always provided while inserting?",
+      "options": [
+        "Make column NOT NULL",
+        "Add a UNIQUE constraint",
+        "Use AUTO_INCREMENT",
+        "Use INDEX"
+      ],
+      "answer": "Make column NOT NULL",
+      "number": 15
+    },
+    {
+      "question": "Create a column `status` with default 'active' and not null.",
+      "options": [
+        "status VARCHAR(20) NOT NULL DEFAULT 'active'",
+        "status VARCHAR DEFAULT 'active' NOT NULL",
+        "status DEFAULT 'active' NOT NULL VARCHAR",
+        "status TEXT NULL DEFAULT 'active'"
+      ],
+      "answer": "status VARCHAR(20) NOT NULL DEFAULT 'active'",
+      "number": 16
+    },
+    {
+      "question": "Which column definition allows default 1 and prevents null?",
+      "options": [
+        "flag INT NOT NULL DEFAULT 1",
+        "flag INT DEFAULT 1 NULL",
+        "flag INT AUTO 1",
+        "flag INT UNIQUE DEFAULT 1"
+      ],
+      "answer": "flag INT NOT NULL DEFAULT 1",
+      "number": 17
+    },
+    {
+      "question": "How to define a date column with no nulls and default value?",
+      "options": [
+        "created_on DATE NOT NULL DEFAULT CURDATE()",
+        "created_on DEFAULT CURDATE() NOT NULL",
+        "created_on DATE CURDATE() DEFAULT",
+        "created_on NOT NULL DATE DEFAULT CURDATE()"
+      ],
+      "answer": "created_on DATE NOT NULL DEFAULT CURDATE()",
+      "number": 18
+    },
+    {
+      "question": "Insert into column with default value by skipping it in INSERT.",
+      "options": [
+        "INSERT INTO users (name) VALUES ('John');",
+        "INSERT INTO users (name, role) VALUES ('John');",
+        "INSERT INTO users VALUES ('John');",
+        "INSERT users VALUES name;"
+      ],
+      "answer": "INSERT INTO users (name) VALUES ('John');",
+      "number": 19
+    },
+    {
+      "question": "Add a NOT NULL constraint on `price` column of `items`.",
+      "options": [
+        "ALTER TABLE items MODIFY price FLOAT NOT NULL;",
+        "ALTER TABLE items SET price = NOT NULL;",
+        "MODIFY TABLE items price NOT NULL;",
+        "ALTER price SET NOT NULL ON items;"
+      ],
+      "answer": "ALTER TABLE items MODIFY price FLOAT NOT NULL;",
+      "number": 20
+    },
+    {
+      "question": "Create a table where `role` defaults to 'user'.",
+      "options": [
+        "CREATE TABLE accounts (id INT, role VARCHAR(20) DEFAULT 'user');",
+        "CREATE TABLE accounts (id INT, role DEFAULT 'user');",
+        "CREATE TABLE accounts (id INT, DEFAULT role = 'user');",
+        "CREATE TABLE accounts (id INT, role VARCHAR DEFAULT user);"
+      ],
+      "answer": "CREATE TABLE accounts (id INT, role VARCHAR(20) DEFAULT 'user');",
+      "number": 21
+    },
+    {
+      "question": "Modify an existing column to have a default of 100.",
+      "options": [
+        "ALTER TABLE products MODIFY stock INT DEFAULT 100;",
+        "ALTER TABLE products ADD DEFAULT = 100;",
+        "SET DEFAULT stock = 100;",
+        "ALTER COLUMN stock DEFAULT 100;"
+      ],
+      "answer": "ALTER TABLE products MODIFY stock INT DEFAULT 100;",
+      "number": 22
+    },
+    {
+      "question": "Ensure column `rating` always has a value when inserting data.",
+      "options": [
+        "Make it NOT NULL",
+        "Add DEFAULT constraint only",
+        "Remove AUTO_INCREMENT",
+        "Use a CHECK constraint"
+      ],
+      "answer": "Make it NOT NULL",
+      "number": 23
+    },
+    {
+      "question": "Which is correct for column with NOT NULL and DEFAULT 0?",
+      "options": [
+        "qty INT NOT NULL DEFAULT 0",
+        "qty DEFAULT 0 INT",
+        "qty NOT NULL DEFAULT 0 INT",
+        "DEFAULT qty 0 NOT NULL"
+      ],
+      "answer": "qty INT NOT NULL DEFAULT 0",
+      "number": 24
+    },
+    {
+      "question": "Add NOT NULL to column `description` in table `products`.",
+      "options": [
+        "ALTER TABLE products MODIFY description TEXT NOT NULL;",
+        "ALTER products ADD NOT NULL description;",
+        "MODIFY TABLE products SET NOT NULL description;",
+        "ALTER COLUMN description TEXT NOT NULL;"
+      ],
+      "answer": "ALTER TABLE products MODIFY description TEXT NOT NULL;",
+      "number": 25
+    },
+    {
+      "question": "Create column `count` which must always have a number.",
+      "options": [
+        "count INT NOT NULL",
+        "count DEFAULT 0",
+        "count TEXT DEFAULT 1",
+        "count INT"
+      ],
+      "answer": "count INT NOT NULL",
+      "number": 26
+    },
+    {
+      "question": "Set a default value of 5 for integer column `priority`.",
+      "options": [
+        "priority INT DEFAULT 5",
+        "priority DEFAULT 5 INT",
+        "priority INT SET 5",
+        "priority VALUE 5"
+      ],
+      "answer": "priority INT DEFAULT 5",
+      "number": 27
+    },
+    {
+      "question": "Why use DEFAULT constraint in a column?",
+      "options": [
+        "To avoid typing same values",
+        "To fill blanks",
+        "To provide fallback value if no input given",
+        "To mark unique rows"
+      ],
+      "answer": "To provide fallback value if no input given",
+      "number": 28
+    },
+    {
+      "question": "Which is valid to define `status` column with 'pending' default?",
+      "options": [
+        "status VARCHAR(20) DEFAULT 'pending'",
+        "status TEXT DEFAULT pending",
+        "status DEFAULT 'pending'",
+        "DEFAULT status 'pending'"
+      ],
+      "answer": "status VARCHAR(20) DEFAULT 'pending'",
+      "number": 29
+    }
+  ]
+}

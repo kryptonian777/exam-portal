@@ -1,0 +1,225 @@
+{
+  "examName": "mysql_subqueries",
+  "questions": [
+    {
+      "question": "What is a subquery in MySQL?",
+      "options": [
+        "A query inside a table",
+        "A query inside another query",
+        "A query that returns tables",
+        "A query for backup"
+      ],
+      "answer": "A query inside another query",
+      "number": 1
+    },
+    {
+      "question": "Where can subqueries be used in SQL?",
+      "options": [
+        "Only in SELECT",
+        "Only in WHERE",
+        "Only in INSERT",
+        "SELECT, FROM, and WHERE clauses"
+      ],
+      "answer": "SELECT, FROM, and WHERE clauses",
+      "number": 2
+    },
+    {
+      "question": "What does a subquery return?",
+      "options": [
+        "Only numbers",
+        "Only text",
+        "A single or multiple rows",
+        "Only one table"
+      ],
+      "answer": "A single or multiple rows",
+      "number": 3
+    },
+    {
+      "question": "Can a subquery be used in the SELECT clause?",
+      "options": [
+        "Yes",
+        "No",
+        "Only in MySQL 8+",
+        "Only in Oracle"
+      ],
+      "answer": "Yes",
+      "number": 4
+    },
+    {
+      "question": "What keyword is commonly used with subqueries?",
+      "options": [
+        "USE",
+        "JOIN",
+        "IN",
+        "LOAD"
+      ],
+      "answer": "IN",
+      "number": 5
+    },
+    {
+      "question": "What is the maximum number of subqueries you can nest?",
+      "options": [
+        "1",
+        "10",
+        "No fixed limit",
+        "5"
+      ],
+      "answer": "No fixed limit",
+      "number": 6
+    },
+    {
+      "question": "Which clause can filter results using a subquery?",
+      "options": [
+        "GROUP BY",
+        "WHERE",
+        "CREATE",
+        "ALTER"
+      ],
+      "answer": "WHERE",
+      "number": 7
+    },
+    {
+      "question": "What does SELECT (SELECT COUNT(*) FROM orders) do?",
+      "options": [
+        "Throws error",
+        "Returns total orders",
+        "Returns column headers",
+        "Returns only last row"
+      ],
+      "answer": "Returns total orders",
+      "number": 8
+    },
+    {
+      "question": "What is the result of a scalar subquery?",
+      "options": [
+        "Multiple columns",
+        "A single value",
+        "A table",
+        "NULL always"
+      ],
+      "answer": "A single value",
+      "number": 9
+    },
+    {
+      "question": "Which is a correct subquery example in a SELECT clause?",
+      "options": [
+        "SELECT (SELECT MAX(salary) FROM employees);",
+        "SELECT MAX(salary);",
+        "SUBSELECT MAX(salary);",
+        "SELECT MAX salary FROM (employees);"
+      ],
+      "answer": "SELECT (SELECT MAX(salary) FROM employees);",
+      "number": 10
+    },
+    {
+      "question": "Get employees who earn more than average salary.",
+      "options": [
+        "SELECT name FROM employees WHERE salary > (SELECT AVG(salary) FROM employees);",
+        "SELECT name FROM employees WHERE salary > AVG(salary);",
+        "SELECT * FROM employees;",
+        "SELECT name WHERE salary > (AVG);"
+      ],
+      "answer": "SELECT name FROM employees WHERE salary > (SELECT AVG(salary) FROM employees);",
+      "number": 11
+    },
+    {
+      "question": "Get products whose price is equal to the max price.",
+      "options": [
+        "SELECT name FROM products WHERE price = (SELECT MAX(price) FROM products);",
+        "SELECT MAX(name) FROM products;",
+        "SELECT name FROM products MAX(price);",
+        "SELECT price FROM products;"
+      ],
+      "answer": "SELECT name FROM products WHERE price = (SELECT MAX(price) FROM products);",
+      "number": 12
+    },
+    {
+      "question": "List students from classes with more than 10 students.",
+      "options": [
+        "SELECT name FROM students WHERE class_id IN (SELECT class_id FROM students GROUP BY class_id HAVING COUNT(*) > 10);",
+        "SELECT name FROM students WHERE class_size > 10;",
+        "SELECT * FROM students;",
+        "SELECT class_id FROM students;"
+      ],
+      "answer": "SELECT name FROM students WHERE class_id IN (SELECT class_id FROM students GROUP BY class_id HAVING COUNT(*) > 10);",
+      "number": 13
+    },
+    {
+      "question": "Get names of customers who made an order.",
+      "options": [
+        "SELECT name FROM customers WHERE id IN (SELECT customer_id FROM orders);",
+        "SELECT name FROM customers;",
+        "SELECT * FROM orders;",
+        "SELECT name FROM orders;"
+      ],
+      "answer": "SELECT name FROM customers WHERE id IN (SELECT customer_id FROM orders);",
+      "number": 14
+    },
+    {
+      "question": "Get departments with average salary above 50K.",
+      "options": [
+        "SELECT dept_id FROM employees GROUP BY dept_id HAVING AVG(salary) > 50000;",
+        "SELECT * FROM employees;",
+        "SELECT salary FROM employees;",
+        "SELECT name FROM departments;"
+      ],
+      "answer": "SELECT dept_id FROM employees GROUP BY dept_id HAVING AVG(salary) > 50000;",
+      "number": 15
+    },
+    {
+      "question": "Get employees who joined after the oldest employee.",
+      "options": [
+        "SELECT name FROM employees WHERE join_date > (SELECT MIN(join_date) FROM employees);",
+        "SELECT name FROM employees WHERE join_date > MIN(join_date);",
+        "SELECT join_date FROM employees;",
+        "SELECT name FROM employees;"
+      ],
+      "answer": "SELECT name FROM employees WHERE join_date > (SELECT MIN(join_date) FROM employees);",
+      "number": 16
+    },
+    {
+      "question": "Select customer names and their total order count.",
+      "options": [
+        "SELECT name, (SELECT COUNT(*) FROM orders WHERE customer_id = customers.id) AS order_count FROM customers;",
+        "SELECT name FROM customers;",
+        "SELECT COUNT(*) FROM orders;",
+        "SELECT customers.name FROM orders;"
+      ],
+      "answer": "SELECT name, (SELECT COUNT(*) FROM orders WHERE customer_id = customers.id) AS order_count FROM customers;",
+      "number": 17
+    },
+    {
+      "question": "Get employees with salary > ALL salaries in dept 10.",
+      "options": [
+        "SELECT name FROM employees WHERE salary > ALL (SELECT salary FROM employees WHERE dept_id = 10);",
+        "SELECT * FROM employees;",
+        "SELECT salary FROM dept WHERE id = 10;",
+        "SELECT name WHERE salary > ALL;"
+      ],
+      "answer": "SELECT name FROM employees WHERE salary > ALL (SELECT salary FROM employees WHERE dept_id = 10);",
+      "number": 18
+    },
+    {
+      "question": "List products with quantity less than ANY order quantity.",
+      "options": [
+        "SELECT name FROM products WHERE quantity < ANY (SELECT quantity FROM orders);",
+        "SELECT name FROM products;",
+        "SELECT quantity FROM products;",
+        "SELECT name WHERE quantity < orders;"
+      ],
+      "answer": "SELECT name FROM products WHERE quantity < ANY (SELECT quantity FROM orders);",
+      "number": 19
+    },
+    {
+      "question": "Get the name of employee with highest salary.",
+      "options": [
+        "SELECT name FROM employees WHERE salary = (SELECT MAX(salary) FROM employees);",
+        "SELECT name FROM employees;",
+        "SELECT MAX(salary) FROM employees;",
+        "SELECT employee FROM employees;"
+      ],
+      "answer": "SELECT name FROM employees WHERE salary = (SELECT MAX(salary) FROM employees);",
+      "number": 20
+    }
+  ]
+}

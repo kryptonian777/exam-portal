@@ -1,0 +1,225 @@
+{
+  "examName": "mysql_insert_into",
+  "questions": [
+    {
+      "question": "Which SQL command is used to add new data into a table?",
+      "options": [
+        "INSERT INTO",
+        "ADD RECORD",
+        "NEW ENTRY",
+        "UPDATE TABLE"
+      ],
+      "answer": "INSERT INTO",
+      "number": 1
+    },
+    {
+      "question": "What keyword is used before the list of values in an INSERT statement?",
+      "options": [
+        "VALUES",
+        "INPUT",
+        "DATA",
+        "RECORDS"
+      ],
+      "answer": "VALUES",
+      "number": 2
+    },
+    {
+      "question": "Which of the following is the correct syntax for inserting one row?",
+      "options": [
+        "INSERT INTO table (col1, col2) VALUES ('val1', 'val2');",
+        "INSERT table (col1, col2) 'val1', 'val2';",
+        "ADD INTO table VALUES ('val1', 'val2');",
+        "INSERT ROWS INTO table VALUES 'val1', 'val2';"
+      ],
+      "answer": "INSERT INTO table (col1, col2) VALUES ('val1', 'val2');",
+      "number": 3
+    },
+    {
+      "question": "Which clause is necessary in an INSERT command?",
+      "options": [
+        "WHERE",
+        "GROUP BY",
+        "VALUES",
+        "HAVING"
+      ],
+      "answer": "VALUES",
+      "number": 4
+    },
+    {
+      "question": "What happens if you skip a column in INSERT without specifying column names?",
+      "options": [
+        "MySQL assigns default values",
+        "Error occurs",
+        "Only provided columns are inserted",
+        "MySQL skips missing values"
+      ],
+      "answer": "Error occurs",
+      "number": 5
+    },
+    {
+      "question": "Which statement inserts multiple rows?",
+      "options": [
+        "INSERT INTO tab VALUES (1,'a'), (2,'b');",
+        "INSERT tab VALUES 1,'a'; 2,'b';",
+        "INSERT INTO tab (1,'a') AND (2,'b');",
+        "INSERT tab (1,'a'), (2,'b');"
+      ],
+      "answer": "INSERT INTO tab VALUES (1,'a'), (2,'b');",
+      "number": 6
+    },
+    {
+      "question": "What must be true about values in an INSERT statement?",
+      "options": [
+        "They must match the order of table columns",
+        "They can be random",
+        "They must be in descending order",
+        "They can include column names"
+      ],
+      "answer": "They must match the order of table columns",
+      "number": 7
+    },
+    {
+      "question": "What does INSERT INTO users VALUES (1, 'John'); do?",
+      "options": [
+        "Adds new row to users table",
+        "Deletes a row",
+        "Modifies user data",
+        "Creates a new table"
+      ],
+      "answer": "Adds new row to users table",
+      "number": 8
+    },
+    {
+      "question": "INSERT INTO table_name (...) VALUES (...) is a part of which SQL command set?",
+      "options": [
+        "DML",
+        "DDL",
+        "DCL",
+        "TCL"
+      ],
+      "answer": "DML",
+      "number": 9
+    },
+    {
+      "question": "Which clause is optional in INSERT INTO command?",
+      "options": [
+        "Column list",
+        "Table name",
+        "VALUES",
+        "INSERT"
+      ],
+      "answer": "Column list",
+      "number": 10
+    },
+    {
+      "question": "Insert a student with ID 101 and name 'Amit' into the students table.",
+      "options": [
+        "INSERT INTO students (id, name) VALUES (101, 'Amit');",
+        "ADD INTO students VALUES (101, 'Amit');",
+        "INSERT students 101 'Amit';",
+        "ADD ROW TO students (101, 'Amit');"
+      ],
+      "answer": "INSERT INTO students (id, name) VALUES (101, 'Amit');",
+      "number": 11
+    },
+    {
+      "question": "Add two products (1, 'Pen') and (2, 'Pencil') to the products table.",
+      "options": [
+        "INSERT INTO products VALUES (1, 'Pen'), (2, 'Pencil');",
+        "INSERT VALUES INTO products (1, 'Pen', 2, 'Pencil');",
+        "ADD INTO products VALUES (1, 'Pen', 2, 'Pencil');",
+        "UPDATE products VALUES (1, 'Pen'), (2, 'Pencil');"
+      ],
+      "answer": "INSERT INTO products VALUES (1, 'Pen'), (2, 'Pencil');",
+      "number": 12
+    },
+    {
+      "question": "Which query adds a new row with name 'Sam' and age 25?",
+      "options": [
+        "INSERT INTO users (name, age) VALUES ('Sam', 25);",
+        "INSERT users VALUES ('Sam', 25);",
+        "ADD INTO users (name, age) ('Sam', 25);",
+        "NEW RECORD users ('Sam', 25);"
+      ],
+      "answer": "INSERT INTO users (name, age) VALUES ('Sam', 25);",
+      "number": 13
+    },
+    {
+      "question": "How do you insert only a name 'Leo' into a column 'name'?",
+      "options": [
+        "INSERT INTO people (name) VALUES ('Leo');",
+        "INSERT name INTO people VALUES 'Leo';",
+        "ADD VALUES TO people name 'Leo';",
+        "NEW people name 'Leo';"
+      ],
+      "answer": "INSERT INTO people (name) VALUES ('Leo');",
+      "number": 14
+    },
+    {
+      "question": "Insert a book with title 'MySQL Basics' into the books table.",
+      "options": [
+        "INSERT INTO books (title) VALUES ('MySQL Basics');",
+        "ADD TO books title = 'MySQL Basics';",
+        "INSERT books VALUES 'MySQL Basics';",
+        "NEW BOOK books ('MySQL Basics');"
+      ],
+      "answer": "INSERT INTO books (title) VALUES ('MySQL Basics');",
+      "number": 15
+    },
+    {
+      "question": "How do you insert the current date into a 'created_at' column?",
+      "options": [
+        "INSERT INTO logs (created_at) VALUES (CURDATE());",
+        "INSERT logs VALUES (NOW);",
+        "ADD INTO logs created_at CURDATE();",
+        "INSERT logs DATE = TODAY();"
+      ],
+      "answer": "INSERT INTO logs (created_at) VALUES (CURDATE());",
+      "number": 16
+    },
+    {
+      "question": "What is the correct way to insert data into a table with 3 columns?",
+      "options": [
+        "INSERT INTO table_name VALUES ('a', 1, 2.5);",
+        "INSERT VALUES table ('a', 1, 2.5);",
+        "INSERT table_name INTO VALUES ('a', 1, 2.5);",
+        "ADD VALUES INTO table ('a', 1, 2.5);"
+      ],
+      "answer": "INSERT INTO table_name VALUES ('a', 1, 2.5);",
+      "number": 17
+    },
+    {
+      "question": "Insert a new employee with values: ID=5, Name='John', Salary=10000",
+      "options": [
+        "INSERT INTO employee VALUES (5, 'John', 10000);",
+        "ADD TO employee (5, 'John', 10000);",
+        "INSERT employee (5, 'John', 10000);",
+        "INSERT VALUES (5, 'John', 10000) INTO employee;"
+      ],
+      "answer": "INSERT INTO employee VALUES (5, 'John', 10000);",
+      "number": 18
+    },
+    {
+      "question": "Insert data into table `contacts` with default values for missing columns.",
+      "options": [
+        "INSERT INTO contacts (name) VALUES ('Raj');",
+        "INSERT contacts VALUES ('Raj');",
+        "ADD contacts (name = 'Raj');",
+        "INSERT INTO contacts ALL VALUES 'Raj';"
+      ],
+      "answer": "INSERT INTO contacts (name) VALUES ('Raj');",
+      "number": 19
+    },
+    {
+      "question": "Insert the number 42 into a column named 'answer' of table facts.",
+      "options": [
+        "INSERT INTO facts (answer) VALUES (42);",
+        "INSERT facts VALUES 42;",
+        "ADD VALUE 42 TO facts;",
+        "PUT INTO facts answer = 42;"
+      ],
+      "answer": "INSERT INTO facts (answer) VALUES (42);",
+      "number": 20
+    }
+  ]
+}

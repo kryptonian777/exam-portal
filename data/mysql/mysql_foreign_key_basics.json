@@ -1,0 +1,225 @@
+{
+  "examName": "mysql_foreign_key_basics",
+  "questions": [
+    {
+      "question": "What is the purpose of a FOREIGN KEY in MySQL?",
+      "options": [
+        "To create a primary key",
+        "To enforce relationships between tables",
+        "To allow duplicate values",
+        "To create indexes"
+      ],
+      "answer": "To enforce relationships between tables",
+      "number": 1
+    },
+    {
+      "question": "Which keyword is used to define a foreign key?",
+      "options": [
+        "REFERENCE",
+        "FOREIGN",
+        "REFERENCES",
+        "RELATE"
+      ],
+      "answer": "REFERENCES",
+      "number": 2
+    },
+    {
+      "question": "Can a foreign key reference a primary key in another table?",
+      "options": [
+        "Yes",
+        "No",
+        "Only in views",
+        "Only in temp tables"
+      ],
+      "answer": "Yes",
+      "number": 3
+    },
+    {
+      "question": "Which statement correctly creates a foreign key?",
+      "options": [
+        "FOREIGN KEY (dept_id) REFERENCES departments(id)",
+        "FOREIGN (dept_id) REFERENCES departments(id)",
+        "FOREIGN KEY dept_id REFERENCES departments.id",
+        "REFERENCE KEY dept_id ON departments"
+      ],
+      "answer": "FOREIGN KEY (dept_id) REFERENCES departments(id)",
+      "number": 4
+    },
+    {
+      "question": "Where is a foreign key constraint defined?",
+      "options": [
+        "Only in parent table",
+        "Only in child table",
+        "In both tables",
+        "In index section"
+      ],
+      "answer": "Only in child table",
+      "number": 5
+    },
+    {
+      "question": "What does a foreign key help ensure?",
+      "options": [
+        "Data uniqueness",
+        "Referential integrity",
+        "Default values",
+        "Primary key generation"
+      ],
+      "answer": "Referential integrity",
+      "number": 6
+    },
+    {
+      "question": "Can a foreign key reference a non-primary key?",
+      "options": [
+        "No",
+        "Yes, if it is unique",
+        "Only in JSON",
+        "Yes, always"
+      ],
+      "answer": "Yes, if it is unique",
+      "number": 7
+    },
+    {
+      "question": "Can a table have more than one foreign key?",
+      "options": [
+        "No",
+        "Yes",
+        "Only with joins",
+        "Only in views"
+      ],
+      "answer": "Yes",
+      "number": 8
+    },
+    {
+      "question": "What is required in the referenced table for a foreign key?",
+      "options": [
+        "NOT NULL column",
+        "AUTO_INCREMENT column",
+        "Unique or Primary Key",
+        "Index"
+      ],
+      "answer": "Unique or Primary Key",
+      "number": 9
+    },
+    {
+      "question": "Which command is used to remove a foreign key constraint?",
+      "options": [
+        "ALTER TABLE table_name DROP FOREIGN KEY fk_name;",
+        "DROP CONSTRAINT fk_name;",
+        "REMOVE FOREIGN KEY FROM table_name;",
+        "DELETE FOREIGN KEY fk_name;"
+      ],
+      "answer": "ALTER TABLE table_name DROP FOREIGN KEY fk_name;",
+      "number": 10
+    },
+    {
+      "question": "Create a foreign key `user_id` in `orders` that references `users(id)`.",
+      "options": [
+        "FOREIGN KEY (user_id) REFERENCES users(id)",
+        "FOREIGN user_id REFERENCES users.id",
+        "REFERENCES users(id) FOREIGN KEY user_id",
+        "KEY user_id FOREIGN REFERENCES users"
+      ],
+      "answer": "FOREIGN KEY (user_id) REFERENCES users(id)",
+      "number": 11
+    },
+    {
+      "question": "Create table `enrollments` with foreign key `student_id` referencing `students(id)`.",
+      "options": [
+        "CREATE TABLE enrollments (student_id INT, FOREIGN KEY (student_id) REFERENCES students(id));",
+        "CREATE TABLE enrollments FOREIGN student_id REFERENCES students(id);",
+        "CREATE enrollments TABLE student_id REFERENCES students.id;",
+        "CREATE TABLE enrollments (student_id REFERENCES students(id));"
+      ],
+      "answer": "CREATE TABLE enrollments (student_id INT, FOREIGN KEY (student_id) REFERENCES students(id));",
+      "number": 12
+    },
+    {
+      "question": "Which syntax defines two foreign keys in one table?",
+      "options": [
+        "FOREIGN KEY (a_id) REFERENCES A(id), FOREIGN KEY (b_id) REFERENCES B(id)",
+        "FOREIGN KEYS a_id, b_id REFERENCES A, B",
+        "FOREIGN KEY REFERENCES A(id), B(id)",
+        "REFERENCES A(id), B(id)"
+      ],
+      "answer": "FOREIGN KEY (a_id) REFERENCES A(id), FOREIGN KEY (b_id) REFERENCES B(id)",
+      "number": 13
+    },
+    {
+      "question": "Add a foreign key `category_id` to existing `products` table referencing `categories(id)`.",
+      "options": [
+        "ALTER TABLE products ADD CONSTRAINT fk_cat FOREIGN KEY (category_id) REFERENCES categories(id);",
+        "ADD FOREIGN KEY TO products(category_id);",
+        "ALTER TABLE categories ADD FOREIGN KEY (category_id);",
+        "FOREIGN KEY category_id REFERENCES categories(id);"
+      ],
+      "answer": "ALTER TABLE products ADD CONSTRAINT fk_cat FOREIGN KEY (category_id) REFERENCES categories(id);",
+      "number": 14
+    },
+    {
+      "question": "Define a child table `comments` with foreign key `post_id` referencing `posts(id)`.",
+      "options": [
+        "CREATE TABLE comments (id INT, post_id INT, FOREIGN KEY (post_id) REFERENCES posts(id));",
+        "CREATE comments (post_id REFERENCES posts(id));",
+        "FOREIGN KEY (post_id) REFERENCES posts.id IN comments;",
+        "CREATE TABLE comments (post_id FOREIGN REFERENCES posts.id);"
+      ],
+      "answer": "CREATE TABLE comments (id INT, post_id INT, FOREIGN KEY (post_id) REFERENCES posts(id));",
+      "number": 15
+    },
+    {
+      "question": "What happens if a referenced value is missing in parent table?",
+      "options": [
+        "Insert fails",
+        "Row inserts successfully",
+        "Value becomes NULL",
+        "Error ignored"
+      ],
+      "answer": "Insert fails",
+      "number": 16
+    },
+    {
+      "question": "Ensure foreign key is removed in `payments` table named `fk_user`.",
+      "options": [
+        "ALTER TABLE payments DROP FOREIGN KEY fk_user;",
+        "DROP payments fk_user;",
+        "DELETE CONSTRAINT fk_user FROM payments;",
+        "DROP KEY fk_user IN payments;"
+      ],
+      "answer": "ALTER TABLE payments DROP FOREIGN KEY fk_user;",
+      "number": 17
+    },
+    {
+      "question": "Which statement fails due to a foreign key constraint?",
+      "options": [
+        "Inserting a value not present in referenced table",
+        "Deleting a row in parent table",
+        "Adding a column to child table",
+        "Updating unrelated column"
+      ],
+      "answer": "Inserting a value not present in referenced table",
+      "number": 18
+    },
+    {
+      "question": "Create a foreign key with ON DELETE CASCADE.",
+      "options": [
+        "FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE",
+        "CASCADE DELETE FOREIGN KEY user_id REFERENCES users.id",
+        "FOREIGN DELETE CASCADE KEY (user_id) ON users.id",
+        "FOREIGN KEY DELETE CASCADE"
+      ],
+      "answer": "FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE",
+      "number": 19
+    },
+    {
+      "question": "Which column setup ensures `emp_id` in `salary` table links to `employee(id)`?",
+      "options": [
+        "emp_id INT, FOREIGN KEY (emp_id) REFERENCES employee(id)",
+        "emp_id INT REFERENCES employee(id)",
+        "FOREIGN KEY emp_id employee.id",
+        "emp_id KEY REFERENCES employee.id"
+      ],
+      "answer": "emp_id INT, FOREIGN KEY (emp_id) REFERENCES employee(id)",
+      "number": 20
+    }
+  ]
+}

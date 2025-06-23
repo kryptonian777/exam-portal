@@ -1,0 +1,225 @@
+{
+  "examName": "mysql_column_aliases_as",
+  "questions": [
+    {
+      "question": "What does the AS keyword do in MySQL?",
+      "options": [
+        "Deletes rows",
+        "Filters columns",
+        "Creates column aliases",
+        "Groups results"
+      ],
+      "answer": "Creates column aliases",
+      "number": 1
+    },
+    {
+      "question": "Which keyword is used to rename a column in output?",
+      "options": [
+        "RENAME",
+        "REPLACE",
+        "AS",
+        "ALIAS"
+      ],
+      "answer": "AS",
+      "number": 2
+    },
+    {
+      "question": "How would you rename a column `first_name` to `Name` in the result set?",
+      "options": [
+        "SELECT first_name AS Name;",
+        "RENAME first_name TO Name;",
+        "SHOW first_name AS Name;",
+        "SELECT Name FROM first_name;"
+      ],
+      "answer": "SELECT first_name AS Name;",
+      "number": 3
+    },
+    {
+      "question": "What is the output of: SELECT salary AS Income FROM employees?",
+      "options": [
+        "Column header shown as 'Income'",
+        "Salary is increased",
+        "Table renamed",
+        "No output"
+      ],
+      "answer": "Column header shown as 'Income'",
+      "number": 4
+    },
+    {
+      "question": "Is it mandatory to use AS for aliasing?",
+      "options": [
+        "Yes",
+        "No",
+        "Only in SELECT",
+        "Only in ORDER BY"
+      ],
+      "answer": "No",
+      "number": 5
+    },
+    {
+      "question": "Which aliasing is correct?",
+      "options": [
+        "SELECT age years FROM users;",
+        "SELECT age AS years FROM users;",
+        "SELECT AS age years FROM users;",
+        "RENAME age TO years;"
+      ],
+      "answer": "SELECT age AS years FROM users;",
+      "number": 6
+    },
+    {
+      "question": "Which query correctly aliases the column `total_price` as `Amount`?",
+      "options": [
+        "SELECT total_price AS Amount;",
+        "SELECT Amount FROM total_price;",
+        "SELECT total_price = Amount;",
+        "SELECT total_price Amount AS;"
+      ],
+      "answer": "SELECT total_price AS Amount;",
+      "number": 7
+    },
+    {
+      "question": "Can column alias be used in WHERE clause?",
+      "options": [
+        "Yes",
+        "No",
+        "Only in MySQL 8+",
+        "Only in subqueries"
+      ],
+      "answer": "No",
+      "number": 8
+    },
+    {
+      "question": "Which is a valid alias with space?",
+      "options": [
+        "SELECT salary AS 'Total Income';",
+        "SELECT salary AS Total Income;",
+        "SELECT salary Total Income;",
+        "SELECT salary = Total Income;"
+      ],
+      "answer": "SELECT salary AS 'Total Income';",
+      "number": 9
+    },
+    {
+      "question": "What will the output header be for: SELECT price AS cost FROM products?",
+      "options": [
+        "price",
+        "cost",
+        "products",
+        "AS"
+      ],
+      "answer": "cost",
+      "number": 10
+    },
+    {
+      "question": "Alias `order_date` as `Date Ordered` from `orders` table.",
+      "options": [
+        "SELECT order_date AS 'Date Ordered' FROM orders;",
+        "SELECT Date Ordered FROM orders;",
+        "SELECT order_date RENAME TO Date Ordered;",
+        "SHOW order_date AS Date Ordered;"
+      ],
+      "answer": "SELECT order_date AS 'Date Ordered' FROM orders;",
+      "number": 11
+    },
+    {
+      "question": "Select `first_name` as `Name` and `city` as `Location`.",
+      "options": [
+        "SELECT first_name AS Name, city AS Location FROM users;",
+        "SELECT Name, Location FROM users;",
+        "SELECT first_name, city AS Location FROM users;",
+        "SELECT AS Name first_name, city Location;"
+      ],
+      "answer": "SELECT first_name AS Name, city AS Location FROM users;",
+      "number": 12
+    },
+    {
+      "question": "Display full name using CONCAT with alias `FullName`.",
+      "options": [
+        "SELECT CONCAT(first_name, ' ', last_name) AS FullName FROM employees;",
+        "SELECT first_name + last_name AS FullName;",
+        "SELECT FullName FROM employees;",
+        "RENAME first_name + last_name TO FullName;"
+      ],
+      "answer": "SELECT CONCAT(first_name, ' ', last_name) AS FullName FROM employees;",
+      "number": 13
+    },
+    {
+      "question": "Create alias `Gross` for `price * quantity`.",
+      "options": [
+        "SELECT price * quantity AS Gross FROM sales;",
+        "SELECT Gross FROM price * quantity;",
+        "SELECT price * quantity Gross;",
+        "SELECT price AS Gross * quantity;"
+      ],
+      "answer": "SELECT price * quantity AS Gross FROM sales;",
+      "number": 14
+    },
+    {
+      "question": "Show name as `Customer Name` and address as `Location`.",
+      "options": [
+        "SELECT name AS 'Customer Name', address AS 'Location' FROM customers;",
+        "SELECT Customer Name, Location FROM customers;",
+        "RENAME name TO Customer Name, address TO Location;",
+        "SELECT name, address AS Location;"
+      ],
+      "answer": "SELECT name AS 'Customer Name', address AS 'Location' FROM customers;",
+      "number": 15
+    },
+    {
+      "question": "Query to show `product_name` as `Item` and `price` as `Cost`.",
+      "options": [
+        "SELECT product_name AS Item, price AS Cost FROM products;",
+        "SELECT product_name Item, price Cost;",
+        "SELECT Item, Cost FROM products;",
+        "SHOW product_name AS Item, price AS Cost;"
+      ],
+      "answer": "SELECT product_name AS Item, price AS Cost FROM products;",
+      "number": 16
+    },
+    {
+      "question": "Alias `birthdate` column as `DOB` in `students` table.",
+      "options": [
+        "SELECT birthdate AS DOB FROM students;",
+        "SELECT DOB FROM students;",
+        "RENAME birthdate TO DOB;",
+        "SELECT birthdate DOB;"
+      ],
+      "answer": "SELECT birthdate AS DOB FROM students;",
+      "number": 17
+    },
+    {
+      "question": "Query to calculate tax as 18% of price with alias `TaxAmount`.",
+      "options": [
+        "SELECT price * 0.18 AS TaxAmount FROM products;",
+        "SELECT price + 18 AS TaxAmount FROM products;",
+        "SELECT price * 18 AS TaxAmount FROM products;",
+        "SELECT price * 0.18 TaxAmount;"
+      ],
+      "answer": "SELECT price * 0.18 AS TaxAmount FROM products;",
+      "number": 18
+    },
+    {
+      "question": "Alias `total` column with a space in name like `Total Amount`.",
+      "options": [
+        "SELECT total AS 'Total Amount' FROM orders;",
+        "SELECT AS Total Amount total;",
+        "SELECT total 'Total Amount';",
+        "RENAME total TO Total Amount;"
+      ],
+      "answer": "SELECT total AS 'Total Amount' FROM orders;",
+      "number": 19
+    },
+    {
+      "question": "Create alias using backticks instead of quotes.",
+      "options": [
+        "SELECT revenue AS `Monthly Revenue` FROM earnings;",
+        "SELECT revenue AS 'Monthly Revenue';",
+        "SELECT revenue = Monthly Revenue;",
+        "SELECT revenue TO Monthly Revenue;"
+      ],
+      "answer": "SELECT revenue AS `Monthly Revenue` FROM earnings;",
+      "number": 20
+    }
+  ]
+}

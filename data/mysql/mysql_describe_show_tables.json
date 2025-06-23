@@ -1,0 +1,225 @@
+{
+  "examName": "mysql_describe_show_tables",
+  "questions": [
+    {
+      "question": "Which command displays all tables in the current database?",
+      "options": [
+        "SHOW TABLES;",
+        "SELECT * FROM TABLES;",
+        "LIST TABLES;",
+        "TABLES SHOW;"
+      ],
+      "answer": "SHOW TABLES;",
+      "number": 1
+    },
+    {
+      "question": "What does the DESCRIBE command do?",
+      "options": [
+        "Deletes the table",
+        "Displays structure of a table",
+        "Shows all table names",
+        "Describes database properties"
+      ],
+      "answer": "Displays structure of a table",
+      "number": 2
+    },
+    {
+      "question": "Which command shows column names, data types, and nullability of a table?",
+      "options": [
+        "SHOW TABLES;",
+        "DESCRIBE table_name;",
+        "SHOW DATABASES;",
+        "LIST COLUMNS;"
+      ],
+      "answer": "DESCRIBE table_name;",
+      "number": 3
+    },
+    {
+      "question": "Which SQL keyword is used to see table structure?",
+      "options": [
+        "SHOW",
+        "DESCRIBE",
+        "LIST",
+        "REVEAL"
+      ],
+      "answer": "DESCRIBE",
+      "number": 4
+    },
+    {
+      "question": "What will SHOW TABLES; output?",
+      "options": [
+        "Table columns",
+        "Table rows",
+        "Table names",
+        "Database users"
+      ],
+      "answer": "Table names",
+      "number": 5
+    },
+    {
+      "question": "To see all tables in a MySQL database, which command is used?",
+      "options": [
+        "SHOW TABLES;",
+        "DESCRIBE TABLE;",
+        "SHOW DATABASES;",
+        "VIEW TABLES;"
+      ],
+      "answer": "SHOW TABLES;",
+      "number": 6
+    },
+    {
+      "question": "What is an alias for DESCRIBE?",
+      "options": [
+        "STRUCTURE",
+        "EXPLAIN",
+        "FORMAT",
+        "DISPLAY"
+      ],
+      "answer": "EXPLAIN",
+      "number": 7
+    },
+    {
+      "question": "Which clause is valid to examine a table's schema?",
+      "options": [
+        "CHECK TABLE",
+        "DESCRIBE table_name;",
+        "INFO table_name;",
+        "READ table_name;"
+      ],
+      "answer": "DESCRIBE table_name;",
+      "number": 8
+    },
+    {
+      "question": "SHOW TABLES; is used after which command?",
+      "options": [
+        "USE database_name;",
+        "SELECT *;",
+        "DESCRIBE;",
+        "LIST TABLES;"
+      ],
+      "answer": "USE database_name;",
+      "number": 9
+    },
+    {
+      "question": "Which of these can be used to see column definitions?",
+      "options": [
+        "SHOW TABLES",
+        "DESCRIBE table",
+        "DROP TABLE",
+        "SELECT ALL"
+      ],
+      "answer": "DESCRIBE table",
+      "number": 10
+    },
+    {
+      "question": "You need to check column data types in the `students` table. What command do you use?",
+      "options": [
+        "DESCRIBE students;",
+        "SHOW students;",
+        "VIEW students;",
+        "LIST COLUMNS students;"
+      ],
+      "answer": "DESCRIBE students;",
+      "number": 11
+    },
+    {
+      "question": "To get all tables from the current database, run:",
+      "options": [
+        "SHOW TABLES;",
+        "DESCRIBE ALL;",
+        "LIST ALL TABLES;",
+        "SHOW DATABASE;"
+      ],
+      "answer": "SHOW TABLES;",
+      "number": 12
+    },
+    {
+      "question": "Which command displays the structure of the `orders` table?",
+      "options": [
+        "DESCRIBE orders;",
+        "SHOW TABLES FROM orders;",
+        "SHOW orders;",
+        "INFO orders;"
+      ],
+      "answer": "DESCRIBE orders;",
+      "number": 13
+    },
+    {
+      "question": "What output does DESCRIBE employees; return?",
+      "options": [
+        "Only column names",
+        "Column names, types, nullability, keys",
+        "Only data types",
+        "Just row count"
+      ],
+      "answer": "Column names, types, nullability, keys",
+      "number": 14
+    },
+    {
+      "question": "To verify if a table named `products` exists, what is the correct command?",
+      "options": [
+        "SHOW TABLES LIKE 'products';",
+        "DESCRIBE TABLES 'products';",
+        "LIST TABLES 'products';",
+        "SELECT * FROM products;"
+      ],
+      "answer": "SHOW TABLES LIKE 'products';",
+      "number": 15
+    },
+    {
+      "question": "Which command gives the same result as DESCRIBE `users`?",
+      "options": [
+        "EXPLAIN users;",
+        "SHOW TABLE users;",
+        "LIST users;",
+        "SHOW FIELDS FROM users;"
+      ],
+      "answer": "EXPLAIN users;",
+      "number": 16
+    },
+    {
+      "question": "After switching to the `shop` database, which command lists tables?",
+      "options": [
+        "USE shop; SHOW TABLES;",
+        "SHOW shop;",
+        "USE shop; DESCRIBE;",
+        "SELECT TABLES FROM shop;"
+      ],
+      "answer": "USE shop; SHOW TABLES;",
+      "number": 17
+    },
+    {
+      "question": "What command gives details about whether a column can accept NULL values?",
+      "options": [
+        "DESCRIBE table_name;",
+        "SHOW COLUMNS;",
+        "CHECK NULLS;",
+        "LIST NULLABLE;"
+      ],
+      "answer": "DESCRIBE table_name;",
+      "number": 18
+    },
+    {
+      "question": "You want to find which columns in `employees` are keys. What should you use?",
+      "options": [
+        "DESCRIBE employees;",
+        "SHOW employees;",
+        "KEY TABLE employees;",
+        "GET KEYS employees;"
+      ],
+      "answer": "DESCRIBE employees;",
+      "number": 19
+    },
+    {
+      "question": "You switched to `school` database and want to check all tables, use:",
+      "options": [
+        "USE school; SHOW TABLES;",
+        "DESCRIBE school;",
+        "SHOW DATABASE school;",
+        "SHOW TABLE school;"
+      ],
+      "answer": "USE school; SHOW TABLES;",
+      "number": 20
+    }
+  ]
+}

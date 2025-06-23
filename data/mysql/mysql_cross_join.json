@@ -1,0 +1,225 @@
+{
+  "examName": "mysql_cross_join",
+  "questions": [
+    {
+      "question": "What does a CROSS JOIN produce?",
+      "options": [
+        "All matching rows from both tables",
+        "A Cartesian product of rows from both tables",
+        "Only rows with common keys",
+        "No results if keys don't match"
+      ],
+      "answer": "A Cartesian product of rows from both tables",
+      "number": 1
+    },
+    {
+      "question": "Is CROSS JOIN the same as INNER JOIN?",
+      "options": [
+        "Yes",
+        "No",
+        "Only in Oracle",
+        "Only when used with WHERE clause"
+      ],
+      "answer": "No",
+      "number": 2
+    },
+    {
+      "question": "Which clause is typically not used with CROSS JOIN?",
+      "options": [
+        "ON",
+        "WHERE",
+        "ORDER BY",
+        "SELECT"
+      ],
+      "answer": "ON",
+      "number": 3
+    },
+    {
+      "question": "CROSS JOIN without a WHERE clause returns:",
+      "options": [
+        "Only matched rows",
+        "Duplicate rows",
+        "Combination of all rows from both tables",
+        "Error"
+      ],
+      "answer": "Combination of all rows from both tables",
+      "number": 4
+    },
+    {
+      "question": "How many rows are returned if Table A has 3 rows and Table B has 2 rows using CROSS JOIN?",
+      "options": [
+        "3",
+        "2",
+        "5",
+        "6"
+      ],
+      "answer": "6",
+      "number": 5
+    },
+    {
+      "question": "Which SQL clause is optional with CROSS JOIN?",
+      "options": [
+        "WHERE",
+        "SELECT",
+        "FROM",
+        "CROSS JOIN"
+      ],
+      "answer": "WHERE",
+      "number": 6
+    },
+    {
+      "question": "What keyword performs a CROSS JOIN?",
+      "options": [
+        "JOIN",
+        "CROSS JOIN",
+        "FULL JOIN",
+        "OUTER JOIN"
+      ],
+      "answer": "CROSS JOIN",
+      "number": 7
+    },
+    {
+      "question": "CROSS JOIN is useful when:",
+      "options": [
+        "Filtering matched data",
+        "Creating all combinations",
+        "Only showing differences",
+        "Deleting data"
+      ],
+      "answer": "Creating all combinations",
+      "number": 8
+    },
+    {
+      "question": "Which of the following is a valid CROSS JOIN query?",
+      "options": [
+        "SELECT * FROM A CROSS JOIN B;",
+        "SELECT * FROM A OUTER JOIN B;",
+        "SELECT * FROM A FULL JOIN B;",
+        "SELECT * FROM A RIGHT JOIN B;"
+      ],
+      "answer": "SELECT * FROM A CROSS JOIN B;",
+      "number": 9
+    },
+    {
+      "question": "If Table A has 10 rows and Table B has 4, how many rows result from A CROSS JOIN B?",
+      "options": [
+        "14",
+        "40",
+        "10",
+        "4"
+      ],
+      "answer": "40",
+      "number": 10
+    },
+    {
+      "question": "Show all combinations of colors and sizes for a product.",
+      "options": [
+        "SELECT * FROM colors CROSS JOIN sizes;",
+        "SELECT * FROM colors JOIN sizes;",
+        "SELECT * FROM sizes ON colors;",
+        "SELECT * FROM sizes INNER JOIN colors;"
+      ],
+      "answer": "SELECT * FROM colors CROSS JOIN sizes;",
+      "number": 11
+    },
+    {
+      "question": "List all day-time slot combinations for booking availability.",
+      "options": [
+        "SELECT * FROM days CROSS JOIN time_slots;",
+        "SELECT * FROM days INNER JOIN time_slots;",
+        "SELECT * FROM time_slots LEFT JOIN days;",
+        "SELECT * FROM days OUTER JOIN time_slots;"
+      ],
+      "answer": "SELECT * FROM days CROSS JOIN time_slots;",
+      "number": 12
+    },
+    {
+      "question": "Create a schedule for all employees for each shift.",
+      "options": [
+        "SELECT * FROM employees CROSS JOIN shifts;",
+        "SELECT * FROM employees JOIN shifts;",
+        "SELECT * FROM shifts ON employees;",
+        "SELECT * FROM employees FULL JOIN shifts;"
+      ],
+      "answer": "SELECT * FROM employees CROSS JOIN shifts;",
+      "number": 13
+    },
+    {
+      "question": "Generate all combinations of coupons and regions for a promo campaign.",
+      "options": [
+        "SELECT * FROM coupons CROSS JOIN regions;",
+        "SELECT * FROM coupons JOIN regions;",
+        "SELECT * FROM regions OUTER JOIN coupons;",
+        "SELECT * FROM regions JOIN coupons;"
+      ],
+      "answer": "SELECT * FROM coupons CROSS JOIN regions;",
+      "number": 14
+    },
+    {
+      "question": "Retrieve every user with every permission for auditing purposes.",
+      "options": [
+        "SELECT * FROM users CROSS JOIN permissions;",
+        "SELECT * FROM users OUTER JOIN permissions;",
+        "SELECT * FROM users JOIN permissions ON id;",
+        "SELECT * FROM users FULL JOIN permissions;"
+      ],
+      "answer": "SELECT * FROM users CROSS JOIN permissions;",
+      "number": 15
+    },
+    {
+      "question": "Create a match-up table for players vs. tournaments.",
+      "options": [
+        "SELECT * FROM players CROSS JOIN tournaments;",
+        "SELECT * FROM players JOIN tournaments;",
+        "JOIN players tournaments;",
+        "SELECT players.tournament FROM tournaments;"
+      ],
+      "answer": "SELECT * FROM players CROSS JOIN tournaments;",
+      "number": 16
+    },
+    {
+      "question": "List every course offered at each location.",
+      "options": [
+        "SELECT * FROM courses CROSS JOIN locations;",
+        "JOIN courses locations;",
+        "SELECT * FROM locations INNER JOIN courses;",
+        "SELECT FROM courses JOIN locations;"
+      ],
+      "answer": "SELECT * FROM courses CROSS JOIN locations;",
+      "number": 17
+    },
+    {
+      "question": "Show all combinations of projects and possible statuses.",
+      "options": [
+        "SELECT * FROM projects CROSS JOIN statuses;",
+        "SELECT * FROM statuses JOIN projects;",
+        "JOIN statuses projects;",
+        "SELECT * FROM statuses OUTER JOIN projects;"
+      ],
+      "answer": "SELECT * FROM projects CROSS JOIN statuses;",
+      "number": 18
+    },
+    {
+      "question": "Find every item pairing between item1 and item2 lists.",
+      "options": [
+        "SELECT * FROM item1 CROSS JOIN item2;",
+        "SELECT * FROM item1 JOIN item2;",
+        "RIGHT JOIN item2 item1;",
+        "SELECT * FROM item1 OUTER JOIN item2;"
+      ],
+      "answer": "SELECT * FROM item1 CROSS JOIN item2;",
+      "number": 19
+    },
+    {
+      "question": "Display all employee-day combinations for shift planning.",
+      "options": [
+        "SELECT * FROM employees CROSS JOIN days;",
+        "JOIN employees days;",
+        "OUTER JOIN employees days;",
+        "SELECT * FROM days LEFT JOIN employees;"
+      ],
+      "answer": "SELECT * FROM employees CROSS JOIN days;",
+      "number": 20
+    }
+  ]
+}

@@ -1,0 +1,225 @@
+{
+  "examName": "mysql_delete_from_where",
+  "questions": [
+    {
+      "question": "Which command is used to delete data from a table?",
+      "options": [
+        "REMOVE",
+        "DELETE",
+        "ERASE",
+        "DROP"
+      ],
+      "answer": "DELETE",
+      "number": 1
+    },
+    {
+      "question": "Which clause is used to specify which rows to delete?",
+      "options": [
+        "WHERE",
+        "SET",
+        "HAVING",
+        "FROM"
+      ],
+      "answer": "WHERE",
+      "number": 2
+    },
+    {
+      "question": "What happens if you omit the WHERE clause in a DELETE statement?",
+      "options": [
+        "Only one row is deleted",
+        "An error occurs",
+        "All rows are deleted",
+        "The query is ignored"
+      ],
+      "answer": "All rows are deleted",
+      "number": 3
+    },
+    {
+      "question": "What is the correct syntax to delete rows?",
+      "options": [
+        "DELETE FROM table_name WHERE condition;",
+        "REMOVE FROM table WHERE condition;",
+        "DELETE WHERE condition FROM table;",
+        "DROP FROM table WHERE condition;"
+      ],
+      "answer": "DELETE FROM table_name WHERE condition;",
+      "number": 4
+    },
+    {
+      "question": "Which statement will delete all records from a table?",
+      "options": [
+        "DELETE FROM table_name;",
+        "REMOVE table_name;",
+        "TRUNCATE table_name;",
+        "CLEAR table_name;"
+      ],
+      "answer": "DELETE FROM table_name;",
+      "number": 5
+    },
+    {
+      "question": "DELETE statement removes:",
+      "options": [
+        "Table structure",
+        "Selected records",
+        "Entire database",
+        "Constraints"
+      ],
+      "answer": "Selected records",
+      "number": 6
+    },
+    {
+      "question": "Can DELETE be rolled back if inside a transaction?",
+      "options": [
+        "Yes",
+        "No",
+        "Only if auto commit is off",
+        "Only in MySQL 8+"
+      ],
+      "answer": "Yes",
+      "number": 7
+    },
+    {
+      "question": "Which is safer for deleting selective data?",
+      "options": [
+        "DELETE with WHERE",
+        "DELETE without WHERE",
+        "DROP TABLE",
+        "TRUNCATE TABLE"
+      ],
+      "answer": "DELETE with WHERE",
+      "number": 8
+    },
+    {
+      "question": "What does DELETE FROM employees WHERE id = 5; do?",
+      "options": [
+        "Deletes the row with id 5",
+        "Deletes all rows",
+        "Deletes the employees table",
+        "Updates id 5 to null"
+      ],
+      "answer": "Deletes the row with id 5",
+      "number": 9
+    },
+    {
+      "question": "DELETE can be used on:",
+      "options": [
+        "Entire database",
+        "Tables",
+        "Columns",
+        "Stored procedures"
+      ],
+      "answer": "Tables",
+      "number": 10
+    },
+    {
+      "question": "Delete a user with username 'john_doe' from the 'users' table.",
+      "options": [
+        "DELETE FROM users WHERE username = 'john_doe';",
+        "DELETE users WHERE username = 'john_doe';",
+        "REMOVE FROM users WHERE name = 'john_doe';",
+        "DELETE * FROM users WHERE username = 'john_doe';"
+      ],
+      "answer": "DELETE FROM users WHERE username = 'john_doe';",
+      "number": 11
+    },
+    {
+      "question": "Delete records from 'orders' table where amount is less than 100.",
+      "options": [
+        "DELETE FROM orders WHERE amount < 100;",
+        "DELETE * FROM orders WHERE amount < 100;",
+        "DELETE orders WHERE amount < 100;",
+        "REMOVE FROM orders WHERE amount < 100;"
+      ],
+      "answer": "DELETE FROM orders WHERE amount < 100;",
+      "number": 12
+    },
+    {
+      "question": "Delete all employees in department 3.",
+      "options": [
+        "DELETE FROM employees WHERE department_id = 3;",
+        "DELETE * FROM employees WHERE department = 3;",
+        "REMOVE employees department 3;",
+        "DELETE department 3 FROM employees;"
+      ],
+      "answer": "DELETE FROM employees WHERE department_id = 3;",
+      "number": 13
+    },
+    {
+      "question": "Remove all inactive accounts from 'accounts' table.",
+      "options": [
+        "DELETE FROM accounts WHERE active = 0;",
+        "REMOVE accounts WHERE active = 0;",
+        "DELETE * accounts WHERE active = 0;",
+        "DELETE accounts active 0;"
+      ],
+      "answer": "DELETE FROM accounts WHERE active = 0;",
+      "number": 14
+    },
+    {
+      "question": "Delete orders placed before 2023-01-01.",
+      "options": [
+        "DELETE FROM orders WHERE order_date < '2023-01-01';",
+        "DELETE orders BEFORE 2023-01-01;",
+        "REMOVE orders WHERE date < 2023-01-01;",
+        "DELETE orders ORDER DATE < '2023-01-01';"
+      ],
+      "answer": "DELETE FROM orders WHERE order_date < '2023-01-01';",
+      "number": 15
+    },
+    {
+      "question": "Delete all rows from 'temp_data' table.",
+      "options": [
+        "DELETE FROM temp_data;",
+        "DROP temp_data;",
+        "REMOVE * FROM temp_data;",
+        "DELETE temp_data ALL;"
+      ],
+      "answer": "DELETE FROM temp_data;",
+      "number": 16
+    },
+    {
+      "question": "Delete student record with roll number 45.",
+      "options": [
+        "DELETE FROM students WHERE roll_no = 45;",
+        "DELETE roll_no 45 FROM students;",
+        "REMOVE students roll 45;",
+        "DELETE FROM students roll = 45;"
+      ],
+      "answer": "DELETE FROM students WHERE roll_no = 45;",
+      "number": 17
+    },
+    {
+      "question": "Delete entries from 'feedback' table with null comments.",
+      "options": [
+        "DELETE FROM feedback WHERE comments IS NULL;",
+        "DELETE feedback WHERE comments IS NULL;",
+        "REMOVE FROM feedback WHERE comments = NULL;",
+        "DELETE * FROM feedback WHERE comments IS NULL;"
+      ],
+      "answer": "DELETE FROM feedback WHERE comments IS NULL;",
+      "number": 18
+    },
+    {
+      "question": "Delete login attempts older than 7 days from 'logs' table.",
+      "options": [
+        "DELETE FROM logs WHERE attempt_date < CURDATE() - INTERVAL 7 DAY;",
+        "DELETE logs WHERE date < 7;",
+        "REMOVE logs OLDER 7 DAYS;",
+        "DELETE * FROM logs BEFORE 7 DAYS;"
+      ],
+      "answer": "DELETE FROM logs WHERE attempt_date < CURDATE() - INTERVAL 7 DAY;",
+      "number": 19
+    },
+    {
+      "question": "Remove all unpaid invoices.",
+      "options": [
+        "DELETE FROM invoices WHERE status = 'unpaid';",
+        "DELETE invoices WHERE not_paid = 1;",
+        "DELETE unpaid FROM invoices;",
+        "REMOVE invoices unpaid;"
+      ],
+      "answer": "DELETE FROM invoices WHERE status = 'unpaid';",
+      "number": 20
+    }
+  ]
+}

@@ -1,0 +1,225 @@
+{
+  "examName": "alter_table_add_modify_drop",
+  "questions": [
+    {
+      "question": "Which command adds a new column to an existing table?",
+      "options": [
+        "MODIFY TABLE",
+        "ADD COLUMN",
+        "ALTER TABLE ... ADD",
+        "INSERT COLUMN"
+      ],
+      "answer": "ALTER TABLE ... ADD",
+      "number": 1
+    },
+    {
+      "question": "Which keyword is used to remove a column from a table?",
+      "options": [
+        "REMOVE COLUMN",
+        "DROP",
+        "DELETE",
+        "ALTER COLUMN"
+      ],
+      "answer": "DROP",
+      "number": 2
+    },
+    {
+      "question": "To change a column's data type, which command is correct?",
+      "options": [
+        "CHANGE TYPE",
+        "MODIFY COLUMN",
+        "UPDATE TYPE",
+        "RESET COLUMN"
+      ],
+      "answer": "MODIFY COLUMN",
+      "number": 3
+    },
+    {
+      "question": "What is the correct SQL to add a new column `age` of type INT?",
+      "options": [
+        "ALTER TABLE users ADD age INT;",
+        "MODIFY TABLE users age INT;",
+        "ADD COLUMN age INT TO users;",
+        "UPDATE users ADD age INT;"
+      ],
+      "answer": "ALTER TABLE users ADD age INT;",
+      "number": 4
+    },
+    {
+      "question": "How do you drop the column `email` from `users` table?",
+      "options": [
+        "ALTER TABLE users DELETE email;",
+        "ALTER TABLE users DROP COLUMN email;",
+        "REMOVE COLUMN email FROM users;",
+        "DELETE email FROM users;"
+      ],
+      "answer": "ALTER TABLE users DROP COLUMN email;",
+      "number": 5
+    },
+    {
+      "question": "Which of the following is used to change column definition?",
+      "options": [
+        "UPDATE",
+        "SET",
+        "MODIFY",
+        "ALTER"
+      ],
+      "answer": "MODIFY",
+      "number": 6
+    },
+    {
+      "question": "What does ALTER TABLE allow you to do?",
+      "options": [
+        "Create tables",
+        "Insert data",
+        "Change table structure",
+        "Drop database"
+      ],
+      "answer": "Change table structure",
+      "number": 7
+    },
+    {
+      "question": "What keyword is used with ALTER TABLE to rename a column?",
+      "options": [
+        "RENAME COLUMN",
+        "CHANGE",
+        "MODIFY",
+        "SWITCH"
+      ],
+      "answer": "CHANGE",
+      "number": 8
+    },
+    {
+      "question": "Which clause adds a new TEXT column named `description`?",
+      "options": [
+        "ALTER TABLE products ADD description TEXT;",
+        "ALTER TABLE products INSERT description TEXT;",
+        "ALTER products ADD COLUMN description TEXT;",
+        "ADD COLUMN description TEXT TO products;"
+      ],
+      "answer": "ALTER TABLE products ADD description TEXT;",
+      "number": 9
+    },
+    {
+      "question": "What keyword is used with ALTER TABLE to change column name and type?",
+      "options": [
+        "RENAME TO",
+        "CHANGE",
+        "MODIFY",
+        "EDIT"
+      ],
+      "answer": "CHANGE",
+      "number": 10
+    },
+    {
+      "question": "You want to increase the size of `title` column from VARCHAR(50) to VARCHAR(100), what\u2019s the correct SQL?",
+      "options": [
+        "ALTER TABLE books MODIFY title VARCHAR(100);",
+        "UPDATE books SET title = VARCHAR(100);",
+        "ALTER TABLE books ADD title VARCHAR(100);",
+        "CHANGE books title TO VARCHAR(100);"
+      ],
+      "answer": "ALTER TABLE books MODIFY title VARCHAR(100);",
+      "number": 11
+    },
+    {
+      "question": "How do you rename the column `username` to `user_name` in `users` table?",
+      "options": [
+        "ALTER TABLE users CHANGE username user_name VARCHAR(50);",
+        "ALTER TABLE users MODIFY user_name VARCHAR(50);",
+        "ALTER TABLE users RENAME COLUMN username TO user_name;",
+        "RENAME users.username TO user_name;"
+      ],
+      "answer": "ALTER TABLE users CHANGE username user_name VARCHAR(50);",
+      "number": 12
+    },
+    {
+      "question": "You need to remove a column `discount` from `sales`, what do you use?",
+      "options": [
+        "ALTER TABLE sales DROP COLUMN discount;",
+        "DELETE discount FROM sales;",
+        "REMOVE COLUMN discount;",
+        "ALTER sales REMOVE discount;"
+      ],
+      "answer": "ALTER TABLE sales DROP COLUMN discount;",
+      "number": 13
+    },
+    {
+      "question": "To add a column `status` with default value 'active', which command works?",
+      "options": [
+        "ALTER TABLE accounts ADD status VARCHAR(10) DEFAULT 'active';",
+        "ADD COLUMN status TO accounts DEFAULT 'active';",
+        "INSERT COLUMN status TEXT 'active';",
+        "ALTER accounts ADD COLUMN status TEXT;"
+      ],
+      "answer": "ALTER TABLE accounts ADD status VARCHAR(10) DEFAULT 'active';",
+      "number": 14
+    },
+    {
+      "question": "What is the result of ALTER TABLE emp DROP COLUMN age?",
+      "options": [
+        "Deletes the table",
+        "Removes the column `age` from `emp`",
+        "Deletes all data in age",
+        "Resets age to null"
+      ],
+      "answer": "Removes the column `age` from `emp`",
+      "number": 15
+    },
+    {
+      "question": "How would you change the data type of `rating` to FLOAT in `reviews` table?",
+      "options": [
+        "ALTER TABLE reviews MODIFY rating FLOAT;",
+        "UPDATE TABLE reviews SET rating = FLOAT;",
+        "ALTER COLUMN reviews.rating TO FLOAT;",
+        "ALTER TABLE reviews ADD rating FLOAT;"
+      ],
+      "answer": "ALTER TABLE reviews MODIFY rating FLOAT;",
+      "number": 16
+    },
+    {
+      "question": "You want to add a `created_at` column with DATE type to `orders`, use:",
+      "options": [
+        "ALTER TABLE orders ADD created_at DATE;",
+        "ALTER orders ADD created_at DATE;",
+        "INSERT COLUMN created_at DATE;",
+        "ADD COLUMN created_at TO orders;"
+      ],
+      "answer": "ALTER TABLE orders ADD created_at DATE;",
+      "number": 17
+    },
+    {
+      "question": "Which SQL alters `dept_id` column to INT type in departments table?",
+      "options": [
+        "ALTER TABLE departments MODIFY dept_id INT;",
+        "ALTER departments CHANGE dept_id TO INT;",
+        "MODIFY COLUMN dept_id INT;",
+        "ALTER TABLE departments ADD dept_id INT;"
+      ],
+      "answer": "ALTER TABLE departments MODIFY dept_id INT;",
+      "number": 18
+    },
+    {
+      "question": "To drop the column `phone` in `customers`, you write:",
+      "options": [
+        "ALTER TABLE customers DROP COLUMN phone;",
+        "ALTER TABLE customers DELETE phone;",
+        "DROP phone FROM customers;",
+        "REMOVE COLUMN phone;"
+      ],
+      "answer": "ALTER TABLE customers DROP COLUMN phone;",
+      "number": 19
+    },
+    {
+      "question": "Which command changes column `dob` from DATE to DATETIME in `students`?",
+      "options": [
+        "ALTER TABLE students MODIFY dob DATETIME;",
+        "ALTER TABLE students CHANGE dob DATETIME;",
+        "UPDATE students SET dob = DATETIME;",
+        "MODIFY students dob TO DATETIME;"
+      ],
+      "answer": "ALTER TABLE students MODIFY dob DATETIME;",
+      "number": 20
+    }
+  ]
+}

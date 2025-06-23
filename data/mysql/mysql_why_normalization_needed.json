@@ -1,0 +1,115 @@
+{
+  "examName": "mysql_why_normalization_needed",
+  "questions": [
+    {
+      "question": "Why is normalization important in database design?",
+      "options": [
+        "To duplicate data",
+        "To increase redundancy",
+        "To reduce data anomalies and redundancy",
+        "To make queries complex"
+      ],
+      "answer": "To reduce data anomalies and redundancy",
+      "number": 1
+    },
+    {
+      "question": "What type of anomaly can normalization help avoid?",
+      "options": [
+        "Syntax errors",
+        "Update, Insert, and Delete anomalies",
+        "Memory errors",
+        "Syntax warnings"
+      ],
+      "answer": "Update, Insert, and Delete anomalies",
+      "number": 2
+    },
+    {
+      "question": "Which of the following is a benefit of normalization?",
+      "options": [
+        "Increased data duplication",
+        "Better data integrity",
+        "More storage usage",
+        "Complex design"
+      ],
+      "answer": "Better data integrity",
+      "number": 3
+    },
+    {
+      "question": "How does normalization affect storage?",
+      "options": [
+        "Increases unnecessary data",
+        "Reduces redundant storage",
+        "Leads to more duplicated tables",
+        "Makes tables heavier"
+      ],
+      "answer": "Reduces redundant storage",
+      "number": 4
+    },
+    {
+      "question": "Which anomaly involves needing to enter the same data multiple times?",
+      "options": [
+        "Update anomaly",
+        "Insert anomaly",
+        "Delete anomaly",
+        "Redundancy"
+      ],
+      "answer": "Insert anomaly",
+      "number": 5
+    },
+    {
+      "question": "Which anomaly happens when deleting a row causes loss of valuable data?",
+      "options": [
+        "Insert anomaly",
+        "Update anomaly",
+        "Delete anomaly",
+        "Duplicate anomaly"
+      ],
+      "answer": "Delete anomaly",
+      "number": 6
+    },
+    {
+      "question": "What is the outcome of unnormalized database designs?",
+      "options": [
+        "Faster queries",
+        "Data inconsistency",
+        "Improved normalization",
+        "Simple indexing"
+      ],
+      "answer": "Data inconsistency",
+      "number": 7
+    },
+    {
+      "question": "Normalization simplifies which of the following?",
+      "options": [
+        "Data redundancy",
+        "Table merging",
+        "Data analysis",
+        "Data structure maintenance"
+      ],
+      "answer": "Data structure maintenance",
+      "number": 8
+    },
+    {
+      "question": "Which process results in breaking down larger tables into smaller related ones?",
+      "options": [
+        "Backup",
+        "Partitioning",
+        "Normalization",
+        "Clustering"
+      ],
+      "answer": "Normalization",
+      "number": 9
+    },
+    {
+      "question": "Why normalize when there is already a primary key?",
+      "options": [
+        "Primary key solves all issues",
+        "Normalization adds more constraints",
+        "To remove hidden dependencies",
+        "To reduce database access speed"
+      ],
+      "answer": "To remove hidden dependencies",
+      "number": 10
+    }
+  ]
+}

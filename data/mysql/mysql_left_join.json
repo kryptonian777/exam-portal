@@ -1,0 +1,225 @@
+{
+  "examName": "mysql_left_join",
+  "questions": [
+    {
+      "question": "What does LEFT JOIN return?",
+      "options": [
+        "Only matching rows from both tables",
+        "All rows from the left table and matching rows from the right table",
+        "All rows from the right table",
+        "Rows that don\u2019t match"
+      ],
+      "answer": "All rows from the left table and matching rows from the right table",
+      "number": 1
+    },
+    {
+      "question": "Which keyword is used for LEFT JOIN?",
+      "options": [
+        "LEFT JOIN",
+        "RIGHT JOIN",
+        "FULL JOIN",
+        "INNER JOIN"
+      ],
+      "answer": "LEFT JOIN",
+      "number": 2
+    },
+    {
+      "question": "What happens when no match is found in RIGHT table with LEFT JOIN?",
+      "options": [
+        "Row is ignored",
+        "NULLs are shown for right table",
+        "Error occurs",
+        "Left table row is deleted"
+      ],
+      "answer": "NULLs are shown for right table",
+      "number": 3
+    },
+    {
+      "question": "Is LEFT OUTER JOIN same as LEFT JOIN?",
+      "options": [
+        "Yes",
+        "No",
+        "Only in MySQL",
+        "Only in PostgreSQL"
+      ],
+      "answer": "Yes",
+      "number": 4
+    },
+    {
+      "question": "LEFT JOIN is useful when?",
+      "options": [
+        "You want only matched data",
+        "You want unmatched data from right table",
+        "You want all data from left table regardless of match",
+        "You want all data from both tables"
+      ],
+      "answer": "You want all data from left table regardless of match",
+      "number": 5
+    },
+    {
+      "question": "Which clause is needed with LEFT JOIN?",
+      "options": [
+        "ON",
+        "WHERE",
+        "HAVING",
+        "GROUP BY"
+      ],
+      "answer": "ON",
+      "number": 6
+    },
+    {
+      "question": "What does a NULL in the joined result indicate?",
+      "options": [
+        "Data is corrupted",
+        "No matching record in the right table",
+        "Duplicate record",
+        "Full match found"
+      ],
+      "answer": "No matching record in the right table",
+      "number": 7
+    },
+    {
+      "question": "Can LEFT JOIN be used with multiple conditions?",
+      "options": [
+        "Yes",
+        "No",
+        "Only in subqueries",
+        "Only for text fields"
+      ],
+      "answer": "Yes",
+      "number": 8
+    },
+    {
+      "question": "Which table is fully preserved in LEFT JOIN?",
+      "options": [
+        "Right table",
+        "Left table",
+        "Both tables",
+        "No table"
+      ],
+      "answer": "Left table",
+      "number": 9
+    },
+    {
+      "question": "What\u2019s the default join if only JOIN is used?",
+      "options": [
+        "LEFT JOIN",
+        "RIGHT JOIN",
+        "FULL JOIN",
+        "INNER JOIN"
+      ],
+      "answer": "INNER JOIN",
+      "number": 10
+    },
+    {
+      "question": "Retrieve all customers and their orders, if any.",
+      "options": [
+        "SELECT customers.name, orders.id FROM customers LEFT JOIN orders ON customers.id = orders.customer_id;",
+        "SELECT name FROM customers JOIN orders;",
+        "LEFT JOIN customers ON orders;",
+        "SELECT orders.id LEFT customers;"
+      ],
+      "answer": "SELECT customers.name, orders.id FROM customers LEFT JOIN orders ON customers.id = orders.customer_id;",
+      "number": 11
+    },
+    {
+      "question": "Get all employees and their department names.",
+      "options": [
+        "SELECT employees.name, departments.dept_name FROM employees LEFT JOIN departments ON employees.dept_id = departments.id;",
+        "SELECT employees.name FROM employees JOIN departments;",
+        "JOIN employees departments LEFT;",
+        "SELECT departments.name FROM employees;"
+      ],
+      "answer": "SELECT employees.name, departments.dept_name FROM employees LEFT JOIN departments ON employees.dept_id = departments.id;",
+      "number": 12
+    },
+    {
+      "question": "List all students and their exam scores, if any.",
+      "options": [
+        "SELECT students.name, exams.score FROM students LEFT JOIN exams ON students.id = exams.student_id;",
+        "LEFT JOIN students ON exams;",
+        "SELECT exams.score FROM students;",
+        "SELECT * FROM exams LEFT JOIN students;"
+      ],
+      "answer": "SELECT students.name, exams.score FROM students LEFT JOIN exams ON students.id = exams.student_id;",
+      "number": 13
+    },
+    {
+      "question": "Show all products and their suppliers if available.",
+      "options": [
+        "SELECT products.name, suppliers.name FROM products LEFT JOIN suppliers ON products.supplier_id = suppliers.id;",
+        "LEFT JOIN products ON suppliers;",
+        "SELECT name FROM suppliers LEFT JOIN products;",
+        "SELECT * FROM suppliers JOIN products;"
+      ],
+      "answer": "SELECT products.name, suppliers.name FROM products LEFT JOIN suppliers ON products.supplier_id = suppliers.id;",
+      "number": 14
+    },
+    {
+      "question": "Display all books and their authors, if any author is assigned.",
+      "options": [
+        "SELECT books.title, authors.name FROM books LEFT JOIN authors ON books.author_id = authors.id;",
+        "LEFT JOIN books ON authors;",
+        "SELECT * FROM authors LEFT JOIN books;",
+        "SELECT name FROM authors JOIN books;"
+      ],
+      "answer": "SELECT books.title, authors.name FROM books LEFT JOIN authors ON books.author_id = authors.id;",
+      "number": 15
+    },
+    {
+      "question": "Fetch all orders with shipment details if available.",
+      "options": [
+        "SELECT orders.id, shipments.date FROM orders LEFT JOIN shipments ON orders.shipment_id = shipments.id;",
+        "SELECT id FROM orders JOIN shipments;",
+        "LEFT JOIN orders shipments;",
+        "SELECT * FROM shipments LEFT orders;"
+      ],
+      "answer": "SELECT orders.id, shipments.date FROM orders LEFT JOIN shipments ON orders.shipment_id = shipments.id;",
+      "number": 16
+    },
+    {
+      "question": "Get list of classes and their assigned teachers.",
+      "options": [
+        "SELECT classes.name, teachers.name FROM classes LEFT JOIN teachers ON classes.teacher_id = teachers.id;",
+        "JOIN teachers ON classes;",
+        "SELECT name FROM teachers JOIN classes;",
+        "LEFT JOIN classes teachers;"
+      ],
+      "answer": "SELECT classes.name, teachers.name FROM classes LEFT JOIN teachers ON classes.teacher_id = teachers.id;",
+      "number": 17
+    },
+    {
+      "question": "Retrieve customers and any support tickets they\u2019ve submitted.",
+      "options": [
+        "SELECT customers.name, tickets.issue FROM customers LEFT JOIN tickets ON customers.id = tickets.customer_id;",
+        "JOIN customers tickets;",
+        "LEFT JOIN tickets customers;",
+        "SELECT issue FROM customers JOIN tickets;"
+      ],
+      "answer": "SELECT customers.name, tickets.issue FROM customers LEFT JOIN tickets ON customers.id = tickets.customer_id;",
+      "number": 18
+    },
+    {
+      "question": "List all vendors and the products they offer.",
+      "options": [
+        "SELECT vendors.name, products.name FROM vendors LEFT JOIN products ON vendors.id = products.vendor_id;",
+        "LEFT JOIN vendors products;",
+        "JOIN vendors ON products;",
+        "SELECT * FROM vendors;"
+      ],
+      "answer": "SELECT vendors.name, products.name FROM vendors LEFT JOIN products ON vendors.id = products.vendor_id;",
+      "number": 19
+    },
+    {
+      "question": "Display all blog posts and their assigned categories.",
+      "options": [
+        "SELECT posts.title, categories.name FROM posts LEFT JOIN categories ON posts.category_id = categories.id;",
+        "JOIN posts categories;",
+        "SELECT posts LEFT JOIN categories;",
+        "SELECT categories.name FROM posts;"
+      ],
+      "answer": "SELECT posts.title, categories.name FROM posts LEFT JOIN categories ON posts.category_id = categories.id;",
+      "number": 20
+    }
+  ]
+}

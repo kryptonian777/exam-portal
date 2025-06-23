@@ -1,0 +1,225 @@
+{
+  "examName": "mysql_table_aliases_as_t",
+  "questions": [
+    {
+      "question": "What does a table alias allow in SQL?",
+      "options": [
+        "Rename a table in the database",
+        "Assign a temporary name in a query",
+        "Sort records automatically",
+        "Delete duplicate tables"
+      ],
+      "answer": "Assign a temporary name in a query",
+      "number": 1
+    },
+    {
+      "question": "Which SQL keyword is used to create a table alias?",
+      "options": [
+        "RENAME",
+        "REPLACE",
+        "AS",
+        "NEW"
+      ],
+      "answer": "AS",
+      "number": 2
+    },
+    {
+      "question": "Why use a table alias in SQL?",
+      "options": [
+        "To reduce query size",
+        "To make joins readable",
+        "To use shorter names",
+        "All of the above"
+      ],
+      "answer": "All of the above",
+      "number": 3
+    },
+    {
+      "question": "What is the correct way to alias the 'orders' table as 'o'?",
+      "options": [
+        "FROM orders AS o",
+        "FROM o AS orders",
+        "RENAME orders o",
+        "SELECT orders AS o"
+      ],
+      "answer": "FROM orders AS o",
+      "number": 4
+    },
+    {
+      "question": "Can a table alias be used without AS keyword?",
+      "options": [
+        "Yes",
+        "No",
+        "Only in joins",
+        "Only with views"
+      ],
+      "answer": "Yes",
+      "number": 5
+    },
+    {
+      "question": "Which aliasing is correct in SELECT * FROM products?",
+      "options": [
+        "SELECT * FROM products AS p;",
+        "SELECT * FROM AS products;",
+        "SELECT p FROM products;",
+        "SELECT * products AS p;"
+      ],
+      "answer": "SELECT * FROM products AS p;",
+      "number": 6
+    },
+    {
+      "question": "Which is a valid alias for table 'employees'?",
+      "options": [
+        "FROM employees AS e",
+        "FROM employees AS employees",
+        "FROM employees e",
+        "Both 1 and 3"
+      ],
+      "answer": "Both 1 and 3",
+      "number": 7
+    },
+    {
+      "question": "Can you use the alias in WHERE clause?",
+      "options": [
+        "Yes",
+        "No",
+        "Only in JOIN",
+        "Only if SELECT is subquery"
+      ],
+      "answer": "Yes",
+      "number": 8
+    },
+    {
+      "question": "What will this query do? SELECT * FROM users u;",
+      "options": [
+        "Assign alias 'u' to 'users' table",
+        "Assign alias to column",
+        "Cause an error",
+        "Drop the 'users' table"
+      ],
+      "answer": "Assign alias 'u' to 'users' table",
+      "number": 9
+    },
+    {
+      "question": "Is 'AS' required while aliasing a table?",
+      "options": [
+        "No",
+        "Yes",
+        "Only in joins",
+        "Always"
+      ],
+      "answer": "No",
+      "number": 10
+    },
+    {
+      "question": "Alias the `students` table as `s` and select all columns.",
+      "options": [
+        "SELECT * FROM students s;",
+        "SELECT * FROM students AS;",
+        "SELECT s.* FROM students;",
+        "SELECT students FROM s;"
+      ],
+      "answer": "SELECT * FROM students s;",
+      "number": 11
+    },
+    {
+      "question": "Use alias `c` for customers and get name column.",
+      "options": [
+        "SELECT c.name FROM customers c;",
+        "SELECT name FROM customers c;",
+        "SELECT customers.name AS c FROM c;",
+        "SELECT c FROM customers name;"
+      ],
+      "answer": "SELECT c.name FROM customers c;",
+      "number": 12
+    },
+    {
+      "question": "Write a query using alias `p` to get `product_name` from products.",
+      "options": [
+        "SELECT p.product_name FROM products p;",
+        "SELECT products.product_name FROM p;",
+        "SELECT * FROM products AS product_name;",
+        "SELECT product_name AS p FROM products;"
+      ],
+      "answer": "SELECT p.product_name FROM products p;",
+      "number": 13
+    },
+    {
+      "question": "Use alias `e` for employees and select `e.salary`.",
+      "options": [
+        "SELECT e.salary FROM employees e;",
+        "SELECT employees.salary FROM e;",
+        "SELECT salary FROM employees AS e;",
+        "SELECT e FROM salary;"
+      ],
+      "answer": "SELECT e.salary FROM employees e;",
+      "number": 14
+    },
+    {
+      "question": "Fetch names from `students` table using alias `st`.",
+      "options": [
+        "SELECT st.name FROM students st;",
+        "SELECT students.name FROM st;",
+        "SELECT name FROM students AS st;",
+        "Both 1 and 3"
+      ],
+      "answer": "Both 1 and 3",
+      "number": 15
+    },
+    {
+      "question": "Alias `orders` table as `o` and select `o.order_date`.",
+      "options": [
+        "SELECT o.order_date FROM orders o;",
+        "SELECT order_date FROM orders AS o;",
+        "SELECT o.* FROM orders;",
+        "All of the above"
+      ],
+      "answer": "All of the above",
+      "number": 16
+    },
+    {
+      "question": "Using alias `inv` for invoices, select invoice_number.",
+      "options": [
+        "SELECT inv.invoice_number FROM invoices inv;",
+        "SELECT invoice_number FROM invoices;",
+        "SELECT invoice_number AS inv FROM invoices;",
+        "SELECT invoices.invoice_number FROM inv;"
+      ],
+      "answer": "SELECT inv.invoice_number FROM invoices inv;",
+      "number": 17
+    },
+    {
+      "question": "Alias `departments` as `d` and select `d.name`.",
+      "options": [
+        "SELECT d.name FROM departments d;",
+        "SELECT name FROM departments AS d;",
+        "SELECT departments.name AS d;",
+        "SELECT d FROM departments;"
+      ],
+      "answer": "SELECT d.name FROM departments d;",
+      "number": 18
+    },
+    {
+      "question": "Alias `logins` table as `l` and fetch `login_time`.",
+      "options": [
+        "SELECT l.login_time FROM logins l;",
+        "SELECT logins.login_time FROM l;",
+        "SELECT login_time AS l FROM logins;",
+        "SELECT * FROM logins l login_time;"
+      ],
+      "answer": "SELECT l.login_time FROM logins l;",
+      "number": 19
+    },
+    {
+      "question": "Use table alias `usr` for `users` and get email.",
+      "options": [
+        "SELECT usr.email FROM users usr;",
+        "SELECT email FROM users AS usr;",
+        "SELECT email AS usr FROM users;",
+        "SELECT users.email FROM usr;"
+      ],
+      "answer": "SELECT usr.email FROM users usr;",
+      "number": 20
+    }
+  ]
+}

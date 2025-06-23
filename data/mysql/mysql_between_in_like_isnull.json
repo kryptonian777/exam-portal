@@ -1,0 +1,225 @@
+{
+  "examName": "mysql_between_in_like_isnull",
+  "questions": [
+    {
+      "question": "What does the BETWEEN operator do in SQL?",
+      "options": [
+        "Checks for null",
+        "Matches exact values",
+        "Checks if value is within a range",
+        "Matches pattern"
+      ],
+      "answer": "Checks if value is within a range",
+      "number": 1
+    },
+    {
+      "question": "Which operator is used to match a value within a set of values?",
+      "options": [
+        "=",
+        "BETWEEN",
+        "IN",
+        "LIKE"
+      ],
+      "answer": "IN",
+      "number": 2
+    },
+    {
+      "question": "What does the LIKE operator do?",
+      "options": [
+        "Matches exact value",
+        "Performs pattern matching",
+        "Returns nulls",
+        "Joins tables"
+      ],
+      "answer": "Performs pattern matching",
+      "number": 3
+    },
+    {
+      "question": "Which keyword checks if a value is NULL?",
+      "options": [
+        "NULL?",
+        "IS NULL",
+        "EQUAL NULL",
+        "= NULL"
+      ],
+      "answer": "IS NULL",
+      "number": 4
+    },
+    {
+      "question": "What would this query do? SELECT * FROM table WHERE age BETWEEN 20 AND 30;",
+      "options": [
+        "Selects ages below 20",
+        "Selects ages exactly 20 and 30",
+        "Selects ages from 20 to 30 inclusive",
+        "Throws an error"
+      ],
+      "answer": "Selects ages from 20 to 30 inclusive",
+      "number": 5
+    },
+    {
+      "question": "Which clause returns rows with column value in (10, 20, 30)?",
+      "options": [
+        "WHERE col IN (10, 20, 30)",
+        "WHERE col = 10 AND 20 AND 30",
+        "WHERE col == (10, 20, 30)",
+        "None of the above"
+      ],
+      "answer": "WHERE col IN (10, 20, 30)",
+      "number": 6
+    },
+    {
+      "question": "Which operator is used to match a string starting with 'A'?",
+      "options": [
+        "LIKE 'A%'",
+        "LIKE '%A'",
+        "LIKE '_A'",
+        "IN 'A%'"
+      ],
+      "answer": "LIKE 'A%'",
+      "number": 7
+    },
+    {
+      "question": "Which SQL keyword checks for non-null values?",
+      "options": [
+        "IS NULL",
+        "IS NOT NULL",
+        "NOT NULL",
+        "!= NULL"
+      ],
+      "answer": "IS NOT NULL",
+      "number": 8
+    },
+    {
+      "question": "What does the underscore (_) symbol in LIKE pattern mean?",
+      "options": [
+        "Zero or more characters",
+        "Exact match",
+        "Single character wildcard",
+        "Matches NULL"
+      ],
+      "answer": "Single character wildcard",
+      "number": 9
+    },
+    {
+      "question": "What will this query do: SELECT * FROM students WHERE grade IS NULL;",
+      "options": [
+        "Finds all students",
+        "Finds students with empty strings",
+        "Finds students with NULL grades",
+        "Error"
+      ],
+      "answer": "Finds students with NULL grades",
+      "number": 10
+    },
+    {
+      "question": "Select products priced between 100 and 500.",
+      "options": [
+        "SELECT * FROM products WHERE price BETWEEN 100 AND 500;",
+        "SELECT * FROM products WHERE price >= 100 AND price <= 500;",
+        "Both A and B",
+        "None"
+      ],
+      "answer": "Both A and B",
+      "number": 11
+    },
+    {
+      "question": "Find employees with department in 'HR', 'IT', 'Finance'.",
+      "options": [
+        "SELECT * FROM employees WHERE department IN ('HR', 'IT', 'Finance');",
+        "SELECT * FROM employees WHERE department == 'HR' OR 'IT' OR 'Finance';",
+        "SELECT * FROM employees WHERE department LIKE ('HR', 'IT', 'Finance');",
+        "None"
+      ],
+      "answer": "SELECT * FROM employees WHERE department IN ('HR', 'IT', 'Finance');",
+      "number": 12
+    },
+    {
+      "question": "Select names starting with 'A'.",
+      "options": [
+        "SELECT * FROM users WHERE name LIKE 'A%';",
+        "SELECT * FROM users WHERE name LIKE '%A';",
+        "SELECT * FROM users WHERE name LIKE '_A%';",
+        "None"
+      ],
+      "answer": "SELECT * FROM users WHERE name LIKE 'A%';",
+      "number": 13
+    },
+    {
+      "question": "Get customers where city ends with 'pur'.",
+      "options": [
+        "SELECT * FROM customers WHERE city LIKE '%pur';",
+        "SELECT * FROM customers WHERE city = 'pur';",
+        "SELECT * FROM customers WHERE city IN ('pur');",
+        "None"
+      ],
+      "answer": "SELECT * FROM customers WHERE city LIKE '%pur';",
+      "number": 14
+    },
+    {
+      "question": "Query to select records where phone number is not available (null).",
+      "options": [
+        "SELECT * FROM contacts WHERE phone IS NULL;",
+        "SELECT * FROM contacts WHERE phone = NULL;",
+        "SELECT * FROM contacts WHERE phone != NULL;",
+        "None"
+      ],
+      "answer": "SELECT * FROM contacts WHERE phone IS NULL;",
+      "number": 15
+    },
+    {
+      "question": "Query for students with marks between 60 and 80.",
+      "options": [
+        "SELECT * FROM students WHERE marks BETWEEN 60 AND 80;",
+        "SELECT * FROM students WHERE marks > 60;",
+        "SELECT * FROM students WHERE marks IN (60, 80);",
+        "None"
+      ],
+      "answer": "SELECT * FROM students WHERE marks BETWEEN 60 AND 80;",
+      "number": 16
+    },
+    {
+      "question": "Select products where description includes the word 'wireless'.",
+      "options": [
+        "SELECT * FROM products WHERE description LIKE '%wireless%';",
+        "SELECT * FROM products WHERE description = 'wireless';",
+        "SELECT * FROM products WHERE description IN ('wireless');",
+        "None"
+      ],
+      "answer": "SELECT * FROM products WHERE description LIKE '%wireless%';",
+      "number": 17
+    },
+    {
+      "question": "Query users with name ending in 'son'.",
+      "options": [
+        "SELECT * FROM users WHERE name LIKE '%son';",
+        "SELECT * FROM users WHERE name LIKE 'son%';",
+        "SELECT * FROM users WHERE name = '%son';",
+        "None"
+      ],
+      "answer": "SELECT * FROM users WHERE name LIKE '%son';",
+      "number": 18
+    },
+    {
+      "question": "Find customers where status is NULL.",
+      "options": [
+        "SELECT * FROM customers WHERE status IS NULL;",
+        "SELECT * FROM customers WHERE status = NULL;",
+        "SELECT * FROM customers WHERE status IS NOT TRUE;",
+        "None"
+      ],
+      "answer": "SELECT * FROM customers WHERE status IS NULL;",
+      "number": 19
+    },
+    {
+      "question": "Select emails that contain '.com'.",
+      "options": [
+        "SELECT * FROM users WHERE email LIKE '%.com%';",
+        "SELECT * FROM users WHERE email = '.com';",
+        "SELECT * FROM users WHERE email != NULL;",
+        "None"
+      ],
+      "answer": "SELECT * FROM users WHERE email LIKE '%.com%';",
+      "number": 20
+    }
+  ]
+}

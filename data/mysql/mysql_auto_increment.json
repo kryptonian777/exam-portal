@@ -1,0 +1,225 @@
+{
+  "examName": "mysql_auto_increment",
+  "questions": [
+    {
+      "question": "What is the purpose of AUTO_INCREMENT in MySQL?",
+      "options": [
+        "Automatically updates rows",
+        "Automatically generates sequential values",
+        "Adds time stamps",
+        "Prevents null values"
+      ],
+      "answer": "Automatically generates sequential values",
+      "number": 1
+    },
+    {
+      "question": "Can AUTO_INCREMENT be used with non-integer columns?",
+      "options": [
+        "Yes",
+        "No",
+        "Only with VARCHAR",
+        "Only with DATE"
+      ],
+      "answer": "No",
+      "number": 2
+    },
+    {
+      "question": "Which keyword is used to create a column with auto incrementing value?",
+      "options": [
+        "SEQUENCE",
+        "AUTOINC",
+        "AUTO_INCREMENT",
+        "INCREMENT"
+      ],
+      "answer": "AUTO_INCREMENT",
+      "number": 3
+    },
+    {
+      "question": "What is the default starting value for AUTO_INCREMENT?",
+      "options": [
+        "0",
+        "1",
+        "100",
+        "None"
+      ],
+      "answer": "1",
+      "number": 4
+    },
+    {
+      "question": "Which column type is most suitable for AUTO_INCREMENT?",
+      "options": [
+        "VARCHAR",
+        "DATE",
+        "INT",
+        "TEXT"
+      ],
+      "answer": "INT",
+      "number": 5
+    },
+    {
+      "question": "Which constraint is typically used along with AUTO_INCREMENT?",
+      "options": [
+        "NOT NULL",
+        "DEFAULT",
+        "PRIMARY KEY",
+        "UNIQUE"
+      ],
+      "answer": "PRIMARY KEY",
+      "number": 6
+    },
+    {
+      "question": "Can a table have more than one AUTO_INCREMENT column?",
+      "options": [
+        "Yes",
+        "No",
+        "Only in views",
+        "Only in foreign keys"
+      ],
+      "answer": "No",
+      "number": 7
+    },
+    {
+      "question": "Which engine in MySQL supports AUTO_INCREMENT?",
+      "options": [
+        "MyISAM",
+        "InnoDB",
+        "Both",
+        "None"
+      ],
+      "answer": "Both",
+      "number": 8
+    },
+    {
+      "question": "What happens if a value is inserted into an AUTO_INCREMENT column?",
+      "options": [
+        "Error",
+        "Overrides the sequence",
+        "Uses the given value",
+        "Auto-incrementing stops"
+      ],
+      "answer": "Overrides the sequence",
+      "number": 9
+    },
+    {
+      "question": "Which of the following is true about AUTO_INCREMENT?",
+      "options": [
+        "It only works with PRIMARY KEY columns",
+        "It resets after each insert",
+        "It can skip values if inserts are rolled back",
+        "It stores values in a cache"
+      ],
+      "answer": "It can skip values if inserts are rolled back",
+      "number": 10
+    },
+    {
+      "question": "Create a table `students` with an auto-incrementing `id` column.",
+      "options": [
+        "CREATE TABLE students (id INT AUTO_INCREMENT, name VARCHAR(100), PRIMARY KEY(id));",
+        "CREATE TABLE students (id INT AUTOINC, name VARCHAR(100));",
+        "CREATE TABLE students (id INT, name VARCHAR(100), AUTO_INCREMENT);",
+        "CREATE students (id AUTO_INCREMENT INT, name VARCHAR(100));"
+      ],
+      "answer": "CREATE TABLE students (id INT AUTO_INCREMENT, name VARCHAR(100), PRIMARY KEY(id));",
+      "number": 11
+    },
+    {
+      "question": "Insert into a table with AUTO_INCREMENT column without specifying the column.",
+      "options": [
+        "INSERT INTO users (name) VALUES ('Tom');",
+        "INSERT INTO users (id, name) VALUES ('', 'Tom');",
+        "INSERT INTO users () VALUES ('Tom');",
+        "AUTO INSERT INTO users (name) VALUES ('Tom');"
+      ],
+      "answer": "INSERT INTO users (name) VALUES ('Tom');",
+      "number": 12
+    },
+    {
+      "question": "What will be the next value after deleting the last inserted row?",
+      "options": [
+        "Same value reused",
+        "Value resets",
+        "Next increment continues",
+        "Error"
+      ],
+      "answer": "Next increment continues",
+      "number": 13
+    },
+    {
+      "question": "Add AUTO_INCREMENT to existing `id` column in `orders` table.",
+      "options": [
+        "ALTER TABLE orders MODIFY id INT AUTO_INCREMENT;",
+        "ALTER TABLE orders ADD AUTO_INCREMENT id;",
+        "MODIFY orders SET AUTO_INCREMENT;",
+        "ALTER TABLE orders SET id = AUTO_INCREMENT;"
+      ],
+      "answer": "ALTER TABLE orders MODIFY id INT AUTO_INCREMENT;",
+      "number": 14
+    },
+    {
+      "question": "Change the starting point of AUTO_INCREMENT to 100.",
+      "options": [
+        "ALTER TABLE users AUTO_INCREMENT = 100;",
+        "SET AUTO_INCREMENT = 100;",
+        "MODIFY AUTO_INCREMENT START 100;",
+        "AUTO_INCREMENT START WITH 100;"
+      ],
+      "answer": "ALTER TABLE users AUTO_INCREMENT = 100;",
+      "number": 15
+    },
+    {
+      "question": "Query to find the last inserted AUTO_INCREMENT value.",
+      "options": [
+        "SELECT LAST_INSERT_ID();",
+        "SELECT AUTO_INCREMENT_ID();",
+        "SELECT * FROM AUTO_INCREMENT;",
+        "GET LAST ID();"
+      ],
+      "answer": "SELECT LAST_INSERT_ID();",
+      "number": 16
+    },
+    {
+      "question": "Create a table `logs` with `log_id` auto incrementing.",
+      "options": [
+        "CREATE TABLE logs (log_id INT AUTO_INCREMENT, event TEXT, PRIMARY KEY(log_id));",
+        "CREATE TABLE logs (log_id TEXT AUTO_INCREMENT, event TEXT);",
+        "CREATE logs TABLE AUTO_INCREMENT(log_id, event);",
+        "CREATE TABLE logs (log_id INT, AUTO_INCREMENT, event TEXT);"
+      ],
+      "answer": "CREATE TABLE logs (log_id INT AUTO_INCREMENT, event TEXT, PRIMARY KEY(log_id));",
+      "number": 17
+    },
+    {
+      "question": "Insert 3 rows without specifying AUTO_INCREMENT column. What values will it take?",
+      "options": [
+        "1,2,3",
+        "0,1,2",
+        "3,4,5",
+        "Depends on previous last value"
+      ],
+      "answer": "Depends on previous last value",
+      "number": 18
+    },
+    {
+      "question": "How to prevent inserting a custom value in AUTO_INCREMENT column?",
+      "options": [
+        "Do not mention the column in INSERT statement",
+        "Use NOT NULL",
+        "Set DEFAULT",
+        "Lock the table"
+      ],
+      "answer": "Do not mention the column in INSERT statement",
+      "number": 19
+    },
+    {
+      "question": "Reset AUTO_INCREMENT value after deleting all rows.",
+      "options": [
+        "ALTER TABLE table_name AUTO_INCREMENT = 1;",
+        "DELETE FROM table_name RESET AUTO_INCREMENT;",
+        "SET AUTO_INCREMENT = 0;",
+        "DROP AUTO_INCREMENT;"
+      ],
+      "answer": "ALTER TABLE table_name AUTO_INCREMENT = 1;",
+      "number": 20
+    }
+  ]
+}

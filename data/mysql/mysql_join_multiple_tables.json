@@ -1,0 +1,225 @@
+{
+  "examName": "mysql_join_multiple_tables",
+  "questions": [
+    {
+      "question": "Why would you join multiple tables in a SQL query?",
+      "options": [
+        "To delete duplicate data",
+        "To update records faster",
+        "To combine related data from multiple sources",
+        "To format output"
+      ],
+      "answer": "To combine related data from multiple sources",
+      "number": 1
+    },
+    {
+      "question": "Which keyword is used to join multiple tables?",
+      "options": [
+        "MULTI JOIN",
+        "JOIN",
+        "APPEND",
+        "LINK"
+      ],
+      "answer": "JOIN",
+      "number": 2
+    },
+    {
+      "question": "How many JOIN clauses are needed to join 3 tables?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": "2",
+      "number": 3
+    },
+    {
+      "question": "What is required to JOIN tables?",
+      "options": [
+        "Identical column names",
+        "Same number of rows",
+        "Related keys",
+        "Same data types"
+      ],
+      "answer": "Related keys",
+      "number": 4
+    },
+    {
+      "question": "Can we mix INNER and LEFT JOINs in a single query?",
+      "options": [
+        "Yes",
+        "No",
+        "Only in Oracle",
+        "Only with WHERE"
+      ],
+      "answer": "Yes",
+      "number": 5
+    },
+    {
+      "question": "In joining multiple tables, what does ON clause do?",
+      "options": [
+        "Sorts data",
+        "Defines join condition",
+        "Filters NULLs",
+        "Adds constraints"
+      ],
+      "answer": "Defines join condition",
+      "number": 6
+    },
+    {
+      "question": "What is an alias in multi-table joins?",
+      "options": [
+        "A shortcut name for table",
+        "A join type",
+        "A type of constraint",
+        "An error message"
+      ],
+      "answer": "A shortcut name for table",
+      "number": 7
+    },
+    {
+      "question": "Can you JOIN more than three tables in SQL?",
+      "options": [
+        "Yes",
+        "No",
+        "Only with subqueries",
+        "Only in MySQL 8+"
+      ],
+      "answer": "Yes",
+      "number": 8
+    },
+    {
+      "question": "What happens if JOIN condition is missing in multi-table join?",
+      "options": [
+        "Returns all combinations",
+        "Error",
+        "Empty result",
+        "Ignores last table"
+      ],
+      "answer": "Returns all combinations",
+      "number": 9
+    },
+    {
+      "question": "Which JOIN returns only matched records from all joined tables?",
+      "options": [
+        "FULL JOIN",
+        "LEFT JOIN",
+        "INNER JOIN",
+        "RIGHT JOIN"
+      ],
+      "answer": "INNER JOIN",
+      "number": 10
+    },
+    {
+      "question": "Join students, courses, and enrollments to list student course names.",
+      "options": [
+        "SELECT s.name, c.title FROM students s JOIN enrollments e ON s.id = e.student_id JOIN courses c ON e.course_id = c.id;",
+        "JOIN s c;",
+        "SELECT * FROM enrollments;",
+        "SELECT s.name, c.name FROM s JOIN c;"
+      ],
+      "answer": "SELECT s.name, c.title FROM students s JOIN enrollments e ON s.id = e.student_id JOIN courses c ON e.course_id = c.id;",
+      "number": 11
+    },
+    {
+      "question": "List employee names, their departments, and office locations.",
+      "options": [
+        "SELECT e.name, d.name, o.city FROM employees e JOIN departments d ON e.dept_id = d.id JOIN offices o ON d.office_id = o.id;",
+        "JOIN e o;",
+        "SELECT * FROM employees;",
+        "SELECT name, dept, office FROM all_tables;"
+      ],
+      "answer": "SELECT e.name, d.name, o.city FROM employees e JOIN departments d ON e.dept_id = d.id JOIN offices o ON d.office_id = o.id;",
+      "number": 12
+    },
+    {
+      "question": "Fetch orders with customer name and product name.",
+      "options": [
+        "SELECT o.id, c.name, p.product_name FROM orders o JOIN customers c ON o.customer_id = c.id JOIN products p ON o.product_id = p.id;",
+        "SELECT * FROM orders;",
+        "JOIN customers;",
+        "SELECT name FROM customers JOIN orders;"
+      ],
+      "answer": "SELECT o.id, c.name, p.product_name FROM orders o JOIN customers c ON o.customer_id = c.id JOIN products p ON o.product_id = p.id;",
+      "number": 13
+    },
+    {
+      "question": "Show all ticket bookings with passenger and train details.",
+      "options": [
+        "SELECT b.id, p.name, t.route FROM bookings b JOIN passengers p ON b.passenger_id = p.id JOIN trains t ON b.train_id = t.id;",
+        "SELECT b.id, p.name FROM bookings b JOIN passengers p;",
+        "JOIN tickets;",
+        "SELECT FROM bookings JOIN passengers JOIN trains;"
+      ],
+      "answer": "SELECT b.id, p.name, t.route FROM bookings b JOIN passengers p ON b.passenger_id = p.id JOIN trains t ON b.train_id = t.id;",
+      "number": 14
+    },
+    {
+      "question": "Get employee, manager, and department in one query.",
+      "options": [
+        "SELECT e.name, m.name, d.name FROM employees e JOIN employees m ON e.manager_id = m.id JOIN departments d ON e.dept_id = d.id;",
+        "SELECT e.name FROM employees;",
+        "JOIN e d;",
+        "SELECT e.name JOIN m.name;"
+      ],
+      "answer": "SELECT e.name, m.name, d.name FROM employees e JOIN employees m ON e.manager_id = m.id JOIN departments d ON e.dept_id = d.id;",
+      "number": 15
+    },
+    {
+      "question": "Display sales with employee and product names.",
+      "options": [
+        "SELECT s.id, e.name, p.name FROM sales s JOIN employees e ON s.emp_id = e.id JOIN products p ON s.product_id = p.id;",
+        "JOIN sales;",
+        "SELECT * FROM s JOIN p;",
+        "SELECT name FROM employees;"
+      ],
+      "answer": "SELECT s.id, e.name, p.name FROM sales s JOIN employees e ON s.emp_id = e.id JOIN products p ON s.product_id = p.id;",
+      "number": 16
+    },
+    {
+      "question": "Combine customers, orders, and payment details.",
+      "options": [
+        "SELECT c.name, o.order_date, p.amount FROM customers c JOIN orders o ON c.id = o.customer_id JOIN payments p ON o.id = p.order_id;",
+        "JOIN c o;",
+        "SELECT * FROM customers JOIN orders;",
+        "SELECT amount FROM payments;"
+      ],
+      "answer": "SELECT c.name, o.order_date, p.amount FROM customers c JOIN orders o ON c.id = o.customer_id JOIN payments p ON o.id = p.order_id;",
+      "number": 17
+    },
+    {
+      "question": "Retrieve staff name, project, and task status.",
+      "options": [
+        "SELECT s.name, p.title, t.status FROM staff s JOIN projects p ON s.project_id = p.id JOIN tasks t ON p.id = t.project_id;",
+        "JOIN s p;",
+        "SELECT name, title FROM s JOIN p;",
+        "SELECT t.status FROM tasks;"
+      ],
+      "answer": "SELECT s.name, p.title, t.status FROM staff s JOIN projects p ON s.project_id = p.id JOIN tasks t ON p.id = t.project_id;",
+      "number": 18
+    },
+    {
+      "question": "Fetch teachers with their classes and students.",
+      "options": [
+        "SELECT t.name, c.subject, s.name FROM teachers t JOIN classes c ON t.id = c.teacher_id JOIN students s ON c.id = s.class_id;",
+        "JOIN teachers students;",
+        "SELECT c.subject FROM classes;",
+        "SELECT name FROM t;"
+      ],
+      "answer": "SELECT t.name, c.subject, s.name FROM teachers t JOIN classes c ON t.id = c.teacher_id JOIN students s ON c.id = s.class_id;",
+      "number": 19
+    },
+    {
+      "question": "List bookings with hotel, guest, and payment info.",
+      "options": [
+        "SELECT b.id, h.name, g.name, p.amount FROM bookings b JOIN hotels h ON b.hotel_id = h.id JOIN guests g ON b.guest_id = g.id JOIN payments p ON b.payment_id = p.id;",
+        "JOIN hotels;",
+        "SELECT g.name FROM guests;",
+        "SELECT p.amount FROM payments;"
+      ],
+      "answer": "SELECT b.id, h.name, g.name, p.amount FROM bookings b JOIN hotels h ON b.hotel_id = h.id JOIN guests g ON b.guest_id = g.id JOIN payments p ON b.payment_id = p.id;",
+      "number": 20
+    }
+  ]
+}

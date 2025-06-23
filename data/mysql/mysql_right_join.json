@@ -1,0 +1,225 @@
+{
+  "examName": "mysql_right_join",
+  "questions": [
+    {
+      "question": "What does RIGHT JOIN return?",
+      "options": [
+        "Only matching rows from both tables",
+        "All rows from the right table and matching rows from the left table",
+        "All rows from the left table",
+        "Rows that don\u2019t match"
+      ],
+      "answer": "All rows from the right table and matching rows from the left table",
+      "number": 1
+    },
+    {
+      "question": "Which keyword is used for RIGHT JOIN?",
+      "options": [
+        "LEFT JOIN",
+        "RIGHT JOIN",
+        "OUTER JOIN",
+        "JOIN"
+      ],
+      "answer": "RIGHT JOIN",
+      "number": 2
+    },
+    {
+      "question": "What happens when no match is found in LEFT table with RIGHT JOIN?",
+      "options": [
+        "Row is ignored",
+        "NULLs are shown for left table",
+        "Error occurs",
+        "Right table row is deleted"
+      ],
+      "answer": "NULLs are shown for left table",
+      "number": 3
+    },
+    {
+      "question": "Is RIGHT OUTER JOIN the same as RIGHT JOIN?",
+      "options": [
+        "Yes",
+        "No",
+        "Only in PostgreSQL",
+        "Only in MySQL"
+      ],
+      "answer": "Yes",
+      "number": 4
+    },
+    {
+      "question": "RIGHT JOIN is useful when?",
+      "options": [
+        "You want only matched data",
+        "You want unmatched data from left table",
+        "You want all data from right table regardless of match",
+        "You want all data from both tables"
+      ],
+      "answer": "You want all data from right table regardless of match",
+      "number": 5
+    },
+    {
+      "question": "Which clause defines the condition for RIGHT JOIN?",
+      "options": [
+        "ON",
+        "WHERE",
+        "HAVING",
+        "GROUP BY"
+      ],
+      "answer": "ON",
+      "number": 6
+    },
+    {
+      "question": "What does a NULL in a joined result indicate in RIGHT JOIN?",
+      "options": [
+        "Missing match in the left table",
+        "Data is corrupted",
+        "Duplicate row",
+        "Full match found"
+      ],
+      "answer": "Missing match in the left table",
+      "number": 7
+    },
+    {
+      "question": "Can RIGHT JOIN be used with multiple join conditions?",
+      "options": [
+        "Yes",
+        "No",
+        "Only in views",
+        "Only in PostgreSQL"
+      ],
+      "answer": "Yes",
+      "number": 8
+    },
+    {
+      "question": "Which table is fully preserved in RIGHT JOIN?",
+      "options": [
+        "Left table",
+        "Right table",
+        "Both tables",
+        "None"
+      ],
+      "answer": "Right table",
+      "number": 9
+    },
+    {
+      "question": "What\u2019s the default join if only JOIN is used?",
+      "options": [
+        "LEFT JOIN",
+        "RIGHT JOIN",
+        "INNER JOIN",
+        "FULL JOIN"
+      ],
+      "answer": "INNER JOIN",
+      "number": 10
+    },
+    {
+      "question": "Retrieve all orders and the customer details, even if customer data is missing.",
+      "options": [
+        "SELECT orders.id, customers.name FROM orders RIGHT JOIN customers ON orders.customer_id = customers.id;",
+        "SELECT * FROM orders JOIN customers;",
+        "RIGHT JOIN orders customers;",
+        "SELECT * FROM customers RIGHT;"
+      ],
+      "answer": "SELECT orders.id, customers.name FROM orders RIGHT JOIN customers ON orders.customer_id = customers.id;",
+      "number": 11
+    },
+    {
+      "question": "List all departments and employees, including departments without employees.",
+      "options": [
+        "SELECT departments.name, employees.name FROM employees RIGHT JOIN departments ON employees.dept_id = departments.id;",
+        "SELECT name FROM departments JOIN employees;",
+        "RIGHT JOIN employees departments;",
+        "SELECT * FROM departments RIGHT JOIN employees;"
+      ],
+      "answer": "SELECT departments.name, employees.name FROM employees RIGHT JOIN departments ON employees.dept_id = departments.id;",
+      "number": 12
+    },
+    {
+      "question": "Show all product categories and their products, including empty categories.",
+      "options": [
+        "SELECT categories.name, products.name FROM products RIGHT JOIN categories ON products.category_id = categories.id;",
+        "SELECT categories.name FROM categories JOIN products;",
+        "RIGHT JOIN categories ON products;",
+        "SELECT name FROM products RIGHT JOIN categories;"
+      ],
+      "answer": "SELECT categories.name, products.name FROM products RIGHT JOIN categories ON products.category_id = categories.id;",
+      "number": 13
+    },
+    {
+      "question": "Get all teachers and the subjects they teach, including unassigned subjects.",
+      "options": [
+        "SELECT teachers.name, subjects.name FROM subjects RIGHT JOIN teachers ON subjects.teacher_id = teachers.id;",
+        "RIGHT JOIN subjects ON teachers;",
+        "JOIN teachers AND subjects;",
+        "SELECT subjects.name FROM teachers JOIN subjects;"
+      ],
+      "answer": "SELECT teachers.name, subjects.name FROM subjects RIGHT JOIN teachers ON subjects.teacher_id = teachers.id;",
+      "number": 14
+    },
+    {
+      "question": "Retrieve all projects and the employees assigned to them, even unassigned projects.",
+      "options": [
+        "SELECT projects.name, employees.name FROM employees RIGHT JOIN projects ON employees.project_id = projects.id;",
+        "RIGHT JOIN projects employees;",
+        "JOIN employees projects;",
+        "SELECT * FROM employees JOIN projects;"
+      ],
+      "answer": "SELECT projects.name, employees.name FROM employees RIGHT JOIN projects ON employees.project_id = projects.id;",
+      "number": 15
+    },
+    {
+      "question": "Get all promotions and related product details, even if products are missing.",
+      "options": [
+        "SELECT promotions.name, products.name FROM products RIGHT JOIN promotions ON products.id = promotions.product_id;",
+        "JOIN promotions products;",
+        "RIGHT JOIN products promotions;",
+        "SELECT name FROM promotions JOIN products;"
+      ],
+      "answer": "SELECT promotions.name, products.name FROM products RIGHT JOIN promotions ON products.id = promotions.product_id;",
+      "number": 16
+    },
+    {
+      "question": "Show all memberships and users, even those without active memberships.",
+      "options": [
+        "SELECT memberships.name, users.username FROM users RIGHT JOIN memberships ON users.membership_id = memberships.id;",
+        "RIGHT JOIN users memberships;",
+        "JOIN memberships ON users;",
+        "SELECT * FROM users JOIN memberships;"
+      ],
+      "answer": "SELECT memberships.name, users.username FROM users RIGHT JOIN memberships ON users.membership_id = memberships.id;",
+      "number": 17
+    },
+    {
+      "question": "Fetch all book genres and books, even empty genres.",
+      "options": [
+        "SELECT genres.name, books.title FROM books RIGHT JOIN genres ON books.genre_id = genres.id;",
+        "JOIN books genres;",
+        "RIGHT JOIN books genres;",
+        "SELECT name FROM books RIGHT JOIN genres;"
+      ],
+      "answer": "SELECT genres.name, books.title FROM books RIGHT JOIN genres ON books.genre_id = genres.id;",
+      "number": 18
+    },
+    {
+      "question": "List all classrooms and their assigned students, even if no students.",
+      "options": [
+        "SELECT classrooms.name, students.name FROM students RIGHT JOIN classrooms ON students.class_id = classrooms.id;",
+        "JOIN classrooms students;",
+        "RIGHT JOIN students classrooms;",
+        "SELECT students.name FROM classrooms;"
+      ],
+      "answer": "SELECT classrooms.name, students.name FROM students RIGHT JOIN classrooms ON students.class_id = classrooms.id;",
+      "number": 19
+    },
+    {
+      "question": "Get all languages and the authors who write in them, including unused languages.",
+      "options": [
+        "SELECT languages.name, authors.name FROM authors RIGHT JOIN languages ON authors.language_id = languages.id;",
+        "JOIN authors ON languages;",
+        "RIGHT JOIN authors languages;",
+        "SELECT name FROM authors RIGHT JOIN languages;"
+      ],
+      "answer": "SELECT languages.name, authors.name FROM authors RIGHT JOIN languages ON authors.language_id = languages.id;",
+      "number": 20
+    }
+  ]
+}

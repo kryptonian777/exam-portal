@@ -1,0 +1,280 @@
+{
+  "examName": "mysql_update_set_where",
+  "questions": [
+    {
+      "question": "Which SQL command is used to change existing data in a table?",
+      "options": [
+        "UPDATE",
+        "MODIFY",
+        "CHANGE",
+        "EDIT"
+      ],
+      "answer": "UPDATE",
+      "number": 1
+    },
+    {
+      "question": "Which keyword is used to specify the new value in an UPDATE query?",
+      "options": [
+        "SET",
+        "VALUE",
+        "CHANGE",
+        "MODIFY"
+      ],
+      "answer": "SET",
+      "number": 2
+    },
+    {
+      "question": "Which clause is required to limit an UPDATE to specific rows?",
+      "options": [
+        "WHERE",
+        "HAVING",
+        "LIMIT",
+        "IF"
+      ],
+      "answer": "WHERE",
+      "number": 3
+    },
+    {
+      "question": "What will happen if you run UPDATE without WHERE clause?",
+      "options": [
+        "Only first row will be updated",
+        "Error will occur",
+        "All rows will be updated",
+        "Nothing happens"
+      ],
+      "answer": "All rows will be updated",
+      "number": 4
+    },
+    {
+      "question": "Which statement updates the salary of all employees to 5000?",
+      "options": [
+        "UPDATE employees SET salary = 5000;",
+        "SET salary = 5000 IN employees;",
+        "CHANGE employees salary TO 5000;",
+        "UPDATE salary IN employees TO 5000;"
+      ],
+      "answer": "UPDATE employees SET salary = 5000;",
+      "number": 5
+    },
+    {
+      "question": "Which operator is used to assign a new value in an UPDATE?",
+      "options": [
+        "=",
+        "==",
+        ":",
+        "->"
+      ],
+      "answer": "=",
+      "number": 6
+    },
+    {
+      "question": "What is the correct order of keywords in an UPDATE statement?",
+      "options": [
+        "UPDATE \u2192 SET \u2192 WHERE",
+        "SET \u2192 UPDATE \u2192 WHERE",
+        "WHERE \u2192 SET \u2192 UPDATE",
+        "UPDATE \u2192 WHERE \u2192 SET"
+      ],
+      "answer": "UPDATE \u2192 SET \u2192 WHERE",
+      "number": 7
+    },
+    {
+      "question": "Which part of this statement is the condition? UPDATE students SET grade = 'A' WHERE id = 1;",
+      "options": [
+        "SET grade = 'A'",
+        "WHERE id = 1",
+        "UPDATE students",
+        "grade = 'A'"
+      ],
+      "answer": "WHERE id = 1",
+      "number": 8
+    },
+    {
+      "question": "Which clause helps avoid unintentional updates of all rows?",
+      "options": [
+        "WHERE",
+        "LIMIT",
+        "SET",
+        "IF"
+      ],
+      "answer": "WHERE",
+      "number": 9
+    },
+    {
+      "question": "What is updated in: UPDATE users SET name = 'John' WHERE id = 5;",
+      "options": [
+        "User name with ID 5",
+        "All users",
+        "User ID 5",
+        "Nothing"
+      ],
+      "answer": "User name with ID 5",
+      "number": 10
+    },
+    {
+      "question": "Update the 'status' column to 'active' where 'id' is 101.",
+      "options": [
+        "UPDATE users SET status = 'active' WHERE id = 101;",
+        "SET status = 'active' IN users WHERE id = 101;",
+        "MODIFY users SET status = 'active' WHERE id = 101;",
+        "UPDATE status TO 'active' WHERE id = 101;"
+      ],
+      "answer": "UPDATE users SET status = 'active' WHERE id = 101;",
+      "number": 11
+    },
+    {
+      "question": "How would you change the age of a student with ID 22 to 19?",
+      "options": [
+        "UPDATE students SET age = 19 WHERE id = 22;",
+        "MODIFY students age 22 TO 19;",
+        "CHANGE age = 19 FROM students WHERE id = 22;",
+        "SET age = 19 WHERE id = 22;"
+      ],
+      "answer": "UPDATE students SET age = 19 WHERE id = 22;",
+      "number": 12
+    },
+    {
+      "question": "Update email to 'test@example.com' for user named 'Raj'.",
+      "options": [
+        "UPDATE users SET email = 'test@example.com' WHERE name = 'Raj';",
+        "MODIFY users email TO 'test@example.com' WHERE name = 'Raj';",
+        "SET email = 'test@example.com' IN users WHERE name = 'Raj';",
+        "UPDATE email TO 'test@example.com' FOR name = 'Raj';"
+      ],
+      "answer": "UPDATE users SET email = 'test@example.com' WHERE name = 'Raj';",
+      "number": 13
+    },
+    {
+      "question": "Which command updates price to 250 for product ID 3?",
+      "options": [
+        "UPDATE products SET price = 250 WHERE id = 3;",
+        "CHANGE products price 3 TO 250;",
+        "SET price TO 250 FOR product id 3;",
+        "UPDATE SET price 250 WHERE id 3;"
+      ],
+      "answer": "UPDATE products SET price = 250 WHERE id = 3;",
+      "number": 14
+    },
+    {
+      "question": "You want to reset login attempts to 0 for user ID 7.",
+      "options": [
+        "UPDATE users SET login_attempts = 0 WHERE id = 7;",
+        "SET login_attempts TO 0 WHERE id = 7;",
+        "RESET login_attempts WHERE user_id = 7;",
+        "UPDATE login_attempts = 0 IN users WHERE id = 7;"
+      ],
+      "answer": "UPDATE users SET login_attempts = 0 WHERE id = 7;",
+      "number": 15
+    },
+    {
+      "question": "Which command updates the column 'active' to FALSE for users not verified?",
+      "options": [
+        "UPDATE users SET active = FALSE WHERE verified = 0;",
+        "MODIFY users SET active = FALSE WHEN verified = 0;",
+        "CHANGE active TO FALSE IN users;",
+        "SET active = FALSE FOR verified = 0;"
+      ],
+      "answer": "UPDATE users SET active = FALSE WHERE verified = 0;",
+      "number": 16
+    },
+    {
+      "question": "Update name to 'Asha' where user_id is 2001.",
+      "options": [
+        "UPDATE users SET name = 'Asha' WHERE user_id = 2001;",
+        "SET name = 'Asha' IN users WHERE user_id = 2001;",
+        "MODIFY users TO name = 'Asha';",
+        "CHANGE name TO 'Asha' FROM users;"
+      ],
+      "answer": "UPDATE users SET name = 'Asha' WHERE user_id = 2001;",
+      "number": 17
+    },
+    {
+      "question": "How would you update a student's grade to 'B+' if score is above 80?",
+      "options": [
+        "UPDATE students SET grade = 'B+' WHERE score > 80;",
+        "SET grade TO 'B+' WHERE score > 80;",
+        "UPDATE grade = 'B+' FOR score > 80;",
+        "MODIFY students grade TO 'B+' WHERE score > 80;"
+      ],
+      "answer": "UPDATE students SET grade = 'B+' WHERE score > 80;",
+      "number": 18
+    },
+    {
+      "question": "Update contact_number to NULL for entries with no name.",
+      "options": [
+        "UPDATE contacts SET contact_number = NULL WHERE name IS NULL;",
+        "UPDATE contacts SET contact_number NULL WHERE name IS NULL;",
+        "SET contact_number = NULL WHERE name IS NULL;",
+        "MODIFY contacts SET contact_number TO NULL IF name IS NULL;"
+      ],
+      "answer": "UPDATE contacts SET contact_number = NULL WHERE name IS NULL;",
+      "number": 19
+    },
+    {
+      "question": "Change address to 'Delhi' for customer ID 15.",
+      "options": [
+        "UPDATE customers SET address = 'Delhi' WHERE id = 15;",
+        "MODIFY address TO 'Delhi' FOR id = 15;",
+        "UPDATE customers address TO 'Delhi';",
+        "SET customers.address = 'Delhi' WHERE id = 15;"
+      ],
+      "answer": "UPDATE customers SET address = 'Delhi' WHERE id = 15;",
+      "number": 20
+    },
+    {
+      "question": "Increase score by 5 where student_id is 17.",
+      "options": [
+        "UPDATE students SET score = score + 5 WHERE student_id = 17;",
+        "UPDATE students SET score + 5 WHERE student_id = 17;",
+        "SET score = score + 5 WHERE student_id = 17;",
+        "MODIFY students score += 5 WHERE student_id = 17;"
+      ],
+      "answer": "UPDATE students SET score = score + 5 WHERE student_id = 17;",
+      "number": 21
+    },
+    {
+      "question": "Reduce quantity by 1 for product 'Notebook'.",
+      "options": [
+        "UPDATE inventory SET quantity = quantity - 1 WHERE product = 'Notebook';",
+        "MODIFY inventory quantity = quantity - 1 WHERE product = 'Notebook';",
+        "SET inventory quantity = quantity - 1 WHERE product = 'Notebook';",
+        "UPDATE inventory quantity -= 1 WHERE product = 'Notebook';"
+      ],
+      "answer": "UPDATE inventory SET quantity = quantity - 1 WHERE product = 'Notebook';",
+      "number": 22
+    },
+    {
+      "question": "Reset password to NULL where password reset is requested.",
+      "options": [
+        "UPDATE users SET password = NULL WHERE reset_requested = 1;",
+        "MODIFY users password NULL WHERE reset_requested = 1;",
+        "SET users password NULL IF reset_requested = 1;",
+        "UPDATE users SET NULL password WHERE reset_requested = 1;"
+      ],
+      "answer": "UPDATE users SET password = NULL WHERE reset_requested = 1;",
+      "number": 23
+    },
+    {
+      "question": "Update 'last_login' to current date where id = 10.",
+      "options": [
+        "UPDATE users SET last_login = CURDATE() WHERE id = 10;",
+        "SET last_login = NOW WHERE id = 10;",
+        "UPDATE users last_login NOW WHERE id = 10;",
+        "MODIFY users SET last_login NOW();"
+      ],
+      "answer": "UPDATE users SET last_login = CURDATE() WHERE id = 10;",
+      "number": 24
+    },
+    {
+      "question": "Set 'stock' to 0 for products marked 'discontinued'.",
+      "options": [
+        "UPDATE products SET stock = 0 WHERE status = 'discontinued';",
+        "MODIFY stock TO 0 IN products;",
+        "SET stock = 0 FOR status = 'discontinued';",
+        "UPDATE products WHERE status = 'discontinued' SET stock = 0;"
+      ],
+      "answer": "UPDATE products SET stock = 0 WHERE status = 'discontinued';",
+      "number": 25
+    }
+  ]
+}

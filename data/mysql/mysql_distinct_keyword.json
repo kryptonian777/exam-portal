@@ -1,0 +1,225 @@
+{
+  "examName": "mysql_distinct_keyword",
+  "questions": [
+    {
+      "question": "What is the purpose of DISTINCT in SQL?",
+      "options": [
+        "Sorts results",
+        "Removes duplicate rows",
+        "Limits number of rows",
+        "Changes column names"
+      ],
+      "answer": "Removes duplicate rows",
+      "number": 1
+    },
+    {
+      "question": "Which keyword is used to fetch unique values from a column?",
+      "options": [
+        "UNIQUE",
+        "DISTINCT",
+        "ONLY",
+        "FILTER"
+      ],
+      "answer": "DISTINCT",
+      "number": 2
+    },
+    {
+      "question": "What does SELECT DISTINCT column_name do?",
+      "options": [
+        "Selects all rows",
+        "Selects duplicate rows",
+        "Selects only unique values in column_name",
+        "Groups data"
+      ],
+      "answer": "Selects only unique values in column_name",
+      "number": 3
+    },
+    {
+      "question": "DISTINCT can be used with how many columns?",
+      "options": [
+        "Only one",
+        "Only numeric columns",
+        "Multiple columns",
+        "Only primary key columns"
+      ],
+      "answer": "Multiple columns",
+      "number": 4
+    },
+    {
+      "question": "Which clause is used with SELECT to eliminate duplicates?",
+      "options": [
+        "ORDER BY",
+        "DISTINCT",
+        "GROUP BY",
+        "HAVING"
+      ],
+      "answer": "DISTINCT",
+      "number": 5
+    },
+    {
+      "question": "What will SELECT DISTINCT city FROM customers do?",
+      "options": [
+        "Return all cities",
+        "Return each city once",
+        "Return only customers",
+        "Return one customer per city"
+      ],
+      "answer": "Return each city once",
+      "number": 6
+    },
+    {
+      "question": "DISTINCT affects which part of the result set?",
+      "options": [
+        "Column names",
+        "Duplicate rows",
+        "Table names",
+        "Data types"
+      ],
+      "answer": "Duplicate rows",
+      "number": 7
+    },
+    {
+      "question": "Is SELECT DISTINCT same as GROUP BY?",
+      "options": [
+        "Yes",
+        "No",
+        "Always",
+        "Only for text fields"
+      ],
+      "answer": "No",
+      "number": 8
+    },
+    {
+      "question": "Can DISTINCT be used with aggregate functions like COUNT()?",
+      "options": [
+        "Yes",
+        "No",
+        "Only with ORDER BY",
+        "Only with text data"
+      ],
+      "answer": "Yes",
+      "number": 9
+    },
+    {
+      "question": "What does SELECT DISTINCT COUNT(column_name) return?",
+      "options": [
+        "Count of all rows",
+        "Count of NULL values",
+        "Count of unique non-null values",
+        "Count of tables"
+      ],
+      "answer": "Count of unique non-null values",
+      "number": 10
+    },
+    {
+      "question": "Write a query to find all unique job titles from the employees table.",
+      "options": [
+        "SELECT DISTINCT job_title FROM employees;",
+        "SELECT job_title FROM employees GROUP BY job_title;",
+        "SELECT job_title FROM employees WHERE UNIQUE;",
+        "SELECT ONLY job_title FROM employees;"
+      ],
+      "answer": "SELECT DISTINCT job_title FROM employees;",
+      "number": 11
+    },
+    {
+      "question": "Fetch all unique departments from the departments table.",
+      "options": [
+        "SELECT DISTINCT department FROM departments;",
+        "SELECT department GROUP BY department FROM departments;",
+        "SELECT department FROM departments UNIQUE;",
+        "SELECT ALL department FROM departments;"
+      ],
+      "answer": "SELECT DISTINCT department FROM departments;",
+      "number": 12
+    },
+    {
+      "question": "Query to display all unique email domains from a users table.",
+      "options": [
+        "SELECT DISTINCT SUBSTRING_INDEX(email, '@', -1) AS domain FROM users;",
+        "SELECT UNIQUE email FROM users;",
+        "SELECT email FROM users GROUP BY domain;",
+        "SELECT ALL email FROM users;"
+      ],
+      "answer": "SELECT DISTINCT SUBSTRING_INDEX(email, '@', -1) AS domain FROM users;",
+      "number": 13
+    },
+    {
+      "question": "Find all unique salary values from the salary table.",
+      "options": [
+        "SELECT DISTINCT salary FROM salary;",
+        "SELECT salary DISTINCT FROM salary;",
+        "SELECT salary FROM salary GROUP BY salary;",
+        "SELECT UNIQUE salary FROM salary;"
+      ],
+      "answer": "SELECT DISTINCT salary FROM salary;",
+      "number": 14
+    },
+    {
+      "question": "List all unique combinations of city and state from the locations table.",
+      "options": [
+        "SELECT DISTINCT city, state FROM locations;",
+        "SELECT city, state GROUP BY city, state FROM locations;",
+        "SELECT city DISTINCT, state FROM locations;",
+        "SELECT UNIQUE(city, state) FROM locations;"
+      ],
+      "answer": "SELECT DISTINCT city, state FROM locations;",
+      "number": 15
+    },
+    {
+      "question": "Display unique customer names from orders.",
+      "options": [
+        "SELECT DISTINCT customer_name FROM orders;",
+        "SELECT customer_name UNIQUE FROM orders;",
+        "SELECT ONLY customer_name FROM orders;",
+        "SELECT customer_name GROUP BY orders;"
+      ],
+      "answer": "SELECT DISTINCT customer_name FROM orders;",
+      "number": 16
+    },
+    {
+      "question": "Get all unique birth years from users table using a function.",
+      "options": [
+        "SELECT DISTINCT YEAR(birthdate) FROM users;",
+        "SELECT UNIQUE YEAR(birthdate) FROM users;",
+        "SELECT YEAR(DISTINCT birthdate) FROM users;",
+        "SELECT birthdate FROM users GROUP BY YEAR;"
+      ],
+      "answer": "SELECT DISTINCT YEAR(birthdate) FROM users;",
+      "number": 17
+    },
+    {
+      "question": "Retrieve the number of unique cities from address table.",
+      "options": [
+        "SELECT COUNT(DISTINCT city) FROM address;",
+        "SELECT DISTINCT city COUNT() FROM address;",
+        "SELECT COUNT(city) DISTINCT FROM address;",
+        "COUNT(DISTINCT city) SELECT FROM address;"
+      ],
+      "answer": "SELECT COUNT(DISTINCT city) FROM address;",
+      "number": 18
+    },
+    {
+      "question": "Which query lists only unique values of column `category` from table `products`?",
+      "options": [
+        "SELECT DISTINCT category FROM products;",
+        "SELECT UNIQUE category FROM products;",
+        "SELECT ALL category FROM products;",
+        "SELECT category GROUP BY products;"
+      ],
+      "answer": "SELECT DISTINCT category FROM products;",
+      "number": 19
+    },
+    {
+      "question": "Select all unique values of department from employee table.",
+      "options": [
+        "SELECT DISTINCT department FROM employee;",
+        "SELECT department GROUP BY department FROM employee;",
+        "SELECT ALL department FROM employee;",
+        "SELECT UNIQUE employee.department;"
+      ],
+      "answer": "SELECT DISTINCT department FROM employee;",
+      "number": 20
+    }
+  ]
+}

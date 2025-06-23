@@ -1,0 +1,335 @@
+{
+  "examName": "mysql_comparison_operators",
+  "questions": [
+    {
+      "question": "Which operator checks if two values are equal in MySQL?",
+      "options": [
+        "=",
+        "==",
+        "EQ",
+        "EQUALS"
+      ],
+      "answer": "=",
+      "number": 1
+    },
+    {
+      "question": "Which operator checks if two values are NOT equal?",
+      "options": [
+        "!=",
+        "=",
+        "<>",
+        "Both != and <>"
+      ],
+      "answer": "Both != and <>",
+      "number": 2
+    },
+    {
+      "question": "Which operator checks if value1 is greater than value2?",
+      "options": [
+        ">",
+        "<",
+        ">=",
+        "<="
+      ],
+      "answer": ">",
+      "number": 3
+    },
+    {
+      "question": "What is the result of 5 > 3?",
+      "options": [
+        "TRUE",
+        "FALSE",
+        "NULL",
+        "ERROR"
+      ],
+      "answer": "TRUE",
+      "number": 4
+    },
+    {
+      "question": "What operator checks if a value is greater than or equal to another?",
+      "options": [
+        ">",
+        ">=",
+        "<",
+        "<="
+      ],
+      "answer": ">=",
+      "number": 5
+    },
+    {
+      "question": "What does '<' operator do?",
+      "options": [
+        "Checks if left value is less than right",
+        "Checks if left value is greater",
+        "Adds values",
+        "Multiplies values"
+      ],
+      "answer": "Checks if left value is less than right",
+      "number": 6
+    },
+    {
+      "question": "Which of the following represents NOT equal in MySQL?",
+      "options": [
+        "!=",
+        "<>",
+        "NE",
+        "Both != and <>"
+      ],
+      "answer": "Both != and <>",
+      "number": 7
+    },
+    {
+      "question": "What will 10 >= 20 return?",
+      "options": [
+        "TRUE",
+        "FALSE",
+        "NULL",
+        "ERROR"
+      ],
+      "answer": "FALSE",
+      "number": 8
+    },
+    {
+      "question": "How would you compare if two column values are not equal?",
+      "options": [
+        "col1 <> col2",
+        "col1 != col2",
+        "Both",
+        "None"
+      ],
+      "answer": "Both",
+      "number": 9
+    },
+    {
+      "question": "Which comparison is valid SQL syntax?",
+      "options": [
+        "salary > 50000",
+        "age == 30",
+        "price <=> 100",
+        "amount != NULL"
+      ],
+      "answer": "salary > 50000",
+      "number": 10
+    },
+    {
+      "question": "Get employees with salary greater than 50000.",
+      "options": [
+        "SELECT * FROM employees WHERE salary > 50000;",
+        "SELECT * FROM employees WHERE salary >= 50000;",
+        "SELECT * FROM employees WHERE salary != 50000;",
+        "SELECT * FROM employees WHERE salary == 50000;"
+      ],
+      "answer": "SELECT * FROM employees WHERE salary > 50000;",
+      "number": 11
+    },
+    {
+      "question": "Find students who scored less than 40 in exam.",
+      "options": [
+        "SELECT * FROM students WHERE score < 40;",
+        "SELECT * FROM students WHERE score = 40;",
+        "SELECT * FROM students WHERE score > 40;",
+        "SELECT * FROM students WHERE score != 40;"
+      ],
+      "answer": "SELECT * FROM students WHERE score < 40;",
+      "number": 12
+    },
+    {
+      "question": "Query customers who are not from 'India'.",
+      "options": [
+        "SELECT * FROM customers WHERE country != 'India';",
+        "SELECT * FROM customers WHERE country <> 'India';",
+        "SELECT * FROM customers WHERE NOT country = 'India';",
+        "All of the above"
+      ],
+      "answer": "All of the above",
+      "number": 13
+    },
+    {
+      "question": "Retrieve products priced below 100.",
+      "options": [
+        "SELECT * FROM products WHERE price < 100;",
+        "SELECT * FROM products WHERE price <= 100;",
+        "SELECT * FROM products WHERE price == 100;",
+        "SELECT * FROM products WHERE price > 100;"
+      ],
+      "answer": "SELECT * FROM products WHERE price < 100;",
+      "number": 14
+    },
+    {
+      "question": "Fetch users aged 18 or older.",
+      "options": [
+        "SELECT * FROM users WHERE age >= 18;",
+        "SELECT * FROM users WHERE age > 18;",
+        "SELECT * FROM users WHERE age = 18;",
+        "SELECT * FROM users WHERE age <> 18;"
+      ],
+      "answer": "SELECT * FROM users WHERE age >= 18;",
+      "number": 15
+    },
+    {
+      "question": "List employees not in department 5.",
+      "options": [
+        "SELECT * FROM employees WHERE dept_id != 5;",
+        "SELECT * FROM employees WHERE dept_id <> 5;",
+        "SELECT * FROM employees WHERE NOT dept_id = 5;",
+        "All of the above"
+      ],
+      "answer": "All of the above",
+      "number": 16
+    },
+    {
+      "question": "Get orders with quantity of 100 or more.",
+      "options": [
+        "SELECT * FROM orders WHERE quantity >= 100;",
+        "SELECT * FROM orders WHERE quantity > 100;",
+        "SELECT * FROM orders WHERE quantity < 100;",
+        "SELECT * FROM orders WHERE quantity != 100;"
+      ],
+      "answer": "SELECT * FROM orders WHERE quantity >= 100;",
+      "number": 17
+    },
+    {
+      "question": "Show employees whose joining year is before 2020.",
+      "options": [
+        "SELECT * FROM employees WHERE join_year < 2020;",
+        "SELECT * FROM employees WHERE join_year <= 2020;",
+        "SELECT * FROM employees WHERE join_year > 2020;",
+        "SELECT * FROM employees WHERE join_year = 2020;"
+      ],
+      "answer": "SELECT * FROM employees WHERE join_year < 2020;",
+      "number": 18
+    },
+    {
+      "question": "Find books with less than 300 pages.",
+      "options": [
+        "SELECT * FROM books WHERE pages < 300;",
+        "SELECT * FROM books WHERE pages <= 300;",
+        "SELECT * FROM books WHERE pages > 300;",
+        "SELECT * FROM books WHERE pages == 300;"
+      ],
+      "answer": "SELECT * FROM books WHERE pages < 300;",
+      "number": 19
+    },
+    {
+      "question": "Show items with rating not equal to 5.",
+      "options": [
+        "SELECT * FROM items WHERE rating != 5;",
+        "SELECT * FROM items WHERE rating <> 5;",
+        "SELECT * FROM items WHERE NOT rating = 5;",
+        "All of the above"
+      ],
+      "answer": "All of the above",
+      "number": 20
+    },
+    {
+      "question": "Which query shows users under 25 years old?",
+      "options": [
+        "SELECT * FROM users WHERE age < 25;",
+        "SELECT * FROM users WHERE age <= 25;",
+        "SELECT * FROM users WHERE age == 25;",
+        "SELECT * FROM users WHERE age != 25;"
+      ],
+      "answer": "SELECT * FROM users WHERE age < 25;",
+      "number": 21
+    },
+    {
+      "question": "Get products with price exactly 500.",
+      "options": [
+        "SELECT * FROM products WHERE price = 500;",
+        "SELECT * FROM products WHERE price == 500;",
+        "SELECT * FROM products WHERE price IS 500;",
+        "SELECT * FROM products WHERE price LIKE 500;"
+      ],
+      "answer": "SELECT * FROM products WHERE price = 500;",
+      "number": 22
+    },
+    {
+      "question": "Find employees not aged 30.",
+      "options": [
+        "SELECT * FROM employees WHERE age != 30;",
+        "SELECT * FROM employees WHERE age <> 30;",
+        "SELECT * FROM employees WHERE NOT age = 30;",
+        "All of the above"
+      ],
+      "answer": "All of the above",
+      "number": 23
+    },
+    {
+      "question": "Get students whose marks are more than 75.",
+      "options": [
+        "SELECT * FROM students WHERE marks > 75;",
+        "SELECT * FROM students WHERE marks >= 75;",
+        "SELECT * FROM students WHERE marks < 75;",
+        "SELECT * FROM students WHERE marks != 75;"
+      ],
+      "answer": "SELECT * FROM students WHERE marks > 75;",
+      "number": 24
+    },
+    {
+      "question": "Which operator finds customers not from a given city?",
+      "options": [
+        "!=",
+        "<>",
+        "NOT",
+        "All of the above"
+      ],
+      "answer": "All of the above",
+      "number": 25
+    },
+    {
+      "question": "Which query finds products that cost more than or equal to 1000?",
+      "options": [
+        "SELECT * FROM products WHERE price >= 1000;",
+        "SELECT * FROM products WHERE price > 1000;",
+        "SELECT * FROM products WHERE price == 1000;",
+        "SELECT * FROM products WHERE price <= 1000;"
+      ],
+      "answer": "SELECT * FROM products WHERE price >= 1000;",
+      "number": 26
+    },
+    {
+      "question": "Show books published after 2015.",
+      "options": [
+        "SELECT * FROM books WHERE year > 2015;",
+        "SELECT * FROM books WHERE year >= 2015;",
+        "SELECT * FROM books WHERE year != 2015;",
+        "SELECT * FROM books WHERE year = 2015;"
+      ],
+      "answer": "SELECT * FROM books WHERE year > 2015;",
+      "number": 27
+    },
+    {
+      "question": "Get sales with quantity less than or equal to 50.",
+      "options": [
+        "SELECT * FROM sales WHERE quantity <= 50;",
+        "SELECT * FROM sales WHERE quantity < 50;",
+        "SELECT * FROM sales WHERE quantity >= 50;",
+        "SELECT * FROM sales WHERE quantity != 50;"
+      ],
+      "answer": "SELECT * FROM sales WHERE quantity <= 50;",
+      "number": 28
+    },
+    {
+      "question": "Query to get transactions greater than $1000.",
+      "options": [
+        "SELECT * FROM transactions WHERE amount > 1000;",
+        "SELECT * FROM transactions WHERE amount >= 1000;",
+        "SELECT * FROM transactions WHERE amount == 1000;",
+        "SELECT * FROM transactions WHERE amount != 1000;"
+      ],
+      "answer": "SELECT * FROM transactions WHERE amount > 1000;",
+      "number": 29
+    },
+    {
+      "question": "Find users whose ID is not 101.",
+      "options": [
+        "SELECT * FROM users WHERE id != 101;",
+        "SELECT * FROM users WHERE id <> 101;",
+        "SELECT * FROM users WHERE NOT id = 101;",
+        "All of the above"
+      ],
+      "answer": "All of the above",
+      "number": 30
+    }
+  ]
+}

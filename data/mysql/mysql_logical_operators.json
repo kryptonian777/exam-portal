@@ -1,0 +1,335 @@
+{
+  "examName": "mysql_logical_operators",
+  "questions": [
+    {
+      "question": "Which operator returns TRUE only if both conditions are TRUE?",
+      "options": [
+        "OR",
+        "AND",
+        "NOT",
+        "XOR"
+      ],
+      "answer": "AND",
+      "number": 1
+    },
+    {
+      "question": "Which operator returns TRUE if at least one condition is TRUE?",
+      "options": [
+        "AND",
+        "OR",
+        "NOT",
+        "NONE"
+      ],
+      "answer": "OR",
+      "number": 2
+    },
+    {
+      "question": "Which operator inverts a TRUE condition to FALSE?",
+      "options": [
+        "NOT",
+        "AND",
+        "OR",
+        "INVERT"
+      ],
+      "answer": "NOT",
+      "number": 3
+    },
+    {
+      "question": "What is the result of TRUE AND FALSE?",
+      "options": [
+        "TRUE",
+        "FALSE",
+        "NULL",
+        "ERROR"
+      ],
+      "answer": "FALSE",
+      "number": 4
+    },
+    {
+      "question": "What is the result of TRUE OR FALSE?",
+      "options": [
+        "TRUE",
+        "FALSE",
+        "NULL",
+        "ERROR"
+      ],
+      "answer": "TRUE",
+      "number": 5
+    },
+    {
+      "question": "What does NOT TRUE return?",
+      "options": [
+        "TRUE",
+        "FALSE",
+        "NULL",
+        "ERROR"
+      ],
+      "answer": "FALSE",
+      "number": 6
+    },
+    {
+      "question": "What does NOT FALSE return?",
+      "options": [
+        "TRUE",
+        "FALSE",
+        "NULL",
+        "ERROR"
+      ],
+      "answer": "TRUE",
+      "number": 7
+    },
+    {
+      "question": "Which of these is the correct syntax for a NOT condition?",
+      "options": [
+        "WHERE NOT age = 30",
+        "WHERE age != 30",
+        "WHERE age NOT = 30",
+        "Both 1 and 2"
+      ],
+      "answer": "WHERE NOT age = 30",
+      "number": 8
+    },
+    {
+      "question": "Which query uses both AND and OR?",
+      "options": [
+        "SELECT * FROM users WHERE age > 18 AND city = 'Delhi';",
+        "SELECT * FROM users WHERE city = 'Mumbai' OR city = 'Delhi';",
+        "SELECT * FROM users WHERE age > 18 AND (city = 'Delhi' OR city = 'Mumbai');",
+        "SELECT * FROM users;"
+      ],
+      "answer": "SELECT * FROM users WHERE age > 18 AND (city = 'Delhi' OR city = 'Mumbai');",
+      "number": 9
+    },
+    {
+      "question": "Which clause filters rows that are NOT in 'India'?",
+      "options": [
+        "WHERE NOT country = 'India'",
+        "WHERE country <> 'India'",
+        "WHERE country != 'India'",
+        "All of the above"
+      ],
+      "answer": "All of the above",
+      "number": 10
+    },
+    {
+      "question": "Query to get employees aged over 30 and working in 'HR'.",
+      "options": [
+        "SELECT * FROM employees WHERE age > 30 AND department = 'HR';",
+        "SELECT * FROM employees WHERE age > 30 OR department = 'HR';",
+        "SELECT * FROM employees WHERE NOT age > 30;",
+        "SELECT * FROM employees WHERE age = 30;"
+      ],
+      "answer": "SELECT * FROM employees WHERE age > 30 AND department = 'HR';",
+      "number": 11
+    },
+    {
+      "question": "Query to list customers from 'India' or 'USA'.",
+      "options": [
+        "SELECT * FROM customers WHERE country = 'India' OR country = 'USA';",
+        "SELECT * FROM customers WHERE country IN ('India', 'USA');",
+        "Both A and B",
+        "None"
+      ],
+      "answer": "Both A and B",
+      "number": 12
+    },
+    {
+      "question": "Get students who scored over 80 but less than 100.",
+      "options": [
+        "SELECT * FROM students WHERE marks > 80 AND marks < 100;",
+        "SELECT * FROM students WHERE marks BETWEEN 81 AND 99;",
+        "SELECT * FROM students WHERE marks > 100;",
+        "Both A and B"
+      ],
+      "answer": "Both A and B",
+      "number": 13
+    },
+    {
+      "question": "List items with quantity > 10 AND price < 500.",
+      "options": [
+        "SELECT * FROM items WHERE quantity > 10 AND price < 500;",
+        "SELECT * FROM items WHERE quantity < 10 AND price > 500;",
+        "SELECT * FROM items WHERE quantity = 10 OR price = 500;",
+        "SELECT * FROM items WHERE quantity < 10 OR price < 500;"
+      ],
+      "answer": "SELECT * FROM items WHERE quantity > 10 AND price < 500;",
+      "number": 14
+    },
+    {
+      "question": "Query to show users NOT from 'Delhi'.",
+      "options": [
+        "SELECT * FROM users WHERE NOT city = 'Delhi';",
+        "SELECT * FROM users WHERE city != 'Delhi';",
+        "SELECT * FROM users WHERE city <> 'Delhi';",
+        "All of the above"
+      ],
+      "answer": "All of the above",
+      "number": 15
+    },
+    {
+      "question": "Select products that are out of stock OR discontinued.",
+      "options": [
+        "SELECT * FROM products WHERE stock = 0 OR status = 'discontinued';",
+        "SELECT * FROM products WHERE stock != 0;",
+        "SELECT * FROM products WHERE NOT stock = 0;",
+        "None"
+      ],
+      "answer": "SELECT * FROM products WHERE stock = 0 OR status = 'discontinued';",
+      "number": 16
+    },
+    {
+      "question": "Find employees aged between 25 and 40 but NOT in 'Finance'.",
+      "options": [
+        "SELECT * FROM employees WHERE age BETWEEN 25 AND 40 AND department != 'Finance';",
+        "SELECT * FROM employees WHERE age > 25 AND age < 40 AND NOT department = 'Finance';",
+        "Both A and B",
+        "None"
+      ],
+      "answer": "Both A and B",
+      "number": 17
+    },
+    {
+      "question": "Get orders where quantity is more than 5 AND less than 100.",
+      "options": [
+        "SELECT * FROM orders WHERE quantity > 5 AND quantity < 100;",
+        "SELECT * FROM orders WHERE quantity BETWEEN 6 AND 99;",
+        "Both A and B",
+        "None"
+      ],
+      "answer": "Both A and B",
+      "number": 18
+    },
+    {
+      "question": "Select books published before 2000 OR after 2020.",
+      "options": [
+        "SELECT * FROM books WHERE year < 2000 OR year > 2020;",
+        "SELECT * FROM books WHERE year BETWEEN 2000 AND 2020;",
+        "SELECT * FROM books WHERE NOT year = 2020;",
+        "None"
+      ],
+      "answer": "SELECT * FROM books WHERE year < 2000 OR year > 2020;",
+      "number": 19
+    },
+    {
+      "question": "List users with age NOT between 18 and 30.",
+      "options": [
+        "SELECT * FROM users WHERE NOT (age BETWEEN 18 AND 30);",
+        "SELECT * FROM users WHERE age < 18 OR age > 30;",
+        "Both A and B",
+        "None"
+      ],
+      "answer": "Both A and B",
+      "number": 20
+    },
+    {
+      "question": "Show all accounts NOT active and NOT verified.",
+      "options": [
+        "SELECT * FROM accounts WHERE NOT active AND NOT verified;",
+        "SELECT * FROM accounts WHERE active = 0 AND verified = 0;",
+        "Both A and B",
+        "None"
+      ],
+      "answer": "Both A and B",
+      "number": 21
+    },
+    {
+      "question": "Find users NOT from 'India' AND NOT from 'USA'.",
+      "options": [
+        "SELECT * FROM users WHERE country != 'India' AND country != 'USA';",
+        "SELECT * FROM users WHERE NOT country IN ('India', 'USA');",
+        "Both A and B",
+        "None"
+      ],
+      "answer": "SELECT * FROM users WHERE country != 'India' AND country != 'USA';",
+      "number": 22
+    },
+    {
+      "question": "Query with correct AND/OR grouping syntax?",
+      "options": [
+        "SELECT * FROM users WHERE age > 18 AND (city = 'Delhi' OR city = 'Mumbai');",
+        "SELECT * FROM users WHERE age > 18 OR city = 'Delhi' AND city = 'Mumbai';",
+        "SELECT * FROM users WHERE age > 18 AND city = 'Delhi' OR city = 'Mumbai';",
+        "All are valid"
+      ],
+      "answer": "SELECT * FROM users WHERE age > 18 AND (city = 'Delhi' OR city = 'Mumbai');",
+      "number": 23
+    },
+    {
+      "question": "Which condition filters items not priced at 100?",
+      "options": [
+        "price != 100",
+        "NOT price = 100",
+        "price <> 100",
+        "All of the above"
+      ],
+      "answer": "All of the above",
+      "number": 24
+    },
+    {
+      "question": "How to combine AND with NOT correctly?",
+      "options": [
+        "SELECT * FROM data WHERE NOT (age > 25 AND city = 'Mumbai');",
+        "SELECT * FROM data WHERE NOT age > 25 AND city = 'Mumbai';",
+        "SELECT * FROM data WHERE NOT age > 25 city = 'Mumbai';",
+        "All are valid"
+      ],
+      "answer": "SELECT * FROM data WHERE NOT (age > 25 AND city = 'Mumbai');",
+      "number": 25
+    },
+    {
+      "question": "Query users from 'Delhi' OR aged above 50?",
+      "options": [
+        "SELECT * FROM users WHERE city = 'Delhi' OR age > 50;",
+        "SELECT * FROM users WHERE city = 'Delhi' AND age > 50;",
+        "SELECT * FROM users WHERE NOT city = 'Delhi';",
+        "SELECT * FROM users;"
+      ],
+      "answer": "SELECT * FROM users WHERE city = 'Delhi' OR age > 50;",
+      "number": 26
+    },
+    {
+      "question": "Select customers NOT from 'India' and spent > 10000.",
+      "options": [
+        "SELECT * FROM customers WHERE country != 'India' AND spent > 10000;",
+        "SELECT * FROM customers WHERE NOT country = 'India' AND spent > 10000;",
+        "Both A and B",
+        "None"
+      ],
+      "answer": "Both A and B",
+      "number": 27
+    },
+    {
+      "question": "Show all rows where city is 'Delhi' AND age < 40.",
+      "options": [
+        "SELECT * FROM users WHERE city = 'Delhi' AND age < 40;",
+        "SELECT * FROM users WHERE NOT city = 'Delhi';",
+        "SELECT * FROM users WHERE age = 40;",
+        "None"
+      ],
+      "answer": "SELECT * FROM users WHERE city = 'Delhi' AND age < 40;",
+      "number": 28
+    },
+    {
+      "question": "Which is valid use of NOT?",
+      "options": [
+        "NOT age = 25",
+        "age != 25",
+        "age <> 25",
+        "All of the above"
+      ],
+      "answer": "All of the above",
+      "number": 29
+    },
+    {
+      "question": "Correct grouping for OR/AND combinations?",
+      "options": [
+        "(A OR B) AND C",
+        "A OR (B AND C)",
+        "Both A and B depending on condition",
+        "None"
+      ],
+      "answer": "Both A and B depending on condition",
+      "number": 30
+    }
+  ]
+}

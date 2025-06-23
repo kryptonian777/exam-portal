@@ -1,0 +1,115 @@
+{
+  "examName": "mysql_truncate_table",
+  "questions": [
+    {
+      "question": "What does the TRUNCATE TABLE command do?",
+      "options": [
+        "Deletes all rows from a table quickly without logging individual row deletions",
+        "Deletes specific rows from a table",
+        "Drops the table from the database",
+        "Removes only NULL values from the table"
+      ],
+      "answer": "Deletes all rows from a table quickly without logging individual row deletions",
+      "number": 1
+    },
+    {
+      "question": "Which command is faster for removing all rows from a table?",
+      "options": [
+        "TRUNCATE TABLE",
+        "DELETE FROM table_name",
+        "DROP TABLE",
+        "REMOVE ALL"
+      ],
+      "answer": "TRUNCATE TABLE",
+      "number": 2
+    },
+    {
+      "question": "Can TRUNCATE TABLE be rolled back in MySQL by default?",
+      "options": [
+        "No",
+        "Yes",
+        "Only with FOREIGN KEY",
+        "Only with PRIMARY KEY"
+      ],
+      "answer": "No",
+      "number": 3
+    },
+    {
+      "question": "Which command resets AUTO_INCREMENT value?",
+      "options": [
+        "TRUNCATE TABLE",
+        "DELETE FROM table_name",
+        "REMOVE ALL",
+        "CLEAR TABLE"
+      ],
+      "answer": "TRUNCATE TABLE",
+      "number": 4
+    },
+    {
+      "question": "Which SQL command quickly removes all data but retains table structure?",
+      "options": [
+        "TRUNCATE TABLE",
+        "DROP TABLE",
+        "DELETE * FROM table",
+        "REMOVE TABLE"
+      ],
+      "answer": "TRUNCATE TABLE",
+      "number": 5
+    },
+    {
+      "question": "What is the correct command to remove all data from `sales` table?",
+      "options": [
+        "TRUNCATE TABLE sales;",
+        "DELETE ALL FROM sales;",
+        "REMOVE sales;",
+        "DROP TABLE sales;"
+      ],
+      "answer": "TRUNCATE TABLE sales;",
+      "number": 6
+    },
+    {
+      "question": "You want to clear the `logs` table quickly and reset its ID. What do you use?",
+      "options": [
+        "TRUNCATE TABLE logs;",
+        "DELETE FROM logs;",
+        "DROP logs;",
+        "RESET logs;"
+      ],
+      "answer": "TRUNCATE TABLE logs;",
+      "number": 7
+    },
+    {
+      "question": "Which operation retains the table structure for reuse?",
+      "options": [
+        "TRUNCATE TABLE employee;",
+        "DROP TABLE employee;",
+        "DELETE employee;",
+        "CLEAR employee;"
+      ],
+      "answer": "TRUNCATE TABLE employee;",
+      "number": 8
+    },
+    {
+      "question": "After using TRUNCATE TABLE students, what is the state of the table?",
+      "options": [
+        "Empty with structure intact and AUTO_INCREMENT reset",
+        "Completely removed from database",
+        "Only NULL values deleted",
+        "Partially cleared"
+      ],
+      "answer": "Empty with structure intact and AUTO_INCREMENT reset",
+      "number": 9
+    },
+    {
+      "question": "What happens when you truncate a table with foreign key constraints?",
+      "options": [
+        "You must disable constraints first",
+        "The table truncates regardless",
+        "All foreign tables are truncated too",
+        "The command fails silently"
+      ],
+      "answer": "You must disable constraints first",
+      "number": 10
+    }
+  ]
+}

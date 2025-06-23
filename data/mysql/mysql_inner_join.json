@@ -1,0 +1,225 @@
+{
+  "examName": "mysql_inner_join",
+  "questions": [
+    {
+      "question": "What is an INNER JOIN in SQL?",
+      "options": [
+        "Returns all records from both tables",
+        "Returns matching records from both tables",
+        "Returns unmatched records",
+        "Deletes matching rows"
+      ],
+      "answer": "Returns matching records from both tables",
+      "number": 1
+    },
+    {
+      "question": "Which keyword is used for an INNER JOIN?",
+      "options": [
+        "MATCH",
+        "JOIN",
+        "INNER JOIN",
+        "COMBINE"
+      ],
+      "answer": "INNER JOIN",
+      "number": 2
+    },
+    {
+      "question": "What condition is used in an INNER JOIN?",
+      "options": [
+        "ON",
+        "WHERE",
+        "GROUP",
+        "ORDER"
+      ],
+      "answer": "ON",
+      "number": 3
+    },
+    {
+      "question": "Can INNER JOIN combine more than two tables?",
+      "options": [
+        "Yes",
+        "No",
+        "Only with subqueries",
+        "Only with views"
+      ],
+      "answer": "Yes",
+      "number": 4
+    },
+    {
+      "question": "Which clause specifies how tables are related?",
+      "options": [
+        "ON",
+        "WHERE",
+        "HAVING",
+        "GROUP BY"
+      ],
+      "answer": "ON",
+      "number": 5
+    },
+    {
+      "question": "What happens if there is no match in INNER JOIN?",
+      "options": [
+        "Returns all rows",
+        "Returns NULL",
+        "Excludes the row",
+        "Duplicates the row"
+      ],
+      "answer": "Excludes the row",
+      "number": 6
+    },
+    {
+      "question": "Which is a valid INNER JOIN syntax?",
+      "options": [
+        "SELECT * FROM a JOIN b;",
+        "SELECT * FROM a INNER JOIN b ON a.id = b.id;",
+        "JOIN a WITH b;",
+        "COMBINE a AND b;"
+      ],
+      "answer": "SELECT * FROM a INNER JOIN b ON a.id = b.id;",
+      "number": 7
+    },
+    {
+      "question": "Can you join on multiple conditions?",
+      "options": [
+        "Yes",
+        "No",
+        "Only with views",
+        "Only with subqueries"
+      ],
+      "answer": "Yes",
+      "number": 8
+    },
+    {
+      "question": "What is the result of an INNER JOIN with no common values?",
+      "options": [
+        "All rows",
+        "Only NULLs",
+        "Empty result",
+        "Duplicate rows"
+      ],
+      "answer": "Empty result",
+      "number": 9
+    },
+    {
+      "question": "Which clause is required with INNER JOIN?",
+      "options": [
+        "ON",
+        "GROUP BY",
+        "HAVING",
+        "AS"
+      ],
+      "answer": "ON",
+      "number": 10
+    },
+    {
+      "question": "Join `employees` and `departments` on `dept_id`.",
+      "options": [
+        "SELECT * FROM employees INNER JOIN departments ON employees.dept_id = departments.dept_id;",
+        "SELECT * FROM employees JOIN departments;",
+        "SELECT employees.dept_id = departments.dept_id FROM employees;",
+        "SELECT * INNER JOIN employees, departments;"
+      ],
+      "answer": "SELECT * FROM employees INNER JOIN departments ON employees.dept_id = departments.dept_id;",
+      "number": 11
+    },
+    {
+      "question": "Fetch student names and course names from `students` and `courses` tables using `course_id`.",
+      "options": [
+        "SELECT students.name, courses.title FROM students INNER JOIN courses ON students.course_id = courses.course_id;",
+        "SELECT name, title FROM students JOIN courses;",
+        "JOIN students AND courses ON course_id;",
+        "SELECT * FROM students INNER JOIN courses;"
+      ],
+      "answer": "SELECT students.name, courses.title FROM students INNER JOIN courses ON students.course_id = courses.course_id;",
+      "number": 12
+    },
+    {
+      "question": "List orders with customer names using `customer_id`.",
+      "options": [
+        "SELECT orders.id, customers.name FROM orders INNER JOIN customers ON orders.customer_id = customers.customer_id;",
+        "SELECT id, name FROM orders JOIN customers;",
+        "INNER JOIN orders AND customers;",
+        "SELECT name, id FROM customers INNER JOIN orders;"
+      ],
+      "answer": "SELECT orders.id, customers.name FROM orders INNER JOIN customers ON orders.customer_id = customers.customer_id;",
+      "number": 13
+    },
+    {
+      "question": "Get product and supplier info from `products` and `suppliers` using `supplier_id`.",
+      "options": [
+        "SELECT products.name, suppliers.name FROM products INNER JOIN suppliers ON products.supplier_id = suppliers.supplier_id;",
+        "JOIN suppliers AND products;",
+        "SELECT name FROM suppliers INNER JOIN products;",
+        "SELECT products JOIN suppliers ON supplier_id;"
+      ],
+      "answer": "SELECT products.name, suppliers.name FROM products INNER JOIN suppliers ON products.supplier_id = suppliers.supplier_id;",
+      "number": 14
+    },
+    {
+      "question": "Join `books` and `authors` on `author_id` and display book title and author name.",
+      "options": [
+        "SELECT books.title, authors.name FROM books INNER JOIN authors ON books.author_id = authors.author_id;",
+        "SELECT title, name FROM authors JOIN books;",
+        "JOIN books AUTHORS;",
+        "SELECT books.title JOIN authors.name;"
+      ],
+      "answer": "SELECT books.title, authors.name FROM books INNER JOIN authors ON books.author_id = authors.author_id;",
+      "number": 15
+    },
+    {
+      "question": "Get employees and their managers using `manager_id`.",
+      "options": [
+        "SELECT e.name, m.name FROM employees e INNER JOIN employees m ON e.manager_id = m.id;",
+        "SELECT name FROM employees WHERE manager_id;",
+        "JOIN employees e AND m ON e.manager_id;",
+        "SELECT * FROM employees INNER JOIN manager;"
+      ],
+      "answer": "SELECT e.name, m.name FROM employees e INNER JOIN employees m ON e.manager_id = m.id;",
+      "number": 16
+    },
+    {
+      "question": "Join `students` and `results` using `student_id` to display names and marks.",
+      "options": [
+        "SELECT students.name, results.marks FROM students INNER JOIN results ON students.student_id = results.student_id;",
+        "JOIN students ON results;",
+        "SELECT name, marks FROM students JOIN results;",
+        "SELECT students.name, marks FROM results;"
+      ],
+      "answer": "SELECT students.name, results.marks FROM students INNER JOIN results ON students.student_id = results.student_id;",
+      "number": 17
+    },
+    {
+      "question": "Combine employee salary info with department names.",
+      "options": [
+        "SELECT e.salary, d.name FROM employees e INNER JOIN departments d ON e.dept_id = d.id;",
+        "SELECT salary FROM employees JOIN departments;",
+        "SELECT e.name, d.salary FROM departments INNER JOIN employees;",
+        "JOIN employees and departments ON salary;"
+      ],
+      "answer": "SELECT e.salary, d.name FROM employees e INNER JOIN departments d ON e.dept_id = d.id;",
+      "number": 18
+    },
+    {
+      "question": "Get order details with product names.",
+      "options": [
+        "SELECT o.id, p.name FROM orders o INNER JOIN products p ON o.product_id = p.id;",
+        "SELECT o.id FROM orders JOIN products;",
+        "JOIN orders and products;",
+        "SELECT name FROM products JOIN orders;"
+      ],
+      "answer": "SELECT o.id, p.name FROM orders o INNER JOIN products p ON o.product_id = p.id;",
+      "number": 19
+    },
+    {
+      "question": "Show class names and teacher names from `classes` and `teachers` using `teacher_id`.",
+      "options": [
+        "SELECT classes.name, teachers.name FROM classes INNER JOIN teachers ON classes.teacher_id = teachers.id;",
+        "JOIN classes and teachers;",
+        "SELECT name FROM teachers JOIN classes;",
+        "SELECT * FROM classes INNER JOIN teachers;"
+      ],
+      "answer": "SELECT classes.name, teachers.name FROM classes INNER JOIN teachers ON classes.teacher_id = teachers.id;",
+      "number": 20
+    }
+  ]
+}

@@ -1,0 +1,225 @@
+{
+  "examName": "mysql_drop_table",
+  "questions": [
+    {
+      "question": "What does the DROP TABLE command do?",
+      "options": [
+        "Deletes all rows",
+        "Removes a table structure and data",
+        "Disables the table",
+        "Resets values"
+      ],
+      "answer": "Removes a table structure and data",
+      "number": 1
+    },
+    {
+      "question": "Which of the following is the correct syntax to delete a table?",
+      "options": [
+        "REMOVE TABLE table_name;",
+        "DELETE TABLE table_name;",
+        "DROP TABLE table_name;",
+        "CLEAR TABLE table_name;"
+      ],
+      "answer": "DROP TABLE table_name;",
+      "number": 2
+    },
+    {
+      "question": "Can you recover a table after using DROP TABLE?",
+      "options": [
+        "Yes",
+        "Only with backup",
+        "No",
+        "It\u2019s temporary"
+      ],
+      "answer": "Only with backup",
+      "number": 3
+    },
+    {
+      "question": "Which keyword is used to delete the structure of a table?",
+      "options": [
+        "DELETE",
+        "TRUNCATE",
+        "DROP",
+        "REMOVE"
+      ],
+      "answer": "DROP",
+      "number": 4
+    },
+    {
+      "question": "Which clause avoids error if the table doesn\u2019t exist?",
+      "options": [
+        "DROP TABLE SAFE",
+        "DROP TABLE IF NULL",
+        "DROP TABLE IF EXISTS",
+        "DROP IF EXISTS TABLE"
+      ],
+      "answer": "DROP TABLE IF EXISTS",
+      "number": 5
+    },
+    {
+      "question": "DROP TABLE command deletes which of the following?",
+      "options": [
+        "Only data",
+        "Only structure",
+        "Both data and structure",
+        "Only primary key"
+      ],
+      "answer": "Both data and structure",
+      "number": 6
+    },
+    {
+      "question": "What will DROP TABLE employees; do?",
+      "options": [
+        "Delete employee records",
+        "Remove the entire employees table",
+        "Reset employee values",
+        "Archive the table"
+      ],
+      "answer": "Remove the entire employees table",
+      "number": 7
+    },
+    {
+      "question": "Which SQL keyword helps you avoid errors if the table might not exist?",
+      "options": [
+        "IF TRUE",
+        "IF EXISTS",
+        "IF NOT",
+        "IF AVAILABLE"
+      ],
+      "answer": "IF EXISTS",
+      "number": 8
+    },
+    {
+      "question": "Which is safer in scripts when table may or may not exist?",
+      "options": [
+        "DROP TABLE mytable;",
+        "DROP TABLE IF EXISTS mytable;",
+        "DELETE FROM mytable;",
+        "TRUNCATE mytable;"
+      ],
+      "answer": "DROP TABLE IF EXISTS mytable;",
+      "number": 9
+    },
+    {
+      "question": "Which of the following commands is used to remove a table permanently?",
+      "options": [
+        "TRUNCATE TABLE",
+        "DELETE TABLE",
+        "DROP TABLE",
+        "REMOVE TABLE"
+      ],
+      "answer": "DROP TABLE",
+      "number": 10
+    },
+    {
+      "question": "You want to remove a table `orders` only if it exists, which command works?",
+      "options": [
+        "DROP TABLE IF EXISTS orders;",
+        "DELETE TABLE orders;",
+        "REMOVE TABLE orders;",
+        "TRUNCATE orders;"
+      ],
+      "answer": "DROP TABLE IF EXISTS orders;",
+      "number": 11
+    },
+    {
+      "question": "What is the outcome of DROP TABLE inventory;",
+      "options": [
+        "Inventory values are reset",
+        "Inventory rows are cleared",
+        "Inventory table is deleted with all its structure",
+        "Inventory column is deleted"
+      ],
+      "answer": "Inventory table is deleted with all its structure",
+      "number": 12
+    },
+    {
+      "question": "DROP TABLE sales; will result in?",
+      "options": [
+        "All data being deleted but table kept",
+        "Table and all data removed",
+        "Only rows deleted",
+        "Primary keys removed"
+      ],
+      "answer": "Table and all data removed",
+      "number": 13
+    },
+    {
+      "question": "To ensure the script doesn't fail if `users` table is missing, use:",
+      "options": [
+        "DROP TABLE users;",
+        "DROP TABLE IF EXISTS users;",
+        "DELETE FROM users;",
+        "CLEAR TABLE users;"
+      ],
+      "answer": "DROP TABLE IF EXISTS users;",
+      "number": 14
+    },
+    {
+      "question": "If a table has foreign key constraints and you use DROP TABLE, what happens?",
+      "options": [
+        "It always works",
+        "Error unless foreign keys removed",
+        "Only data removed",
+        "Renames the table"
+      ],
+      "answer": "Error unless foreign keys removed",
+      "number": 15
+    },
+    {
+      "question": "How do you drop multiple tables in one command?",
+      "options": [
+        "DROP TABLE a, b, c;",
+        "DROP a, b, c;",
+        "DROP MULTIPLE TABLES (a, b, c);",
+        "REMOVE TABLES a, b, c;"
+      ],
+      "answer": "DROP TABLE a, b, c;",
+      "number": 16
+    },
+    {
+      "question": "What precaution should be taken before dropping a table?",
+      "options": [
+        "Nothing",
+        "Check storage engine",
+        "Backup data",
+        "Rename table first"
+      ],
+      "answer": "Backup data",
+      "number": 17
+    },
+    {
+      "question": "DROP TABLE IF EXISTS logs; is useful for?",
+      "options": [
+        "Optimizing logs",
+        "Avoiding error if logs table doesn\u2019t exist",
+        "Archiving logs",
+        "Changing data types"
+      ],
+      "answer": "Avoiding error if logs table doesn\u2019t exist",
+      "number": 18
+    },
+    {
+      "question": "What does DROP TABLE do to indexes and constraints?",
+      "options": [
+        "Preserves them",
+        "Moves them to backup",
+        "Deletes all",
+        "Keeps only primary key"
+      ],
+      "answer": "Deletes all",
+      "number": 19
+    },
+    {
+      "question": "DROP TABLE command is considered:",
+      "options": [
+        "Safe",
+        "Undoable",
+        "Permanent",
+        "Non-destructive"
+      ],
+      "answer": "Permanent",
+      "number": 20
+    }
+  ]
+}

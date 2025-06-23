@@ -1,0 +1,225 @@
+{
+  "examName": "mysql_aggregate_functions",
+  "questions": [
+    {
+      "question": "Which function counts the number of rows in a table?",
+      "options": [
+        "SUM()",
+        "COUNT()",
+        "AVG()",
+        "TOTAL()"
+      ],
+      "answer": "COUNT()",
+      "number": 1
+    },
+    {
+      "question": "Which function returns the total sum of a column?",
+      "options": [
+        "SUM()",
+        "COUNT()",
+        "AVG()",
+        "MAX()"
+      ],
+      "answer": "SUM()",
+      "number": 2
+    },
+    {
+      "question": "Which aggregate function gives the average of a numeric column?",
+      "options": [
+        "MEAN()",
+        "AVG()",
+        "TOTAL()",
+        "COUNT()"
+      ],
+      "answer": "AVG()",
+      "number": 3
+    },
+    {
+      "question": "What does MAX() function return?",
+      "options": [
+        "Maximum rows",
+        "Minimum value",
+        "Highest value",
+        "Mean value"
+      ],
+      "answer": "Highest value",
+      "number": 4
+    },
+    {
+      "question": "Which function returns the smallest value in a column?",
+      "options": [
+        "MIN()",
+        "LEAST()",
+        "LOW()",
+        "SMALLEST()"
+      ],
+      "answer": "MIN()",
+      "number": 5
+    },
+    {
+      "question": "What is the output of COUNT(*)?",
+      "options": [
+        "Sum of numeric fields",
+        "Number of rows",
+        "Average value",
+        "All values"
+      ],
+      "answer": "Number of rows",
+      "number": 6
+    },
+    {
+      "question": "Which function calculates the average of values in a column?",
+      "options": [
+        "AVG()",
+        "MEAN()",
+        "AVERAGE()",
+        "MID()"
+      ],
+      "answer": "AVG()",
+      "number": 7
+    },
+    {
+      "question": "Which keyword must follow aggregate functions in SELECT?",
+      "options": [
+        "FROM",
+        "TABLE",
+        "COLUMN",
+        "JOIN"
+      ],
+      "answer": "FROM",
+      "number": 8
+    },
+    {
+      "question": "What will SUM(price) return?",
+      "options": [
+        "Sum of all prices",
+        "Number of rows",
+        "Price column",
+        "Min price"
+      ],
+      "answer": "Sum of all prices",
+      "number": 9
+    },
+    {
+      "question": "What is returned by SELECT COUNT(*) FROM orders?",
+      "options": [
+        "Total order value",
+        "Number of orders",
+        "Order average",
+        "Order price"
+      ],
+      "answer": "Number of orders",
+      "number": 10
+    },
+    {
+      "question": "Get the total salary from the `employees` table.",
+      "options": [
+        "SELECT SUM(salary) FROM employees;",
+        "SELECT TOTAL(salary) FROM employees;",
+        "SELECT salary FROM employees SUM();",
+        "SELECT salary SUM FROM employees;"
+      ],
+      "answer": "SELECT SUM(salary) FROM employees;",
+      "number": 11
+    },
+    {
+      "question": "Find the highest price in the `products` table.",
+      "options": [
+        "SELECT MAX(price) FROM products;",
+        "SELECT HIGH(price) FROM products;",
+        "SELECT price MAX FROM products;",
+        "SELECT price FROM products MAX();"
+      ],
+      "answer": "SELECT MAX(price) FROM products;",
+      "number": 12
+    },
+    {
+      "question": "Get the average age from the `students` table.",
+      "options": [
+        "SELECT AVG(age) FROM students;",
+        "SELECT MEAN(age) FROM students;",
+        "SELECT AVG FROM students;",
+        "SELECT age AVG FROM students;"
+      ],
+      "answer": "SELECT AVG(age) FROM students;",
+      "number": 13
+    },
+    {
+      "question": "Count the total number of users.",
+      "options": [
+        "SELECT COUNT(*) FROM users;",
+        "SELECT users COUNT();",
+        "COUNT(*) FROM users;",
+        "SELECT COUNT(users);"
+      ],
+      "answer": "SELECT COUNT(*) FROM users;",
+      "number": 14
+    },
+    {
+      "question": "Find the minimum score in `results` table.",
+      "options": [
+        "SELECT MIN(score) FROM results;",
+        "SELECT LOWEST(score) FROM results;",
+        "SELECT score FROM results MIN();",
+        "MIN(score) FROM results;"
+      ],
+      "answer": "SELECT MIN(score) FROM results;",
+      "number": 15
+    },
+    {
+      "question": "Get total quantity sold from `sales` table.",
+      "options": [
+        "SELECT SUM(quantity) FROM sales;",
+        "SELECT TOTAL(quantity) FROM sales;",
+        "SELECT quantity FROM sales SUM();",
+        "SELECT sales SUM(quantity);"
+      ],
+      "answer": "SELECT SUM(quantity) FROM sales;",
+      "number": 16
+    },
+    {
+      "question": "How to count the number of employees in `staff` table?",
+      "options": [
+        "SELECT COUNT(*) FROM staff;",
+        "SELECT COUNT(staff) FROM staff;",
+        "COUNT staff;",
+        "SELECT staff COUNT();"
+      ],
+      "answer": "SELECT COUNT(*) FROM staff;",
+      "number": 17
+    },
+    {
+      "question": "Find the maximum marks scored in `exams` table.",
+      "options": [
+        "SELECT MAX(marks) FROM exams;",
+        "SELECT MAXIMUM(marks) FROM exams;",
+        "SELECT exams MAX(marks);",
+        "MAX(marks) FROM exams;"
+      ],
+      "answer": "SELECT MAX(marks) FROM exams;",
+      "number": 18
+    },
+    {
+      "question": "Calculate total bill amount in `orders` table.",
+      "options": [
+        "SELECT SUM(bill_amount) FROM orders;",
+        "SELECT bill_amount SUM FROM orders;",
+        "SELECT TOTAL(bill_amount);",
+        "SELECT SUM FROM orders;"
+      ],
+      "answer": "SELECT SUM(bill_amount) FROM orders;",
+      "number": 19
+    },
+    {
+      "question": "Calculate the average rating from `reviews` table.",
+      "options": [
+        "SELECT AVG(rating) FROM reviews;",
+        "SELECT rating AVG FROM reviews;",
+        "SELECT MEAN(rating) FROM reviews;",
+        "AVG(rating) FROM reviews;"
+      ],
+      "answer": "SELECT AVG(rating) FROM reviews;",
+      "number": 20
+    }
+  ]
+}

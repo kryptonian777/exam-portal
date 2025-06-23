@@ -1,0 +1,225 @@
+{
+  "examName": "mysql_views_basics",
+  "questions": [
+    {
+      "question": "What does the CREATE VIEW statement do?",
+      "options": [
+        "Deletes a table",
+        "Displays the structure of a table",
+        "Creates a virtual table based on a query",
+        "Inserts data into a table"
+      ],
+      "answer": "Creates a virtual table based on a query",
+      "number": 1
+    },
+    {
+      "question": "Which of the following is a correct syntax for creating a view?",
+      "options": [
+        "CREATE VIEW view_name AS SELECT * FROM table_name;",
+        "VIEW CREATE view_name FROM table_name;",
+        "CREATE view_name SELECT * FROM table_name;",
+        "SELECT CREATE VIEW view_name;"
+      ],
+      "answer": "CREATE VIEW view_name AS SELECT * FROM table_name;",
+      "number": 2
+    },
+    {
+      "question": "What is a view in MySQL?",
+      "options": [
+        "A table with physical data",
+        "A copy of another database",
+        "A virtual table based on a SELECT query",
+        "A type of stored procedure"
+      ],
+      "answer": "A virtual table based on a SELECT query",
+      "number": 3
+    },
+    {
+      "question": "Which command retrieves data from a view?",
+      "options": [
+        "SELECT * FROM view_name;",
+        "DISPLAY view_name;",
+        "SHOW view_name;",
+        "VIEW SELECT;"
+      ],
+      "answer": "SELECT * FROM view_name;",
+      "number": 4
+    },
+    {
+      "question": "Can views be queried like regular tables?",
+      "options": [
+        "Yes",
+        "No",
+        "Only if indexed",
+        "Only if not empty"
+      ],
+      "answer": "Yes",
+      "number": 5
+    },
+    {
+      "question": "Which of the following removes a view?",
+      "options": [
+        "DELETE VIEW view_name;",
+        "DROP VIEW view_name;",
+        "REMOVE view_name;",
+        "TRUNCATE VIEW view_name;"
+      ],
+      "answer": "DROP VIEW view_name;",
+      "number": 6
+    },
+    {
+      "question": "What is the use of a view?",
+      "options": [
+        "To modify data directly",
+        "To restrict access to certain data",
+        "To backup data",
+        "To compress data"
+      ],
+      "answer": "To restrict access to certain data",
+      "number": 7
+    },
+    {
+      "question": "What keyword is used to define a view?",
+      "options": [
+        "DEFINE",
+        "CREATE",
+        "VIEW",
+        "AS"
+      ],
+      "answer": "CREATE",
+      "number": 8
+    },
+    {
+      "question": "Can you join tables in a view definition?",
+      "options": [
+        "Yes",
+        "No",
+        "Only two tables",
+        "Only temporary tables"
+      ],
+      "answer": "Yes",
+      "number": 9
+    },
+    {
+      "question": "Which of the following is true about views?",
+      "options": [
+        "Views store data physically",
+        "Views cannot be queried",
+        "Views are always up-to-date with the underlying data",
+        "Views cannot use WHERE clause"
+      ],
+      "answer": "Views are always up-to-date with the underlying data",
+      "number": 10
+    },
+    {
+      "question": "Create a view of all employees in the Sales department.",
+      "options": [
+        "CREATE VIEW sales_emps AS SELECT * FROM employees WHERE dept = 'Sales';",
+        "VIEW sales_emps FROM employees;",
+        "CREATE sales_emps VIEW SELECT employees WHERE dept = 'Sales';",
+        "SELECT * FROM employees WHERE dept = 'Sales' INTO sales_emps;"
+      ],
+      "answer": "CREATE VIEW sales_emps AS SELECT * FROM employees WHERE dept = 'Sales';",
+      "number": 11
+    },
+    {
+      "question": "Select all records from a view named `recent_orders`.",
+      "options": [
+        "SELECT * FROM recent_orders;",
+        "VIEW SELECT * FROM recent_orders;",
+        "GET ALL FROM recent_orders;",
+        "READ VIEW recent_orders;"
+      ],
+      "answer": "SELECT * FROM recent_orders;",
+      "number": 12
+    },
+    {
+      "question": "Drop a view named `active_customers`.",
+      "options": [
+        "DROP VIEW active_customers;",
+        "REMOVE VIEW active_customers;",
+        "DELETE VIEW active_customers;",
+        "TRUNCATE VIEW active_customers;"
+      ],
+      "answer": "DROP VIEW active_customers;",
+      "number": 13
+    },
+    {
+      "question": "Create a view to show name and salary from employees.",
+      "options": [
+        "CREATE VIEW emp_info AS SELECT name, salary FROM employees;",
+        "CREATE emp_info VIEW SELECT name, salary FROM employees;",
+        "VIEW emp_info AS SELECT name, salary;",
+        "SELECT name, salary INTO emp_info;"
+      ],
+      "answer": "CREATE VIEW emp_info AS SELECT name, salary FROM employees;",
+      "number": 14
+    },
+    {
+      "question": "Create a view for orders above \u20b910,000.",
+      "options": [
+        "CREATE VIEW big_orders AS SELECT * FROM orders WHERE amount > 10000;",
+        "CREATE VIEW orders_big SELECT * WHERE amount > 10000;",
+        "CREATE big_orders AS SELECT * FROM orders WHERE amount > 10000;",
+        "VIEW big_orders AS SELECT * FROM orders WHERE amount > 10000;"
+      ],
+      "answer": "CREATE VIEW big_orders AS SELECT * FROM orders WHERE amount > 10000;",
+      "number": 15
+    },
+    {
+      "question": "Create a view that joins customers and orders on customer_id.",
+      "options": [
+        "CREATE VIEW cust_orders AS SELECT * FROM customers JOIN orders ON customers.id = orders.customer_id;",
+        "CREATE VIEW cust_orders FROM customers, orders WHERE id = customer_id;",
+        "VIEW cust_orders SELECT * JOIN customers orders;",
+        "CREATE JOIN VIEW cust_orders;"
+      ],
+      "answer": "CREATE VIEW cust_orders AS SELECT * FROM customers JOIN orders ON customers.id = orders.customer_id;",
+      "number": 16
+    },
+    {
+      "question": "Create a view showing only female employees.",
+      "options": [
+        "CREATE VIEW female_emps AS SELECT * FROM employees WHERE gender = 'F';",
+        "CREATE VIEW employees_female;",
+        "SELECT gender = 'F' FROM employees;",
+        "SHOW VIEW employees WHERE gender = 'F';"
+      ],
+      "answer": "CREATE VIEW female_emps AS SELECT * FROM employees WHERE gender = 'F';",
+      "number": 17
+    },
+    {
+      "question": "Create a view with only names from users.",
+      "options": [
+        "CREATE VIEW user_names AS SELECT name FROM users;",
+        "VIEW user_names AS SELECT name;",
+        "SELECT name FROM users INTO user_names;",
+        "CREATE user_names AS SELECT name FROM users;"
+      ],
+      "answer": "CREATE VIEW user_names AS SELECT name FROM users;",
+      "number": 18
+    },
+    {
+      "question": "Select data from view `high_scores` with score > 90.",
+      "options": [
+        "SELECT * FROM high_scores WHERE score > 90;",
+        "GET high_scores WHERE score > 90;",
+        "SHOW * FROM high_scores WHERE score > 90;",
+        "SELECT score FROM high_scores;"
+      ],
+      "answer": "SELECT * FROM high_scores WHERE score > 90;",
+      "number": 19
+    },
+    {
+      "question": "Create a view showing id and price from products table.",
+      "options": [
+        "CREATE VIEW product_prices AS SELECT id, price FROM products;",
+        "VIEW product_prices SELECT id, price;",
+        "SELECT id, price INTO product_prices;",
+        "CREATE product_prices AS SELECT id, price FROM products;"
+      ],
+      "answer": "CREATE VIEW product_prices AS SELECT id, price FROM products;",
+      "number": 20
+    }
+  ]
+}

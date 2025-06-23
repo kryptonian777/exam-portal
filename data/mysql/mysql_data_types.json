@@ -1,0 +1,335 @@
+{
+  "examName": "mysql_data_types",
+  "questions": [
+    {
+      "question": "Which MySQL data type is used to store whole numbers?",
+      "options": [
+        "VARCHAR",
+        "TEXT",
+        "INT",
+        "BOOLEAN"
+      ],
+      "answer": "INT",
+      "number": 1
+    },
+    {
+      "question": "Which data type should be used for storing text up to 255 characters?",
+      "options": [
+        "TEXT",
+        "VARCHAR(255)",
+        "CHAR(10)",
+        "STRING"
+      ],
+      "answer": "VARCHAR(255)",
+      "number": 2
+    },
+    {
+      "question": "What data type is ideal for storing true/false values?",
+      "options": [
+        "TEXT",
+        "BOOLEAN",
+        "INT",
+        "DATE"
+      ],
+      "answer": "BOOLEAN",
+      "number": 3
+    },
+    {
+      "question": "Which data type is used for storing large amounts of text?",
+      "options": [
+        "VARCHAR",
+        "TEXT",
+        "BOOLEAN",
+        "INT"
+      ],
+      "answer": "TEXT",
+      "number": 4
+    },
+    {
+      "question": "Which data type is appropriate for storing prices like 99.99?",
+      "options": [
+        "INT",
+        "FLOAT",
+        "BOOLEAN",
+        "TEXT"
+      ],
+      "answer": "FLOAT",
+      "number": 5
+    },
+    {
+      "question": "Which MySQL data type stores date values?",
+      "options": [
+        "VARCHAR",
+        "DATE",
+        "DATETIME",
+        "INT"
+      ],
+      "answer": "DATE",
+      "number": 6
+    },
+    {
+      "question": "What is the range of BOOLEAN in MySQL?",
+      "options": [
+        "0 to 10",
+        "0 to 1",
+        "True to False",
+        "Yes to No"
+      ],
+      "answer": "0 to 1",
+      "number": 7
+    },
+    {
+      "question": "Which type allows decimal precision?",
+      "options": [
+        "INT",
+        "VARCHAR",
+        "FLOAT",
+        "BOOLEAN"
+      ],
+      "answer": "FLOAT",
+      "number": 8
+    },
+    {
+      "question": "What does VARCHAR(100) mean?",
+      "options": [
+        "Fixed-length string of 100 characters",
+        "Variable-length string up to 100 characters",
+        "Decimal value with 100 precision",
+        "A number with 100 digits"
+      ],
+      "answer": "Variable-length string up to 100 characters",
+      "number": 9
+    },
+    {
+      "question": "Which data type should be used to store dates and times?",
+      "options": [
+        "TEXT",
+        "DATE",
+        "DATETIME",
+        "VARCHAR"
+      ],
+      "answer": "DATETIME",
+      "number": 10
+    },
+    {
+      "question": "Which column definition is best to store employee names?",
+      "options": [
+        "emp_name INT",
+        "emp_name VARCHAR(100)",
+        "emp_name DATE",
+        "emp_name BOOLEAN"
+      ],
+      "answer": "emp_name VARCHAR(100)",
+      "number": 11
+    },
+    {
+      "question": "Which is valid for storing product prices with decimals?",
+      "options": [
+        "price INT",
+        "price FLOAT",
+        "price TEXT",
+        "price BOOLEAN"
+      ],
+      "answer": "price FLOAT",
+      "number": 12
+    },
+    {
+      "question": "Which command defines a column for storing yes/no values?",
+      "options": [
+        "status VARCHAR",
+        "status INT",
+        "status BOOLEAN",
+        "status FLOAT"
+      ],
+      "answer": "status BOOLEAN",
+      "number": 13
+    },
+    {
+      "question": "To store a user's bio that may exceed 255 characters, which data type should be used?",
+      "options": [
+        "VARCHAR(255)",
+        "TEXT",
+        "BOOLEAN",
+        "CHAR(255)"
+      ],
+      "answer": "TEXT",
+      "number": 14
+    },
+    {
+      "question": "To store birthdate information, which column definition is correct?",
+      "options": [
+        "birthdate VARCHAR",
+        "birthdate INT",
+        "birthdate DATE",
+        "birthdate DATETIME"
+      ],
+      "answer": "birthdate DATE",
+      "number": 15
+    },
+    {
+      "question": "Which line defines a score column that accepts decimal values?",
+      "options": [
+        "score INT",
+        "score VARCHAR",
+        "score FLOAT",
+        "score TEXT"
+      ],
+      "answer": "score FLOAT",
+      "number": 16
+    },
+    {
+      "question": "Which column type is used to represent availability as true or false?",
+      "options": [
+        "available TEXT",
+        "available VARCHAR(5)",
+        "available BOOLEAN",
+        "available INT"
+      ],
+      "answer": "available BOOLEAN",
+      "number": 17
+    },
+    {
+      "question": "Which is the best way to define a column for storing employee salaries like 45000.50?",
+      "options": [
+        "salary INT",
+        "salary VARCHAR",
+        "salary DECIMAL(10,2)",
+        "salary BOOLEAN"
+      ],
+      "answer": "salary DECIMAL(10,2)",
+      "number": 18
+    },
+    {
+      "question": "Which of the following stores both date and time information?",
+      "options": [
+        "DATE",
+        "TIME",
+        "DATETIME",
+        "VARCHAR"
+      ],
+      "answer": "DATETIME",
+      "number": 19
+    },
+    {
+      "question": "Which data type is appropriate for storing a flag value (1 for true, 0 for false)?",
+      "options": [
+        "VARCHAR",
+        "INT",
+        "BOOLEAN",
+        "FLOAT"
+      ],
+      "answer": "BOOLEAN",
+      "number": 20
+    },
+    {
+      "question": "To store a student's roll number as a number, which is correct?",
+      "options": [
+        "roll_no VARCHAR",
+        "roll_no DATE",
+        "roll_no INT",
+        "roll_no FLOAT"
+      ],
+      "answer": "roll_no INT",
+      "number": 21
+    },
+    {
+      "question": "To store the length of a movie in hours and minutes like 2.5, which type is suitable?",
+      "options": [
+        "VARCHAR",
+        "INT",
+        "BOOLEAN",
+        "FLOAT"
+      ],
+      "answer": "FLOAT",
+      "number": 22
+    },
+    {
+      "question": "To store an invoice note that may be a long paragraph, which type is best?",
+      "options": [
+        "VARCHAR(255)",
+        "TEXT",
+        "BOOLEAN",
+        "DATE"
+      ],
+      "answer": "TEXT",
+      "number": 23
+    },
+    {
+      "question": "What is the correct column definition to store item weight like 1.75 kg?",
+      "options": [
+        "weight FLOAT",
+        "weight INT",
+        "weight TEXT",
+        "weight CHAR"
+      ],
+      "answer": "weight FLOAT",
+      "number": 24
+    },
+    {
+      "question": "How do you define a registration date column?",
+      "options": [
+        "reg_date FLOAT",
+        "reg_date BOOLEAN",
+        "reg_date DATE",
+        "reg_date TEXT"
+      ],
+      "answer": "reg_date DATE",
+      "number": 25
+    },
+    {
+      "question": "To store email addresses, which data type is best?",
+      "options": [
+        "INT",
+        "VARCHAR(100)",
+        "TEXT",
+        "BOOLEAN"
+      ],
+      "answer": "VARCHAR(100)",
+      "number": 26
+    },
+    {
+      "question": "Which data type should you use to store a large blog post?",
+      "options": [
+        "VARCHAR(255)",
+        "TEXT",
+        "CHAR(100)",
+        "INT"
+      ],
+      "answer": "TEXT",
+      "number": 27
+    },
+    {
+      "question": "What data type is suitable for storing GPA values like 3.75?",
+      "options": [
+        "DECIMAL(3,2)",
+        "INT",
+        "VARCHAR",
+        "BOOLEAN"
+      ],
+      "answer": "DECIMAL(3,2)",
+      "number": 28
+    },
+    {
+      "question": "Which type stores only year-month-day format?",
+      "options": [
+        "DATE",
+        "DATETIME",
+        "TIME",
+        "TEXT"
+      ],
+      "answer": "DATE",
+      "number": 29
+    },
+    {
+      "question": "Which column type is best for storing boolean flags in MySQL?",
+      "options": [
+        "TINYINT",
+        "TEXT",
+        "BOOLEAN",
+        "VARCHAR(5)"
+      ],
+      "answer": "BOOLEAN",
+      "number": 30
+    }
+  ]
+}

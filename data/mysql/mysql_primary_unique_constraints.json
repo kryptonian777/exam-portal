@@ -1,0 +1,324 @@
+{
+  "examName": "mysql_primary_unique_constraints",
+  "questions": [
+    {
+      "question": "What is the purpose of a PRIMARY KEY in a table?",
+      "options": [
+        "To allow duplicate rows",
+        "To identify each row uniquely",
+        "To encrypt values",
+        "To store data temporarily"
+      ],
+      "answer": "To identify each row uniquely",
+      "number": 1
+    },
+    {
+      "question": "Which constraint ensures no duplicate values in a column?",
+      "options": [
+        "PRIMARY KEY",
+        "FOREIGN KEY",
+        "UNIQUE",
+        "NOT NULL"
+      ],
+      "answer": "UNIQUE",
+      "number": 2
+    },
+    {
+      "question": "Can a table have more than one PRIMARY KEY?",
+      "options": [
+        "Yes",
+        "No",
+        "Only in some engines",
+        "Yes, if values are different"
+      ],
+      "answer": "No",
+      "number": 3
+    },
+    {
+      "question": "Can a table have multiple UNIQUE constraints?",
+      "options": [
+        "Yes",
+        "No",
+        "Only with foreign key",
+        "Only one per table"
+      ],
+      "answer": "Yes",
+      "number": 4
+    },
+    {
+      "question": "Which keyword defines a PRIMARY KEY when creating a table?",
+      "options": [
+        "DEFAULT",
+        "AUTO_INCREMENT",
+        "PRIMARY KEY",
+        "CONSTRAINT"
+      ],
+      "answer": "PRIMARY KEY",
+      "number": 5
+    },
+    {
+      "question": "What happens if you try to insert a duplicate value into a UNIQUE column?",
+      "options": [
+        "It accepts it",
+        "It truncates the value",
+        "It raises an error",
+        "It assigns NULL"
+      ],
+      "answer": "It raises an error",
+      "number": 6
+    },
+    {
+      "question": "Which constraint is used to enforce entity integrity?",
+      "options": [
+        "UNIQUE",
+        "NOT NULL",
+        "PRIMARY KEY",
+        "CHECK"
+      ],
+      "answer": "PRIMARY KEY",
+      "number": 7
+    },
+    {
+      "question": "What is the default behavior of a PRIMARY KEY column?",
+      "options": [
+        "Can be NULL",
+        "Can be duplicate",
+        "Must be unique and not null",
+        "Is optional"
+      ],
+      "answer": "Must be unique and not null",
+      "number": 8
+    },
+    {
+      "question": "Can two rows have NULL in a UNIQUE column?",
+      "options": [
+        "Yes",
+        "No",
+        "Only if indexed",
+        "Only in non-numeric columns"
+      ],
+      "answer": "Yes",
+      "number": 9
+    },
+    {
+      "question": "What does PRIMARY KEY(emp_id) mean in a table?",
+      "options": [
+        "emp_id can be null",
+        "emp_id must be unique and not null",
+        "emp_id is optional",
+        "emp_id has no constraint"
+      ],
+      "answer": "emp_id must be unique and not null",
+      "number": 10
+    },
+    {
+      "question": "Create a table `students` with a primary key on student_id.",
+      "options": [
+        "CREATE TABLE students (student_id INT PRIMARY KEY, name VARCHAR(100));",
+        "CREATE TABLE students (student_id INT, name VARCHAR(100));",
+        "CREATE TABLE students (student_id PK, name VARCHAR(100));",
+        "CREATE students TABLE (student_id INT, name VARCHAR);"
+      ],
+      "answer": "CREATE TABLE students (student_id INT PRIMARY KEY, name VARCHAR(100));",
+      "number": 11
+    },
+    {
+      "question": "Add a UNIQUE constraint to the email column in users table.",
+      "options": [
+        "ALTER TABLE users ADD CONSTRAINT email UNIQUE (email);",
+        "ALTER TABLE users ADD email UNIQUE;",
+        "ALTER TABLE users MODIFY email UNIQUE;",
+        "CREATE UNIQUE email FROM users;"
+      ],
+      "answer": "ALTER TABLE users ADD CONSTRAINT email UNIQUE (email);",
+      "number": 12
+    },
+    {
+      "question": "Create a table with two UNIQUE columns.",
+      "options": [
+        "CREATE TABLE accounts (username VARCHAR(50) UNIQUE, email VARCHAR(100) UNIQUE);",
+        "CREATE TABLE accounts (username UNIQUE, email UNIQUE);",
+        "CREATE TABLE accounts (username VARCHAR UNIQUE, email VARCHAR);",
+        "CREATE TABLE accounts (username, email) UNIQUE;"
+      ],
+      "answer": "CREATE TABLE accounts (username VARCHAR(50) UNIQUE, email VARCHAR(100) UNIQUE);",
+      "number": 13
+    },
+    {
+      "question": "Add PRIMARY KEY on `order_id` to orders table.",
+      "options": [
+        "ALTER TABLE orders ADD PRIMARY KEY (order_id);",
+        "ALTER TABLE orders SET PRIMARY KEY = order_id;",
+        "UPDATE orders SET PRIMARY KEY(order_id);",
+        "CREATE PRIMARY KEY orders (order_id);"
+      ],
+      "answer": "ALTER TABLE orders ADD PRIMARY KEY (order_id);",
+      "number": 14
+    },
+    {
+      "question": "What happens if a duplicate is inserted in a column with a UNIQUE constraint?",
+      "options": [
+        "Only first row is saved",
+        "Second row overwrites the first",
+        "Error is thrown",
+        "NULL is inserted instead"
+      ],
+      "answer": "Error is thrown",
+      "number": 15
+    },
+    {
+      "question": "Which is the correct way to define a composite PRIMARY KEY?",
+      "options": [
+        "PRIMARY KEY (col1, col2)",
+        "UNIQUE KEY (col1, col2)",
+        "KEY PRIMARY (col1, col2)",
+        "DEFAULT (col1, col2)"
+      ],
+      "answer": "PRIMARY KEY (col1, col2)",
+      "number": 16
+    },
+    {
+      "question": "Remove the UNIQUE constraint from column `email` in users table.",
+      "options": [
+        "ALTER TABLE users DROP INDEX email;",
+        "ALTER TABLE users DROP UNIQUE email;",
+        "ALTER TABLE users DELETE email UNIQUE;",
+        "DROP CONSTRAINT email FROM users;"
+      ],
+      "answer": "ALTER TABLE users DROP INDEX email;",
+      "number": 17
+    },
+    {
+      "question": "Which SQL statement sets student_id as a PRIMARY KEY?",
+      "options": [
+        "ALTER TABLE students ADD PRIMARY KEY(student_id);",
+        "ALTER students ADD PRIMARY KEY(student_id);",
+        "SET PRIMARY KEY ON students(student_id);",
+        "CREATE PRIMARY KEY FROM students;"
+      ],
+      "answer": "ALTER TABLE students ADD PRIMARY KEY(student_id);",
+      "number": 18
+    },
+    {
+      "question": "Create a table `books` with a title column that is unique.",
+      "options": [
+        "CREATE TABLE books (id INT, title VARCHAR(255) UNIQUE);",
+        "CREATE TABLE books (id INT, title UNIQUE);",
+        "CREATE TABLE books (id INT, UNIQUE title);",
+        "CREATE TABLE books (id INT, title VARCHAR(255) PRIMARY);"
+      ],
+      "answer": "CREATE TABLE books (id INT, title VARCHAR(255) UNIQUE);",
+      "number": 19
+    },
+    {
+      "question": "Create a PRIMARY KEY on the combination of user_id and role_id.",
+      "options": [
+        "PRIMARY KEY(user_id, role_id)",
+        "UNIQUE(user_id, role_id)",
+        "PRIMARY(user_id role_id)",
+        "PRIMARY KEY role_id FROM user_id"
+      ],
+      "answer": "PRIMARY KEY(user_id, role_id)",
+      "number": 20
+    },
+    {
+      "question": "Identify correct statement for unique constraint in column declaration.",
+      "options": [
+        "email VARCHAR(100) UNIQUE",
+        "email UNIQUE(100)",
+        "email VARCHAR(100) CONSTRAINT",
+        "email DEFAULT UNIQUE"
+      ],
+      "answer": "email VARCHAR(100) UNIQUE",
+      "number": 21
+    },
+    {
+      "question": "How to identify a row uniquely when multiple columns are used?",
+      "options": [
+        "Composite PRIMARY KEY",
+        "Foreign KEY",
+        "Unique Index",
+        "Check Constraint"
+      ],
+      "answer": "Composite PRIMARY KEY",
+      "number": 22
+    },
+    {
+      "question": "Create table with primary key as emp_no.",
+      "options": [
+        "CREATE TABLE emp (emp_no INT PRIMARY KEY);",
+        "CREATE TABLE emp (PRIMARY emp_no);",
+        "CREATE emp PRIMARY KEY (emp_no);",
+        "CREATE TABLE emp PRIMARY (emp_no);"
+      ],
+      "answer": "CREATE TABLE emp (emp_no INT PRIMARY KEY);",
+      "number": 23
+    },
+    {
+      "question": "How to avoid duplicate usernames in login table?",
+      "options": [
+        "Add UNIQUE constraint to username",
+        "Use CHECK constraint",
+        "Use AUTO_INCREMENT",
+        "Add INDEX to username"
+      ],
+      "answer": "Add UNIQUE constraint to username",
+      "number": 24
+    },
+    {
+      "question": "Which statement allows NULL values but enforces uniqueness?",
+      "options": [
+        "UNIQUE",
+        "PRIMARY KEY",
+        "CHECK",
+        "DEFAULT"
+      ],
+      "answer": "UNIQUE",
+      "number": 25
+    },
+    {
+      "question": "Which SQL constraint does NOT allow NULL or duplicate values?",
+      "options": [
+        "PRIMARY KEY",
+        "UNIQUE",
+        "NOT NULL",
+        "FOREIGN KEY"
+      ],
+      "answer": "PRIMARY KEY",
+      "number": 26
+    },
+    {
+      "question": "Define PRIMARY KEY on table creation with two columns.",
+      "options": [
+        "CREATE TABLE example (id INT, code INT, PRIMARY KEY(id, code));",
+        "CREATE TABLE example (id INT PRIMARY KEY, code INT PRIMARY KEY);",
+        "CREATE TABLE example (id PRIMARY KEY, code PRIMARY KEY);",
+        "CREATE TABLE example (id PK, code PK);"
+      ],
+      "answer": "CREATE TABLE example (id INT, code INT, PRIMARY KEY(id, code));",
+      "number": 27
+    },
+    {
+      "question": "Which constraint automatically creates an index on the column?",
+      "options": [
+        "PRIMARY KEY",
+        "DEFAULT",
+        "NOT NULL",
+        "CHECK"
+      ],
+      "answer": "PRIMARY KEY",
+      "number": 28
+    },
+    {
+      "question": "Choose correct PRIMARY KEY syntax from below.",
+      "options": [
+        "PRIMARY KEY (id)",
+        "PRIMARY(id)",
+        "KEY PRIMARY = id",
+        "id = PRIMARY KEY"
+      ],
+      "answer": "PRIMARY KEY (id)",
+      "number": 29
+    }
+  ]
+}

@@ -1,0 +1,225 @@
+{
+  "examName": "mysql_where_clause",
+  "questions": [
+    {
+      "question": "What does the WHERE clause do in a SELECT statement?",
+      "options": [
+        "Limits the columns selected",
+        "Specifies the table name",
+        "Filters records based on conditions",
+        "Joins two tables"
+      ],
+      "answer": "Filters records based on conditions",
+      "number": 1
+    },
+    {
+      "question": "Which operator checks for equality in a WHERE clause?",
+      "options": [
+        "=",
+        "==",
+        "EQ",
+        "IS"
+      ],
+      "answer": "=",
+      "number": 2
+    },
+    {
+      "question": "Which keyword is used to filter rows in SQL?",
+      "options": [
+        "HAVING",
+        "LIMIT",
+        "WHERE",
+        "ORDER"
+      ],
+      "answer": "WHERE",
+      "number": 3
+    },
+    {
+      "question": "What does the condition 'salary > 50000' do?",
+      "options": [
+        "Selects salary column only",
+        "Filters records with salary greater than 50000",
+        "Removes those with salary < 50000",
+        "Sorts salaries in ascending order"
+      ],
+      "answer": "Filters records with salary greater than 50000",
+      "number": 4
+    },
+    {
+      "question": "Which of the following is a valid SQL WHERE clause?",
+      "options": [
+        "WHERE age >= 18",
+        "WHERE = age 18",
+        "IF age > 18",
+        "WHEN age > 18"
+      ],
+      "answer": "WHERE age >= 18",
+      "number": 5
+    },
+    {
+      "question": "Is it possible to use multiple conditions in a WHERE clause?",
+      "options": [
+        "Yes",
+        "No",
+        "Only with SELECT",
+        "Only with UPDATE"
+      ],
+      "answer": "Yes",
+      "number": 6
+    },
+    {
+      "question": "What symbol is used for 'not equal to' in MySQL?",
+      "options": [
+        "!=",
+        "<>",
+        "~=",
+        "=/="
+      ],
+      "answer": "!=",
+      "number": 7
+    },
+    {
+      "question": "Which condition selects only female employees?",
+      "options": [
+        "WHERE gender = 'Female'",
+        "WHERE Female = gender",
+        "WHERE gender != 'Female'",
+        "WHERE gender LIKE 'F%'"
+      ],
+      "answer": "WHERE gender = 'Female'",
+      "number": 8
+    },
+    {
+      "question": "Can WHERE clause be used with DELETE?",
+      "options": [
+        "Yes",
+        "No",
+        "Only with SELECT",
+        "Only with UPDATE"
+      ],
+      "answer": "Yes",
+      "number": 9
+    },
+    {
+      "question": "What happens if WHERE condition is false?",
+      "options": [
+        "All rows are returned",
+        "Only true rows are returned",
+        "No rows are returned",
+        "Error occurs"
+      ],
+      "answer": "No rows are returned",
+      "number": 10
+    },
+    {
+      "question": "Write a query to fetch all employees with age greater than 30.",
+      "options": [
+        "SELECT * FROM employees WHERE age > 30;",
+        "SELECT age FROM employees WHERE > 30;",
+        "SELECT * FROM employees age > 30;",
+        "SELECT * WHERE age > 30 FROM employees;"
+      ],
+      "answer": "SELECT * FROM employees WHERE age > 30;",
+      "number": 11
+    },
+    {
+      "question": "How to get products with price less than 1000?",
+      "options": [
+        "SELECT * FROM products WHERE price < 1000;",
+        "SELECT * FROM products IF price < 1000;",
+        "GET * FROM products WHERE price < 1000;",
+        "SELECT products WHERE price < 1000;"
+      ],
+      "answer": "SELECT * FROM products WHERE price < 1000;",
+      "number": 12
+    },
+    {
+      "question": "Query to select students who scored exactly 80 marks.",
+      "options": [
+        "SELECT * FROM students WHERE marks = 80;",
+        "SELECT marks = 80 FROM students;",
+        "SELECT * FROM students IF marks = 80;",
+        "SELECT WHERE marks = 80 FROM students;"
+      ],
+      "answer": "SELECT * FROM students WHERE marks = 80;",
+      "number": 13
+    },
+    {
+      "question": "Get all records from sales where region is 'East'.",
+      "options": [
+        "SELECT * FROM sales WHERE region = 'East';",
+        "SELECT sales WHERE region = 'East';",
+        "SELECT * FROM sales IF region == 'East';",
+        "SELECT FROM sales WHERE East;"
+      ],
+      "answer": "SELECT * FROM sales WHERE region = 'East';",
+      "number": 14
+    },
+    {
+      "question": "Fetch customers whose name is 'John'.",
+      "options": [
+        "SELECT * FROM customers WHERE name = 'John';",
+        "SELECT * FROM customers WHERE 'John';",
+        "SELECT customers WHERE name = John;",
+        "GET * FROM customers WHERE name = John;"
+      ],
+      "answer": "SELECT * FROM customers WHERE name = 'John';",
+      "number": 15
+    },
+    {
+      "question": "Find employees with department_id = 3.",
+      "options": [
+        "SELECT * FROM employees WHERE department_id = 3;",
+        "SELECT * WHERE department_id = 3;",
+        "SELECT department_id = 3 FROM employees;",
+        "GET * FROM employees WHERE department = 3;"
+      ],
+      "answer": "SELECT * FROM employees WHERE department_id = 3;",
+      "number": 16
+    },
+    {
+      "question": "Retrieve orders placed on '2024-01-01'.",
+      "options": [
+        "SELECT * FROM orders WHERE order_date = '2024-01-01';",
+        "SELECT order_date = '2024-01-01' FROM orders;",
+        "SELECT * WHERE order_date == '2024-01-01';",
+        "GET * FROM orders IF order_date = 2024-01-01;"
+      ],
+      "answer": "SELECT * FROM orders WHERE order_date = '2024-01-01';",
+      "number": 17
+    },
+    {
+      "question": "Query to get students with gender NOT equal to 'Male'.",
+      "options": [
+        "SELECT * FROM students WHERE gender != 'Male';",
+        "SELECT * FROM students WHERE gender =! 'Male';",
+        "SELECT students WHERE NOT gender = 'Male';",
+        "GET * FROM students gender NOT 'Male';"
+      ],
+      "answer": "SELECT * FROM students WHERE gender != 'Male';",
+      "number": 18
+    },
+    {
+      "question": "Find invoices where amount is equal to 0.",
+      "options": [
+        "SELECT * FROM invoices WHERE amount = 0;",
+        "SELECT invoices WHERE amount = 0;",
+        "SELECT * WHERE invoices amount = 0;",
+        "GET invoices WHERE amount == 0;"
+      ],
+      "answer": "SELECT * FROM invoices WHERE amount = 0;",
+      "number": 19
+    },
+    {
+      "question": "Select employees whose status is 'active'.",
+      "options": [
+        "SELECT * FROM employees WHERE status = 'active';",
+        "SELECT employees WHERE status IS active;",
+        "GET FROM employees WHERE active;",
+        "SELECT * FROM employees IF status = 'active';"
+      ],
+      "answer": "SELECT * FROM employees WHERE status = 'active';",
+      "number": 20
+    }
+  ]
+}

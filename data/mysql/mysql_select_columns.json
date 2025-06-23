@@ -1,0 +1,225 @@
+{
+  "examName": "mysql_select_columns",
+  "questions": [
+    {
+      "question": "Which SQL query selects only the 'name' and 'age' columns from the 'students' table?",
+      "options": [
+        "SELECT name, age FROM students;",
+        "SELECT * FROM students;",
+        "GET name age FROM students;",
+        "SELECT name age students;"
+      ],
+      "answer": "SELECT name, age FROM students;",
+      "number": 1
+    },
+    {
+      "question": "How many columns will be selected by this query: SELECT id, email FROM users?",
+      "options": [
+        "1",
+        "2",
+        "All columns",
+        "None"
+      ],
+      "answer": "2",
+      "number": 2
+    },
+    {
+      "question": "Which part of the SQL query specifies the table name?",
+      "options": [
+        "SELECT",
+        "FROM",
+        "WHERE",
+        "INTO"
+      ],
+      "answer": "FROM",
+      "number": 3
+    },
+    {
+      "question": "Is it valid to select specific columns instead of all?",
+      "options": [
+        "Yes",
+        "No",
+        "Only in views",
+        "Only for admin"
+      ],
+      "answer": "Yes",
+      "number": 4
+    },
+    {
+      "question": "What does this query return: SELECT id, salary FROM employees?",
+      "options": [
+        "All employee data",
+        "Only the id and salary columns",
+        "All salaries",
+        "Only employees with salary"
+      ],
+      "answer": "Only the id and salary columns",
+      "number": 5
+    },
+    {
+      "question": "Which syntax is correct for selecting multiple columns?",
+      "options": [
+        "SELECT column1 column2 FROM table;",
+        "SELECT column1, column2 FROM table;",
+        "SELECT (column1, column2) FROM table;",
+        "GET column1, column2 FROM table;"
+      ],
+      "answer": "SELECT column1, column2 FROM table;",
+      "number": 6
+    },
+    {
+      "question": "Can column names be in any order in SELECT?",
+      "options": [
+        "Yes",
+        "No",
+        "Only alphabetical",
+        "Only reverse"
+      ],
+      "answer": "Yes",
+      "number": 7
+    },
+    {
+      "question": "Which keyword separates columns in the SELECT clause?",
+      "options": [
+        ",",
+        ";",
+        ":",
+        "|"
+      ],
+      "answer": ",",
+      "number": 8
+    },
+    {
+      "question": "What does SELECT id, name FROM customers do?",
+      "options": [
+        "Displays all customer records",
+        "Displays only id and name columns",
+        "Deletes id and name columns",
+        "Modifies customer names"
+      ],
+      "answer": "Displays only id and name columns",
+      "number": 9
+    },
+    {
+      "question": "Can SELECT column1 FROM table be used without specifying column1?",
+      "options": [
+        "No",
+        "Yes",
+        "Only with *",
+        "Only with WHERE"
+      ],
+      "answer": "No",
+      "number": 10
+    },
+    {
+      "question": "Select `title` and `price` from the `books` table.",
+      "options": [
+        "SELECT title, price FROM books;",
+        "GET title price FROM books;",
+        "FETCH books title, price;",
+        "SELECT * FROM books;"
+      ],
+      "answer": "SELECT title, price FROM books;",
+      "number": 11
+    },
+    {
+      "question": "Write SQL to display `product_name` and `quantity` from `inventory` table.",
+      "options": [
+        "SELECT product_name, quantity FROM inventory;",
+        "SELECT inventory FROM product_name, quantity;",
+        "FETCH product_name, quantity;",
+        "GET product_name, quantity FROM inventory;"
+      ],
+      "answer": "SELECT product_name, quantity FROM inventory;",
+      "number": 12
+    },
+    {
+      "question": "How do you retrieve `student_id` and `marks` from the `results` table?",
+      "options": [
+        "SELECT student_id, marks FROM results;",
+        "GET student_id, marks FROM results;",
+        "SELECT * FROM results;",
+        "FETCH marks FROM results;"
+      ],
+      "answer": "SELECT student_id, marks FROM results;",
+      "number": 13
+    },
+    {
+      "question": "Show only `username` and `email` from the `users` table.",
+      "options": [
+        "SELECT username, email FROM users;",
+        "DISPLAY username email FROM users;",
+        "SELECT * FROM users;",
+        "SELECT username email FROM users;"
+      ],
+      "answer": "SELECT username, email FROM users;",
+      "number": 14
+    },
+    {
+      "question": "Get the `course_name` and `duration` columns from the `courses` table.",
+      "options": [
+        "SELECT course_name, duration FROM courses;",
+        "SELECT * FROM courses;",
+        "GET course_name, duration FROM courses;",
+        "SELECT duration, course_name courses;"
+      ],
+      "answer": "SELECT course_name, duration FROM courses;",
+      "number": 15
+    },
+    {
+      "question": "Which query selects `emp_id` and `emp_name` from `employees`?",
+      "options": [
+        "SELECT emp_id, emp_name FROM employees;",
+        "SELECT * FROM employees;",
+        "GET emp_id emp_name FROM employees;",
+        "SELECT emp_id emp_name;"
+      ],
+      "answer": "SELECT emp_id, emp_name FROM employees;",
+      "number": 16
+    },
+    {
+      "question": "Display `movie_title` and `release_year` from `movies` table.",
+      "options": [
+        "SELECT movie_title, release_year FROM movies;",
+        "GET movie_title, release_year FROM movies;",
+        "SHOW movie_title release_year movies;",
+        "SELECT * FROM movies;"
+      ],
+      "answer": "SELECT movie_title, release_year FROM movies;",
+      "number": 17
+    },
+    {
+      "question": "Fetch `exam_id` and `date` from `exams` table.",
+      "options": [
+        "SELECT exam_id, date FROM exams;",
+        "GET exam_id, date FROM exams;",
+        "SHOW exams;",
+        "SELECT * FROM exams;"
+      ],
+      "answer": "SELECT exam_id, date FROM exams;",
+      "number": 18
+    },
+    {
+      "question": "Write a query to get `doctor_name` and `specialization` from `doctors`.",
+      "options": [
+        "SELECT doctor_name, specialization FROM doctors;",
+        "SELECT * FROM doctors;",
+        "GET doctor_name specialization;",
+        "SELECT doctors doctor_name, specialization;"
+      ],
+      "answer": "SELECT doctor_name, specialization FROM doctors;",
+      "number": 19
+    },
+    {
+      "question": "Retrieve `vendor_id` and `status` from the `vendors` table.",
+      "options": [
+        "SELECT vendor_id, status FROM vendors;",
+        "GET status FROM vendors;",
+        "SELECT * FROM vendors;",
+        "SELECT status, vendor_id vendors;"
+      ],
+      "answer": "SELECT vendor_id, status FROM vendors;",
+      "number": 20
+    }
+  ]
+}

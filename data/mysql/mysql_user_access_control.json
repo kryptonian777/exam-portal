@@ -1,0 +1,225 @@
+{
+  "examName": "mysql_user_access_control",
+  "questions": [
+    {
+      "question": "What does the GRANT statement do in MySQL?",
+      "options": [
+        "Removes user privileges",
+        "Deletes a user",
+        "Gives privileges to users",
+        "Logs in a user"
+      ],
+      "answer": "Gives privileges to users",
+      "number": 1
+    },
+    {
+      "question": "Which statement grants ALL privileges on a database?",
+      "options": [
+        "GRANT ALL ON dbname.* TO 'user'@'host';",
+        "PERMIT ALL dbname TO user;",
+        "ALLOW ALL PRIVILEGES ON dbname TO user;",
+        "SET PRIVILEGES FOR user ON dbname;"
+      ],
+      "answer": "GRANT ALL ON dbname.* TO 'user'@'host';",
+      "number": 2
+    },
+    {
+      "question": "What command removes privileges in MySQL?",
+      "options": [
+        "DELETE PRIVILEGES",
+        "REMOVE GRANT",
+        "REVOKE",
+        "DROP PRIVILEGE"
+      ],
+      "answer": "REVOKE",
+      "number": 3
+    },
+    {
+      "question": "Which command shows a user's current privileges?",
+      "options": [
+        "SHOW GRANTS FOR 'user'@'host';",
+        "DISPLAY USER PRIVILEGES;",
+        "LIST PERMISSIONS;",
+        "SHOW PRIVILEGE user;"
+      ],
+      "answer": "SHOW GRANTS FOR 'user'@'host';",
+      "number": 4
+    },
+    {
+      "question": "What does CREATE USER do?",
+      "options": [
+        "Deletes a user account",
+        "Creates a new MySQL user",
+        "Grants access to database",
+        "Updates user info"
+      ],
+      "answer": "Creates a new MySQL user",
+      "number": 5
+    },
+    {
+      "question": "What is the correct syntax to create a user?",
+      "options": [
+        "CREATE USER 'user'@'localhost' IDENTIFIED BY 'password';",
+        "CREATE ACCOUNT user WITH PASSWORD;",
+        "NEW USER user IDENTIFIED BY password;",
+        "ADD USER user WITH PASS;"
+      ],
+      "answer": "CREATE USER 'user'@'localhost' IDENTIFIED BY 'password';",
+      "number": 6
+    },
+    {
+      "question": "What is the purpose of DROP USER?",
+      "options": [
+        "Removes all tables of the user",
+        "Deletes a MySQL user account",
+        "Disables a user",
+        "Removes privileges only"
+      ],
+      "answer": "Deletes a MySQL user account",
+      "number": 7
+    },
+    {
+      "question": "What is required to revoke a user's access?",
+      "options": [
+        "REVOKE statement",
+        "DELETE USER statement",
+        "GRANT OFF",
+        "DENY PERMISSION"
+      ],
+      "answer": "REVOKE statement",
+      "number": 8
+    },
+    {
+      "question": "Which of the following lists user privileges?",
+      "options": [
+        "SHOW GRANTS",
+        "DESCRIBE USER",
+        "LIST USERS",
+        "USER ACCESS"
+      ],
+      "answer": "SHOW GRANTS",
+      "number": 9
+    },
+    {
+      "question": "Is it possible to grant specific privileges like SELECT?",
+      "options": [
+        "Yes",
+        "No",
+        "Only for admins",
+        "Only for tables"
+      ],
+      "answer": "Yes",
+      "number": 10
+    },
+    {
+      "question": "Grant SELECT on the `employees` table to user `reporter`.",
+      "options": [
+        "GRANT SELECT ON employees TO 'reporter'@'localhost';",
+        "ALLOW SELECT TO 'reporter';",
+        "PERMIT SELECT FOR employees TO reporter;",
+        "GIVE SELECT ON employees TO reporter;"
+      ],
+      "answer": "GRANT SELECT ON employees TO 'reporter'@'localhost';",
+      "number": 11
+    },
+    {
+      "question": "Create a user `testuser` with password `pass123`.",
+      "options": [
+        "CREATE USER 'testuser'@'localhost' IDENTIFIED BY 'pass123';",
+        "ADD USER testuser WITH PASSWORD pass123;",
+        "USER CREATE testuser pass123;",
+        "NEW USER 'testuser' PASS 'pass123';"
+      ],
+      "answer": "CREATE USER 'testuser'@'localhost' IDENTIFIED BY 'pass123';",
+      "number": 12
+    },
+    {
+      "question": "Revoke DELETE permission from user `editor` on table `posts`.",
+      "options": [
+        "REVOKE DELETE ON posts FROM 'editor'@'localhost';",
+        "REMOVE DELETE FROM editor;",
+        "DELETE GRANT posts editor;",
+        "REVOKE ON posts DELETE FROM editor;"
+      ],
+      "answer": "REVOKE DELETE ON posts FROM 'editor'@'localhost';",
+      "number": 13
+    },
+    {
+      "question": "Drop user `guest1`.",
+      "options": [
+        "DROP USER 'guest1'@'localhost';",
+        "REMOVE USER guest1;",
+        "DELETE USER guest1;",
+        "DROP ACCOUNT guest1;"
+      ],
+      "answer": "DROP USER 'guest1'@'localhost';",
+      "number": 14
+    },
+    {
+      "question": "Grant INSERT privilege on `sales` to `staff`.",
+      "options": [
+        "GRANT INSERT ON sales TO 'staff'@'localhost';",
+        "INSERT GRANT sales TO staff;",
+        "GRANT ACCESS INSERT sales TO staff;",
+        "PERMIT INSERT TO staff;"
+      ],
+      "answer": "GRANT INSERT ON sales TO 'staff'@'localhost';",
+      "number": 15
+    },
+    {
+      "question": "Show grants for user `adminuser`.",
+      "options": [
+        "SHOW GRANTS FOR 'adminuser'@'localhost';",
+        "DISPLAY PRIVILEGES adminuser;",
+        "LIST GRANTS FOR adminuser;",
+        "SHOW ACCESS adminuser;"
+      ],
+      "answer": "SHOW GRANTS FOR 'adminuser'@'localhost';",
+      "number": 16
+    },
+    {
+      "question": "Grant all privileges on all databases to `superadmin`.",
+      "options": [
+        "GRANT ALL PRIVILEGES ON *.* TO 'superadmin'@'localhost';",
+        "ALLOW ALL FOR superadmin;",
+        "GRANT EVERYTHING TO superadmin;",
+        "ACCESS FULL TO superadmin;"
+      ],
+      "answer": "GRANT ALL PRIVILEGES ON *.* TO 'superadmin'@'localhost';",
+      "number": 17
+    },
+    {
+      "question": "Create a user `audit` with password `aud123` and grant SELECT on `logs`.",
+      "options": [
+        "CREATE USER 'audit'@'localhost' IDENTIFIED BY 'aud123'; GRANT SELECT ON logs TO 'audit'@'localhost';",
+        "ADD USER audit WITH aud123;",
+        "CREATE audit IDENTIFIED aud123; GRANT logs SELECT;",
+        "NEW audit PASSWORD aud123; SELECT GRANT logs;"
+      ],
+      "answer": "CREATE USER 'audit'@'localhost' IDENTIFIED BY 'aud123'; GRANT SELECT ON logs TO 'audit'@'localhost';",
+      "number": 18
+    },
+    {
+      "question": "Revoke UPDATE from `writer` on `articles`.",
+      "options": [
+        "REVOKE UPDATE ON articles FROM 'writer'@'localhost';",
+        "REMOVE PERMISSION writer FOR articles;",
+        "DELETE UPDATE FROM writer;",
+        "REVOKE writer UPDATE ON articles;"
+      ],
+      "answer": "REVOKE UPDATE ON articles FROM 'writer'@'localhost';",
+      "number": 19
+    },
+    {
+      "question": "Drop a user named `tester` with localhost host.",
+      "options": [
+        "DROP USER 'tester'@'localhost';",
+        "DELETE tester;",
+        "REMOVE tester@localhost;",
+        "DROP tester;"
+      ],
+      "answer": "DROP USER 'tester'@'localhost';",
+      "number": 20
+    }
+  ]
+}

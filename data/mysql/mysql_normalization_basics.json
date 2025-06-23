@@ -1,0 +1,225 @@
+{
+  "examName": "mysql_normalization_basics",
+  "questions": [
+    {
+      "question": "What is the purpose of database normalization?",
+      "options": [
+        "To speed up indexing",
+        "To remove data redundancy",
+        "To create more tables",
+        "To make data access slower"
+      ],
+      "answer": "To remove data redundancy",
+      "number": 1
+    },
+    {
+      "question": "Which normal form ensures atomicity of data?",
+      "options": [
+        "1NF",
+        "2NF",
+        "3NF",
+        "BCNF"
+      ],
+      "answer": "1NF",
+      "number": 2
+    },
+    {
+      "question": "Which of the following is a property of 2NF?",
+      "options": [
+        "Eliminates repeating groups",
+        "Ensures full functional dependency",
+        "Removes transitive dependency",
+        "Ensures atomic values"
+      ],
+      "answer": "Ensures full functional dependency",
+      "number": 3
+    },
+    {
+      "question": "What is a transitive dependency?",
+      "options": [
+        "A dependency through a primary key",
+        "A non-key attribute depending on another non-key attribute",
+        "Two keys depending on each other",
+        "Attribute pointing to itself"
+      ],
+      "answer": "A non-key attribute depending on another non-key attribute",
+      "number": 4
+    },
+    {
+      "question": "Which normal form removes transitive dependencies?",
+      "options": [
+        "1NF",
+        "2NF",
+        "3NF",
+        "BCNF"
+      ],
+      "answer": "3NF",
+      "number": 5
+    },
+    {
+      "question": "Which normal form is satisfied if all values in columns are atomic?",
+      "options": [
+        "1NF",
+        "2NF",
+        "3NF",
+        "4NF"
+      ],
+      "answer": "1NF",
+      "number": 6
+    },
+    {
+      "question": "Which is NOT a goal of normalization?",
+      "options": [
+        "Eliminate redundancy",
+        "Improve consistency",
+        "Increase complexity",
+        "Avoid anomalies"
+      ],
+      "answer": "Increase complexity",
+      "number": 7
+    },
+    {
+      "question": "What is meant by atomic value in 1NF?",
+      "options": [
+        "Value split into parts",
+        "Value with foreign key",
+        "Single indivisible value",
+        "Multiple values in one field"
+      ],
+      "answer": "Single indivisible value",
+      "number": 8
+    },
+    {
+      "question": "In which form is every non-prime attribute fully functionally dependent on the primary key?",
+      "options": [
+        "1NF",
+        "2NF",
+        "3NF",
+        "BCNF"
+      ],
+      "answer": "2NF",
+      "number": 9
+    },
+    {
+      "question": "Which is required for a table to be in 3NF?",
+      "options": [
+        "No multivalued attributes",
+        "It should be in 2NF and no transitive dependencies",
+        "Only primary key columns",
+        "Each field must be text only"
+      ],
+      "answer": "It should be in 2NF and no transitive dependencies",
+      "number": 10
+    },
+    {
+      "question": "A student table stores multiple phone numbers in one column. Which NF is violated?",
+      "options": [
+        "1NF",
+        "2NF",
+        "3NF",
+        "BCNF"
+      ],
+      "answer": "1NF",
+      "number": 11
+    },
+    {
+      "question": "In a table with columns: (StudentID, Subject, Marks, ClassTeacher), 'ClassTeacher' depends on 'Subject'. Which NF is violated?",
+      "options": [
+        "1NF",
+        "2NF",
+        "3NF",
+        "None"
+      ],
+      "answer": "3NF",
+      "number": 12
+    },
+    {
+      "question": "A table has: (OrderID, ProductID, Quantity). Quantity is dependent on both keys. What NF is it in?",
+      "options": [
+        "1NF",
+        "2NF",
+        "3NF",
+        "0NF"
+      ],
+      "answer": "2NF",
+      "number": 13
+    },
+    {
+      "question": "You separate repeating groups into individual rows. Which NF are you enforcing?",
+      "options": [
+        "1NF",
+        "2NF",
+        "3NF",
+        "BCNF"
+      ],
+      "answer": "1NF",
+      "number": 14
+    },
+    {
+      "question": "A table contains: (ID, Name, Department, Manager). Manager depends on Department. Which normalization step is needed?",
+      "options": [
+        "Break into two tables",
+        "Add more keys",
+        "Make Manager the primary key",
+        "Remove ID column"
+      ],
+      "answer": "Break into two tables",
+      "number": 15
+    },
+    {
+      "question": "Student table: (ID, Name, CourseName, CourseDuration). CourseDuration depends on CourseName. What should be done?",
+      "options": [
+        "Split into Student and Course tables",
+        "Add CourseDuration to primary key",
+        "Keep as is",
+        "Make CourseDuration nullable"
+      ],
+      "answer": "Split into Student and Course tables",
+      "number": 16
+    },
+    {
+      "question": "A table stores BookTitle, AuthorName, AuthorBio. AuthorBio is unrelated to title. What's the NF violation?",
+      "options": [
+        "1NF",
+        "2NF",
+        "3NF",
+        "4NF"
+      ],
+      "answer": "3NF",
+      "number": 17
+    },
+    {
+      "question": "Which structure supports atomic fields for contacts instead of storing 'Phone1, Phone2' in a single column?",
+      "options": [
+        "Separate Contact table",
+        "Keep all in one",
+        "Use array column",
+        "Store in JSON"
+      ],
+      "answer": "Separate Contact table",
+      "number": 18
+    },
+    {
+      "question": "Customer(ID, Name, City, CityZipCode). CityZipCode depends on City. What's the fix?",
+      "options": [
+        "Move CityZipCode to new City table",
+        "Make City the primary key",
+        "Drop CityZipCode",
+        "Combine City and CityZipCode"
+      ],
+      "answer": "Move CityZipCode to new City table",
+      "number": 19
+    },
+    {
+      "question": "A table lists employee and department. DeptName and DeptLocation are repeating. What's the issue?",
+      "options": [
+        "Dept info should be normalized",
+        "Add another primary key",
+        "Make department a column",
+        "Nothing wrong"
+      ],
+      "answer": "Dept info should be normalized",
+      "number": 20
+    }
+  ]
+}

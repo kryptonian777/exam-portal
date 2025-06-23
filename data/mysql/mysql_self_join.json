@@ -1,0 +1,225 @@
+{
+  "examName": "mysql_self_join",
+  "questions": [
+    {
+      "question": "What is a SELF JOIN?",
+      "options": [
+        "A JOIN between different databases",
+        "A JOIN of a table with itself",
+        "A JOIN between two tables with same structure",
+        "A JOIN with NULL values"
+      ],
+      "answer": "A JOIN of a table with itself",
+      "number": 1
+    },
+    {
+      "question": "Which aliasing technique is necessary in SELF JOIN?",
+      "options": [
+        "No aliasing",
+        "Use different column names",
+        "Table aliasing",
+        "INNER JOIN only"
+      ],
+      "answer": "Table aliasing",
+      "number": 2
+    },
+    {
+      "question": "Why do we use SELF JOIN?",
+      "options": [
+        "To compare rows within the same table",
+        "To avoid foreign keys",
+        "To delete duplicates",
+        "To update same table"
+      ],
+      "answer": "To compare rows within the same table",
+      "number": 3
+    },
+    {
+      "question": "Which clause is used to relate a table with itself?",
+      "options": [
+        "GROUP BY",
+        "ON",
+        "HAVING",
+        "IN"
+      ],
+      "answer": "ON",
+      "number": 4
+    },
+    {
+      "question": "SELF JOIN always uses:",
+      "options": [
+        "DISTINCT",
+        "JOIN ... ON",
+        "CROSS JOIN",
+        "RIGHT JOIN"
+      ],
+      "answer": "JOIN ... ON",
+      "number": 5
+    },
+    {
+      "question": "Can SELF JOIN be used with WHERE clause?",
+      "options": [
+        "Yes",
+        "No",
+        "Only in PostgreSQL",
+        "Only with aliasing"
+      ],
+      "answer": "Yes",
+      "number": 6
+    },
+    {
+      "question": "In SELF JOIN, the table appears:",
+      "options": [
+        "Once in FROM",
+        "Twice with different aliases",
+        "Only in WHERE",
+        "Only in SELECT"
+      ],
+      "answer": "Twice with different aliases",
+      "number": 7
+    },
+    {
+      "question": "What is a use-case for SELF JOIN?",
+      "options": [
+        "Finding parent-child relationships",
+        "Inserting rows",
+        "Renaming columns",
+        "Dropping duplicates"
+      ],
+      "answer": "Finding parent-child relationships",
+      "number": 8
+    },
+    {
+      "question": "Which is a valid SELF JOIN alias format?",
+      "options": [
+        "SELECT a.id, b.name FROM emp a JOIN emp b ON a.manager_id = b.id;",
+        "SELECT id FROM emp;",
+        "SELF JOIN emp;",
+        "SELECT * FROM emp JOIN manager;"
+      ],
+      "answer": "SELECT a.id, b.name FROM emp a JOIN emp b ON a.manager_id = b.id;",
+      "number": 9
+    },
+    {
+      "question": "What type of relationship is typically modeled by SELF JOIN?",
+      "options": [
+        "1-to-1",
+        "1-to-many",
+        "Recursive",
+        "Cross-tab"
+      ],
+      "answer": "Recursive",
+      "number": 10
+    },
+    {
+      "question": "Find employees who share the same manager.",
+      "options": [
+        "SELECT e1.name, e2.name FROM employees e1 JOIN employees e2 ON e1.manager_id = e2.manager_id;",
+        "JOIN employees;",
+        "SELECT * FROM employees WHERE manager_id;",
+        "SELECT FROM employees JOIN e2;"
+      ],
+      "answer": "SELECT e1.name, e2.name FROM employees e1 JOIN employees e2 ON e1.manager_id = e2.manager_id;",
+      "number": 11
+    },
+    {
+      "question": "List employees and their managers.",
+      "options": [
+        "SELECT e.name, m.name FROM employees e JOIN employees m ON e.manager_id = m.id;",
+        "JOIN employees and manager;",
+        "SELECT e.id FROM employees;",
+        "SELF JOIN managers;"
+      ],
+      "answer": "SELECT e.name, m.name FROM employees e JOIN employees m ON e.manager_id = m.id;",
+      "number": 12
+    },
+    {
+      "question": "Find all students with the same mentor.",
+      "options": [
+        "SELECT s1.name, s2.name FROM students s1 JOIN students s2 ON s1.mentor_id = s2.mentor_id;",
+        "JOIN mentors students;",
+        "SELECT * FROM students JOIN mentors;",
+        "SELECT FROM students WHERE mentor_id;"
+      ],
+      "answer": "SELECT s1.name, s2.name FROM students s1 JOIN students s2 ON s1.mentor_id = s2.mentor_id;",
+      "number": 13
+    },
+    {
+      "question": "Retrieve employee-manager pairs.",
+      "options": [
+        "SELECT e.name, m.name FROM employees e JOIN employees m ON e.manager_id = m.id;",
+        "JOIN e ON e;",
+        "SELECT * FROM employees;",
+        "EMP JOIN SELF;"
+      ],
+      "answer": "SELECT e.name, m.name FROM employees e JOIN employees m ON e.manager_id = m.id;",
+      "number": 14
+    },
+    {
+      "question": "Identify employees reporting to the same supervisor.",
+      "options": [
+        "SELECT a.name, b.name FROM staff a JOIN staff b ON a.supervisor_id = b.supervisor_id;",
+        "SELECT a.name FROM staff;",
+        "JOIN supervisors;",
+        "SELECT * FROM staff;"
+      ],
+      "answer": "SELECT a.name, b.name FROM staff a JOIN staff b ON a.supervisor_id = b.supervisor_id;",
+      "number": 15
+    },
+    {
+      "question": "Show all books with the same author.",
+      "options": [
+        "SELECT b1.title, b2.title FROM books b1 JOIN books b2 ON b1.author_id = b2.author_id;",
+        "JOIN books;",
+        "SELECT books.title FROM books JOIN authors;",
+        "SELECT * FROM books;"
+      ],
+      "answer": "SELECT b1.title, b2.title FROM books b1 JOIN books b2 ON b1.author_id = b2.author_id;",
+      "number": 16
+    },
+    {
+      "question": "Display courses handled by the same teacher.",
+      "options": [
+        "SELECT c1.name, c2.name FROM courses c1 JOIN courses c2 ON c1.teacher_id = c2.teacher_id;",
+        "JOIN courses;",
+        "SELECT courses FROM teachers;",
+        "SELECT * FROM courses;"
+      ],
+      "answer": "SELECT c1.name, c2.name FROM courses c1 JOIN courses c2 ON c1.teacher_id = c2.teacher_id;",
+      "number": 17
+    },
+    {
+      "question": "Fetch teams with the same manager.",
+      "options": [
+        "SELECT t1.name, t2.name FROM teams t1 JOIN teams t2 ON t1.manager_id = t2.manager_id;",
+        "SELECT t1.name FROM teams;",
+        "JOIN teams;",
+        "SELECT * FROM managers;"
+      ],
+      "answer": "SELECT t1.name, t2.name FROM teams t1 JOIN teams t2 ON t1.manager_id = t2.manager_id;",
+      "number": 18
+    },
+    {
+      "question": "Get list of students guided by the same tutor.",
+      "options": [
+        "SELECT s1.name, s2.name FROM students s1 JOIN students s2 ON s1.tutor_id = s2.tutor_id;",
+        "JOIN students;",
+        "SELECT tutor_id FROM students;",
+        "SELECT * FROM tutors;"
+      ],
+      "answer": "SELECT s1.name, s2.name FROM students s1 JOIN students s2 ON s1.tutor_id = s2.tutor_id;",
+      "number": 19
+    },
+    {
+      "question": "Identify all employees and their direct reports.",
+      "options": [
+        "SELECT e.name, r.name FROM employees e JOIN employees r ON e.id = r.manager_id;",
+        "JOIN e ON e;",
+        "SELECT * FROM employees;",
+        "SELF JOIN e;"
+      ],
+      "answer": "SELECT e.name, r.name FROM employees e JOIN employees r ON e.id = r.manager_id;",
+      "number": 20
+    }
+  ]
+}

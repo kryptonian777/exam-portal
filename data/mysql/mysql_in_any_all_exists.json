@@ -1,0 +1,335 @@
+{
+  "examName": "mysql_in_any_all_exists",
+  "questions": [
+    {
+      "question": "What does the IN operator do?",
+      "options": [
+        "Checks for null values",
+        "Checks if value exists in a list",
+        "Performs mathematical addition",
+        "Creates tables"
+      ],
+      "answer": "Checks if value exists in a list",
+      "number": 1
+    },
+    {
+      "question": "Which keyword checks if a subquery returns any row?",
+      "options": [
+        "ALL",
+        "ANY",
+        "EXISTS",
+        "IN"
+      ],
+      "answer": "EXISTS",
+      "number": 2
+    },
+    {
+      "question": "What does the ALL operator do?",
+      "options": [
+        "Returns all values from a table",
+        "Compares a value to all values returned by a subquery",
+        "Filters nulls",
+        "Deletes rows"
+      ],
+      "answer": "Compares a value to all values returned by a subquery",
+      "number": 3
+    },
+    {
+      "question": "Which operator returns TRUE if any subquery value meets the condition?",
+      "options": [
+        "ALL",
+        "ANY",
+        "EXISTS",
+        "IN"
+      ],
+      "answer": "ANY",
+      "number": 4
+    },
+    {
+      "question": "What does EXISTS return if subquery is empty?",
+      "options": [
+        "TRUE",
+        "FALSE",
+        "NULL",
+        "ERROR"
+      ],
+      "answer": "FALSE",
+      "number": 5
+    },
+    {
+      "question": "Which is true about ALL operator?",
+      "options": [
+        "Always returns maximum row",
+        "Fails if no match",
+        "Compares value with all subquery results",
+        "Only works with DELETE"
+      ],
+      "answer": "Compares value with all subquery results",
+      "number": 6
+    },
+    {
+      "question": "IN is typically used with:",
+      "options": [
+        "JOINs",
+        "Scalar queries",
+        "Lists or subqueries",
+        "Data types"
+      ],
+      "answer": "Lists or subqueries",
+      "number": 7
+    },
+    {
+      "question": "What will this return? SELECT * FROM emp WHERE id IN (1, 2, 3);",
+      "options": [
+        "Rows with id 1 only",
+        "Rows with id 1, 2, 3",
+        "All rows",
+        "No rows"
+      ],
+      "answer": "Rows with id 1, 2, 3",
+      "number": 8
+    },
+    {
+      "question": "Which clause uses EXISTS most often?",
+      "options": [
+        "SELECT",
+        "ORDER BY",
+        "WHERE",
+        "GROUP BY"
+      ],
+      "answer": "WHERE",
+      "number": 9
+    },
+    {
+      "question": "What\u2019s the difference between IN and EXISTS?",
+      "options": [
+        "IN returns TRUE for NULLs",
+        "EXISTS stops on first match, IN checks all",
+        "IN is faster in all cases",
+        "EXISTS only works in DELETE"
+      ],
+      "answer": "EXISTS stops on first match, IN checks all",
+      "number": 10
+    },
+    {
+      "question": "Find employees whose department is in the departments table.",
+      "options": [
+        "SELECT name FROM employees WHERE dept_id IN (SELECT id FROM departments);",
+        "SELECT * FROM departments;",
+        "SELECT id FROM employees;",
+        "SELECT name FROM departments;"
+      ],
+      "answer": "SELECT name FROM employees WHERE dept_id IN (SELECT id FROM departments);",
+      "number": 11
+    },
+    {
+      "question": "Get orders where quantity is greater than ANY quantity from returns.",
+      "options": [
+        "SELECT * FROM orders WHERE quantity > ANY (SELECT quantity FROM returns);",
+        "SELECT * FROM orders;",
+        "SELECT quantity FROM returns;",
+        "SELECT * FROM returns;"
+      ],
+      "answer": "SELECT * FROM orders WHERE quantity > ANY (SELECT quantity FROM returns);",
+      "number": 12
+    },
+    {
+      "question": "Get products whose price is less than ALL competitors\u2019 prices.",
+      "options": [
+        "SELECT * FROM products WHERE price < ALL (SELECT price FROM competitors);",
+        "SELECT * FROM products;",
+        "SELECT * FROM competitors;",
+        "SELECT price FROM competitors;"
+      ],
+      "answer": "SELECT * FROM products WHERE price < ALL (SELECT price FROM competitors);",
+      "number": 13
+    },
+    {
+      "question": "List customers who have placed any orders.",
+      "options": [
+        "SELECT * FROM customers WHERE EXISTS (SELECT 1 FROM orders WHERE orders.customer_id = customers.id);",
+        "SELECT name FROM customers;",
+        "SELECT customer_id FROM orders;",
+        "SELECT customers FROM orders;"
+      ],
+      "answer": "SELECT * FROM customers WHERE EXISTS (SELECT 1 FROM orders WHERE orders.customer_id = customers.id);",
+      "number": 14
+    },
+    {
+      "question": "Get employees whose salary is greater than ALL salaries in dept 5.",
+      "options": [
+        "SELECT name FROM employees WHERE salary > ALL (SELECT salary FROM employees WHERE dept_id = 5);",
+        "SELECT name FROM employees;",
+        "SELECT dept_id FROM employees;",
+        "SELECT * FROM employees;"
+      ],
+      "answer": "SELECT name FROM employees WHERE salary > ALL (SELECT salary FROM employees WHERE dept_id = 5);",
+      "number": 15
+    },
+    {
+      "question": "Select items that are not in the discontinued list.",
+      "options": [
+        "SELECT * FROM items WHERE id NOT IN (SELECT item_id FROM discontinued);",
+        "SELECT * FROM items;",
+        "SELECT * FROM discontinued;",
+        "SELECT * FROM items NOT IN discontinued;"
+      ],
+      "answer": "SELECT * FROM items WHERE id NOT IN (SELECT item_id FROM discontinued);",
+      "number": 16
+    },
+    {
+      "question": "Check for suppliers who exist in the order logs.",
+      "options": [
+        "SELECT * FROM suppliers WHERE EXISTS (SELECT 1 FROM orders WHERE orders.supplier_id = suppliers.id);",
+        "SELECT name FROM orders;",
+        "SELECT * FROM suppliers;",
+        "SELECT id FROM orders;"
+      ],
+      "answer": "SELECT * FROM suppliers WHERE EXISTS (SELECT 1 FROM orders WHERE orders.supplier_id = suppliers.id);",
+      "number": 17
+    },
+    {
+      "question": "Return customers with IDs 1, 2, 3 only.",
+      "options": [
+        "SELECT * FROM customers WHERE id IN (1, 2, 3);",
+        "SELECT * FROM customers;",
+        "SELECT id FROM customers;",
+        "SELECT * FROM customers WHERE id = 1 AND 2 AND 3;"
+      ],
+      "answer": "SELECT * FROM customers WHERE id IN (1, 2, 3);",
+      "number": 18
+    },
+    {
+      "question": "Get all products where quantity < ANY from table `sales`.",
+      "options": [
+        "SELECT * FROM products WHERE quantity < ANY (SELECT quantity FROM sales);",
+        "SELECT * FROM sales;",
+        "SELECT * FROM products;",
+        "SELECT quantity FROM sales;"
+      ],
+      "answer": "SELECT * FROM products WHERE quantity < ANY (SELECT quantity FROM sales);",
+      "number": 19
+    },
+    {
+      "question": "Find users who are also admins.",
+      "options": [
+        "SELECT * FROM users WHERE id IN (SELECT user_id FROM admins);",
+        "SELECT user_id FROM admins;",
+        "SELECT * FROM users;",
+        "SELECT id FROM users;"
+      ],
+      "answer": "SELECT * FROM users WHERE id IN (SELECT user_id FROM admins);",
+      "number": 20
+    },
+    {
+      "question": "Get books priced higher than ALL in bookstore_b.",
+      "options": [
+        "SELECT * FROM books_a WHERE price > ALL (SELECT price FROM books_b);",
+        "SELECT * FROM books_b;",
+        "SELECT * FROM books;",
+        "SELECT price FROM books_b;"
+      ],
+      "answer": "SELECT * FROM books_a WHERE price > ALL (SELECT price FROM books_b);",
+      "number": 21
+    },
+    {
+      "question": "List users not in the banned_users table.",
+      "options": [
+        "SELECT * FROM users WHERE id NOT IN (SELECT user_id FROM banned_users);",
+        "SELECT * FROM banned_users;",
+        "SELECT id FROM users;",
+        "SELECT user_id FROM banned_users;"
+      ],
+      "answer": "SELECT * FROM users WHERE id NOT IN (SELECT user_id FROM banned_users);",
+      "number": 22
+    },
+    {
+      "question": "Show orders from customers who placed orders in last 30 days.",
+      "options": [
+        "SELECT * FROM orders WHERE EXISTS (SELECT 1 FROM customers WHERE orders.customer_id = customers.id AND customers.last_order_date > NOW() - INTERVAL 30 DAY);",
+        "SELECT * FROM orders;",
+        "SELECT * FROM customers;",
+        "SELECT last_order_date FROM customers;"
+      ],
+      "answer": "SELECT * FROM orders WHERE EXISTS (SELECT 1 FROM customers WHERE orders.customer_id = customers.id AND customers.last_order_date > NOW() - INTERVAL 30 DAY);",
+      "number": 23
+    },
+    {
+      "question": "Return all rows where employee salary is > ANY sales salary.",
+      "options": [
+        "SELECT * FROM employees WHERE salary > ANY (SELECT salary FROM sales);",
+        "SELECT * FROM employees;",
+        "SELECT salary FROM sales;",
+        "SELECT salary FROM employees;"
+      ],
+      "answer": "SELECT * FROM employees WHERE salary > ANY (SELECT salary FROM sales);",
+      "number": 24
+    },
+    {
+      "question": "Find students enrolled in at least one course.",
+      "options": [
+        "SELECT * FROM students WHERE EXISTS (SELECT 1 FROM enrollments WHERE enrollments.student_id = students.id);",
+        "SELECT * FROM enrollments;",
+        "SELECT id FROM students;",
+        "SELECT student_id FROM enrollments;"
+      ],
+      "answer": "SELECT * FROM students WHERE EXISTS (SELECT 1 FROM enrollments WHERE enrollments.student_id = students.id);",
+      "number": 25
+    },
+    {
+      "question": "Return all customers who didn\u2019t make an order.",
+      "options": [
+        "SELECT * FROM customers WHERE NOT EXISTS (SELECT 1 FROM orders WHERE orders.customer_id = customers.id);",
+        "SELECT * FROM orders;",
+        "SELECT customer_id FROM orders;",
+        "SELECT name FROM customers;"
+      ],
+      "answer": "SELECT * FROM customers WHERE NOT EXISTS (SELECT 1 FROM orders WHERE orders.customer_id = customers.id);",
+      "number": 26
+    },
+    {
+      "question": "Find all categories not present in any products.",
+      "options": [
+        "SELECT * FROM categories WHERE id NOT IN (SELECT category_id FROM products);",
+        "SELECT id FROM categories;",
+        "SELECT * FROM products;",
+        "SELECT category_id FROM products;"
+      ],
+      "answer": "SELECT * FROM categories WHERE id NOT IN (SELECT category_id FROM products);",
+      "number": 27
+    },
+    {
+      "question": "Check users whose email exists in verified_emails.",
+      "options": [
+        "SELECT * FROM users WHERE email IN (SELECT email FROM verified_emails);",
+        "SELECT * FROM verified_emails;",
+        "SELECT email FROM users;",
+        "SELECT * FROM users;"
+      ],
+      "answer": "SELECT * FROM users WHERE email IN (SELECT email FROM verified_emails);",
+      "number": 28
+    },
+    {
+      "question": "List employees with salary greater than ANY in HR dept.",
+      "options": [
+        "SELECT * FROM employees WHERE salary > ANY (SELECT salary FROM employees WHERE dept = 'HR');",
+        "SELECT * FROM employees;",
+        "SELECT salary FROM employees;",
+        "SELECT * FROM departments;"
+      ],
+      "answer": "SELECT * FROM employees WHERE salary > ANY (SELECT salary FROM employees WHERE dept = 'HR');",
+      "number": 29
+    },
+    {
+      "question": "Find items in both warehouse1 and warehouse2.",
+      "options": [
+        "SELECT * FROM items WHERE id IN (SELECT item_id FROM warehouse1) AND id IN (SELECT item_id FROM warehouse2);",
+        "SELECT * FROM items;",
+        "SELECT * FROM warehouse1;",
+        "SELECT * FROM warehouse2;"
+      ],
+      "answer": "SELECT * FROM items WHERE id IN (SELECT item_id FROM warehouse1) AND id IN (SELECT item_id FROM warehouse2);",
+      "number": 30
+    }
+  ]
+}
