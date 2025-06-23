@@ -1,81 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exam</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .question {
+      text-align: left;
+      margin-bottom: 20px;
+    }
+    .submit-btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
 <body>
-  <div id="timer">⏱️ Loading timer...</div>
-  <div id="exam-container">Loading exam...</div>
-  <button onclick="submitExam()">Submit Exam</button>
-  <div id="result"></div>
+<div class="container">
+  <h2 id="exam-title">Exam</h2>
+  <div id="questions">Loading...</div>
+  <button class="submit-btn" onclick="submitExam()">Submit Exam</button>
+</div>
 
-  <script>
-    let questions = [];
-    let answers = {};
-    let duration = 30 * 60;
-    const timerElement = document.getElementById("timer");
-    const subject = localStorage.getItem("selectedSubject");
-    const file = localStorage.getItem("selectedExamFile");
+<script>
+const subject = localStorage.getItem("selectedSubject") || "mysql";
+const file = localStorage.getItem("selectedExamFile");
+const duration = parseInt(localStorage.getItem("selectedDuration")) || 30;
+const statsKey = `${subject}_stats_${file}`;
+const lockKey = `${subject}_lock_${file}`;
 
-    async function loadQuestions() {
-      if (!subject || !file) {
-        document.getElementById("exam-container").innerHTML = "❌ Subject or file missing.";
-        return;
-      }
+let data = [];
+let score = 0;
 
-      try {
-        const res = await fetch(`/exam-portal/data/${subject}/${file}`);
-        const data = await res.json();
-        questions = data.questions;
-        duration = (data.duration || 30) * 60;
-        renderQuestions();
-        startTimer();
-      } catch (err) {
-        document.getElementById("exam-container").innerHTML = "❌ Failed to load exam.";
-        console.error("Exam loading error:", err);
-      }
-    }
+fetch(`../data/${subject}/${file}`)
+  .then(res => res.json())
+  .then(json => {
+    data = json;
+    document.getElementById("exam-title").innerText = `${subject.toUpperCase()} Exam - ${file.replace(/_/g, " ").replace(/.json$/, "").toUpperCase()}`;
+    renderQuestions();
+  });
 
-    function renderQuestions() {
-      const container = document.getElementById("exam-container");
-      container.innerHTML = "";
-      questions.forEach((q, idx) => {
-        const div = document.createElement("div");
-        div.className = "question-box";
-        div.innerHTML = `<p><strong>Q${idx + 1}:</strong> ${q.question}</p>` +
-          q.options.map(opt =>
-            `<label><input type='radio' name='q${idx}' value='${opt}' onchange='saveAnswer(${idx}, "${opt}")'> ${opt}</label><br>`
-          ).join('');
-        container.appendChild(div);
-      });
-    }
+function renderQuestions() {
+  const container = document.getElementById("questions");
+  container.innerHTML = "";
+  data.forEach((q, i) => {
+    const div = document.createElement("div");
+    div.className = "question";
+    div.innerHTML = `
+      <p><b>Q${i + 1}. ${q.question}</b></p>
+      ${q.options.map((opt, j) => `
+        <label><input type="radio" name="q${i}" value="${opt}"> ${opt}</label><br>`).join('')}
+    `;
+    container.appendChild(div);
+  });
+}
 
-    function saveAnswer(qIndex, value) {
-      answers[qIndex] = value;
-    }
+function submitExam() {
+  let correct = 0;
+  data.forEach((q, i) => {
+    const answer = document.querySelector(`input[name=q${i}]:checked`);
+    if (answer && answer.value === q.answer) correct++;
+  });
 
-    function submitExam() {
-      let score = 0;
-      questions.forEach((q, idx) => {
-        if (answers[idx] === q.answer) score++;
-      });
-      const percentage = (score / questions.length) * 100;
-      const resultText = percentage >= 40
-        ? `✅ Passed with ${percentage.toFixed(2)}%`
-        : `❌ Failed with ${percentage.toFixed(2)}%`;
-      document.getElementById("result").innerText = resultText;
-      clearInterval(timerInterval);
-    }
+  const percentage = (correct / data.length) * 100;
+  const passed = percentage >= 60;
 
-    let timerInterval;
-    function startTimer() {
-      timerInterval = setInterval(() => {
-        const mins = Math.floor(duration / 60);
-        const secs = duration % 60;
-        timerElement.innerText = `⏱️ ${mins}m ${secs}s`;
-        if (duration <= 0) {
-          clearInterval(timerInterval);
-          submitExam();
-        }
-        duration--;
-      }, 1000);
-    }
+  // Get and update stats
+  const stats = JSON.parse(localStorage.getItem(statsKey)) || { attempts: 0, status: "Not Attempted" };
+  stats.attempts += 1;
+  stats.status = passed ? "Passed" : "Failed";
+  localStorage.setItem(statsKey, JSON.stringify(stats));
 
-    loadQuestions();
-  </script>
+  if (!passed) {
+    const lockUntil = new Date(Date.now() + (subject === "mysql" ? 12 : 2) * 60 * 60 * 1000); // 12h for MySQL, 2h for Python
+    localStorage.setItem(lockKey, lockUntil);
+    alert(`❌ You failed this exam. It is now locked for ${subject === "mysql" ? 12 : 2} hours.`);
+  } else {
+    alert("✅ Congratulations! You passed the exam.");
+  }
+
+  window.location.href = `${subject}_exam_dashboard.html`;
+}
+</script>
 </body>
+</html>
