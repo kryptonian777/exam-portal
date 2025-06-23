@@ -1,50 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>MySQL Chapter Exams</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      padding: 20px;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      padding: 30px;
       text-align: center;
     }
     .container {
-      max-width: 600px;
+      max-width: 900px;
       margin: auto;
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
     h2 {
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
-    .chapter-button {
-      display: block;
-      width: 100%;
-      padding: 15px;
-      margin: 10px 0;
-      font-size: 16px;
+    .exam-card {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 15px auto;
+      max-width: 500px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: left;
+      position: relative;
+    }
+    .exam-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    .exam-info {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+    .status {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+    .status.open {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .status.locked {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+    .start-btn {
+      padding: 10px 20px;
       border: none;
-      border-radius: 5px;
+      border-radius: 6px;
       background-color: #007BFF;
       color: white;
       cursor: pointer;
+      font-size: 14px;
     }
-    .chapter-button:hover {
-      background-color: #0056b3;
-    }
-    .chapter-button:disabled {
-      background-color: #aaa;
+    .start-btn:disabled {
+      background-color: #bbb;
       cursor: not-allowed;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h2>Select a MySQL Chapter Exam</h2>
+    <h2>📘 MySQL Chapter-Based Exams</h2>
     <div id="chapter-list">Loading chapters...</div>
   </div>
 
@@ -91,7 +121,6 @@
       "create_table_with_columns_and_datatypes.json"
     ];
 
-    // 👇 Configure which exams are enabled and their durations
     const chapterConfig = {
       "alter_table_add_modify_drop.json": { enabled: true, duration: 30 },
       "mysql_aggregate_functions.json": { enabled: false, duration: 25 },
@@ -144,15 +173,29 @@
         .replace(/_/g, " ")
         .toUpperCase();
 
-      const btn = document.createElement("button");
-      btn.className = "chapter-button";
-      btn.innerText = label;
+      const card = document.createElement("div");
+      card.className = "exam-card";
 
-      if (!config.enabled) {
-        btn.disabled = true;
-        btn.title = "Exam is locked";
-      } else {
-        btn.title = `Start Exam (${config.duration} mins)`;
+      const title = document.createElement("div");
+      title.className = "exam-title";
+      title.textContent = label;
+
+      const info = document.createElement("div");
+      info.className = "exam-info";
+      info.textContent = config.enabled
+        ? `⏱️ Duration: ${config.duration} minutes`
+        : `🔒 This exam is currently locked`;
+
+      const status = document.createElement("div");
+      status.className = "status " + (config.enabled ? "open" : "locked");
+      status.innerText = config.enabled ? "OPEN" : "LOCKED";
+
+      const btn = document.createElement("button");
+      btn.className = "start-btn";
+      btn.innerText = config.enabled ? "Start Exam" : "Locked";
+      btn.disabled = !config.enabled;
+
+      if (config.enabled) {
         btn.onclick = () => {
           localStorage.setItem("selectedSubject", "mysql");
           localStorage.setItem("selectedExamFile", filename);
@@ -161,7 +204,11 @@
         };
       }
 
-      container.appendChild(btn);
+      card.appendChild(title);
+      card.appendChild(info);
+      card.appendChild(status);
+      card.appendChild(btn);
+      container.appendChild(card);
     });
   </script>
 </body>
