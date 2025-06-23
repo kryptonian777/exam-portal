@@ -34,11 +34,17 @@
       cursor: pointer;
     }
     .chapter-button:hover {
-      background-color: #218838;
+      background-color: #1c7c34;
     }
     .chapter-button:disabled {
       background-color: #aaa;
       cursor: not-allowed;
+    }
+    .countdown {
+      font-size: 13px;
+      color: #ff0000;
+      margin-top: -8px;
+      margin-bottom: 10px;
     }
   </style>
 </head>
@@ -54,30 +60,48 @@
       "Data_Types_and_Variables.json",
       "Logical_operators.json",
       "PythonSyntaxandSemantics.json",
-      "comparision_operators.json"
+      "comparison_operators.json"
     ];
 
     const chapterConfig = {
       "Arithmetic_operators.json": { enabled: true, duration: 20 },
       "Data_Types_and_Variables.json": { enabled: true, duration: 25 },
-      "Logical_operators.json": { enabled: false, duration: 15 },
+      "Logical_operators.json": { enabled: false, duration: 20 },
       "PythonSyntaxandSemantics.json": { enabled: false, duration: 30 },
-      "comparision_operators.json": { enabled: true, duration: 20 }
+      "comparison_operators.json": { enabled: true, duration: 15 }
     };
 
     const container = document.getElementById("chapter-list");
-    container.innerHTML = "";
 
-    files.sort((a, b) => {
-      const aEnabled = chapterConfig[a]?.enabled ? 1 : 0;
-      const bEnabled = chapterConfig[b]?.enabled ? 1 : 0;
-      return bEnabled - aEnabled;
+    function formatTime(ms) {
+      const hours = Math.floor(ms / 3600000);
+      const minutes = Math.floor((ms % 3600000) / 60000);
+      return `${hours}h ${minutes}m`;
+    }
+
+    const examsWithLock = files.map(f => {
+      const config = chapterConfig[f] || { enabled: false };
+      const lockKey = `python_lock_${f}`;
+      const lockUntil = localStorage.getItem(lockKey);
+      const lockedDueToFailure = lockUntil && new Date(lockUntil) > new Date();
+
+      return {
+        file: f,
+        label: f.replace(".json", "").replace(/_/g, " ").toUpperCase(),
+        config,
+        lockedDueToFailure,
+        lockUntil
+      };
     });
 
-    files.forEach(filename => {
-      const config = chapterConfig[filename] || { enabled: false };
-      const label = filename.replace(".json", "").replace(/_/g, " ").toUpperCase();
+    examsWithLock.sort((a, b) => {
+      const aReady = a.config.enabled && !a.lockedDueToFailure;
+      const bReady = b.config.enabled && !b.lockedDueToFailure;
+      return (aReady === bReady) ? 0 : aReady ? -1 : 1;
+    });
 
+    container.innerHTML = '';
+    examsWithLock.forEach(({ file, label, config, lockedDueToFailure, lockUntil }) => {
       const btn = document.createElement("button");
       btn.className = "chapter-button";
       btn.innerText = label;
@@ -85,11 +109,34 @@
       if (!config.enabled) {
         btn.disabled = true;
         btn.title = "Exam is locked";
+      } else if (lockedDueToFailure) {
+        btn.disabled = true;
+        btn.title = "Locked for 12 hours due to failed attempt";
+
+        const countdown = document.createElement("div");
+        countdown.className = "countdown";
+
+        function updateCountdown() {
+          const now = new Date();
+          const lockTime = new Date(lockUntil);
+          const remaining = lockTime - now;
+          if (remaining > 0) {
+            countdown.innerText = `Retry in: ${formatTime(remaining)}`;
+          } else {
+            countdown.innerText = "";
+            localStorage.removeItem(`python_lock_${file}`);
+            location.reload();
+          }
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 60000);
+        container.appendChild(countdown);
       } else {
         btn.title = `Start Exam (${config.duration} mins)`;
         btn.onclick = () => {
           localStorage.setItem("selectedSubject", "python");
-          localStorage.setItem("selectedExamFile", filename);
+          localStorage.setItem("selectedExamFile", file);
           localStorage.setItem("selectedDuration", config.duration);
           window.location.href = "exam.html";
         };
