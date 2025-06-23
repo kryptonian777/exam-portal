@@ -1,0 +1,333 @@
+{
+  "examName": "Comparison_operators",
+  "questions": [
+    {
+      "question": "What does == check?",
+      "options": [
+        "Equality",
+        "Inequality",
+        "Assignment",
+        "Reference"
+      ],
+      "answer": "Equality",
+      "number": 1
+    },
+    {
+      "question": "Which operator checks if values are not equal?",
+      "options": [
+        "==",
+        "!=",
+        "<>",
+        "==="
+      ],
+      "answer": "!=",
+      "number": 2
+    },
+    {
+      "question": "Which operator is used for greater than?",
+      "options": [
+        ">",
+        "<",
+        "==",
+        ">="
+      ],
+      "answer": ">",
+      "number": 3
+    },
+    {
+      "question": "Which operator is used for less than?",
+      "options": [
+        "<",
+        ">",
+        "<=",
+        "!="
+      ],
+      "answer": "<",
+      "number": 4
+    },
+    {
+      "question": "What does >= mean?",
+      "options": [
+        "Greater or equal",
+        "Less or equal",
+        "Equal only",
+        "Greater only"
+      ],
+      "answer": "Greater or equal",
+      "number": 5
+    },
+    {
+      "question": "What is the result of 3 == 3?",
+      "options": [
+        "True",
+        "False",
+        "Error",
+        "None"
+      ],
+      "answer": "True",
+      "number": 6
+    },
+    {
+      "question": "Which of these is a comparison operator?",
+      "options": [
+        "+",
+        "and",
+        "==",
+        "="
+      ],
+      "answer": "==",
+      "number": 7
+    },
+    {
+      "question": "What is the result of 10 != 5?",
+      "options": [
+        "True",
+        "False",
+        "Error",
+        "None"
+      ],
+      "answer": "True",
+      "number": 8
+    },
+    {
+      "question": "Is = a comparison operator?",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "answer": "No",
+      "number": 9
+    },
+    {
+      "question": "Which compares if value is less than or equal?",
+      "options": [
+        "<=",
+        "<",
+        "!=",
+        "=="
+      ],
+      "answer": "<=",
+      "number": 10
+    },
+    {
+      "question": "Which operator will you use to compare if two values are equal?",
+      "options": [
+        "==",
+        "=",
+        "!=",
+        ">"
+      ],
+      "answer": "==",
+      "number": 11
+    },
+    {
+      "question": "Choose the correct operator for inequality check.",
+      "options": [
+        "==",
+        "!=",
+        "=",
+        "<="
+      ],
+      "answer": "!=",
+      "number": 12
+    },
+    {
+      "question": "What operator checks if one value is greater than another?",
+      "options": [
+        "==",
+        ">",
+        "<",
+        "!="
+      ],
+      "answer": ">",
+      "number": 13
+    },
+    {
+      "question": "Pick the operator that evaluates if x is less than or equal to y.",
+      "options": [
+        "<=",
+        ">=",
+        "==",
+        "<"
+      ],
+      "answer": "<=",
+      "number": 14
+    },
+    {
+      "question": "What will evaluate True if a = 10 and b = 20?",
+      "options": [
+        "a < b",
+        "a > b",
+        "a == b",
+        "a >= b"
+      ],
+      "answer": "a < b",
+      "number": 15
+    },
+    {
+      "question": "What is output?\nprint(4 == 4)",
+      "options": [
+        "True",
+        "False",
+        "Error",
+        "None"
+      ],
+      "answer": "True",
+      "number": 16
+    },
+    {
+      "question": "What is output?\nprint(3 != 3)",
+      "options": [
+        "False",
+        "True",
+        "Error",
+        "None"
+      ],
+      "answer": "False",
+      "number": 17
+    },
+    {
+      "question": "What is output?\nprint(5 < 8)",
+      "options": [
+        "True",
+        "False",
+        "Error",
+        "None"
+      ],
+      "answer": "True",
+      "number": 18
+    },
+    {
+      "question": "What is output?\nprint(10 > 20)",
+      "options": [
+        "False",
+        "True",
+        "Error",
+        "None"
+      ],
+      "answer": "False",
+      "number": 19
+    },
+    {
+      "question": "What is output?\nprint(5 <= 5)",
+      "options": [
+        "True",
+        "False",
+        "Error",
+        "None"
+      ],
+      "answer": "True",
+      "number": 20
+    },
+    {
+      "question": "What is output?\na = 15\nb = 10\nprint(a >= b)",
+      "options": [
+        "True",
+        "False",
+        "Error",
+        "None"
+      ],
+      "answer": "True",
+      "number": 21
+    },
+    {
+      "question": "Evaluate:\nprint(3 == 2 + 1)",
+      "options": [
+        "True",
+        "False",
+        "Error",
+        "None"
+      ],
+      "answer": "True",
+      "number": 22
+    },
+    {
+      "question": "Evaluate:\nx = 5\ny = 5\nprint(x == y)",
+      "options": [
+        "True",
+        "False",
+        "Error",
+        "None"
+      ],
+      "answer": "True",
+      "number": 23
+    },
+    {
+      "question": "Result of:\nprint(2 != 4)",
+      "options": [
+        "True",
+        "False",
+        "Error",
+        "None"
+      ],
+      "answer": "True",
+      "number": 24
+    },
+    {
+      "question": "Evaluate:\nprint(7 > 7)",
+      "options": [
+        "False",
+        "True",
+        "Error",
+        "None"
+      ],
+      "answer": "False",
+      "number": 25
+    },
+    {
+      "question": "Output of:\na = 10\nprint(a < 5)",
+      "options": [
+        "False",
+        "True",
+        "None",
+        "Error"
+      ],
+      "answer": "False",
+      "number": 26
+    },
+    {
+      "question": "Evaluate:\nx = 3\ny = 6\nprint(x >= y)",
+      "options": [
+        "False",
+        "True",
+        "Error",
+        "None"
+      ],
+      "answer": "False",
+      "number": 27
+    },
+    {
+      "question": "Evaluate:\nprint(4 <= 4)",
+      "options": [
+        "True",
+        "False",
+        "None",
+        "Error"
+      ],
+      "answer": "True",
+      "number": 28
+    },
+    {
+      "question": "Output of:\nx = 9\nprint(x == 10)",
+      "options": [
+        "False",
+        "True",
+        "Error",
+        "None"
+      ],
+      "answer": "False",
+      "number": 29
+    },
+    {
+      "question": "Evaluate:\nprint(5 != 10)",
+      "options": [
+        "True",
+        "False",
+        "None",
+        "Error"
+      ],
+      "answer": "True",
+      "number": 30
+    }
+  ]
+}

@@ -1,0 +1,1537 @@
+{
+  "examName": "Data_Types_and_Variables",
+  "questions": [
+    {
+      "question": "What is a data type in Python?",
+      "options": [
+        "A kind of loop",
+        "A way to store code",
+        "A classification of data",
+        "A Python keyword"
+      ],
+      "answer": "A classification of data",
+      "number": 1
+    },
+    {
+      "question": "Which of the following is not a built-in data type in Python?",
+      "options": [
+        "int",
+        "str",
+        "array",
+        "float"
+      ],
+      "answer": "array",
+      "number": 2
+    },
+    {
+      "question": "Which data type represents textual data?",
+      "options": [
+        "int",
+        "str",
+        "float",
+        "bool"
+      ],
+      "answer": "str",
+      "number": 3
+    },
+    {
+      "question": "Which data type would be best for storing age?",
+      "options": [
+        "int",
+        "float",
+        "bool",
+        "str"
+      ],
+      "answer": "int",
+      "number": 4
+    },
+    {
+      "question": "Which keyword is used to define a variable in Python?",
+      "options": [
+        "let",
+        "var",
+        "define",
+        "None of the above"
+      ],
+      "answer": "None of the above",
+      "number": 5
+    },
+    {
+      "question": "How is a variable created in Python?",
+      "options": [
+        "using var",
+        "just assign a value",
+        "using declare",
+        "with create"
+      ],
+      "answer": "just assign a value",
+      "number": 6
+    },
+    {
+      "question": "What does the Boolean type represent?",
+      "options": [
+        "Decimal number",
+        "Character",
+        "True/False values",
+        "Alphanumeric"
+      ],
+      "answer": "True/False values",
+      "number": 7
+    },
+    {
+      "question": "Which of the following is a valid variable name?",
+      "options": [
+        "1number",
+        "user-name",
+        "userName",
+        "class"
+      ],
+      "answer": "userName",
+      "number": 8
+    },
+    {
+      "question": "Which data type would best store a student's percentage?",
+      "options": [
+        "bool",
+        "str",
+        "float",
+        "int"
+      ],
+      "answer": "float",
+      "number": 9
+    },
+    {
+      "question": "Is Python a statically typed language?",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "answer": "No",
+      "number": 10
+    },
+    {
+      "question": "Can Python variables change type during runtime?",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "answer": "Yes",
+      "number": 11
+    },
+    {
+      "question": "Which data type stores only True or False?",
+      "options": [
+        "str",
+        "int",
+        "float",
+        "bool"
+      ],
+      "answer": "bool",
+      "number": 12
+    },
+    {
+      "question": "Which function tells the type of a variable?",
+      "options": [
+        "datatype()",
+        "typeof()",
+        "type()",
+        "kind()"
+      ],
+      "answer": "type()",
+      "number": 13
+    },
+    {
+      "question": "How are strings defined in Python?",
+      "options": [
+        "Using quotes",
+        "Using braces",
+        "Using brackets",
+        "With colon"
+      ],
+      "answer": "Using quotes",
+      "number": 14
+    },
+    {
+      "question": "What is the value of bool(0)?",
+      "options": [
+        "True",
+        "False",
+        "0",
+        "None"
+      ],
+      "answer": "False",
+      "number": 15
+    },
+    {
+      "question": "What is the value of bool(1)?",
+      "options": [
+        "True",
+        "False",
+        "1",
+        "None"
+      ],
+      "answer": "True",
+      "number": 16
+    },
+    {
+      "question": "What is the result of '5' + '10'?",
+      "options": [
+        "15",
+        "'510'",
+        "Error",
+        "None"
+      ],
+      "answer": "'510'",
+      "number": 17
+    },
+    {
+      "question": "Which of these is not a valid type conversion?",
+      "options": [
+        "int('5')",
+        "str(3.0)",
+        "float('abc')",
+        "bool(0)"
+      ],
+      "answer": "float('abc')",
+      "number": 18
+    },
+    {
+      "question": "What is the output of type('5')?",
+      "options": [
+        "<class 'int'>",
+        "<class 'str'>",
+        "<class 'float'>",
+        "Error"
+      ],
+      "answer": "<class 'str'>",
+      "number": 19
+    },
+    {
+      "question": "Which one is a mutable type?",
+      "options": [
+        "int",
+        "float",
+        "str",
+        "list"
+      ],
+      "answer": "list",
+      "number": 20
+    },
+    {
+      "question": "What would be the best data type for storing a bank balance?",
+      "options": [
+        "int",
+        "str",
+        "float",
+        "bool"
+      ],
+      "answer": "float",
+      "number": 21
+    },
+    {
+      "question": "Choose a variable name that follows Python conventions.",
+      "options": [
+        "UserName",
+        "user_name",
+        "user-name",
+        "username!"
+      ],
+      "answer": "user_name",
+      "number": 22
+    },
+    {
+      "question": "Which type is returned by input()?",
+      "options": [
+        "int",
+        "str",
+        "bool",
+        "float"
+      ],
+      "answer": "str",
+      "number": 23
+    },
+    {
+      "question": "Which variable stores a True value?",
+      "options": [
+        "status = 1",
+        "status = True",
+        "status = 'True'",
+        "status = '1'"
+      ],
+      "answer": "status = True",
+      "number": 24
+    },
+    {
+      "question": "Pick the correct way to declare a variable:",
+      "options": [
+        "int a = 5",
+        "a := 5",
+        "a = 5",
+        "var a = 5"
+      ],
+      "answer": "a = 5",
+      "number": 25
+    },
+    {
+      "question": "Which variable is valid in Python?",
+      "options": [
+        "1num",
+        "total%",
+        "my_var",
+        "@value"
+      ],
+      "answer": "my_var",
+      "number": 26
+    },
+    {
+      "question": "What would be the type of variable `name = 'John'`?",
+      "options": [
+        "str",
+        "bool",
+        "int",
+        "float"
+      ],
+      "answer": "str",
+      "number": 27
+    },
+    {
+      "question": "Which data type would best store a yes/no setting?",
+      "options": [
+        "bool",
+        "int",
+        "str",
+        "list"
+      ],
+      "answer": "bool",
+      "number": 28
+    },
+    {
+      "question": "Choose a proper data type for mobile number:",
+      "options": [
+        "int",
+        "str",
+        "bool",
+        "float"
+      ],
+      "answer": "str",
+      "number": 29
+    },
+    {
+      "question": "What is the output of type(10.5)?",
+      "options": [
+        "<class 'int'>",
+        "<class 'float'>",
+        "<class 'str'>",
+        "float"
+      ],
+      "answer": "<class 'float'>",
+      "number": 30
+    },
+    {
+      "question": "Which type would you use to store 42?",
+      "options": [
+        "float",
+        "str",
+        "bool",
+        "int"
+      ],
+      "answer": "int",
+      "number": 31
+    },
+    {
+      "question": "Which type represents decimal values?",
+      "options": [
+        "int",
+        "float",
+        "str",
+        "bool"
+      ],
+      "answer": "float",
+      "number": 32
+    },
+    {
+      "question": "What does the str type represent?",
+      "options": [
+        "Integer",
+        "Boolean",
+        "String",
+        "Decimal"
+      ],
+      "answer": "String",
+      "number": 33
+    },
+    {
+      "question": "Which type can hold values True and False?",
+      "options": [
+        "int",
+        "bool",
+        "str",
+        "float"
+      ],
+      "answer": "bool",
+      "number": 34
+    },
+    {
+      "question": "What is the result of type(10)?",
+      "options": [
+        "<class 'int'>",
+        "<class 'float'>",
+        "<class 'bool'>",
+        "<class 'str'>"
+      ],
+      "answer": "<class 'int'>",
+      "number": 35
+    },
+    {
+      "question": "What is the type of value in name = 'Alice'?",
+      "options": [
+        "int",
+        "float",
+        "str",
+        "bool"
+      ],
+      "answer": "str",
+      "number": 36
+    },
+    {
+      "question": "Which function shows the type of a variable?",
+      "options": [
+        "typeof()",
+        "type()",
+        "data()",
+        "check()"
+      ],
+      "answer": "type()",
+      "number": 37
+    },
+    {
+      "question": "Which of the following is a Boolean value?",
+      "options": [
+        "'True'",
+        "1",
+        "True",
+        "'1'"
+      ],
+      "answer": "True",
+      "number": 38
+    },
+    {
+      "question": "Which of the following is not a valid string?",
+      "options": [
+        "\"Hello\"",
+        "'Hi'",
+        "Hello",
+        "\"123\""
+      ],
+      "answer": "Hello",
+      "number": 39
+    },
+    {
+      "question": "What is the default value of bool(0)?",
+      "options": [
+        "True",
+        "False",
+        "Error",
+        "None"
+      ],
+      "answer": "False",
+      "number": 40
+    },
+    {
+      "question": "Which data type best fits: price = 19.99",
+      "options": [
+        "int",
+        "str",
+        "float",
+        "bool"
+      ],
+      "answer": "float",
+      "number": 41
+    },
+    {
+      "question": "Is '10' a string or integer?",
+      "options": [
+        "int",
+        "float",
+        "str",
+        "bool"
+      ],
+      "answer": "str",
+      "number": 42
+    },
+    {
+      "question": "What is the type of True?",
+      "options": [
+        "bool",
+        "int",
+        "float",
+        "str"
+      ],
+      "answer": "bool",
+      "number": 43
+    },
+    {
+      "question": "Which of the following represents an integer?",
+      "options": [
+        "'23'",
+        "23.0",
+        "23",
+        "True"
+      ],
+      "answer": "23",
+      "number": 44
+    },
+    {
+      "question": "Which of these would result in float type?",
+      "options": [
+        "3/2",
+        "3//2",
+        "3*2",
+        "3+2"
+      ],
+      "answer": "3/2",
+      "number": 45
+    },
+    {
+      "question": "What is the output of:\nx = 5\nprint(type(x))",
+      "options": [
+        "<class 'int'>",
+        "<class 'str'>",
+        "<class 'float'>",
+        "<class 'bool'>"
+      ],
+      "answer": "<class 'int'>",
+      "number": 46
+    },
+    {
+      "question": "What is the output of:\ny = 'hello'\nprint(type(y))",
+      "options": [
+        "<class 'int'>",
+        "<class 'str'>",
+        "<class 'float'>",
+        "<class 'bool'>"
+      ],
+      "answer": "<class 'str'>",
+      "number": 47
+    },
+    {
+      "question": "What is the output of:\nz = 3.14\nprint(type(z))",
+      "options": [
+        "<class 'float'>",
+        "<class 'int'>",
+        "<class 'bool'>",
+        "<class 'str'>"
+      ],
+      "answer": "<class 'float'>",
+      "number": 48
+    },
+    {
+      "question": "Choose correct assignment:\nvalue = 'Hello'",
+      "options": [
+        "value = 'Hello'",
+        "value = Hello",
+        "value = str(Hello)",
+        "value = \"\"Hello\"\""
+      ],
+      "answer": "value = 'Hello'",
+      "number": 49
+    },
+    {
+      "question": "What is the result:\na = 4\nb = 2\nprint(a + b)",
+      "options": [
+        "6",
+        "8",
+        "42",
+        "Error"
+      ],
+      "answer": "6",
+      "number": 50
+    },
+    {
+      "question": "What is the result of:\nprint('Hi' + 'There')",
+      "options": [
+        "Hi There",
+        "HiThere",
+        "Hi+There",
+        "Error"
+      ],
+      "answer": "HiThere",
+      "number": 51
+    },
+    {
+      "question": "Find output:\nx = True\nprint(type(x))",
+      "options": [
+        "<class 'bool'>",
+        "<class 'int'>",
+        "<class 'str'>",
+        "<class 'float'>"
+      ],
+      "answer": "<class 'bool'>",
+      "number": 52
+    },
+    {
+      "question": "Find output:\nprint(bool(0))",
+      "options": [
+        "True",
+        "False",
+        "0",
+        "None"
+      ],
+      "answer": "False",
+      "number": 53
+    },
+    {
+      "question": "Find output:\nprint(bool(5))",
+      "options": [
+        "True",
+        "False",
+        "5",
+        "None"
+      ],
+      "answer": "True",
+      "number": 54
+    },
+    {
+      "question": "Find result:\na = 10.0\nprint(int(a))",
+      "options": [
+        "10",
+        "10.0",
+        "Error",
+        "None"
+      ],
+      "answer": "10",
+      "number": 55
+    },
+    {
+      "question": "Find result:\na = 7\nprint(float(a))",
+      "options": [
+        "7",
+        "7.0",
+        "float",
+        "Error"
+      ],
+      "answer": "7.0",
+      "number": 56
+    },
+    {
+      "question": "Find result:\na = 1\nprint(bool(a))",
+      "options": [
+        "True",
+        "False",
+        "1",
+        "bool"
+      ],
+      "answer": "True",
+      "number": 57
+    },
+    {
+      "question": "Find result:\na = '5'\nprint(int(a))",
+      "options": [
+        "5",
+        "'5'",
+        "Error",
+        "None"
+      ],
+      "answer": "5",
+      "number": 58
+    },
+    {
+      "question": "Choose valid float conversion:\nstr_val = '3.14'",
+      "options": [
+        "float(str_val)",
+        "float='3.14'",
+        "str(3.14)",
+        "convert(str_val)"
+      ],
+      "answer": "float(str_val)",
+      "number": 59
+    },
+    {
+      "question": "What is type of:\nvalue = 9 > 5",
+      "options": [
+        "bool",
+        "int",
+        "float",
+        "str"
+      ],
+      "answer": "bool",
+      "number": 60
+    },
+    {
+      "question": "Which results in string concatenation?",
+      "options": [
+        "'5' + '6'",
+        "5 + 6",
+        "'5' + 6",
+        "str(5) + 6"
+      ],
+      "answer": "'5' + '6'",
+      "number": 61
+    },
+    {
+      "question": "What is result:\nprint(type(3.0))",
+      "options": [
+        "<class 'float'>",
+        "<class 'int'>",
+        "<class 'bool'>",
+        "Error"
+      ],
+      "answer": "<class 'float'>",
+      "number": 62
+    },
+    {
+      "question": "What is result:\nprint(type('True'))",
+      "options": [
+        "<class 'str'>",
+        "<class 'bool'>",
+        "<class 'int'>",
+        "None"
+      ],
+      "answer": "<class 'str'>",
+      "number": 63
+    },
+    {
+      "question": "What is output:\nprint(4 // 2)",
+      "options": [
+        "2",
+        "2.0",
+        "Error",
+        "None"
+      ],
+      "answer": "2",
+      "number": 64
+    },
+    {
+      "question": "What is output:\nprint(4 / 2)",
+      "options": [
+        "2",
+        "2.0",
+        "Error",
+        "None"
+      ],
+      "answer": "2.0",
+      "number": 65
+    },
+    {
+      "question": "Choose type of:\nx = '123'",
+      "options": [
+        "str",
+        "int",
+        "float",
+        "bool"
+      ],
+      "answer": "str",
+      "number": 66
+    },
+    {
+      "question": "Find result:\nprint('4' + str(6))",
+      "options": [
+        "46",
+        "10",
+        "Error",
+        "None"
+      ],
+      "answer": "46",
+      "number": 67
+    },
+    {
+      "question": "Choose result:\na = '9.5'\nb = float(a)\nprint(b)",
+      "options": [
+        "9.5",
+        "'9.5'",
+        "float",
+        "Error"
+      ],
+      "answer": "9.5",
+      "number": 68
+    },
+    {
+      "question": "Find output:\nprint(type(True))",
+      "options": [
+        "<class 'bool'>",
+        "<class 'int'>",
+        "<class 'str'>",
+        "None"
+      ],
+      "answer": "<class 'bool'>",
+      "number": 69
+    },
+    {
+      "question": "Find output:\nprint(3 + 4.5)",
+      "options": [
+        "7",
+        "7.5",
+        "Error",
+        "3.0"
+      ],
+      "answer": "7.5",
+      "number": 70
+    },
+    {
+      "question": "Choose result:\nprint(type('False'))",
+      "options": [
+        "<class 'str'>",
+        "<class 'bool'>",
+        "None",
+        "<class 'int'>"
+      ],
+      "answer": "<class 'str'>",
+      "number": 71
+    },
+    {
+      "question": "Choose result:\nprint(int('7') + 3)",
+      "options": [
+        "10",
+        "73",
+        "Error",
+        "None"
+      ],
+      "answer": "10",
+      "number": 72
+    },
+    {
+      "question": "Choose valid casting:\nprint(bool('False'))",
+      "options": [
+        "True",
+        "False",
+        "Error",
+        "None"
+      ],
+      "answer": "True",
+      "number": 73
+    },
+    {
+      "question": "What is result:\nprint(type('3.0'))",
+      "options": [
+        "<class 'str'>",
+        "<class 'float'>",
+        "<class 'int'>",
+        "Error"
+      ],
+      "answer": "<class 'str'>",
+      "number": 74
+    },
+    {
+      "question": "Find type:\nx = bool('')\nprint(x)",
+      "options": [
+        "False",
+        "True",
+        "Error",
+        "None"
+      ],
+      "answer": "False",
+      "number": 75
+    },
+    {
+      "question": "Find type:\nx = bool('0')\nprint(x)",
+      "options": [
+        "True",
+        "False",
+        "0",
+        "Error"
+      ],
+      "answer": "True",
+      "number": 76
+    },
+    {
+      "question": "Find result:\na = 3\nb = 3.0\nprint(a == b)",
+      "options": [
+        "True",
+        "False",
+        "Error",
+        "None"
+      ],
+      "answer": "True",
+      "number": 77
+    },
+    {
+      "question": "Find output:\na = 3\nb = '3'\nprint(a == b)",
+      "options": [
+        "False",
+        "True",
+        "Error",
+        "None"
+      ],
+      "answer": "False",
+      "number": 78
+    },
+    {
+      "question": "Choose output:\na = True\nprint(a + 2)",
+      "options": [
+        "3",
+        "True2",
+        "Error",
+        "2"
+      ],
+      "answer": "3",
+      "number": 79
+    },
+    {
+      "question": "Choose type of None:",
+      "options": [
+        "NoneType",
+        "str",
+        "bool",
+        "int"
+      ],
+      "answer": "NoneType",
+      "number": 80
+    },
+    {
+      "question": "What is type casting?",
+      "options": [
+        "Copying variables",
+        "Converting one type to another",
+        "Storing functions",
+        "Deleting data types"
+      ],
+      "answer": "Converting one type to another",
+      "number": 81
+    },
+    {
+      "question": "Which function converts string to int?",
+      "options": [
+        "int()",
+        "float()",
+        "str()",
+        "bool()"
+      ],
+      "answer": "int()",
+      "number": 82
+    },
+    {
+      "question": "Can float be converted to int?",
+      "options": [
+        "Yes",
+        "No",
+        "Only in Python 2",
+        "Only using math module"
+      ],
+      "answer": "Yes",
+      "number": 83
+    },
+    {
+      "question": "Which conversion is invalid?",
+      "options": [
+        "str(10)",
+        "int('10')",
+        "float('abc')",
+        "bool(0)"
+      ],
+      "answer": "float('abc')",
+      "number": 84
+    },
+    {
+      "question": "What is the result of int(5.9)?",
+      "options": [
+        "5",
+        "6",
+        "5.0",
+        "Error"
+      ],
+      "answer": "5",
+      "number": 85
+    },
+    {
+      "question": "What is output:\nx = '7'\nprint(int(x))",
+      "options": [
+        "7",
+        "'7'",
+        "Error",
+        "None"
+      ],
+      "answer": "7",
+      "number": 86
+    },
+    {
+      "question": "What is output:\nx = 8\nprint(str(x))",
+      "options": [
+        "'8'",
+        "8",
+        "str",
+        "None"
+      ],
+      "answer": "'8'",
+      "number": 87
+    },
+    {
+      "question": "Choose valid cast:\nx = '3.5'\nprint(float(x))",
+      "options": [
+        "3.5",
+        "'3.5'",
+        "float",
+        "Error"
+      ],
+      "answer": "3.5",
+      "number": 88
+    },
+    {
+      "question": "Find output:\nprint(bool(10))",
+      "options": [
+        "True",
+        "False",
+        "Error",
+        "None"
+      ],
+      "answer": "True",
+      "number": 89
+    },
+    {
+      "question": "Choose result:\nprint(int(True))",
+      "options": [
+        "1",
+        "True",
+        "Error",
+        "None"
+      ],
+      "answer": "1",
+      "number": 90
+    },
+    {
+      "question": "Find output:\na = '100'\nprint(int(a) + 50)",
+      "options": [
+        "150",
+        "'10050'",
+        "Error",
+        "None"
+      ],
+      "answer": "150",
+      "number": 91
+    },
+    {
+      "question": "Choose output:\na = 4.9\nprint(int(a))",
+      "options": [
+        "4",
+        "4.9",
+        "Error",
+        "None"
+      ],
+      "answer": "4",
+      "number": 92
+    },
+    {
+      "question": "Find result:\nx = 0\nprint(bool(x))",
+      "options": [
+        "False",
+        "True",
+        "0",
+        "Error"
+      ],
+      "answer": "False",
+      "number": 93
+    },
+    {
+      "question": "Choose output:\na = 'False'\nprint(bool(a))",
+      "options": [
+        "True",
+        "False",
+        "Error",
+        "None"
+      ],
+      "answer": "True",
+      "number": 94
+    },
+    {
+      "question": "Find output:\nx = 'ten'\nprint(int(x))",
+      "options": [
+        "Error",
+        "ten",
+        "10",
+        "None"
+      ],
+      "answer": "Error",
+      "number": 95
+    },
+    {
+      "question": "Choose output:\na = 1.99\nprint(int(a))",
+      "options": [
+        "1",
+        "2",
+        "1.99",
+        "Error"
+      ],
+      "answer": "1",
+      "number": 96
+    },
+    {
+      "question": "Find output:\nprint(float(True))",
+      "options": [
+        "1.0",
+        "True",
+        "Error",
+        "None"
+      ],
+      "answer": "1.0",
+      "number": 97
+    },
+    {
+      "question": "Choose output:\nprint(str(False))",
+      "options": [
+        "'False'",
+        "False",
+        "Error",
+        "None"
+      ],
+      "answer": "'False'",
+      "number": 98
+    },
+    {
+      "question": "Choose output:\nx = '3.5'\nprint(int(float(x)))",
+      "options": [
+        "3",
+        "3.5",
+        "'3.5'",
+        "Error"
+      ],
+      "answer": "3",
+      "number": 99
+    },
+    {
+      "question": "Choose result:\nx = '123abc'\nprint(int(x))",
+      "options": [
+        "Error",
+        "123",
+        "'123abc'",
+        "None"
+      ],
+      "answer": "Error",
+      "number": 100
+    },
+    {
+      "question": "What does the type() function do?",
+      "options": [
+        "Checks memory size",
+        "Shows variable name",
+        "Returns data type",
+        "Creates data type"
+      ],
+      "answer": "Returns data type",
+      "number": 101
+    },
+    {
+      "question": "What is the output of type(4)?",
+      "options": [
+        "<class 'int'>",
+        "int",
+        "type",
+        "4"
+      ],
+      "answer": "<class 'int'>",
+      "number": 102
+    },
+    {
+      "question": "Which of these returns <class 'str'>?",
+      "options": [
+        "type('abc')",
+        "type(123)",
+        "type(1.1)",
+        "type(True)"
+      ],
+      "answer": "type('abc')",
+      "number": 103
+    },
+    {
+      "question": "Is type() a built-in function?",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "answer": "Yes",
+      "number": 104
+    },
+    {
+      "question": "What is the type of type(5.0)?",
+      "options": [
+        "float",
+        "<class 'float'>",
+        "<class 'type'>",
+        "Error"
+      ],
+      "answer": "<class 'float'>",
+      "number": 105
+    },
+    {
+      "question": "What is output:\nx = 10\nprint(type(x))",
+      "options": [
+        "<class 'int'>",
+        "int",
+        "<int>",
+        "type"
+      ],
+      "answer": "<class 'int'>",
+      "number": 106
+    },
+    {
+      "question": "What is output:\nx = 3.14\nprint(type(x))",
+      "options": [
+        "<class 'float'>",
+        "<class 'int'>",
+        "float",
+        "Error"
+      ],
+      "answer": "<class 'float'>",
+      "number": 107
+    },
+    {
+      "question": "Find result:\nx = 'hello'\nprint(type(x))",
+      "options": [
+        "<class 'str'>",
+        "str",
+        "<str>",
+        "None"
+      ],
+      "answer": "<class 'str'>",
+      "number": 108
+    },
+    {
+      "question": "Find output:\nx = True\nprint(type(x))",
+      "options": [
+        "<class 'bool'>",
+        "bool",
+        "<bool>",
+        "None"
+      ],
+      "answer": "<class 'bool'>",
+      "number": 109
+    },
+    {
+      "question": "Choose correct result:\nx = 5.5\nprint(type(x))",
+      "options": [
+        "<class 'float'>",
+        "<class 'int'>",
+        "Error",
+        "None"
+      ],
+      "answer": "<class 'float'>",
+      "number": 110
+    },
+    {
+      "question": "Find type:\nprint(type(False))",
+      "options": [
+        "<class 'bool'>",
+        "<class 'int'>",
+        "None",
+        "Error"
+      ],
+      "answer": "<class 'bool'>",
+      "number": 111
+    },
+    {
+      "question": "Find output:\nx = 0\nprint(type(x))",
+      "options": [
+        "<class 'int'>",
+        "<class 'float'>",
+        "None",
+        "bool"
+      ],
+      "answer": "<class 'int'>",
+      "number": 112
+    },
+    {
+      "question": "Choose correct:\nx = '123'\nprint(type(x))",
+      "options": [
+        "<class 'str'>",
+        "<class 'int'>",
+        "123",
+        "Error"
+      ],
+      "answer": "<class 'str'>",
+      "number": 113
+    },
+    {
+      "question": "Output of:\nx = [1, 2]\nprint(type(x))",
+      "options": [
+        "<class 'list'>",
+        "<class 'tuple'>",
+        "<class 'dict'>",
+        "<class 'str'>"
+      ],
+      "answer": "<class 'list'>",
+      "number": 114
+    },
+    {
+      "question": "Choose correct:\nx = {'a': 1}\nprint(type(x))",
+      "options": [
+        "<class 'dict'>",
+        "<class 'list'>",
+        "<class 'set'>",
+        "None"
+      ],
+      "answer": "<class 'dict'>",
+      "number": 115
+    },
+    {
+      "question": "What is type of:\nx = (1, 2)\nprint(type(x))",
+      "options": [
+        "<class 'tuple'>",
+        "<class 'list'>",
+        "<class 'set'>",
+        "<class 'str'>"
+      ],
+      "answer": "<class 'tuple'>",
+      "number": 116
+    },
+    {
+      "question": "Find output:\nx = {1, 2, 3}\nprint(type(x))",
+      "options": [
+        "<class 'set'>",
+        "<class 'list'>",
+        "set",
+        "Error"
+      ],
+      "answer": "<class 'set'>",
+      "number": 117
+    },
+    {
+      "question": "Choose correct:\nx = None\nprint(type(x))",
+      "options": [
+        "<class 'NoneType'>",
+        "<class 'str'>",
+        "<class 'bool'>",
+        "<class 'int'>"
+      ],
+      "answer": "<class 'NoneType'>",
+      "number": 118
+    },
+    {
+      "question": "Find result:\nx = 5\nprint(type(x) == int)",
+      "options": [
+        "False",
+        "True",
+        "Error",
+        "None"
+      ],
+      "answer": "False",
+      "number": 119
+    },
+    {
+      "question": "What will be printed:\nprint(type(type(1)))",
+      "options": [
+        "<class 'type'>",
+        "<class 'int'>",
+        "<type>",
+        "Error"
+      ],
+      "answer": "<class 'type'>",
+      "number": 120
+    },
+    {
+      "question": "How do you declare a variable in Python?",
+      "options": [
+        "Using var keyword",
+        "By assignment",
+        "Using let",
+        "Using define"
+      ],
+      "answer": "By assignment",
+      "number": 121
+    },
+    {
+      "question": "Which is a valid variable name?",
+      "options": [
+        "2value",
+        "value_2",
+        "value-2",
+        "@value"
+      ],
+      "answer": "value_2",
+      "number": 122
+    },
+    {
+      "question": "Which naming convention is recommended in Python?",
+      "options": [
+        "camelCase",
+        "PascalCase",
+        "snake_case",
+        "kebab-case"
+      ],
+      "answer": "snake_case",
+      "number": 123
+    },
+    {
+      "question": "Can variable names start with an underscore?",
+      "options": [
+        "Yes",
+        "No",
+        "Only in functions",
+        "Only in classes"
+      ],
+      "answer": "Yes",
+      "number": 124
+    },
+    {
+      "question": "Can reserved keywords be used as variable names?",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "answer": "No",
+      "number": 125
+    },
+    {
+      "question": "Choose the correct way to declare a variable with value 10.",
+      "options": [
+        "10 = x",
+        "x = 10",
+        "int x = 10",
+        "let x = 10"
+      ],
+      "answer": "x = 10",
+      "number": 126
+    },
+    {
+      "question": "Choose a valid variable name.",
+      "options": [
+        "my value",
+        "my_value",
+        "my-value",
+        "my@value"
+      ],
+      "answer": "my_value",
+      "number": 127
+    },
+    {
+      "question": "Choose invalid variable name.",
+      "options": [
+        "_value",
+        "value123",
+        "123value",
+        "value_123"
+      ],
+      "answer": "123value",
+      "number": 128
+    },
+    {
+      "question": "What will be printed?\nx = 5\nprint(x)",
+      "options": [
+        "5",
+        "x",
+        "Error",
+        "None"
+      ],
+      "answer": "5",
+      "number": 129
+    },
+    {
+      "question": "Choose correct variable assignment.",
+      "options": [
+        "a := 10",
+        "a = 10",
+        "let a = 10",
+        "assign a 10"
+      ],
+      "answer": "a = 10",
+      "number": 130
+    },
+    {
+      "question": "Find the valid identifier.",
+      "options": [
+        "my$val",
+        "_value",
+        "val@",
+        "123abc"
+      ],
+      "answer": "_value",
+      "number": 131
+    },
+    {
+      "question": "Which variable name uses snake_case?",
+      "options": [
+        "totalScore",
+        "TotalScore",
+        "total_score",
+        "total-score"
+      ],
+      "answer": "total_score",
+      "number": 132
+    },
+    {
+      "question": "What is output?\nx = 'data'\nprint(x)",
+      "options": [
+        "data",
+        "'data'",
+        "x",
+        "Error"
+      ],
+      "answer": "data",
+      "number": 133
+    },
+    {
+      "question": "What is output?\nx = 1\ny = 2\nprint(x + y)",
+      "options": [
+        "3",
+        "12",
+        "Error",
+        "None"
+      ],
+      "answer": "3",
+      "number": 134
+    },
+    {
+      "question": "Which of the following is not valid?",
+      "options": [
+        "_val = 5",
+        "val1 = 10",
+        "val-1 = 10",
+        "val_name = 'test'"
+      ],
+      "answer": "val-1 = 10",
+      "number": 135
+    },
+    {
+      "question": "What will this print?\nname = 'Sam'\nage = 25\nprint(name, age)",
+      "options": [
+        "Sam 25",
+        "name age",
+        "Error",
+        "'Sam', '25'"
+      ],
+      "answer": "Sam 25",
+      "number": 136
+    },
+    {
+      "question": "What is output?\nx = 2\ny = 3\nx = y\nprint(x)",
+      "options": [
+        "3",
+        "2",
+        "x",
+        "Error"
+      ],
+      "answer": "3",
+      "number": 137
+    },
+    {
+      "question": "Choose valid variable name:",
+      "options": [
+        "val*ue",
+        "value123",
+        "val ue",
+        "val@ue"
+      ],
+      "answer": "value123",
+      "number": 138
+    },
+    {
+      "question": "Which is valid Python variable?",
+      "options": [
+        "None = 5",
+        "True = 1",
+        "_name = 'A'",
+        "def = 10"
+      ],
+      "answer": "_name = 'A'",
+      "number": 139
+    },
+    {
+      "question": "Choose valid assignment:",
+      "options": [
+        "x = 1",
+        "1 = x",
+        "let x = 1",
+        "int x = 1"
+      ],
+      "answer": "x = 1",
+      "number": 140
+    }
+  ]
+}

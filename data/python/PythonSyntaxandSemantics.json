@@ -1,0 +1,496 @@
+{
+  "examName": "PythonSyntaxandSemantics",
+  "questions": [
+    {
+      "question": "What is indentation in Python?",
+      "options": [
+        "Spaces at the start of a line",
+        "Tabs used after comments",
+        "Extra newlines",
+        "Keyword spacing"
+      ],
+      "answer": "Spaces at the start of a line",
+      "number": 1
+    },
+    {
+      "question": "Why is indentation important in Python?",
+      "options": [
+        "For alignment only",
+        "It makes comments easier",
+        "It defines blocks of code",
+        "It has no significance"
+      ],
+      "answer": "It defines blocks of code",
+      "number": 2
+    },
+    {
+      "question": "What is the standard number of spaces used for indentation in Python?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "answer": "4",
+      "number": 3
+    },
+    {
+      "question": "Which of these will cause an indentation error?",
+      "options": [
+        "if True:\n    print('Hi')",
+        "if True:\nprint('Hi')",
+        "for i in range(3):\n    print(i)",
+        "while True:\n    break"
+      ],
+      "answer": "if True:\nprint('Hi')",
+      "number": 4
+    },
+    {
+      "question": "What happens if blocks in Python are not properly indented?",
+      "options": [
+        "Python ignores them",
+        "They run with warnings",
+        "Python throws an IndentationError",
+        "They auto-align"
+      ],
+      "answer": "Python throws an IndentationError",
+      "number": 5
+    },
+    {
+      "question": "Choose the correctly indented code:",
+      "options": [
+        "if 5 > 2:\nprint('Yes')",
+        "if 5 > 2:\n    print('Yes')",
+        "if 5 > 2:\n\tprint('Yes')",
+        "if 5 > 2:\nprint('Yes')"
+      ],
+      "answer": "if 5 > 2:\n    print('Yes')",
+      "number": 6
+    },
+    {
+      "question": "Fix the indentation error:\ndef greet():\nprint('Hello')",
+      "options": [
+        "def greet():\nprint('Hello')",
+        "def greet():\n    print('Hello')",
+        "def greet():\n  print('Hello')",
+        "def greet():\n\tprint('Hello')"
+      ],
+      "answer": "def greet():\n    print('Hello')",
+      "number": 7
+    },
+    {
+      "question": "Which code block is correct?",
+      "options": [
+        "while True:\n  print('Run')",
+        "while True:\nprint('Run')",
+        "while True:\n    print('Run')",
+        "while True: print('Run')"
+      ],
+      "answer": "while True:\n    print('Run')",
+      "number": 8
+    },
+    {
+      "question": "What will happen?\nif True:\nprint('Hello')",
+      "options": [
+        "Prints Hello",
+        "Syntax Warning",
+        "IndentationError",
+        "Runs silently"
+      ],
+      "answer": "IndentationError",
+      "number": 9
+    },
+    {
+      "question": "Which code will raise no error?",
+      "options": [
+        "for i in range(3):\nprint(i)",
+        "for i in range(3):\n    print(i)",
+        "for i in range(3):\nprint ('i')",
+        "for i in range(3): print(i)"
+      ],
+      "answer": "for i in range(3):\n    print(i)",
+      "number": 10
+    },
+    {
+      "question": "What is the purpose of a comment in Python?",
+      "options": [
+        "To execute commands",
+        "To describe code",
+        "To create variables",
+        "To define functions"
+      ],
+      "answer": "To describe code",
+      "number": 11
+    },
+    {
+      "question": "Which symbol is used for single-line comments?",
+      "options": [
+        "//",
+        "#",
+        "<!--",
+        "'"
+      ],
+      "answer": "#",
+      "number": 12
+    },
+    {
+      "question": "Which of the following are valid multi-line comments?",
+      "options": [
+        "''' comment '''",
+        "\"\"\" comment \"\"\"",
+        "# comment \n# comment",
+        "All of the above"
+      ],
+      "answer": "All of the above",
+      "number": 13
+    },
+    {
+      "question": "Can comments be placed after code on the same line?",
+      "options": [
+        "Yes",
+        "No",
+        "Only on functions",
+        "Only on loops"
+      ],
+      "answer": "Yes",
+      "number": 14
+    },
+    {
+      "question": "Which comment style is used for documentation (docstrings)?",
+      "options": [
+        "#",
+        "''' '''",
+        "\"\"\" \"\"\"",
+        "//"
+      ],
+      "answer": "\"\"\" \"\"\"",
+      "number": 15
+    },
+    {
+      "question": "Choose the correct comment syntax for single-line:",
+      "options": [
+        "// This is a comment",
+        "# This is a comment",
+        "' This is a comment",
+        "/* This is a comment */"
+      ],
+      "answer": "# This is a comment",
+      "number": 16
+    },
+    {
+      "question": "What will be the output?\nprint('Hello') # greeting",
+      "options": [
+        "Hello",
+        "Hello # greeting",
+        "# greeting",
+        "Error"
+      ],
+      "answer": "Hello",
+      "number": 17
+    },
+    {
+      "question": "Identify the incorrect comment usage:",
+      "options": [
+        "# comment",
+        "''' comment '''",
+        "print('Hi') # greet",
+        "// comment"
+      ],
+      "answer": "// comment",
+      "number": 18
+    },
+    {
+      "question": "Which is a correct way to write a docstring?",
+      "options": [
+        "\"\"\"This is a docstring\"\"\"",
+        "# This is a docstring",
+        "// This is a docstring",
+        "None"
+      ],
+      "answer": "\"\"\"This is a docstring\"\"\"",
+      "number": 19
+    },
+    {
+      "question": "Which of these will be ignored by the interpreter?",
+      "options": [
+        "# This is a comment",
+        "print('Hi')",
+        "if True:",
+        "def fun():"
+      ],
+      "answer": "# This is a comment",
+      "number": 20
+    },
+    {
+      "question": "What are keywords in Python?",
+      "options": [
+        "Predefined reserved words",
+        "User-defined variables",
+        "Special characters",
+        "Functions"
+      ],
+      "answer": "Predefined reserved words",
+      "number": 21
+    },
+    {
+      "question": "Which of the following is a Python keyword?",
+      "options": [
+        "value",
+        "loop",
+        "if",
+        "data"
+      ],
+      "answer": "if",
+      "number": 22
+    },
+    {
+      "question": "What are identifiers in Python?",
+      "options": [
+        "Special characters",
+        "Built-in strings",
+        "Names used for variables, functions, etc.",
+        "Comment blocks"
+      ],
+      "answer": "Names used for variables, functions, etc.",
+      "number": 23
+    },
+    {
+      "question": "Which of these is a valid identifier?",
+      "options": [
+        "2ndVar",
+        "_temp",
+        "def",
+        "my-var"
+      ],
+      "answer": "_temp",
+      "number": 24
+    },
+    {
+      "question": "Can a keyword be used as a variable name?",
+      "options": [
+        "Yes",
+        "No",
+        "Sometimes",
+        "Only inside functions"
+      ],
+      "answer": "No",
+      "number": 25
+    },
+    {
+      "question": "Choose the invalid variable name:",
+      "options": [
+        "myVar",
+        "_val",
+        "if",
+        "total_sum"
+      ],
+      "answer": "if",
+      "number": 26
+    },
+    {
+      "question": "What is the output?\nTrue = 5\nprint(True)",
+      "options": [
+        "5",
+        "True",
+        "Error",
+        "None"
+      ],
+      "answer": "Error",
+      "number": 27
+    },
+    {
+      "question": "Which is a valid identifier for a function?",
+      "options": [
+        "def myFunc():",
+        "def 123abc():",
+        "def break():",
+        "def @func():"
+      ],
+      "answer": "def myFunc():",
+      "number": 28
+    },
+    {
+      "question": "Is `lambda` a keyword in Python?",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "answer": "Yes",
+      "number": 29
+    },
+    {
+      "question": "Select the correct variable declaration:",
+      "options": [
+        "val-1 = 10",
+        "1val = 10",
+        "val_1 = 10",
+        "val 1 = 10"
+      ],
+      "answer": "val_1 = 10",
+      "number": 30
+    },
+    {
+      "question": "What does the print() function do?",
+      "options": [
+        "Takes input",
+        "Displays output",
+        "Creates a loop",
+        "Defines a variable"
+      ],
+      "answer": "Displays output",
+      "number": 31
+    },
+    {
+      "question": "Which function is used to get user input?",
+      "options": [
+        "print()",
+        "input()",
+        "scan()",
+        "get()"
+      ],
+      "answer": "input()",
+      "number": 32
+    },
+    {
+      "question": "What is the default data type returned by input()?",
+      "options": [
+        "Integer",
+        "String",
+        "Float",
+        "Boolean"
+      ],
+      "answer": "String",
+      "number": 33
+    },
+    {
+      "question": "What will print('Hello', 'World') output?",
+      "options": [
+        "HelloWorld",
+        "Hello, World",
+        "Hello World",
+        "Error"
+      ],
+      "answer": "Hello World",
+      "number": 34
+    },
+    {
+      "question": "Can print() be used to print variables?",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "answer": "Yes",
+      "number": 35
+    },
+    {
+      "question": "Choose correct syntax to take input:",
+      "options": [
+        "input = value()",
+        "val = input()",
+        "get value()",
+        "read val"
+      ],
+      "answer": "val = input()",
+      "number": 36
+    },
+    {
+      "question": "What is the output?\nprint(5 + 3)",
+      "options": [
+        "53",
+        "8",
+        "Error",
+        "5 + 3"
+      ],
+      "answer": "8",
+      "number": 37
+    },
+    {
+      "question": "What is the output?\na = input('Enter: ')\nprint(a)",
+      "options": [
+        "Nothing",
+        "Error",
+        "Prints user input",
+        "Prints 'a'"
+      ],
+      "answer": "Prints user input",
+      "number": 38
+    },
+    {
+      "question": "Which code reads a number and prints it doubled?",
+      "options": [
+        "a = input()\nprint(a * 2)",
+        "a = int(input())\nprint(a * 2)",
+        "a = input()\nprint(a + a)",
+        "a = float(input())\nprint(a ** 2)"
+      ],
+      "answer": "a = int(input())\nprint(a * 2)",
+      "number": 39
+    },
+    {
+      "question": "Choose correct syntax to print variable a:",
+      "options": [
+        "print(a)",
+        "echo a",
+        "display a",
+        "print a"
+      ],
+      "answer": "print(a)",
+      "number": 40
+    },
+    {
+      "question": "What will be the result?\na = input('1st: ')\nb = input('2nd: ')\nprint(a + b)",
+      "options": [
+        "Sum of numbers",
+        "String concatenation",
+        "Error",
+        "None"
+      ],
+      "answer": "String concatenation",
+      "number": 41
+    },
+    {
+      "question": "Convert input to float:",
+      "options": [
+        "a = float(input())",
+        "a = input(float)",
+        "a = float.get()",
+        "a = input().float"
+      ],
+      "answer": "a = float(input())",
+      "number": 42
+    },
+    {
+      "question": "Print name and age with one print():",
+      "options": [
+        "print(name, age)",
+        "echo(name, age)",
+        "printf(name + age)",
+        "print(name; age)"
+      ],
+      "answer": "print(name, age)",
+      "number": 43
+    },
+    {
+      "question": "Which function pauses for user input?",
+      "options": [
+        "pause()",
+        "wait()",
+        "input()",
+        "print()"
+      ],
+      "answer": "input()",
+      "number": 44
+    },
+    {
+      "question": "Choose code to display: My age is 25",
+      "options": [
+        "print('My age is', 25)",
+        "print('My age is' + 25)",
+        "echo('My age is 25')",
+        "input('My age is 25')"
+      ],
+      "answer": "print('My age is', 25)",
+      "number": 45
+    }
+  ]
+}
