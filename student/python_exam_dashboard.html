@@ -48,7 +48,7 @@
       font-size: 14px;
       border: none;
       border-radius: 5px;
-      background-color: #007BFF;
+      background-color: #28a745;
       color: white;
       cursor: pointer;
     }
@@ -70,25 +70,19 @@
 
   <script>
     const files = [
-      "python_intro.json", "python_datatypes.json", "python_operators.json",
-      "python_if_else.json", "python_loops.json", "python_functions.json",
-      "python_lists.json", "python_strings.json", "python_dictionaries.json",
-      "python_tuples.json", "python_sets.json", "python_file_handling.json"
+      "Arithmetic_operators.json",
+      "Data_Types_and_Variables.json",
+      "Logical_operators.json",
+      "PythonSyntaxandSemantics.json",
+      "comparision_operators.json"
     ];
 
     const chapterConfig = {
-      "python_intro.json": { enabled: true, duration: 20 },
-      "python_datatypes.json": { enabled: true, duration: 25 },
-      "python_operators.json": { enabled: true, duration: 25 },
-      "python_if_else.json": { enabled: true, duration: 20 },
-      "python_loops.json": { enabled: true, duration: 25 },
-      "python_functions.json": { enabled: true, duration: 30 },
-      "python_lists.json": { enabled: true, duration: 20 },
-      "python_strings.json": { enabled: false, duration: 20 },
-      "python_dictionaries.json": { enabled: false, duration: 20 },
-      "python_tuples.json": { enabled: false, duration: 15 },
-      "python_sets.json": { enabled: false, duration: 15 },
-      "python_file_handling.json": { enabled: false, duration: 25 }
+      "Arithmetic_operators.json": { enabled: true, duration: 25 },
+      "Data_Types_and_Variables.json": { enabled: true, duration: 30 },
+      "Logical_operators.json": { enabled: true, duration: 20 },
+      "PythonSyntaxandSemantics.json": { enabled: false, duration: 30 },
+      "comparision_operators.json": { enabled: true, duration: 25 }
     };
 
     const container = document.getElementById("chapter-list");
@@ -109,7 +103,7 @@
 
       return {
         file: f,
-        label: f.replace("python_", "").replace(".json", "").replace(/_/g, " ").toUpperCase(),
+        label: f.replace(".json", "").replace(/_/g, " ").toUpperCase(),
         config,
         stats,
         lockedDueToFailure,
