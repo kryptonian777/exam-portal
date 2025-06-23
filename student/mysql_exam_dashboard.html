@@ -67,7 +67,7 @@
       "mysql_join_multiple_tables.json",
       "mysql_left_join.json",
       "mysql_limit_keyword.json",
-      "mysql_logical_operator.json",
+      "mysql_logical_operators.json",
       "mysql_normalization_basics.json",
       "mysql_notnull_default_constraints.json",
       "mysql_order_by.json",
@@ -90,14 +90,14 @@
     const container = document.getElementById("chapter-list");
 
     files.forEach(filename => {
-      const label = filename.replace(\"mysql_\", \"\").replace(\".json\", \"\").replace(/_/g, \" \").toUpperCase();
-      const btn = document.createElement(\"button\");
-      btn.className = \"chapter-button\";
+      const label = filename.replace("mysql_", "").replace(".json", "").replace(/_/g, " ").toUpperCase();
+      const btn = document.createElement("button");
+      btn.className = "chapter-button";
       btn.innerText = label;
       btn.onclick = () => {
-        localStorage.setItem(\"selectedSubject\", \"mysql\");
-        localStorage.setItem(\"selectedExamFile\", filename);
-        window.location.href = \"exam.html\";
+        localStorage.setItem("selectedSubject", "mysql");
+        localStorage.setItem("selectedExamFile", filename);
+        window.location.href = "exam.html";
       };
       container.appendChild(btn);
     });
