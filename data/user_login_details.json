@@ -1,0 +1,14 @@
+{
+  "users": [
+    { "username": "student1", "password": "pass123" },
+    { "username": "student2", "password": "pass123" },
+    { "username": "student3", "password": "pass123" },
+    { "username": "student4", "password": "pass123" },
+    { "username": "student5", "password": "pass123" },
+    { "username": "student6", "password": "pass123" },
+    { "username": "student7", "password": "pass123" },
+    { "username": "student8", "password": "pass123" },
+    { "username": "student9", "password": "pass123" },
+    { "username": "student10", "password": "pass123" }
+  ]
+}
