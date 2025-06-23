@@ -11,7 +11,7 @@
       text-align: center;
     }
     .container {
-      max-width: 700px;
+      max-width: 800px;
       margin: auto;
       background: white;
       padding: 20px;
@@ -21,30 +21,44 @@
     h2 {
       margin-bottom: 20px;
     }
-    .chapter-button {
-      display: block;
-      width: 100%;
+    .exam-card {
+      background-color: #f9f9f9;
       padding: 15px;
-      margin: 10px 0;
-      font-size: 16px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      text-align: left;
+      box-shadow: 0 0 5px rgba(0,0,0,0.05);
+    }
+    .exam-card.disabled {
+      background-color: #eee;
+      color: #777;
+    }
+    .exam-header {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+    .exam-details {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .start-button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 14px;
       border: none;
       border-radius: 5px;
       background-color: #007BFF;
       color: white;
       cursor: pointer;
     }
-    .chapter-button:hover {
-      background-color: #0056b3;
-    }
-    .chapter-button:disabled {
+    .start-button:disabled {
       background-color: #aaa;
       cursor: not-allowed;
     }
     .countdown {
-      font-size: 13px;
-      color: #ff0000;
-      margin-top: -8px;
-      margin-bottom: 10px;
+      color: #d00;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -130,6 +144,8 @@
     const exams = files.map(f => {
       const config = chapterConfig[f] || { enabled: false };
       const lockKey = `mysql_lock_${f}`;
+      const statsKey = `mysql_stats_${f}`;
+      const stats = JSON.parse(localStorage.getItem(statsKey)) || { attempts: 0, status: "Not Attempted" };
       const lockUntil = localStorage.getItem(lockKey);
       const lockedDueToFailure = lockUntil && new Date(lockUntil) > new Date();
 
@@ -137,6 +153,7 @@
         file: f,
         label: f.replace("mysql_", "").replace(".json", "").replace(/_/g, " ").toUpperCase(),
         config,
+        stats,
         lockedDueToFailure,
         lockUntil
       };
@@ -149,18 +166,21 @@
     });
 
     container.innerHTML = '';
-    exams.forEach(({ file, label, config, lockedDueToFailure, lockUntil }) => {
-      const btn = document.createElement("button");
-      btn.className = "chapter-button";
-      btn.innerText = label;
+    exams.forEach(({ file, label, config, stats, lockedDueToFailure, lockUntil }) => {
+      const card = document.createElement("div");
+      card.className = "exam-card" + (!config.enabled || lockedDueToFailure ? " disabled" : "");
 
-      if (!config.enabled) {
-        btn.disabled = true;
-        btn.title = "Exam is locked";
-      } else if (lockedDueToFailure) {
-        btn.disabled = true;
-        btn.title = "Locked for 12 hours after failure";
+      const header = document.createElement("div");
+      header.className = "exam-header";
+      header.textContent = label;
 
+      const details = document.createElement("div");
+      details.className = "exam-details";
+      details.innerHTML = `Duration: ${config.duration} mins<br>
+        Attempts: ${stats.attempts}<br>
+        Status: ${stats.status}`;
+
+      if (lockedDueToFailure) {
         const countdown = document.createElement("div");
         countdown.className = "countdown";
 
@@ -179,18 +199,25 @@
 
         updateCountdown();
         setInterval(updateCountdown, 60000);
-        container.appendChild(countdown);
-      } else {
-        btn.title = `Start Exam (${config.duration} mins)`;
-        btn.onclick = () => {
-          localStorage.setItem("selectedSubject", "mysql");
-          localStorage.setItem("selectedExamFile", file);
-          localStorage.setItem("selectedDuration", config.duration);
-          window.location.href = "exam.html";
-        };
+        details.appendChild(countdown);
       }
 
-      container.appendChild(btn);
+      const startBtn = document.createElement("button");
+      startBtn.className = "start-button";
+      startBtn.innerText = "Start Exam";
+      startBtn.disabled = !config.enabled || lockedDueToFailure;
+      startBtn.onclick = () => {
+        localStorage.setItem("selectedSubject", "mysql");
+        localStorage.setItem("selectedExamFile", file);
+        localStorage.setItem("selectedDuration", config.duration);
+        window.location.href = "exam.html";
+      };
+
+      card.appendChild(header);
+      card.appendChild(details);
+      card.appendChild(startBtn);
+
+      container.appendChild(card);
     });
   </script>
 </body>
