@@ -11,7 +11,7 @@
       text-align: center;
     }
     .container {
-      max-width: 600px;
+      max-width: 700px;
       margin: auto;
       background: white;
       padding: 20px;
@@ -65,8 +65,8 @@
 
     const chapterConfig = {
       "Arithmetic_operators.json": { enabled: true, duration: 20 },
-      "Data_Types_and_Variables.json": { enabled: true, duration: 25 },
-      "Logical_operators.json": { enabled: false, duration: 20 },
+      "Data_Types_and_Variables.json": { enabled: false, duration: 25 },
+      "Logical_operators.json": { enabled: true, duration: 20 },
       "PythonSyntaxandSemantics.json": { enabled: false, duration: 30 },
       "comparison_operators.json": { enabled: true, duration: 15 }
     };
@@ -74,9 +74,9 @@
     const container = document.getElementById("chapter-list");
 
     function formatTime(ms) {
-      const hours = Math.floor(ms / 3600000);
-      const minutes = Math.floor((ms % 3600000) / 60000);
-      return `${hours}h ${minutes}m`;
+      const h = Math.floor(ms / 3600000);
+      const m = Math.floor((ms % 3600000) / 60000);
+      return `${h}h ${m}m`;
     }
 
     const examsWithLock = files.map(f => {
@@ -97,7 +97,7 @@
     examsWithLock.sort((a, b) => {
       const aReady = a.config.enabled && !a.lockedDueToFailure;
       const bReady = b.config.enabled && !b.lockedDueToFailure;
-      return (aReady === bReady) ? 0 : aReady ? -1 : 1;
+      return bReady - aReady;
     });
 
     container.innerHTML = '';
@@ -121,7 +121,7 @@
           const lockTime = new Date(lockUntil);
           const remaining = lockTime - now;
           if (remaining > 0) {
-            countdown.innerText = `Retry in: ${formatTime(remaining)}`;
+            countdown.innerText = `⏳ Retry in: ${formatTime(remaining)}`;
           } else {
             countdown.innerText = "";
             localStorage.removeItem(`python_lock_${file}`);
