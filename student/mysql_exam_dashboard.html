@@ -36,6 +36,10 @@
     .chapter-button:hover {
       background-color: #0056b3;
     }
+    .chapter-button:disabled {
+      background-color: #aaa;
+      cursor: not-allowed;
+    }
   </style>
 </head>
 <body>
@@ -87,9 +91,53 @@
       "create_table_with_columns_and_datatypes.json"
     ];
 
+    // 👇 Configure which exams are enabled and their durations
+    const chapterConfig = {
+      "alter_table_add_modify_drop.json": { enabled: true, duration: 30 },
+      "mysql_aggregate_functions.json": { enabled: true, duration: 25 },
+      "mysql_auto_increment.json": { enabled: true, duration: 20 },
+      "mysql_between_in_like_isnull.json": { enabled: false },
+      "mysql_column_aliases_as.json": { enabled: true, duration: 25 },
+      "mysql_comparison_operators.json": { enabled: false },
+      "mysql_create.json": { enabled: true, duration: 30 },
+      "mysql_cross_join.json": { enabled: false },
+      "mysql_data_types.json": { enabled: true, duration: 20 },
+      "mysql_delete_from_where.json": { enabled: true, duration: 20 },
+      "mysql_describe_show_tables.json": { enabled: false },
+      "mysql_distinct_keyword.json": { enabled: true, duration: 15 },
+      "mysql_drop_table.json": { enabled: true, duration: 15 },
+      "mysql_foreign_key_basics.json": { enabled: false },
+      "mysql_having_clause.json": { enabled: true, duration: 30 },
+      "mysql_in_any_all_exists.json": { enabled: true, duration: 25 },
+      "mysql_inner_join.json": { enabled: true, duration: 25 },
+      "mysql_insert_into.json": { enabled: true, duration: 20 },
+      "mysql_join_multiple_tables.json": { enabled: false },
+      "mysql_left_join.json": { enabled: true, duration: 20 },
+      "mysql_limit_keyword.json": { enabled: true, duration: 15 },
+      "mysql_logical_operators.json": { enabled: true, duration: 15 },
+      "mysql_normalization_basics.json": { enabled: false },
+      "mysql_notnull_default_constraints.json": { enabled: true, duration: 15 },
+      "mysql_order_by.json": { enabled: true, duration: 20 },
+      "mysql_order_by_asc_desc.json": { enabled: false },
+      "mysql_primary_unique_constraints.json": { enabled: true, duration: 15 },
+      "mysql_right_join.json": { enabled: false },
+      "mysql_select_all.json": { enabled: true, duration: 10 },
+      "mysql_select_columns.json": { enabled: true, duration: 10 },
+      "mysql_self_join.json": { enabled: false },
+      "mysql_subqueries.json": { enabled: false },
+      "mysql_table_aliases_as_t.json": { enabled: true, duration: 15 },
+      "mysql_truncate_table.json": { enabled: true, duration: 10 },
+      "mysql_update_set_where.json": { enabled: true, duration: 25 },
+      "mysql_views_basics.json": { enabled: true, duration: 20 },
+      "mysql_where_clause.json": { enabled: true, duration: 25 },
+      "mysql_why_normalization_needed.json": { enabled: false },
+      "create_table_with_columns_and_datatypes.json": { enabled: true, duration: 30 }
+    };
+
     const container = document.getElementById("chapter-list");
 
     files.forEach(filename => {
+      const config = chapterConfig[filename] || { enabled: false };
       const label = filename
         .replace("mysql_", "")
         .replace(".json", "")
@@ -99,11 +147,20 @@
       const btn = document.createElement("button");
       btn.className = "chapter-button";
       btn.innerText = label;
-      btn.onclick = () => {
-        localStorage.setItem("selectedSubject", "mysql");
-        localStorage.setItem("selectedExamFile", filename);
-        window.location.href = "exam.html";
-      };
+
+      if (!config.enabled) {
+        btn.disabled = true;
+        btn.title = "Exam is locked";
+      } else {
+        btn.title = `Start Exam (${config.duration} mins)`;
+        btn.onclick = () => {
+          localStorage.setItem("selectedSubject", "mysql");
+          localStorage.setItem("selectedExamFile", filename);
+          localStorage.setItem("selectedDuration", config.duration);
+          window.location.href = "exam.html";
+        };
+      }
+
       container.appendChild(btn);
     });
   </script>
