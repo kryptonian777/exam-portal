@@ -11,7 +11,7 @@
       text-align: center;
     }
     .container {
-      max-width: 700px;
+      max-width: 800px;
       margin: auto;
       background: white;
       padding: 20px;
@@ -21,30 +21,44 @@
     h2 {
       margin-bottom: 20px;
     }
-    .chapter-button {
-      display: block;
-      width: 100%;
+    .exam-card {
+      background-color: #f9f9f9;
       padding: 15px;
-      margin: 10px 0;
-      font-size: 16px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      text-align: left;
+      box-shadow: 0 0 5px rgba(0,0,0,0.05);
+    }
+    .exam-card.disabled {
+      background-color: #eee;
+      color: #777;
+    }
+    .exam-header {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+    .exam-details {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .start-button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 14px;
       border: none;
       border-radius: 5px;
-      background-color: #28a745;
+      background-color: #007BFF;
       color: white;
       cursor: pointer;
     }
-    .chapter-button:hover {
-      background-color: #1c7c34;
-    }
-    .chapter-button:disabled {
+    .start-button:disabled {
       background-color: #aaa;
       cursor: not-allowed;
     }
     .countdown {
-      font-size: 13px;
-      color: #ff0000;
-      margin-top: -8px;
-      margin-bottom: 10px;
+      color: #d00;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -56,19 +70,25 @@
 
   <script>
     const files = [
-      "Arithmetic_operators.json",
-      "Data_Types_and_Variables.json",
-      "Logical_operators.json",
-      "PythonSyntaxandSemantics.json",
-      "comparison_operators.json"
+      "python_intro.json", "python_datatypes.json", "python_operators.json",
+      "python_if_else.json", "python_loops.json", "python_functions.json",
+      "python_lists.json", "python_strings.json", "python_dictionaries.json",
+      "python_tuples.json", "python_sets.json", "python_file_handling.json"
     ];
 
     const chapterConfig = {
-      "Arithmetic_operators.json": { enabled: true, duration: 20 },
-      "Data_Types_and_Variables.json": { enabled: false, duration: 25 },
-      "Logical_operators.json": { enabled: true, duration: 20 },
-      "PythonSyntaxandSemantics.json": { enabled: false, duration: 30 },
-      "comparison_operators.json": { enabled: true, duration: 15 }
+      "python_intro.json": { enabled: true, duration: 20 },
+      "python_datatypes.json": { enabled: true, duration: 25 },
+      "python_operators.json": { enabled: true, duration: 25 },
+      "python_if_else.json": { enabled: true, duration: 20 },
+      "python_loops.json": { enabled: true, duration: 25 },
+      "python_functions.json": { enabled: true, duration: 30 },
+      "python_lists.json": { enabled: true, duration: 20 },
+      "python_strings.json": { enabled: false, duration: 20 },
+      "python_dictionaries.json": { enabled: false, duration: 20 },
+      "python_tuples.json": { enabled: false, duration: 15 },
+      "python_sets.json": { enabled: false, duration: 15 },
+      "python_file_handling.json": { enabled: false, duration: 25 }
     };
 
     const container = document.getElementById("chapter-list");
@@ -79,40 +99,46 @@
       return `${h}h ${m}m`;
     }
 
-    const examsWithLock = files.map(f => {
+    const exams = files.map(f => {
       const config = chapterConfig[f] || { enabled: false };
       const lockKey = `python_lock_${f}`;
+      const statsKey = `python_stats_${f}`;
+      const stats = JSON.parse(localStorage.getItem(statsKey)) || { attempts: 0, status: "Not Attempted" };
       const lockUntil = localStorage.getItem(lockKey);
       const lockedDueToFailure = lockUntil && new Date(lockUntil) > new Date();
 
       return {
         file: f,
-        label: f.replace(".json", "").replace(/_/g, " ").toUpperCase(),
+        label: f.replace("python_", "").replace(".json", "").replace(/_/g, " ").toUpperCase(),
         config,
+        stats,
         lockedDueToFailure,
         lockUntil
       };
     });
 
-    examsWithLock.sort((a, b) => {
+    exams.sort((a, b) => {
       const aReady = a.config.enabled && !a.lockedDueToFailure;
       const bReady = b.config.enabled && !b.lockedDueToFailure;
       return bReady - aReady;
     });
 
     container.innerHTML = '';
-    examsWithLock.forEach(({ file, label, config, lockedDueToFailure, lockUntil }) => {
-      const btn = document.createElement("button");
-      btn.className = "chapter-button";
-      btn.innerText = label;
+    exams.forEach(({ file, label, config, stats, lockedDueToFailure, lockUntil }) => {
+      const card = document.createElement("div");
+      card.className = "exam-card" + (!config.enabled || lockedDueToFailure ? " disabled" : "");
 
-      if (!config.enabled) {
-        btn.disabled = true;
-        btn.title = "Exam is locked";
-      } else if (lockedDueToFailure) {
-        btn.disabled = true;
-        btn.title = "Locked for 12 hours due to failed attempt";
+      const header = document.createElement("div");
+      header.className = "exam-header";
+      header.textContent = label;
 
+      const details = document.createElement("div");
+      details.className = "exam-details";
+      details.innerHTML = `Duration: ${config.duration} mins<br>
+        Attempts: ${stats.attempts}<br>
+        Status: ${stats.status}`;
+
+      if (lockedDueToFailure) {
         const countdown = document.createElement("div");
         countdown.className = "countdown";
 
@@ -131,18 +157,25 @@
 
         updateCountdown();
         setInterval(updateCountdown, 60000);
-        container.appendChild(countdown);
-      } else {
-        btn.title = `Start Exam (${config.duration} mins)`;
-        btn.onclick = () => {
-          localStorage.setItem("selectedSubject", "python");
-          localStorage.setItem("selectedExamFile", file);
-          localStorage.setItem("selectedDuration", config.duration);
-          window.location.href = "exam.html";
-        };
+        details.appendChild(countdown);
       }
 
-      container.appendChild(btn);
+      const startBtn = document.createElement("button");
+      startBtn.className = "start-button";
+      startBtn.innerText = "Start Exam";
+      startBtn.disabled = !config.enabled || lockedDueToFailure;
+      startBtn.onclick = () => {
+        localStorage.setItem("selectedSubject", "python");
+        localStorage.setItem("selectedExamFile", file);
+        localStorage.setItem("selectedDuration", config.duration);
+        window.location.href = "exam.html";
+      };
+
+      card.appendChild(header);
+      card.appendChild(details);
+      card.appendChild(startBtn);
+
+      container.appendChild(card);
     });
   </script>
 </body>
