@@ -57,7 +57,16 @@
 
     function startExam(subject) {
       localStorage.setItem("selectedSubject", subject);
-      window.location.href = "exam.html";
+
+      if (subject === "mysql") {
+        window.location.href = "mysql_exam_dashboard.html";
+      } else if (subject === "python") {
+        window.location.href = "python_exam_dashboard.html";
+      } else if (subject === "cpp") {
+        window.location.href = "cpp_exam_dashboard.html";
+      } else if (subject === "cybersecurity") {
+        window.location.href = "cyber_exam_dashboard.html";
+      }
     }
   </script>
 </body>
