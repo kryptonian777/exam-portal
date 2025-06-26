@@ -145,11 +145,7 @@
       const config = chapterConfig[f] || { enabled: false };
       const lockKey = `mysql_lock_${f}`;
       const statsKey = `mysql_stats_${f}`;
-      const scoreKey = `mysql_score_${f}`;
-
       const stats = JSON.parse(localStorage.getItem(statsKey)) || { attempts: 0, status: "Not Attempted" };
-      const score = localStorage.getItem(scoreKey);
-
       const lockUntil = localStorage.getItem(lockKey);
       const lockedDueToFailure = lockUntil && new Date(lockUntil) > new Date();
 
@@ -159,8 +155,7 @@
         config,
         stats,
         lockedDueToFailure,
-        lockUntil,
-        score: score ? parseFloat(score) : null
+        lockUntil
       };
     });
 
@@ -171,7 +166,7 @@
     });
 
     container.innerHTML = '';
-    exams.forEach(({ file, label, config, stats, lockedDueToFailure, lockUntil, score }) => {
+    exams.forEach(({ file, label, config, stats, lockedDueToFailure, lockUntil }) => {
       const card = document.createElement("div");
       card.className = "exam-card" + (!config.enabled || lockedDueToFailure ? " disabled" : "");
 
@@ -183,11 +178,8 @@
       details.className = "exam-details";
       details.innerHTML = `Duration: ${config.duration} mins<br>
         Attempts: ${stats.attempts}<br>
-        Status: ${stats.status}`;
-
-      if (score !== null) {
-        details.innerHTML += `<br>Last Score: ${score}%`;
-      }
+        Status: ${stats.status}<br>
+        ${typeof stats.lastScore === "number" ? `<span style="color: ${stats.lastScore >= 90 ? 'green' : 'red'}; font-weight: bold;">Last Score: ${stats.lastScore}%</span>` : ""}`;
 
       if (lockedDueToFailure) {
         const countdown = document.createElement("div");
