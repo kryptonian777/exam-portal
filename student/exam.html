@@ -1,143 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Exam</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      padding: 30px;
+      background: #f5f5f5;
+      padding: 20px;
       text-align: center;
     }
     .container {
-      background: white;
-      max-width: 700px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 800px;
       margin: auto;
-      padding: 30px;
-      border-radius: 12px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-    h2 {
+    h1 {
+      font-size: 24px;
       margin-bottom: 20px;
     }
     .question {
       text-align: left;
       margin-bottom: 20px;
     }
-    .options {
-      margin-top: 10px;
-      text-align: left;
-    }
-    .options label {
-      display: block;
-      margin-bottom: 8px;
-    }
-    #submitBtn {
-      margin-top: 20px;
+    .submit-btn {
       padding: 10px 20px;
       font-size: 16px;
-      border: none;
       background: #007BFF;
-      color: white;
+      color: #fff;
+      border: none;
       border-radius: 5px;
       cursor: pointer;
+    }
+    .submit-btn:hover {
+      background: #0056b3;
+    }
+    .option {
+      margin: 5px 0;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h2 id="examTitle">Exam</h2>
-    <div id="question-container">Loading questions...</div>
-    <button id="submitBtn">Submit Exam</button>
+    <h1 id="examTitle">Exam</h1>
+    <form id="examForm"></form>
+    <button class="submit-btn" onclick="submitExam()">Submit Exam</button>
   </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script>
     const subject = localStorage.getItem("selectedSubject");
     const file = localStorage.getItem("selectedExamFile");
     const duration = parseInt(localStorage.getItem("selectedDuration")) || 30;
-    const examTitle = file.replace(".json", "").replace(/_/g, " ").toUpperCase();
-    document.getElementById("examTitle").innerText = `${subject.toUpperCase()} Exam - ${examTitle}`;
+    const title = `${subject.toUpperCase()} Exam - ${file.replace(/\.json$/, "").replace(/_/g, " ").toUpperCase()}`;
+    document.getElementById("examTitle").textContent = title;
 
-    let correctAnswers = 0;
-    let totalQuestions = 0;
-    let userAnswers = [];
-
-    function renderQuestions(questions) {
-      const container = document.getElementById("question-container");
-      container.innerHTML = "";
-      totalQuestions = questions.length;
-
-      questions.forEach((q, idx) => {
-        const qDiv = document.createElement("div");
-        qDiv.className = "question";
-
-        const questionText = document.createElement("p");
-        questionText.innerHTML = `<strong>Q${idx + 1}:</strong> ${q.question}`;
-        qDiv.appendChild(questionText);
-
-        const optionsDiv = document.createElement("div");
-        optionsDiv.className = "options";
-
-        q.options.forEach((opt, i) => {
-          const optId = `q${idx}_opt${i}`;
-          const label = document.createElement("label");
-          const radio = document.createElement("input");
-          radio.type = "radio";
-          radio.name = `q${idx}`;
-          radio.value = opt;
-          label.appendChild(radio);
-          label.append(` ${opt}`);
-          optionsDiv.appendChild(label);
-        });
-
-        qDiv.appendChild(optionsDiv);
-        container.appendChild(qDiv);
-      });
-
-      document.getElementById("submitBtn").onclick = () => {
-        questions.forEach((q, idx) => {
-          const selected = document.querySelector(`input[name="q${idx}"]:checked`);
-          userAnswers[idx] = selected ? selected.value : "";
-          if (selected && selected.value === q.answer) {
-            correctAnswers++;
-          }
-        });
-
-        const pass = correctAnswers >= Math.ceil(totalQuestions * 0.6);
-        const statsKey = `${subject}_stats_${file}`;
-        const lockKey = `${subject}_lock_${file}`;
-        const prevStats = JSON.parse(localStorage.getItem(statsKey)) || { attempts: 0, status: "Not Attempted" };
-
-        const updatedStats = {
-          attempts: prevStats.attempts + 1,
-          status: pass ? "Passed" : "Failed"
-        };
-        localStorage.setItem(statsKey, JSON.stringify(updatedStats));
-
-        if (!pass) {
-          const lockUntil = new Date(Date.now() + 2 * 60 * 60 * 1000); // 2 hours
-          localStorage.setItem(lockKey, lockUntil.toISOString());
-        }
-
-        alert(pass ? "✅ You passed the exam!" : "❌ You failed the exam. Retry after 2 hours.");
-        window.location.href = subject === "mysql"
-          ? "mysql_exam_dashboard.html"
-          : "python_exam_dashboard.html";
-      };
-    }
+    let questions = [];
 
     fetch(`../data/${subject}/${file}`)
       .then(res => res.json())
       .then(data => {
-        const questions = Array.isArray(data) ? data : data.questions;
-        if (!Array.isArray(questions)) throw new Error("Invalid format");
-        renderQuestions(questions);
+        if (!Array.isArray(data)) throw new Error("Invalid data format.");
+        questions = data;
+        renderQuestions(data);
       })
       .catch(err => {
-        document.getElementById("question-container").innerText = "❌ Failed to load questions.";
-        console.error("Error:", err);
+        document.getElementById("examForm").innerHTML = "<p>Failed to load questions.</p>";
+        console.error("Question Load Error:", err);
       });
+
+    function renderQuestions(data) {
+      const form = document.getElementById("examForm");
+      form.innerHTML = "";
+
+      data.forEach((q, i) => {
+        const div = document.createElement("div");
+        div.className = "question";
+        div.innerHTML = `
+          <p><b>Q${i + 1}:</b> ${q.question}</p>
+          ${q.options.map((opt, idx) => `
+            <div class="option">
+              <label>
+                <input type="radio" name="q${i}" value="${opt}" required />
+                ${opt}
+              </label>
+            </div>
+          `).join("")}
+        `;
+        form.appendChild(div);
+      });
+    }
+
+    function submitExam() {
+      const form = document.getElementById("examForm");
+      const formData = new FormData(form);
+      let correct = 0;
+
+      questions.forEach((q, i) => {
+        const answer = formData.get(`q${i}`);
+        if (answer === q.answer) correct++;
+      });
+
+      const total = questions.length;
+      const percent = Math.round((correct / total) * 100);
+      const passed = percent >= 90;
+
+      const statsKey = `${subject}_stats_${file}`;
+      const lockKey = `${subject}_lock_${file}`;
+      const stats = JSON.parse(localStorage.getItem(statsKey)) || { attempts: 0 };
+      stats.attempts += 1;
+      stats.status = passed ? "Passed" : "Failed";
+      stats.lastScore = percent;
+      localStorage.setItem(statsKey, JSON.stringify(stats));
+
+      if (!passed) {
+        const lockUntil = new Date(Date.now() + 2 * 60 * 60 * 1000); // 2 hours
+        localStorage.setItem(lockKey, lockUntil.toISOString());
+        alert(`❌ You scored ${percent}%. You need at least 90% to pass.\nYou can retry after 2 hours.`);
+      } else {
+        alert(`✅ Congratulations! You scored ${percent}%. Report will be downloaded.`);
+        generateReport(percent, stats.attempts);
+      }
+
+      window.location.href = `${subject}_exam_dashboard.html`;
+    }
+
+    function generateReport(score, attempts) {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+
+      doc.setFontSize(16);
+      doc.text("Exam Report", 20, 20);
+      doc.setFontSize(12);
+      doc.text(`Subject: ${subject.toUpperCase()}`, 20, 30);
+      doc.text(`Exam: ${file}`, 20, 40);
+      doc.text(`Attempts: ${attempts}`, 20, 50);
+      doc.text(`Score: ${score}%`, 20, 60);
+      doc.text(`Status: Passed`, 20, 70);
+      doc.text(`Completed At: ${new Date().toLocaleString()}`, 20, 80);
+
+      doc.save(`${subject}_${file}_report.pdf`);
+    }
   </script>
 </body>
 </html>
