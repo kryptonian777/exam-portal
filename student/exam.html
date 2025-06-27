@@ -1,89 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>Exam</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 30px;
+      text-align: center;
+    }
+    .container {
+      background: white;
+      max-width: 700px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+    .question {
+      text-align: left;
+      margin-bottom: 20px;
+    }
+    .options {
+      margin-top: 10px;
+      text-align: left;
+    }
+    .options label {
+      display: block;
+      margin-bottom: 8px;
+    }
+    #submitBtn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      background: #007BFF;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-  <div class="container text-center mt-5">
-    <h2 id="exam-title">Loading...</h2>
-    <div id="exam-questions" class="mt-4"></div>
-    <button class="btn btn-primary mt-3" onclick="submitExam()">Submit Exam</button>
+  <div class="container">
+    <h2 id="examTitle">Exam</h2>
+    <div id="question-container">Loading questions...</div>
+    <button id="submitBtn">Submit Exam</button>
   </div>
 
   <script>
-    const currentExam = JSON.parse(localStorage.getItem("currentExam") || "{}");
-    const userExamData = JSON.parse(localStorage.getItem("examResults") || "{}");
-    let questions = [];
+    const subject = localStorage.getItem("selectedSubject");
+    const file = localStorage.getItem("selectedExamFile");
+    const duration = parseInt(localStorage.getItem("selectedDuration")) || 30;
+    const examTitle = file.replace(".json", "").replace(/_/g, " ").toUpperCase();
+    document.getElementById("examTitle").innerText = `${subject.toUpperCase()} Exam - ${examTitle}`;
 
-    function renderQuestions(data) {
-      const container = document.getElementById("exam-questions");
-      data.forEach((q, i) => {
-        const div = document.createElement("div");
-        div.className = "mb-3";
-        div.innerHTML = \`
-          <div><strong>Q${i+1}:</strong> \${q.question}</div>
-          \${q.options.map((opt, j) => \`
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q\${i}" value="\${opt}">
-              <label class="form-check-label">\${opt}</label>
-            </div>\`).join("")}
-        \`;
-        container.appendChild(div);
+    let correctAnswers = 0;
+    let totalQuestions = 0;
+    let userAnswers = [];
+
+    function renderQuestions(questions) {
+      const container = document.getElementById("question-container");
+      container.innerHTML = "";
+      totalQuestions = questions.length;
+
+      questions.forEach((q, idx) => {
+        const qDiv = document.createElement("div");
+        qDiv.className = "question";
+
+        const questionText = document.createElement("p");
+        questionText.innerHTML = `<strong>Q${idx + 1}:</strong> ${q.question}`;
+        qDiv.appendChild(questionText);
+
+        const optionsDiv = document.createElement("div");
+        optionsDiv.className = "options";
+
+        q.options.forEach((opt, i) => {
+          const optId = `q${idx}_opt${i}`;
+          const label = document.createElement("label");
+          const radio = document.createElement("input");
+          radio.type = "radio";
+          radio.name = `q${idx}`;
+          radio.value = opt;
+          label.appendChild(radio);
+          label.append(` ${opt}`);
+          optionsDiv.appendChild(label);
+        });
+
+        qDiv.appendChild(optionsDiv);
+        container.appendChild(qDiv);
       });
+
+      document.getElementById("submitBtn").onclick = () => {
+        questions.forEach((q, idx) => {
+          const selected = document.querySelector(`input[name="q${idx}"]:checked`);
+          userAnswers[idx] = selected ? selected.value : "";
+          if (selected && selected.value === q.answer) {
+            correctAnswers++;
+          }
+        });
+
+        const pass = correctAnswers >= Math.ceil(totalQuestions * 0.6);
+        const statsKey = `${subject}_stats_${file}`;
+        const lockKey = `${subject}_lock_${file}`;
+        const prevStats = JSON.parse(localStorage.getItem(statsKey)) || { attempts: 0, status: "Not Attempted" };
+
+        const updatedStats = {
+          attempts: prevStats.attempts + 1,
+          status: pass ? "Passed" : "Failed"
+        };
+        localStorage.setItem(statsKey, JSON.stringify(updatedStats));
+
+        if (!pass) {
+          const lockUntil = new Date(Date.now() + 2 * 60 * 60 * 1000); // 2 hours
+          localStorage.setItem(lockKey, lockUntil.toISOString());
+        }
+
+        alert(pass ? "✅ You passed the exam!" : "❌ You failed the exam. Retry after 2 hours.");
+        window.location.href = subject === "mysql"
+          ? "mysql_exam_dashboard.html"
+          : "python_exam_dashboard.html";
+      };
     }
 
-    function submitExam() {
-      let score = 0;
-      questions.forEach((q, i) => {
-        const selected = document.querySelector(\`input[name="q\${i}"]:checked\`);
-        if (selected && selected.value === q.answer) score++;
+    fetch(`../data/${subject}/${file}`)
+      .then(res => res.json())
+      .then(data => {
+        const questions = Array.isArray(data) ? data : data.questions;
+        if (!Array.isArray(questions)) throw new Error("Invalid format");
+        renderQuestions(questions);
+      })
+      .catch(err => {
+        document.getElementById("question-container").innerText = "❌ Failed to load questions.";
+        console.error("Error:", err);
       });
-      const percent = Math.round((score / questions.length) * 100);
-      const passed = percent >= 90;
-      alert(passed ? "✅ Passed" : "❌ Failed");
-
-      const file = currentExam.file;
-      const data = userExamData[file] || { attempts: 0 };
-      data.attempts += 1;
-      data.status = passed ? "Passed" : "Failed";
-      data.score = percent;
-      if (!passed) data.failedAt = Date.now();
-      localStorage.setItem("examResults", JSON.stringify({ ...userExamData, [file]: data }));
-
-      if (passed) {
-        const blob = new Blob([`Exam Report\nExam: ${file}\nScore: ${percent}%\nStatus: Passed`], { type: "text/plain" });
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement("a");
-        link.href = url;
-        link.download = \`\${file}_report.txt\`;
-        link.click();
-      }
-
-      window.location.href = currentExam.type === "mysql"
-        ? "mysql_exam_dashboard.html"
-        : "python_exam_dashboard.html";
-    }
-
-    async function loadExam() {
-      if (!currentExam.file) return;
-      document.getElementById("exam-title").innerText = \`\${currentExam.type.toUpperCase()} Exam - \${currentExam.file.replace(".json", "").replace(/_/g, " ").toUpperCase()}\`;
-
-      try {
-        const res = await fetch(`../data/\${currentExam.type}/\${currentExam.file}`);
-        const data = await res.json();
-        if (!Array.isArray(data)) throw new Error("Invalid data format.");
-        questions = data;
-        renderQuestions(data);
-      } catch (err) {
-        document.getElementById("exam-questions").innerText = "Failed to load questions.";
-        console.error("Question Load Error:", err);
-      }
-    }
-
-    loadExam();
   </script>
 </body>
 </html>
