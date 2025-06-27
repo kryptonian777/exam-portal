@@ -1,93 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MySQL Exam Dashboard</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+  <meta charset="UTF-8">
+  <title>MySQL Chapter Exams</title>
   <style>
     body {
-      background-color: #f5f5f5;
-      padding: 2rem;
       font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      margin-bottom: 20px;
     }
     .exam-card {
       background-color: #f9f9f9;
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 1rem;
-      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      text-align: left;
+      box-shadow: 0 0 5px rgba(0,0,0,0.05);
     }
-    .exam-card.locked {
-      opacity: 0.6;
-      pointer-events: none;
+    .exam-card.disabled {
+      background-color: #eee;
+      color: #777;
     }
-    .exam-title {
+    .exam-header {
+      font-size: 18px;
       font-weight: bold;
-      font-size: 1.3rem;
+      margin-bottom: 8px;
     }
-    .retry-timer {
-      color: red;
+    .exam-details {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .start-button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 14px;
+      border: none;
+      border-radius: 5px;
+      background-color: #007BFF;
+      color: white;
+      cursor: pointer;
+    }
+    .start-button:disabled {
+      background-color: #aaa;
+      cursor: not-allowed;
+    }
+    .countdown {
+      color: #d00;
       font-weight: bold;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h2 class="text-center mb-4">Select a MySQL Chapter Exam</h2>
-    <div id="exam-list" class="row justify-content-center">Loading chapters...</div>
+    <h2>Select a MySQL Chapter Exam</h2>
+    <div id="chapter-list">Loading chapters...</div>
   </div>
 
   <script>
+    const files = [
+      "alter_table_add_modify_drop.json", "mysql_aggregate_functions.json",
+      "mysql_auto_increment.json", "mysql_between_in_like_isnull.json",
+      "mysql_column_aliases_as.json", "mysql_comparison_operators.json",
+      "mysql_create.json", "mysql_cross_join.json", "mysql_data_types.json",
+      "mysql_delete_from_where.json", "mysql_describe_show_tables.json",
+      "mysql_distinct_keyword.json", "mysql_drop_table.json",
+      "mysql_foreign_key_basics.json", "mysql_having_clause.json",
+      "mysql_in_any_all_exists.json", "mysql_inner_join.json",
+      "mysql_insert_into.json", "mysql_join_multiple_tables.json",
+      "mysql_left_join.json", "mysql_limit_keyword.json",
+      "mysql_logical_operators.json", "mysql_normalization_basics.json",
+      "mysql_notnull_default_constraints.json", "mysql_order_by.json",
+      "mysql_order_by_asc_desc.json", "mysql_primary_unique_constraints.json",
+      "mysql_right_join.json", "mysql_select_all.json", "mysql_select_columns.json",
+      "mysql_self_join.json", "mysql_subqueries.json",
+      "mysql_table_aliases_as_t.json", "mysql_truncate_table.json",
+      "mysql_update_set_where.json", "mysql_views_basics.json",
+      "mysql_where_clause.json", "mysql_why_normalization_needed.json",
+      "create_table_with_columns_and_datatypes.json"
+    ];
+
     const chapterConfig = {
-      "alter_table_add_modify_drop.json": { duration: 30 },
-      "aggregate_functions.json": { duration: 25 },
+      "alter_table_add_modify_drop.json": { enabled: true, duration: 30 },
+      "mysql_aggregate_functions.json": { enabled: true, duration: 25 },
+      "mysql_auto_increment.json": { enabled: false, duration: 20 },
+      "mysql_between_in_like_isnull.json": { enabled: true, duration: 20 },
+      "mysql_column_aliases_as.json": { enabled: false, duration: 25 },
+      "mysql_comparison_operators.json": { enabled: true, duration: 15 },
+      "mysql_create.json": { enabled: true, duration: 30 },
+      "mysql_cross_join.json": { enabled: false, duration: 15 },
+      "mysql_data_types.json": { enabled: true, duration: 20 },
+      "mysql_delete_from_where.json": { enabled: true, duration: 20 },
+      "mysql_describe_show_tables.json": { enabled: false, duration: 10 },
+      "mysql_distinct_keyword.json": { enabled: true, duration: 15 },
+      "mysql_drop_table.json": { enabled: false, duration: 15 },
+      "mysql_foreign_key_basics.json": { enabled: false, duration: 20 },
+      "mysql_having_clause.json": { enabled: false, duration: 30 },
+      "mysql_in_any_all_exists.json": { enabled: true, duration: 25 },
+      "mysql_inner_join.json": { enabled: true, duration: 25 },
+      "mysql_insert_into.json": { enabled: true, duration: 20 },
+      "mysql_join_multiple_tables.json": { enabled: false, duration: 30 },
+      "mysql_left_join.json": { enabled: false, duration: 20 },
+      "mysql_limit_keyword.json": { enabled: false, duration: 15 },
+      "mysql_logical_operators.json": { enabled: false, duration: 15 },
+      "mysql_normalization_basics.json": { enabled: false, duration: 20 },
+      "mysql_notnull_default_constraints.json": { enabled: true, duration: 15 },
+      "mysql_order_by.json": { enabled: true, duration: 20 },
+      "mysql_order_by_asc_desc.json": { enabled: false, duration: 15 },
+      "mysql_primary_unique_constraints.json": { enabled: false, duration: 15 },
+      "mysql_right_join.json": { enabled: false, duration: 15 },
+      "mysql_select_all.json": { enabled: true, duration: 10 },
+      "mysql_select_columns.json": { enabled: true, duration: 10 },
+      "mysql_self_join.json": { enabled: false, duration: 20 },
+      "mysql_subqueries.json": { enabled: true, duration: 25 },
+      "mysql_table_aliases_as_t.json": { enabled: false, duration: 15 },
+      "mysql_truncate_table.json": { enabled: false, duration: 10 },
+      "mysql_update_set_where.json": { enabled: false, duration: 25 },
+      "mysql_views_basics.json": { enabled: true, duration: 20 },
+      "mysql_where_clause.json": { enabled: true, duration: 25 },
+      "mysql_why_normalization_needed.json": { enabled: false, duration: 20 },
+      "create_table_with_columns_and_datatypes.json": { enabled: false, duration: 30 }
     };
 
-    const userExamData = JSON.parse(localStorage.getItem("examResults") || "{}");
+    const container = document.getElementById("chapter-list");
 
-    function formatCountdown(ms) {
-      const totalSeconds = Math.floor(ms / 1000);
-      const hrs = Math.floor(totalSeconds / 3600);
-      const mins = Math.floor((totalSeconds % 3600) / 60);
-      return `${hrs}h ${mins}m`;
+    function formatTime(ms) {
+      const h = Math.floor(ms / 3600000);
+      const m = Math.floor((ms % 3600000) / 60000);
+      return `${h}h ${m}m`;
     }
 
-    function renderExams() {
-      const container = document.getElementById("exam-list");
-      container.innerHTML = "";
+    const exams = files.map(f => {
+      const config = chapterConfig[f] || { enabled: false };
+      const lockKey = `mysql_lock_${f}`;
+      const statsKey = `mysql_stats_${f}`;
+      const stats = JSON.parse(localStorage.getItem(statsKey)) || { attempts: 0, status: "Not Attempted" };
+      const lockUntil = localStorage.getItem(lockKey);
+      const lockedDueToFailure = lockUntil && new Date(lockUntil) > new Date();
 
-      Object.entries(chapterConfig).forEach(([file, config]) => {
-        const title = file.replace(".json", "").replace(/_/g, " ").toUpperCase();
-        const result = userExamData[file] || {};
-        const attempts = result.attempts || 0;
-        const status = result.status || "Not Attempted";
-        const lastScore = result.score !== undefined ? result.score : null;
+      return {
+        file: f,
+        label: f.replace("mysql_", "").replace(".json", "").replace(/_/g, " ").toUpperCase(),
+        config,
+        stats,
+        lockedDueToFailure,
+        lockUntil
+      };
+    });
 
-        const cooldown = result.failedAt ? (Date.now() - result.failedAt < 2 * 60 * 60 * 1000) : false;
-        const remaining = cooldown ? 2 * 60 * 60 * 1000 - (Date.now() - result.failedAt) : 0;
+    exams.sort((a, b) => {
+      const aReady = a.config.enabled && !a.lockedDueToFailure;
+      const bReady = b.config.enabled && !b.lockedDueToFailure;
+      return bReady - aReady;
+    });
 
-        const div = document.createElement("div");
-        div.className = "col-md-6 exam-card" + (cooldown ? " locked" : "");
-        div.innerHTML = `
-          <div class="exam-title">${title}</div>
-          <div>Duration: ${config.duration} mins</div>
-          <div>Attempts: ${attempts}</div>
-          <div>Status: ${status}</div>
-          ${lastScore !== null ? `<div>Last Score: ${lastScore}%</div>` : ""}
-          ${cooldown ? `<div class="retry-timer">⏳ Retry in: ${formatCountdown(remaining)}</div>` : ""}
-          <button class="btn btn-primary mt-2" onclick="startExam('${file}')" ${cooldown ? "disabled" : ""}>Start Exam</button>
-        `;
-        container.appendChild(div);
-      });
-    }
+    container.innerHTML = '';
+    exams.forEach(({ file, label, config, stats, lockedDueToFailure, lockUntil }) => {
+      const card = document.createElement("div");
+      card.className = "exam-card" + (!config.enabled || lockedDueToFailure ? " disabled" : "");
 
-    function startExam(file) {
-      localStorage.setItem("currentExam", JSON.stringify({ file, type: "mysql" }));
-      window.location.href = "exam.html";
-    }
+      const header = document.createElement("div");
+      header.className = "exam-header";
+      header.textContent = label;
 
-    renderExams();
+      const details = document.createElement("div");
+      details.className = "exam-details";
+      details.innerHTML = `Duration: ${config.duration} mins<br>
+        Attempts: ${stats.attempts}<br>
+        Status: ${stats.status}`;
+
+      if (lockedDueToFailure) {
+        const countdown = document.createElement("div");
+        countdown.className = "countdown";
+
+        function updateCountdown() {
+          const now = new Date();
+          const lockTime = new Date(lockUntil);
+          const remaining = lockTime - now;
+          if (remaining > 0) {
+            countdown.innerText = `⏳ Retry in: ${formatTime(remaining)}`;
+          } else {
+            countdown.innerText = "";
+            localStorage.removeItem(`mysql_lock_${file}`);
+            location.reload();
+          }
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 60000);
+        details.appendChild(countdown);
+      }
+
+      const startBtn = document.createElement("button");
+      startBtn.className = "start-button";
+      startBtn.innerText = "Start Exam";
+      startBtn.disabled = !config.enabled || lockedDueToFailure;
+      startBtn.onclick = () => {
+        localStorage.setItem("selectedSubject", "mysql");
+        localStorage.setItem("selectedExamFile", file);
+        localStorage.setItem("selectedDuration", config.duration);
+        window.location.href = "exam.html";
+      };
+
+      card.appendChild(header);
+      card.appendChild(details);
+      card.appendChild(startBtn);
+
+      container.appendChild(card);
+    });
   </script>
 </body>
 </html>
